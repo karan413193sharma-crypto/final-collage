@@ -594,7 +594,7 @@
         const token = localStorage.getItem("token");
 
         try {
-            const res = await fetch("http://localhost:4005/news", {
+            const res = await fetch("https://final-collage-1.onrender.com/news", {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
@@ -605,7 +605,7 @@
             container.innerHTML = "";
 
             news.forEach((item, index) => {
-                const imageUrl = `http://localhost:4005${item.image}`;
+                const imageUrl = `https://final-collage-1.onrender.com${item.image}`;
 
             container.insertAdjacentHTML("beforeend", `
     <div class="news-card ${index === 0 ? "big-card" : "small-card"}">
@@ -642,7 +642,7 @@
     const token = localStorage.getItem("token");
 
     try {
-        const res = await fetch(`http://localhost:4005/news/${id}`, {
+        const res = await fetch(`https://final-collage-1.onrender.com/news/${id}`, {
         method: "DELETE",
         headers: {
             Authorization: `Bearer ${token}`
@@ -697,7 +697,7 @@
     //
 
             // FETCH USERS / ADMISSIONS
-            fetchTableData("http://localhost:4005/users", "admissionbody", (item,index) => `
+            fetchTableData("https://final-collage-1.onrender.com/users", "admissionbody", (item,index) => `
         <tr>
              <td>${index + 1}</td>
             <td>${item.fullName}</td>
@@ -711,7 +711,7 @@
         </tr>
     `, "totalAdmissions");
             // FETCH MESSAGES
-            fetchTableData("http://localhost:4005/messages", "messagebody", (item,index) => `
+            fetchTableData("https://final-collage-1.onrender.com/messages", "messagebody", (item,index) => `
         <tr>
             <td>${index+1}</td>
             <td>${item.name}</td>
@@ -733,7 +733,7 @@
                 const token = localStorage.getItem("token");
 
                 try {
-                    const res = await fetch("http://localhost:4005/news", {
+                    const res = await fetch("https://final-collage-1.onrender.com/news", {
                         method: "POST",
                         headers: {
                             Authorization: `Bearer ${token}`
@@ -801,7 +801,7 @@
 
 
     fetchTableDataMonth(
-    "http://localhost:4005/admins",
+    "https://final-collage-1.onrender.com/admins",
     "leadsBody",
     (item,index) => {
         const dateTime = item.createdAt
@@ -828,7 +828,7 @@
 
 
   fetchTableDataMonth(
-  "http://localhost:4005/users",
+  "https://final-collage-1.onrender.com/users",
   "admissionbody",
   (item,index) => {
 
@@ -860,7 +860,7 @@
 
 
     // Messages
-    fetchTableDataMonth("http://localhost:4005/messages", "messagebody",
+    fetchTableDataMonth("https://final-collage-1.onrender.com/messages", "messagebody",
     (item,index) => {
 
     const dateTime = item.createdAt

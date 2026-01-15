@@ -214,7 +214,7 @@ document.getElementById("forgot").addEventListener("click", async () => {
   console.log("Forgot button clicked");
 
   try {
-    const res = await fetch("http://localhost:4005/forgot", {
+    const res = await fetch("https://final-collage-1.onrender.com/forgot", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -254,7 +254,7 @@ function login(e) {
     const UserId = document.getElementById("UserId").value;
     const password = document.getElementById("password").value;
 
-    fetch("http://localhost:4005/login", {
+    fetch("https://final-collage-1.onrender.com/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

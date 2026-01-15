@@ -1915,9 +1915,6 @@
         }
     }
 </style>
-
-
-
 <body>
 
     <!-- Header -->
@@ -3590,7 +3587,7 @@
             const email = document.getElementById("email").value;
             const program = document.getElementById("program").value;
 
-            fetch("http://localhost:4005/admins", {
+            fetch("https://final-collage-1.onrender.com/admins", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -3616,7 +3613,7 @@
             const token = localStorage.getItem("token"); // Admin token if required
 
             try {
-                const res = await fetch("http://localhost:4005/news", {
+                const res = await fetch("https://final-collage-1.onrender.com/news", {
                 });
 
                 if (!res.ok) throw new Error("Failed to fetch news");
@@ -3633,7 +3630,7 @@
                         // BIG LEFT CARD
                         cardHTML = `
                 <div class="news-card big-card">
-                   <img src="http://localhost:4005${item.image}" alt="">
+                   <img src="https://final-collage-1.onrender.com${item.image}" alt="">
                     <div class="overlay"></div> 
                     <h3>${item.title}</h3>
                    <a href="news-details.html?id=${item._id}" class="btn">READ MORE</a>
@@ -3642,7 +3639,7 @@
                         // SMALL CARDS
                         cardHTML = `
                 <div class="news-card small-card ${index > 2 ? 'bottom' : ''}">
-                   <img src="http://localhost:4005${item.image}" alt="">
+                   <img src="https://final-collage-1.onrender.com${item.image}" alt="">
                     <div class="overlay"></div>
                     <div class="content">
                         <h3>${item.title}</h3>

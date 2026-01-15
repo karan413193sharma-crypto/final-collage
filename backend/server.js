@@ -13,7 +13,7 @@ app.use(express.json());
   
 /* -------------------- MongoDB -------------------- */
 mongoose
-  .connect("mongodb://localhost:27017/myAppDB")
+  .connect("mongodb+srv://karansharma:kransiar@cluster0.ufu1kxg.mongodb.net/?appName=Cluster0")
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
 
