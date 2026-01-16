@@ -22,7 +22,6 @@ app.use(
     origin: "*", // later you can restrict to frontend URL
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: false
   })
 );  
 app.use(express.json());
@@ -213,7 +212,7 @@ app.get("/messages", authMiddleware, async (req, res) => {
   res.json(await Message.find().sort({ createdAt: -1 }));
 });
 
-app.options("*", cors());
+
 /* -------------------- NEWS -------------------- */
 app.post("/news", authMiddleware, upload.single("image"), async (req, res) => {
   if (!req.file) return res.status(400).json({ message: "Image required" });
