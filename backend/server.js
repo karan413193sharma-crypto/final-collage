@@ -17,13 +17,8 @@ cloudinary.config({
 });
 
 const app = express();
-app.use(
-  cors({
-    origin: "*", // later you can restrict to frontend URL
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);  
+app.use(cors());
+
 app.use(express.json());
   
 /* -------------------- MongoDB -------------------- */

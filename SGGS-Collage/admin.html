@@ -723,46 +723,46 @@
 
     </script>
     <script>
-  const form = document.getElementById("uploadForm");
-  const msg = document.getElementById("msg");
+        const form = document.getElementById("uploadForm");
+        const msg = document.getElementById("msg");
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
 
-    const formData = new FormData(form);
-    const token = localStorage.getItem("token");
+            const formData = new FormData(form);
+            const token = localStorage.getItem("token");
 
-    if (!token) {
-      alert("Please login again");
-      return;
-    }
+            if (!token) {
+                alert("Please login again");
+                return;
+            }
 
-    try {
-      const res = await fetch("https://final-collage-1.onrender.com/news", {
-        method: "POST",
-        headers: {
-          Authorization: "Bearer " + token
-        },
-        body: formData
-      });
+            try {
+                const res = await fetch("https://final-collage-1.onrender.com/news", {
+                    method: "POST",
+                    headers: {
+                        Authorization: "Bearer " + token
+                    },
+                    body: formData
+                });
 
-      if (!res.ok) {
-        throw new Error("Upload failed");
-      }
+                if (!res.ok) {
+                    throw new Error("Upload failed");
+                }
 
-      msg.innerText = "News uploaded successfully!";
-      form.reset();
+                msg.innerText = "News uploaded successfully!";
+                form.reset();
 
-      if (typeof loadNews === "function") {
-        loadNews();
-      }
+                if (typeof loadNews === "function") {
+                    loadNews();
+                }
 
-    } catch (err) {
-      console.error(err);
-      msg.innerText = "Upload failed";
-    }
-  });
-</script>
+            } catch (err) {
+                console.error(err);
+                msg.innerText = "Upload failed";
+            }
+        });
+    </script>
 
 
     <script>
