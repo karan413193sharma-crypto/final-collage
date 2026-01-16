@@ -221,7 +221,7 @@ app.post("/news", authMiddleware, upload.single("image"), async (req, res) => {
     title: req.body.title,
     description: req.body.description,
     image: req.file.path,
-    public_id: req.file.filename
+    public_id: req.file.public_id
   });
 
   res.status(201).json(news);
@@ -264,6 +264,18 @@ app.delete("/news/:id", authMiddleware, async (req, res) => {
 app.get("/", (req, res) => {
   res.send("Backend is running");
 });
+
+
+app.use((err, req, res, next) => {
+  if (err instanceof multer.MulterError) {
+    return res.status(400).json({ message: err.message });
+  }
+  if (err) {
+    return res.status(500).json({ message: err.message });
+  }
+  next();
+});
+
 
 /* -------------------- SERVER -------------------- */
 const PORT = process.env.PORT || 4005;
