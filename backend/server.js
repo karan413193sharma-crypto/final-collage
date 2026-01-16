@@ -7,7 +7,7 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
-
+const cloudinary = require("cloudinary").v2;
 cloudinary.config({
   cloud_name: "dbcnoncz2",
   api_key: "565745529828312",
@@ -84,15 +84,7 @@ const authMiddleware = (req, res, next) => {
 };
 
 /* -------------------- Multer -------------------- */
-const cloudinary = require("cloudinary").v2;
-const { CloudinaryStorage } = require("multer-storage-cloudinary");
 
-// Configure Cloudinary
-cloudinary.config({
-  cloud_name: "YOUR_CLOUD_NAME",
-  api_key: "YOUR_API_KEY",
-  api_secret: "YOUR_API_SECRET"
-});
 
 // Multer storage for Cloudinary
 const storage = new CloudinaryStorage({
