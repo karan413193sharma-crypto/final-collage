@@ -7,7 +7,7 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 const cloudinary = require("cloudinary").v2;
-const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const CloudinaryStorage = require("multer-storage-cloudinary");
 
 
 cloudinary.config({
@@ -90,9 +90,11 @@ const authMiddleware = (req, res, next) => {
 // Multer storage for Cloudinary
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
-  folder: "news_images",             // folder in Cloudinary
-  allowedFormats: ["jpg", "png", "jpeg"], 
-  transformation: [{ width: 800, crop: "limit" }] // optional
+  params: {
+    folder: "news_images",
+    allowed_formats: ["jpg", "png", "jpeg"],
+    transformation: [{ width: 800, crop: "limit" }]
+  }
 });
 
 // Multer upload using Cloudinary storage
