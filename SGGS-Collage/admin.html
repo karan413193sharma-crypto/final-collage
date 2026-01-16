@@ -747,8 +747,7 @@
                 const res = await fetch("https://final-collage-1.onrender.com/news", {
                     method: "POST",
                     headers: {
-                        Authorization: `Bearer ${token}`
-                        // IMPORTANT: Do NOT set Content-Type manually when using FormData
+                        Authorization: `Bearer ${token}`    
                     },
                     body: formData
                 });
@@ -778,7 +777,6 @@
             }
         });
     </script>
-    <script></script>
 
     <script>
         // Fetch and filter by month

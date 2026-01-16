@@ -213,6 +213,7 @@ app.get("/messages", authMiddleware, async (req, res) => {
   res.json(await Message.find().sort({ createdAt: -1 }));
 });
 
+app.options("*", cors());
 /* -------------------- NEWS -------------------- */
 app.post("/news", authMiddleware, upload.single("image"), async (req, res) => {
   if (!req.file) return res.status(400).json({ message: "Image required" });
