@@ -1,611 +1,613 @@
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin Dashboard</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        <style>
-            /* GENERAL */
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-                font-family: 'Inter', sans-serif;
-            }
+    <style>
+        /* GENERAL */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-            body {
-                display: flex;
-                min-height: 100vh;
-                background: #f5f6fa;
-            }
+        body {
+            display: flex;
+            min-height: 100vh;
+            background: #f5f6fa;
+        }
 
-            /* SIDEBAR */
-            .sidebar {
-                width: 260px;
-                background: linear-gradient(180deg, #8c1007, #6b0d05);
-                color: #fff;
-                padding: 30px 20px;
-            }
+        /* SIDEBAR */
+        .sidebar {
+            width: 260px;
+            background: linear-gradient(180deg, #8c1007, #6b0d05);
+            color: #fff;
+            padding: 30px 20px;
+        }
 
-            .sidebar h2 {
-                text-align: center;
-                margin-bottom: 40px;
-                font-weight: 800;
-                font-size: 1.8rem;
-            }
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 800;
+            font-size: 1.8rem;
+        }
 
-            .sidebar ul {
-                list-style: none;
-            }
+        .sidebar ul {
+            list-style: none;
+        }
 
-            .sidebar ul li {
-                padding: 14px 16px;
-                margin-bottom: 12px;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: 0.3s;
-                display: flex;
-                align-items: center;
-            }
+        .sidebar ul li {
+            padding: 14px 16px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+        }
 
-            .sidebar ul li i {
-                margin-right: 12px;
-                width: 20px;
-            }
+        .sidebar ul li i {
+            margin-right: 12px;
+            width: 20px;
+        }
 
-            .sidebar ul li:hover,
-            .sidebar ul li.active {
-                background: rgba(255, 255, 255, 0.2);
-            }
+        .sidebar ul li:hover,
+        .sidebar ul li.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
 
-            /* MAIN CONTENT */
-            .main {
-                flex: 1;
-                padding: 30px;
-                overflow-x: auto;
-            }
+        /* MAIN CONTENT */
+        .main {
+            flex: 1;
+            padding: 30px;
+            overflow-x: auto;
+        }
 
-            /* HEADER */
-            .header {
-                font-size: 1.8rem;
-                font-weight: 800;
-                margin-bottom: 30px;
-                color: #8c1007;
-            }
+        /* HEADER */
+        .header {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: #8c1007;
+        }
 
-            /* CARDS */
-            .cards {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 20px;
-                margin-bottom: 40px;
-            }
+        /* CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
 
-            .card {
-                background: #fff;
-                padding: 25px;
-                border-radius: 16px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-                text-align: center;
-                transition: 0.3s;
-            }
+        .card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: 0.3s;
+        }
 
-            .card:hover {
-                transform: translateY(-3px);
-            }
+        .card:hover {
+            transform: translateY(-3px);
+        }
 
-            .card h3 {
-                font-size: 1rem;
-                margin-bottom: 10px;
-                color: #555;
-            }
+        .card h3 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: #555;
+        }
 
-            .card p {
-                font-size: 2rem;
-                font-weight: 800;
-                color: #8c1007;
-            }
+        .card p {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #8c1007;
+        }
 
-            /* TABLE CONTAINER */
-            .table-container {
-                overflow-x: auto;
-                margin-top: 20px;
-            }
+        /* TABLE CONTAINER */
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
 
-            /* TABLE PROFESSIONAL */
-            .table {
-                width: 100%;
-                border-collapse: separate;
-                border-spacing: 0;
-                border-radius: 12px;
-                overflow: hidden;
-                background: #fff;
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            }
+        /* TABLE PROFESSIONAL */
+        .table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .table th,
+        .table td {
+            padding: 12px 16px;
+            font-size: 15px;
+            text-align: left;
+        }
+
+        .table thead {
+            background: linear-gradient(90deg, #8c1007, #b51610);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .table tbody tr {
+            border-bottom: 1px solid #eee;
+            transition: 0.2s;
+        }
+
+        .table tbody tr:hover {
+            background: #fde7e7;
+            transform: translateY(-1px);
+        }
+
+        .table td {
+            color: #333;
+        }
+
+        /* STATUS BADGES */
+        .badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #fff;
+            display: inline-block;
+        }
+
+        .badge.pending {
+            background: #f39c12;
+        }
+
+        .badge.approved {
+            background: #27ae60;
+        }
+
+        .badge.rejected {
+            background: #c0392b;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* RESPONSIVE */
+        @media screen and (max-width: 768px) {
 
             .table th,
             .table td {
-                padding: 12px 16px;
-                font-size: 15px;
-                text-align: left;
+                padding: 10px 8px;
+                font-size: 14px;
             }
+        }
 
-            .table thead {
-                background: linear-gradient(90deg, #8c1007, #b51610);
-                color: #fff;
-                font-weight: 600;
+        /* General styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f6fa;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        /* News section */
+        #news {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        /* Header */
+        #news .header {
+            font-size: 22px;
+            font-weight: 600;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            color: #8c1007;
+        }
+
+        /* Table container */
+        .table-container {
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+
+        /* Table styles */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        /* Upload box */
+        .upload-box {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Upload box heading */
+        .upload-box h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Form inputs */
+
+        /* Container */
+        .upload-news-container {
+            max-width: 550px;
+            margin: 40px auto;
+            padding: 30px 25px;
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Heading */
+        .upload-news-container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        /* Form Groups */
+        #uploadForm .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 18px;
+        }
+
+        #uploadForm .form-group label {
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        /* Inputs and Textarea */
+        #uploadForm input[type="text"],
+        #uploadForm textarea,
+        #uploadForm input[type="file"] {
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        #uploadForm input[type="text"]:focus,
+        #uploadForm textarea:focus,
+        #uploadForm input[type="file"]:focus {
+            border-color: #8c1007;
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
+        }
+
+        #uploadForm textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        /* Button */
+        #uploadForm button {
+            padding: 12px 20px;
+            width: 100%;
+            background-color: #8c1007;
+            color: #fff;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #uploadForm button:hover {
+            background-color: red;
+            transform: translateY(-2px);
+        }
+
+        /* Message */
+        #msg {
+            text-align: center;
+            font-size: 14px;
+            color: green;
+            margin-top: 12px;
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .upload-news-container {
+                padding: 25px 20px;
             }
+        }
 
-            .table tbody tr {
-                border-bottom: 1px solid #eee;
-                transition: 0.2s;
-            }
+        .month-filter {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: #555;
+        }
 
-            .table tbody tr:hover {
-                background: #fde7e7;
-                transform: translateY(-1px);
-            }
+        .month-filter input[type="month"] {
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            outline: none;
+            transition: 0.3s;
+        }
 
-            .table td {
-                color: #333;
-            }
+        .month-filter input[type="month"]:focus {
+            border-color: #8c1007;
+        }
 
-            /* STATUS BADGES */
-            .badge {
-                padding: 4px 10px;
-                border-radius: 12px;
-                font-size: 12px;
-                font-weight: 600;
-                color: #fff;
-                display: inline-block;
-            }
+        #uploaded {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
 
-            .badge.pending {
-                background: #f39c12;
-            }
+        .news-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 260px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
 
-            .badge.approved {
-                background: #27ae60;
-            }
+        .news-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-            .badge.rejected {
-                background: #c0392b;
-            }
+        .news-card .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+        }
 
-            .hidden {
-                display: none;
-            }
+        .news-card h3 {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+        }
 
-            /* RESPONSIVE */
-            @media screen and (max-width: 768px) {
+        .small-card {
+            height: 125px;
+        }
 
-                .table th,
-                .table td {
-                    padding: 10px 8px;
-                    font-size: 14px;
-                }
-            }
-    /* General styles */
-    body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f5f6fa;
-    margin: 0;
-    padding: 20px;
-    color: #333;
-    }
+        .small-card h3 {
+            font-size: 14px;
+        }
 
-    /* News section */
-    #news {
-    max-width: 900px;
-    margin: 40px auto;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    overflow: hidden;
-    padding: 20px;
-    }
+        .delete-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 0, 0, 0.85);
+            border: none;
+            color: #fff;
+            font-size: 14px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 5;
+        }
 
-    /* Header */
-    #news .header {
-    font-size: 22px;
-    font-weight: 600;
-    text-align: center;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #eee;
-    color: #8c1007;
-    }
+        .delete-btn:hover {
+            background: red;
+        }
+    </style>
+</head>
 
-    /* Table container */
-    .table-container {
-    margin-top: 20px;
-    overflow-x: auto;
-    }
+<body>
 
-    /* Table styles */
-    .table {
-    width: 100%;
-    border-collapse: collapse;
-    }
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2><i class="fa-solid fa-user-shield"></i> Admin</h2>
+        <ul>
+            <li class="active" onclick="showSection('dashboard', this)">
+                <i class="fa-solid fa-chart-line"></i> Dashboard
+            </li>
+            <li onclick="showSection('leads', this)">
+                <i class="fa-solid fa-users"></i> Leads
+            </li>
+            <li onclick="showSection('admissions', this)">
+                <i class="fa-solid fa-graduation-cap"></i> Admissions
+            </li>
+            <li onclick="showSection('messages', this)">
+                <i class="fa-solid fa-envelope"></i> Messages
+            </li>
+            <li onclick="showSection('news', this)">
+                <i class="fa-solid fa-envelope"></i> News
+            </li>
 
-    /* Upload box */
-    .upload-box {
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 12px;
-    margin: 20px 0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    }
+            <li onclick="logout()">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </li>
+        </ul>
+    </div>
 
-    /* Upload box heading */
-    .upload-box h3 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: 600;
-    color: #333;
-    text-align: center;
-    }
+    <!-- MAIN CONTENT -->
+    <div class="main">
 
-    /* Form inputs */
-
-    /* Container */
-    .upload-news-container {
-    max-width: 550px;
-    margin: 40px auto;
-    padding: 30px 25px;
-    background-color: #f9f9f9;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    font-family: 'Arial', sans-serif;
-    }
-
-    /* Heading */
-    .upload-news-container h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: #333;
-    }
-
-    /* Form Groups */
-    #uploadForm .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 18px;
-    }
-
-    #uploadForm .form-group label {
-    margin-bottom: 5px;
-    font-weight: 600;
-    color: #555;
-    }
-
-    /* Inputs and Textarea */
-    #uploadForm input[type="text"],
-    #uploadForm textarea,
-    #uploadForm input[type="file"] {
-    padding: 12px 15px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    outline: none;
-    transition: 0.3s;
-    }
-
-    #uploadForm input[type="text"]:focus,
-    #uploadForm textarea:focus,
-    #uploadForm input[type="file"]:focus {
-    border-color: #8c1007;
-    box-shadow: 0 0 5px rgba(74,144,226,0.4);
-    }
-
-    #uploadForm textarea {
-    min-height: 100px;
-    resize: vertical;
-    }
-
-    /* Button */
-    #uploadForm button {
-    padding: 12px 20px;
-    width: 100%;
-    background-color: #8c1007;
-    color: #fff;
-    font-weight: 600;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-    }
-
-    #uploadForm button:hover {
-    background-color: red;
-    transform: translateY(-2px);
-    }
-
-    /* Message */
-    #msg {
-    text-align: center;
-    font-size: 14px;
-    color: green;
-    margin-top: 12px;
-    font-weight: 500;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-    .upload-news-container {
-        padding: 25px 20px;
-    }
-    }    
-    .month-filter {
-        margin-bottom: 15px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-weight: 600;
-        color: #555;
-    }
-
-    .month-filter input[type="month"] {
-        padding: 6px 10px;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-        outline: none;
-        transition: 0.3s;
-    }
-
-    .month-filter input[type="month"]:focus {
-        border-color: #8c1007;
-    }
-
-    #uploaded {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 15px;
-    margin-top: 20px;
-    }
-
-    .news-card {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    height: 260px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    }
-
-    .news-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    }
-
-    .news-card .overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-    }
-
-    .news-card h3 {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 700;
-    }
-
-    .small-card {
-    height: 125px;
-    }
-
-    .small-card h3 {
-    font-size: 14px;
-    }
-    .delete-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(255, 0, 0, 0.85);
-    border: none;
-    color: #fff;
-    font-size: 14px;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 5;
-    }
-
-    .delete-btn:hover {
-    background: red;
-    }
-
-
-        </style>
-    </head>
-
-    <body>
-
-        <!-- SIDEBAR -->
-        <div class="sidebar">
-            <h2><i class="fa-solid fa-user-shield"></i> Admin</h2>
-            <ul>
-                <li class="active" onclick="showSection('dashboard', this)">
-                    <i class="fa-solid fa-chart-line"></i> Dashboard
-                </li>
-                <li onclick="showSection('leads', this)">
-                    <i class="fa-solid fa-users"></i> Leads
-                </li>
-                <li onclick="showSection('admissions', this)">
-                    <i class="fa-solid fa-graduation-cap"></i> Admissions
-                </li>
-                <li onclick="showSection('messages', this)">
-                    <i class="fa-solid fa-envelope"></i> Messages
-                </li>
-                <li onclick="showSection('news', this)">
-                    <i class="fa-solid fa-envelope"></i> News
-                </li>
-
-                <li onclick="logout()">
-                    <i class="fa-solid fa-right-from-bracket"></i> Logout
-                </li>
-            </ul>
+        <!-- DASHBOARD -->
+        <div id="dashboard">
+            <div class="header">Dashboard</div>
+            <div class="cards">
+                <div class="card">
+                    <h3>Total Leads</h3>
+                    <p id="totalLeads">0</p>
+                </div>
+                <div class="card">
+                    <h3>Admissions</h3>
+                    <p id="totalAdmissions">0</p>
+                </div>
+                <div class="card">
+                    <h3>Messages</h3>
+                    <p id="totalMessages">0</p>
+                </div>
+            </div>
         </div>
 
-        <!-- MAIN CONTENT -->
-        <div class="main">
-
-            <!-- DASHBOARD -->
-            <div id="dashboard">
-                <div class="header">Dashboard</div>
-                <div class="cards">
-                    <div class="card">
-                        <h3>Total Leads</h3>
-                        <p id="totalLeads">0</p>
-                    </div>
-                    <div class="card">
-                        <h3>Admissions</h3>
-                        <p id="totalAdmissions">0</p>
-                    </div>
-                    <div class="card">
-                        <h3>Messages</h3>
-                        <p id="totalMessages">0</p>
-                    </div>
-                </div>
+        <!-- LEADS -->
+        <div id="leads" class="hidden">
+            <div class="header">Leads</div>
+            <div class="month-filter">
+                <label for="leadsMonth">Filter by Month:</label>
+                <input type="month" id="leadsMonth" />
             </div>
-
-            <!-- LEADS -->
-            <div id="leads" class="hidden">
-                <div class="header">Leads</div>
-                <div class="month-filter">
-        <label for="leadsMonth">Filter by Month:</label>
-        <input type="month" id="leadsMonth" />
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Program</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leadsBody"></tbody>
+                </table>
+            </div>
         </div>
-                <div class="table-container">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Sr. No.</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Program</th>
-                                <th>Date</th>
-                            </tr>
-                        </thead>
-                        <tbody id="leadsBody"></tbody>
-                    </table>
-                </div>
-            </div>
 
-            <!-- ADMISSIONS -->
-            <div id="admissions" class="hidden">
-                <div class="header">Admissions</div>
-                <div class="month-filter">
-    <label for="admissionsMonth">Filter by Month:</label>
-    <input type="month" id="admissionsMonth" />
-    </div>
-                <div class="table-container">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Sr. No.</th>
-                                <th>Name</th>
-                                <th>Course</th>
-                                <th>Gender</th>
-                                <th>Category</th>
-                                <th>Father</th>
-                                <th>Mother</th>
-                                <th>Previous School</th>
-                                <th>Date</th>
-                            </tr>
-                        </thead>
-                        <tbody id="admissionbody"></tbody>
-                    </table>
-                </div>
+        <!-- ADMISSIONS -->
+        <div id="admissions" class="hidden">
+            <div class="header">Admissions</div>
+            <div class="month-filter">
+                <label for="admissionsMonth">Filter by Month:</label>
+                <input type="month" id="admissionsMonth" />
             </div>
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Course</th>
+                            <th>Gender</th>
+                            <th>Category</th>
+                            <th>Father</th>
+                            <th>Mother</th>
+                            <th>Previous School</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admissionbody"></tbody>
+                </table>
+            </div>
+        </div>
 
-            <!-- MESSAGES -->
-            <div id="messages" class="hidden">
-                <div class="header">Messages</div>
-                <div class="month-filter">
-    <label for="messagesMonth">Filter by Month:</label>
-    <input type="month" id="messagesMonth" />
-    </div>
-                <div class="table-container">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Sr. No.</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Subject</th>
-                                <th>Message</th>
-                                <th>Date</th>
-                            </tr>
-                        </thead>
-                        <tbody id="messagebody"></tbody>
-                    </table>
-                </div>
+        <!-- MESSAGES -->
+        <div id="messages" class="hidden">
+            <div class="header">Messages</div>
+            <div class="month-filter">
+                <label for="messagesMonth">Filter by Month:</label>
+                <input type="month" id="messagesMonth" />
             </div>
-            <div id="news" class="hidden">
-                <div class="header"></div>
-                <div class="table-container">
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Subject</th>
+                            <th>Message</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="messagebody"></tbody>
+                </table>
+            </div>
+        </div>
+        <div id="news" class="hidden">
+            <div class="header"></div>
+            <div class="table-container">
                 <div class="upload-news-container">
-    <h2>Upload News</h2>
-    <form id="uploadForm" enctype="multipart/form-data">
-        <div class="form-group">
-        <label for="title">News Title</label>
-        <input type="text" id="title" name="title" placeholder="Enter news title" required />
-        </div>
+                    <h2>Upload News</h2>
+                    <form id="uploadForm" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="title">News Title</label>
+                            <input type="text" id="title" name="title" placeholder="Enter news title" required />
+                        </div>
 
-        <div class="form-group">
-        <label for="description">Description</label>
-        <textarea id="description" name="description" placeholder="Enter news description" required></textarea>
-        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea id="description" name="description" placeholder="Enter news description"
+                                required></textarea>
+                        </div>
 
-        <div class="form-group">
-        <label for="image">Select Image</label>
-        <input type="file" id="image" name="image" accept="image/*" required />
-        </div>
+                        <div class="form-group">
+                            <label for="image">Select Image</label>
+                            <input type="file" id="image" name="image" accept="image/*" required />
+                        </div>
 
-        <button type="submit">Upload News</button>
-        <p id="msg"></p>
-    </form>
-    <div id="uploaded">
+                        <button type="submit">Upload News</button>
+                        <p id="msg"></p>
+                    </form>
+                    <div id="uploaded">
 
-    </div>
-    </div>
-
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
 
-        <!-- showing uploaded news -->
+    </div>
+
+    <!-- showing uploaded news -->
     <script>
-    async function loadNews() {
-        const token = localStorage.getItem("token");
+        async function loadNews() {
+            const token = localStorage.getItem("token");
 
-        try {
-            const res = await fetch("https://final-collage-1.onrender.com/news");
+            try {
+                const res = await fetch("https://final-collage-1.onrender.com/news");
 
-            if (!res.ok) throw new Error("Failed to fetch news");
+                if (!res.ok) throw new Error("Failed to fetch news");
 
-            const news = await res.json();
-            const container = document.getElementById("uploaded");
-            container.innerHTML = "";
+                const news = await res.json();
+                const container = document.getElementById("uploaded");
+                container.innerHTML = "";
 
-            news.forEach((item, index) => {
-                const imageUrl = item.image;
+                news.forEach((item, index) => {
+                    const imageUrl = item.image;
 
-            container.insertAdjacentHTML("beforeend", `
+                    container.insertAdjacentHTML("beforeend", `
     <div class="news-card ${index === 0 ? "big-card" : "small-card"}">
         <img src="${imageUrl}" alt="">
         <div class="overlay"></div>
@@ -621,81 +623,81 @@
     </div>
     `);
 
-            });
+                });
 
-        } catch (err) {
-            console.error(err);
-            document.getElementById("uploaded").innerHTML =
-                "<p style='color:red'>Failed to load news</p>";
+            } catch (err) {
+                console.error(err);
+                document.getElementById("uploaded").innerHTML =
+                    "<p style='color:red'>Failed to load news</p>";
+            }
         }
-    }
 
-    // Load news when page loads
-    loadNews();
+        // Load news when page loads
+        loadNews();
     </script>
     <script>
         async function deleteNews(id) {
-    if (!confirm("Delete this news?")) return;
+            if (!confirm("Delete this news?")) return;
 
-    const token = localStorage.getItem("token");
+            const token = localStorage.getItem("token");
 
-    try {
-        const res = await fetch(`https://final-collage-1.onrender.com/news/${id}`, {
-        method: "DELETE",
-        headers: {
-            Authorization: `Bearer ${token}`
+            try {
+                const res = await fetch(`https://final-collage-1.onrender.com/news/${id}`, {
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+
+                if (!res.ok) throw new Error("Delete failed");
+
+                alert("News deleted");
+                loadNews(); // refresh list
+
+            } catch (err) {
+                alert("Error deleting news");
+            }
         }
-        });
-
-        if (!res.ok) throw new Error("Delete failed");
-
-        alert("News deleted");
-        loadNews(); // refresh list
-
-    } catch (err) {
-        alert("Error deleting news");
-    }
-    }
 
     </script>
 
-        <script>
-            // SHOW SECTION FUNCTION
-            function showSection(sectionId, el) {
-                document.querySelectorAll('.main > div').forEach(div => div.classList.add('hidden'));
-                document.getElementById(sectionId).classList.remove('hidden');
-                document.querySelectorAll('.sidebar ul li').forEach(li => li.classList.remove('active'));
-                el.classList.add('active');
-            }
+    <script>
+        // SHOW SECTION FUNCTION
+        function showSection(sectionId, el) {
+            document.querySelectorAll('.main > div').forEach(div => div.classList.add('hidden'));
+            document.getElementById(sectionId).classList.remove('hidden');
+            document.querySelectorAll('.sidebar ul li').forEach(li => li.classList.remove('active'));
+            el.classList.add('active');
+        }
 
-            // LOGOUT
-            function logout() {
-                localStorage.removeItem("token");
-                window.location.href = "login.html";
-            }
+        // LOGOUT
+        function logout() {
+            localStorage.removeItem("token");
+            window.location.href = "login.html";
+        }
 
-            // UNIFIED FETCH FUNCTION
-            function fetchTableData(url, tbodyId, mapCallback, countId) {
-                fetch(url, {
-                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+        // UNIFIED FETCH FUNCTION
+        function fetchTableData(url, tbodyId, mapCallback, countId) {
+            fetch(url, {
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+            })
+                .then(res => {
+                    if (!res.ok) window.location.href = "login.html"; // redirect on 401/403
+                    return res.json();
                 })
-                    .then(res => {
-                        if (!res.ok) window.location.href = "login.html"; // redirect on 401/403
-                        return res.json();
-                    })
-                    .then(data => {
-                        document.getElementById(tbodyId).innerHTML =
-                data.map((item, index) => mapCallback(item, index)).join('');
-                        if (countId) document.getElementById(countId).textContent = data.length;
-                    })
-                    .catch(err => console.log(err));
-            }
+                .then(data => {
+                    document.getElementById(tbodyId).innerHTML =
+                        data.map((item, index) => mapCallback(item, index)).join('');
+                    if (countId) document.getElementById(countId).textContent = data.length;
+                })
+                .catch(err => console.log(err));
+        }
 
 
-    //
+        //
 
-            // FETCH USERS / ADMISSIONS
-            fetchTableData("https://final-collage-1.onrender.com/users", "admissionbody", (item,index) => `
+        // FETCH USERS / ADMISSIONS
+        fetchTableData("https://final-collage-1.onrender.com/users", "admissionbody", (item, index) => `
         <tr>
              <td>${index + 1}</td>
             <td>${item.fullName}</td>
@@ -708,10 +710,10 @@
             <td><span class="badge ${item.status?.toLowerCase() || 'pending'}">${item.status || 'Pending'}</span></td>
         </tr>
     `, "totalAdmissions");
-            // FETCH MESSAGES
-            fetchTableData("https://final-collage-1.onrender.com/messages", "messagebody", (item,index) => `
+        // FETCH MESSAGES
+        fetchTableData("https://final-collage-1.onrender.com/messages", "messagebody", (item, index) => `
         <tr>
-            <td>${index+1}</td>
+            <td>${index + 1}</td>
             <td>${item.name}</td>
             <td>${item.email}</td>
             <td>${item.subject || '-'}</td>
@@ -719,100 +721,131 @@
         </tr>
     `, "totalMessages");
 
-        </script>
-        <script>
-            const form = document.getElementById("uploadForm");
-            const msg = document.getElementById("msg");
+    </script>
+   <form id="uploadForm" enctype="multipart/form-data">
+    <input type="text" name="title" placeholder="News Title" required>
+    <textarea name="description" placeholder="Description"></textarea>
+    <input type="file" name="image" required>
+    <button type="submit">Upload</button>
+</form>
+<div id="msg"></div>
 
-            form.addEventListener("submit", async (e) => {
-                e.preventDefault();
+<script>
+const form = document.getElementById("uploadForm");
+const msg = document.getElementById("msg");
 
-                const formData = new FormData(form);
-                const token = localStorage.getItem("token");
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-                try {
-                    const res = await fetch("https://final-collage-1.onrender.com/news", {
-                        method: "POST",
-                        headers: {
-    Authorization: `Bearer ${token}`
-  },
-                        body: formData
-                    });
+    const formData = new FormData(form);
+    const token = localStorage.getItem("token");
 
-                    if (!res.ok) {
-    const err = await res.json();
-    alert(err.message || "Upload failed");
-    return;
+    // Debug: check what will be sent
+    console.log("FormData entries:");
+    for (let [key, value] of formData.entries()) {
+        console.log(key, value);
     }
 
-                    const data = await res.json();
-                    msg.innerText = "News uploaded successfully";
-    loadNews(); // refresh uploaded news
-    form.reset();
+    if (!token) {
+        alert("No token found! Please login.");
+        return;
+    }
 
-                } catch (err) {
-  console.error(err);
-  msg.innerText = "Upload failed - check console";
-}
-            });
-        </script>
-        <script></script>
+    try {
+        const res = await fetch("https://final-collage-1.onrender.com/news", {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${token}`
+                // IMPORTANT: Do NOT set Content-Type manually when using FormData
+            },
+            body: formData
+        });
 
-        <script>
-            // Fetch and filter by month
-    function fetchTableDataMonth(url, tbodyId, mapCallback, countId, monthInputId) {
-    const monthInput = document.getElementById(monthInputId);
+        // Handle HTTP errors
+        if (!res.ok) {
+            let errMsg = "Upload failed";
+            try {
+                const errData = await res.json();
+                if (errData.message) errMsg = errData.message;
+            } catch (err) {
+                console.error("Error parsing JSON error:", err);
+            }
+            alert(errMsg);
+            return;
+        }
 
-    function loadData() {
-        const monthValue = monthInput.value;
+        const data = await res.json();
+        console.log("Upload successful:", data);
+        msg.innerText = "News uploaded successfully!";
+        form.reset();
 
-        fetch(url, {
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
-        })
-        .then(res => {
-            if (!res.ok) window.location.href = "login.html";
-            return res.json();
-        })
-        .then(data => {
-            let filteredData = data;
+        // Refresh table / news list
+        if (typeof loadNews === "function") loadNews();
 
-            if (monthValue) {
-            const [year, month] = monthValue.split("-");
-            filteredData = data.filter(item => {
-                if (!item.createdAt) return false;
-                const d = new Date(item.createdAt);
-                return d.getFullYear() === +year && d.getMonth() + 1 === +month;
-            });
+    } catch (err) {
+        console.error("Fetch error:", err);
+        msg.innerText = "Upload failed - check console (CORS / network?)";
+    }
+});
+</script>
+
+    <script></script>
+
+    <script>
+        // Fetch and filter by month
+        function fetchTableDataMonth(url, tbodyId, mapCallback, countId, monthInputId) {
+            const monthInput = document.getElementById(monthInputId);
+
+            function loadData() {
+                const monthValue = monthInput.value;
+
+                fetch(url, {
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+                })
+                    .then(res => {
+                        if (!res.ok) window.location.href = "login.html";
+                        return res.json();
+                    })
+                    .then(data => {
+                        let filteredData = data;
+
+                        if (monthValue) {
+                            const [year, month] = monthValue.split("-");
+                            filteredData = data.filter(item => {
+                                if (!item.createdAt) return false;
+                                const d = new Date(item.createdAt);
+                                return d.getFullYear() === +year && d.getMonth() + 1 === +month;
+                            });
+                        }
+
+                        document.getElementById(tbodyId).innerHTML =
+                            filteredData.map((item, index) => mapCallback(item, index)).join("")
+
+
+                        if (countId) document.getElementById(countId).textContent = filteredData.length;
+                    })
+                    .catch(console.error);
             }
 
-            document.getElementById(tbodyId).innerHTML =
-           filteredData.map((item, index) => mapCallback(item, index)).join("")
+            monthInput.addEventListener("change", loadData);
+            loadData();
+        }
 
 
-            if (countId) document.getElementById(countId).textContent = filteredData.length;
-        })
-        .catch(console.error);
-    }
+        fetchTableDataMonth(
+            "https://final-collage-1.onrender.com/admins",
+            "leadsBody",
+            (item, index) => {
+                const dateTime = item.createdAt
+                    ? new Date(item.createdAt).toLocaleString("en-IN", {
+                        dateStyle: "medium",
+                        timeStyle: "short"
+                    })
+                    : "-";
 
-    monthInput.addEventListener("change", loadData);
-    loadData();
-    }
-
-
-    fetchTableDataMonth(
-    "https://final-collage-1.onrender.com/admins",
-    "leadsBody",
-    (item,index) => {
-        const dateTime = item.createdAt
-        ? new Date(item.createdAt).toLocaleString("en-IN", {
-            dateStyle: "medium",
-            timeStyle: "short"
-            })
-        : "-";
-
-        return `
+                return `
         <tr>
-            <td>${index+1}</td>
+            <td>${index + 1}</td>
             <td>${item.name}</td>
             <td>${item.email}</td>
             <td>${item.phone}</td>
@@ -820,27 +853,27 @@
             <td>${dateTime}</td>
         </tr>
         `;
-    },
-    "totalLeads",
-    "leadsMonth"
-    );
+            },
+            "totalLeads",
+            "leadsMonth"
+        );
 
 
-  fetchTableDataMonth(
-  "https://final-collage-1.onrender.com/users",
-  "admissionbody",
-  (item,index) => {
+        fetchTableDataMonth(
+            "https://final-collage-1.onrender.com/users",
+            "admissionbody",
+            (item, index) => {
 
-    const dateTime = item.createdAt
-      ? new Date(item.createdAt).toLocaleString("en-IN", {
-          dateStyle: "medium",
-          timeStyle: "short"
-        })
-      : "-";
+                const dateTime = item.createdAt
+                    ? new Date(item.createdAt).toLocaleString("en-IN", {
+                        dateStyle: "medium",
+                        timeStyle: "short"
+                    })
+                    : "-";
 
-    return `
+                return `
       <tr>
-        <td>${index+1}</td>
+        <td>${index + 1}</td>
         <td>${item.fullName}</td>
         <td>${item.course}</td>
         <td>${item.gender}</td>
@@ -852,25 +885,25 @@
         <td>${dateTime}</td>
       </tr>
     `;
-  },
-  "totalAdmissions",
-  "admissionsMonth"
-);
+            },
+            "totalAdmissions",
+            "admissionsMonth"
+        );
 
 
-    // Messages
-    fetchTableDataMonth("https://final-collage-1.onrender.com/messages", "messagebody",
-    (item,index) => {
+        // Messages
+        fetchTableDataMonth("https://final-collage-1.onrender.com/messages", "messagebody",
+            (item, index) => {
 
-    const dateTime = item.createdAt
-      ? new Date(item.createdAt).toLocaleString("en-IN", {
-          dateStyle: "medium",
-          timeStyle: "short"
-        })
-      : "-";
-     return `
+                const dateTime = item.createdAt
+                    ? new Date(item.createdAt).toLocaleString("en-IN", {
+                        dateStyle: "medium",
+                        timeStyle: "short"
+                    })
+                    : "-";
+                return `
         <tr>
-            <td>${index+1}</td>
+            <td>${index + 1}</td>
             <td>${item.name}</td>
             <td>${item.email}</td>
             <td>${item.subject || '-'}</td>
@@ -878,11 +911,11 @@
             <td>${dateTime}</td>
         </tr>
     `;
-    }, "totalMessages", "messagesMonth");
+            }, "totalMessages", "messagesMonth");
 
-        </script>
+    </script>
 
 
-    </body>
+</body>
 
-    </html>
+</html>
