@@ -13,7 +13,8 @@ app.use(express.json());
   
 /* -------------------- MongoDB -------------------- */
 mongoose
-  .connect("mongodb+srv://karansharma:kransiar@cluster0.ufu1kxg.mongodb.net/?appName=Cluster0")
+  .connect( "mongodb+srv://karansharma:kransiar@cluster0.umieigv.mongodb.net/myAppDB?retryWrites=true&w=majority"
+)
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
 
@@ -238,7 +239,7 @@ app.delete("/news/:id", authMiddleware, async (req, res) => {
 });
 
 /* -------------------- SERVER -------------------- */
-const PORT = 4005;
+const PORT = process.env.PORT || 4005;
 app.listen(PORT, () =>
   console.log(`Server running on http://localhost:${PORT}`)
 );

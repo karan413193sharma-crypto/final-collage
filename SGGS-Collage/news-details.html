@@ -94,13 +94,13 @@ async function loadNewsDetails() {
 
   try {
     console.log("Fetching news ID:", newsId);
-    const res = await fetch(`http://localhost:4005/news/${newsId}`);
+    const res = await fetch(`https://final-collage-1.onrender.com/news/${newsId}`);
     if (!res.ok) throw new Error("News not found");
 
     const news = await res.json();
 
     document.getElementById("newsWrapper").innerHTML = `
-      <img class="news-image" src="http://localhost:4005${news.image}" />
+      <img class="news-image" src="https://final-collage-1.onrender.com${news.image}" />
       <div class="news-content">
         <div class="news-title">${news.title}</div>
         <div class="news-date">${new Date(news.createdAt).toDateString()}</div>
