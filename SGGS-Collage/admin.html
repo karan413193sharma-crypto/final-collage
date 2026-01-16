@@ -594,9 +594,7 @@
         const token = localStorage.getItem("token");
 
         try {
-            const res = await fetch("https://final-collage-1.onrender.com/news", {
-                headers: { Authorization: `Bearer ${token}` }
-            });
+            const res = await fetch("https://final-collage-1.onrender.com/news");
 
             if (!res.ok) throw new Error("Failed to fetch news");
 
@@ -736,8 +734,8 @@
                     const res = await fetch("https://final-collage-1.onrender.com/news", {
                         method: "POST",
                         headers: {
-                            Authorization: `Bearer ${token}`
-                        },
+    Authorization: `Bearer ${token}`
+  },
                         body: formData
                     });
 
@@ -753,8 +751,9 @@
     form.reset();
 
                 } catch (err) {
-                    msg.innerText = "Upload failed";
-                }
+  console.error(err);
+  msg.innerText = "Upload failed - check console";
+}
             });
         </script>
         <script></script>
