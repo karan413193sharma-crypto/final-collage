@@ -90,11 +90,9 @@ const authMiddleware = (req, res, next) => {
 // Multer storage for Cloudinary
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
-  params: {
-    folder: "news_images",          // folder in Cloudinary
-    allowed_formats: ["jpg", "png", "jpeg"],
-    transformation: [{ width: 800, crop: "limit" }] // optional image resizing
-  }
+  folder: "news_images",             // folder in Cloudinary
+  allowedFormats: ["jpg", "png", "jpeg"], 
+  transformation: [{ width: 800, crop: "limit" }] // optional
 });
 
 // Multer upload using Cloudinary storage
