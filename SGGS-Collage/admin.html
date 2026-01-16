@@ -605,7 +605,7 @@
             container.innerHTML = "";
 
             news.forEach((item, index) => {
-                const imageUrl = `https://final-collage-1.onrender.com${item.image}`;
+                const imageUrl = item.image;
 
             container.insertAdjacentHTML("beforeend", `
     <div class="news-card ${index === 0 ? "big-card" : "small-card"}">
