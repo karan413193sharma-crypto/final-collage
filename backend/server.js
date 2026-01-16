@@ -7,7 +7,8 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 const cloudinary = require("cloudinary").v2;
-const CloudinaryStorage = require("multer-storage-cloudinary").CloudinaryStorage;
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+
 
 cloudinary.config({
   cloud_name: "dbcnoncz2",
@@ -25,7 +26,6 @@ mongoose
 )
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
-
 
 /* -------------------- Schemas -------------------- */
 const adminSchema = new mongoose.Schema({
