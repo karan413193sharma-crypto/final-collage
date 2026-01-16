@@ -722,73 +722,62 @@
     `, "totalMessages");
 
     </script>
-   <form id="uploadForm" enctype="multipart/form-data">
-    <input type="text" name="title" placeholder="News Title" required>
-    <textarea name="description" placeholder="Description"></textarea>
-    <input type="file" name="image" required>
-    <button type="submit">Upload</button>
-</form>
-<div id="msg"></div>
+    <script>
+        const form = document.getElementById("uploadForm");
+        const msg = document.getElementById("msg");
 
-<script>
-const form = document.getElementById("uploadForm");
-const msg = document.getElementById("msg");
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
 
-form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+            const formData = new FormData(form);
+            const token = localStorage.getItem("token");
 
-    const formData = new FormData(form);
-    const token = localStorage.getItem("token");
-
-    // Debug: check what will be sent
-    console.log("FormData entries:");
-    for (let [key, value] of formData.entries()) {
-        console.log(key, value);
-    }
-
-    if (!token) {
-        alert("No token found! Please login.");
-        return;
-    }
-
-    try {
-        const res = await fetch("https://final-collage-1.onrender.com/news", {
-            method: "POST",
-            headers: {
-                Authorization: `Bearer ${token}`
-                // IMPORTANT: Do NOT set Content-Type manually when using FormData
-            },
-            body: formData
-        });
-
-        // Handle HTTP errors
-        if (!res.ok) {
-            let errMsg = "Upload failed";
-            try {
-                const errData = await res.json();
-                if (errData.message) errMsg = errData.message;
-            } catch (err) {
-                console.error("Error parsing JSON error:", err);
+            // Debug: check what will be sent
+            console.log("FormData entries:");
+            for (let [key, value] of formData.entries()) {
+                console.log(key, value);
             }
-            alert(errMsg);
-            return;
-        }
 
-        const data = await res.json();
-        console.log("Upload successful:", data);
-        msg.innerText = "News uploaded successfully!";
-        form.reset();
+            if (!token) {
+                alert("No token found! Please login.");
+                return;
+            }
 
-        // Refresh table / news list
-        if (typeof loadNews === "function") loadNews();
+            try {
+                const res = await fetch("https://final-collage-1.onrender.com/news", {
+                    method: "POST",
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                        // IMPORTANT: Do NOT set Content-Type manually when using FormData
+                    },
+                    body: formData
+                });
 
-    } catch (err) {
-        console.error("Fetch error:", err);
-        msg.innerText = "Upload failed - check console (CORS / network?)";
-    }
-});
-</script>
+                // Handle HTTP errors
+                if (!res.ok) {
+                    let errMsg = "Upload failed";
+                    try {
+                        const errData = await res.json();
+                        if (errData.message) errMsg = errData.message;
+                    } catch (err) {
+                        console.error("Error parsing JSON error:", err);
+                    }
+                    alert(errMsg);
+                    return;
+                }
+                const data = await res.json();
+                console.log("Upload successful:", data);
+                msg.innerText = "News uploaded successfully!";
+                form.reset();
+                // Refresh table / news list
+                if (typeof loadNews === "function") loadNews();
 
+            } catch (err) {
+                console.error("Fetch error:", err);
+                msg.innerText = "Upload failed - check console (CORS / network?)";
+            }
+        });
+    </script>
     <script></script>
 
     <script>

@@ -260,6 +260,11 @@ app.delete("/news/:id", authMiddleware, async (req, res) => {
   res.json({ message: "Deleted" });
 });
 
+
+app.get("/", (req, res) => {
+  res.send("Backend is running");
+});
+
 /* -------------------- SERVER -------------------- */
 const PORT = process.env.PORT || 4005;
 app.listen(PORT, () =>
