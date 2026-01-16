@@ -100,7 +100,7 @@ async function loadNewsDetails() {
     const news = await res.json();
 
     document.getElementById("newsWrapper").innerHTML = `
-      <img class="news-image" src="https://final-collage-1.onrender.com${news.image}" />
+      <img class="news-image" src="${news.image}" />
       <div class="news-content">
         <div class="news-title">${news.title}</div>
         <div class="news-date">${new Date(news.createdAt).toDateString()}</div>
