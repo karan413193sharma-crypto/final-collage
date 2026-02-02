@@ -14,7 +14,8 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 const cloudinary = require("cloudinary").v2;
-const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const CloudinaryStorage = require("multer-storage-cloudinary");
+
 
 cloudinary.config({
   cloud_name: "dbcnoncz2",
@@ -124,13 +125,12 @@ const storage = new CloudinaryStorage({
 
 // Multer upload using Cloudinary storage
 const upload = multer({
-  storage,
-  limits: { fileSize: 2 * 1024 * 1024 }, // 2MB limit
-  fileFilter: (req, file, cb) =>
-    file.mimetype.startsWith("image/")
-      ? cb(null, true)
-      : cb(new Error("Only images allowed"))
+    storage,
+    limits: { fileSize: 2 * 1024 * 1024 }, // 2MB
+    fileFilter: (req, file, cb) =>
+        file.mimetype.startsWith("image/") ? cb(null, true) : cb(new Error("Only images allowed"))
 });
+
 
 /* -------------------- LOGIN -------------------- */
 const adminCredentials = { UserId: "karan", password: "12345678" };
