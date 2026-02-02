@@ -16,15 +16,17 @@ cloudinary.config({
 });
 
 const app = express();
+
 app.use(cors({
   origin: "*",
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
-
 app.options("*", cors());
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
   
 /* -------------------- MongoDB -------------------- */
 mongoose
