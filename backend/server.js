@@ -16,7 +16,6 @@ const fs = require("fs");
 const cloudinary = require("cloudinary").v2;
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
 
-
 cloudinary.config({
   cloud_name: "dbcnoncz2",
   api_key: "565745529828312",
