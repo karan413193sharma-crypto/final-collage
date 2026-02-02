@@ -669,7 +669,6 @@
             document.querySelectorAll('.sidebar ul li').forEach(li => li.classList.remove('active'));
             el.classList.add('active');
         }
-
         // LOGOUT
         function logout() {
             localStorage.removeItem("token");
@@ -736,19 +735,21 @@
                 alert("Please login again");
                 return;
             }
-
             try {
                 const res = await fetch("https://final-collage-1.onrender.com/news", {
                     method: "POST",
-                    headers: {
+                    headers: {  
                         Authorization: "Bearer " + token
                     },
                     body: formData
                 });
 
-                if (!res.ok) {
-                    throw new Error("Upload failed");
-                }
+               if (!res.ok) {
+  const errText = await res.text();
+  console.log("Backend Error:", errText);
+  throw new Error(errText);
+}
+
 
                 msg.innerText = "News uploaded successfully!";
                 form.reset();
