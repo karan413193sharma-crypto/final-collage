@@ -36,13 +36,11 @@ app.use((req, res, next) => {
   next();
 });
 
-
 app.use(cors({
   origin: "*",
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
-
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -118,8 +116,7 @@ const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
     folder: "news_images",
-    allowed_formats: ["jpg", "png", "jpeg"],
-    transformation: [{ width: 800, crop: "limit" }]
+    allowed_formats: ["jpg", "png", "jpeg"]
   }
 });
 

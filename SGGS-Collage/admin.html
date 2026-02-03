@@ -706,7 +706,7 @@
             <td>${item.fatherName}</td>
             <td>${item.motherName}</td>
             <td>${item.previousSchool}</td>
-            <td><span class="badge ${item.status?.toLowerCase() || 'pending'}">${item.status || 'Pending'}</span></td>
+           <td>${datetime}</td>
         </tr>
     `, "totalAdmissions");
         // FETCH MESSAGES
@@ -717,6 +717,7 @@
             <td>${item.email}</td>
             <td>${item.subject || '-'}</td>
             <td>${item.message}</td>
+            <td>${datetime}</td>
         </tr>
     `, "totalMessages");
 
