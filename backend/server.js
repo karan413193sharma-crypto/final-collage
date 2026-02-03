@@ -4,7 +4,6 @@ process.on("uncaughtException", (err) => {
 process.on("unhandledRejection", (err) => {
   console.error("Unhandled Rejection:", err);
 });
-
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -16,14 +15,19 @@ const fs = require("fs");
 const cloudinary = require("cloudinary").v2;
 const CloudinaryStorage = require("multer-storage-cloudinary");
 
-
 cloudinary.config({
   cloud_name: "dbcnoncz2",
   api_key: "565745529828312",
-  api_secret: "Of5s4_19Md0GCINZRmkXXKWKe4M"
+  api_secret: "Of5s4_19Md0GCINZRmkXXKWKe4M",
+});
+const app = express();
+
+app.use(express.static(path.join(__dirname,"../SGGS-Collage")));
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../SGGS-Collage/index.html"));
 });
 
-const app = express();
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS");
@@ -103,11 +107,13 @@ const authMiddleware = (req, res, next) => {
 
   const token = authHeader.split(" ")[1];
   try {
-    req.admin = jwt.verify(token, "SECRET_KEY");
-    next();
-  } catch {
-    res.status(403).json({ message: "Invalid token" });
-  }
+  req.admin = jwt.verify(token, process.env.JWT_SECRET || "SECRET_KEY");
+  next();
+} catch (err) {
+  console.error("JWT error:", err);
+  res.status(403).json({ message: "Invalid token" });
+}
+
 };
 
 /* -------------------- Multer -------------------- */
@@ -282,10 +288,9 @@ app.delete("/news/:id", authMiddleware, async (req, res) => {
 });
 
 
-app.get("/", (req, res) => {
-  res.send("Backend is running");
-});
-
+// app.get("/", (req, res) => {
+//   res.send("Backend is running");
+// });
 
 app.use((err, req, res, next) => {
   if (err instanceof multer.MulterError) {

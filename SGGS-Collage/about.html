@@ -16,6 +16,8 @@
 
   <link rel="stylesheet" href="./css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="stylesheet" href="./css/footer.css">
 
   <style>
     :root {
@@ -641,10 +643,7 @@
 </head>
 
 <body>
-
-  
-
-
+  <div id="navbar"></div>
   <section class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-particles"></div>
@@ -1023,23 +1022,6 @@
             </div>
             </section>
           </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <div class="principal-container">
     <div class="principal">
       <div>
@@ -1097,102 +1079,37 @@
         was founded to
         provide quality higher education to students from rural, backward and kandi areas.
       </p>
-
       <p class="text-gray-700 leading-relaxed mb-4">
         The college maintains strict transparency. <strong>The Right to Information Act, 2005</strong> is fully
         implemented, allowing
         citizens to request information about its functioning.The Principal acts as the Information Officer, supported
         by an Assistant Public Information Officer to ensure efficient information access.
       </p>
-
-
       <div class="mt-8 p-5 bg-blue-50 border-l-4 border-blue-600 rounded-xl">
         <h3 class="text-xl font-semibold mb-2">Information Handbook</h3>
         <p class="text-gray-700">Under the Right to Information Act</p>
       </div>
-
     </div>
   </section>
 
-
-  <footer class="footer-minimal text-white" id="footer">
-    <div class="container py-5">
-      <div class="row g-4 align-items-start">
-
-        <div class="col-lg-4">
-          <div class="brand d-flex align-items-center gap-2 mb-2">
-            <span class="brand-dot"></span>
-            <h5 class="fw-bold mb-0">SGGS College</h5>
-          </div>
-          <p class="small mb-3 text-white-75">
-            Where disciplined learning meets opportunity. Building confident, skilled graduates ready for the
-            future.
-          </p>
-          <div class="d-flex gap-3 fs-5">
-            <a href="#" aria-label="Facebook" class="text-white-75 hover-link"><i class="bi bi-facebook"></i></a>
-            <a href="#" aria-label="Instagram" class="text-white-75 hover-link"><i class="bi bi-instagram"></i></a>
-            <a href="#" aria-label="YouTube" class="text-white-75 hover-link"><i class="bi bi-youtube"></i></a>
-            <a href="#" aria-label="X" class="text-white-75 hover-link"><i class="bi bi-twitter-x"></i></a>
-          </div>
-        </div>
-
-        <div class="col-6 col-lg-2">
-          <h6 class="fw-semibold mb-3">Explore</h6>
-          <ul class="list-unstyled small mb-0 footer-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#programs">Programs</a></li>
-            <li><a href="#admissions">Admissions</a></li>
-            <li><a href="#achievements">Achievements</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-          </ul>
-        </div>
-
-        <div class="col-6 col-lg-2">
-          <h6 class="fw-semibold mb-3">Resources</h6>
-          <ul class="list-unstyled small mb-0 footer-links">
-            <li><a href="#">Departments</a></li>
-            <li><a href="#">Scholarships</a></li>
-            <li><a href="#">Placements</a></li>
-            <li><a href="#">IQAC</a></li>
-            <li><a href="#">Downloads</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-4">
-          <h6 class="fw-semibold mb-3">Contact</h6>
-          <ul class="list-unstyled small text-white-75 mb-3">
-            <li class="mb-1"><i class="bi bi-geo-alt me-2"></i> Mahilpur, Punjab, India</li>
-            <li class="mb-1"><i class="bi bi-telephone me-2"></i> +91 62844 24992</li>
-            <li><i class="bi bi-envelope me-2"></i> info@sggscollege.ac.in</li>
-          </ul>
-          <div class="d-flex gap-2">
-            <button class="btn btn-sm btn-outline-light px-3" data-bs-toggle="modal" data-bs-target="#mapModal">
-              <i class="bi bi-geo-fill me-1"></i> View on Map
-            </button>
-            <a href="#admissions" class="btn btn-sm btn-gold px-3">
-              <i class="bi bi-box-arrow-in-right me-1"></i> Apply Now
-            </a>
-          </div>
-        </div>
-
-      </div>
-
-      <hr class="divider my-4">
-
-      <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center small text-white-50">
-        <div>© <span id="year"></span> SGGS College. All rights reserved.</div>
-        <div class="d-flex gap-3 mt-2 mt-lg-0">
-          <a href="#" class="text-white-50">Privacy</a>
-          <a href="#" class="text-white-50">Terms</a>
-          <a href="#" class="text-white-50">Accessibility</a>
-        </div>
-      </div>
-    </div>
-  </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <div id="footer"></div>
+
+  <script>
+  // Load Navbar
+  fetch('./component/navbar.html')
+    .then(response => response.text())
+    .then(data => document.getElementById('navbar').innerHTML = data);
+
+  // Load Footer
+  fetch('./component/footer.html')
+    .then(response => response.text())
+    .then(data => document.getElementById('footer').innerHTML = data);
+</script>
+
 </body>
 
 </html>

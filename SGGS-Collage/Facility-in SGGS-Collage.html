@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+         <link rel="stylesheet" href="./css/navbar.css">
+         <link rel="stylesheet" href="./css/footer.css">
     <style>
         * {
             margin: 0;
@@ -529,48 +532,7 @@
             font-size: 0.85rem; line-height: 1.3;
         }
 
-        /* Footer */
-        .footer {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            color: white;
-            padding: 64px 24px 24px;
-        }
-
-        .footer-content {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 48px;
-            margin-bottom: 48px;
-        }
-
-        .footer-section h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .footer-section h3 i {
-            color: #8c1007;
-        }
-
-        .footer-section p {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 24px;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
+    
         /* Lightbox */
         .lightbox {
             display: none;
@@ -977,6 +939,7 @@
 </head>
 
 <body>
+    <div id="navbar"></div>
      
     <!-- Hero Section -->
     <section class="hero">
@@ -1551,6 +1514,19 @@
     </div>
 
     <script src="./JS/script.js"></script>
+    <div id="footer"></div>
+
+  <script>
+  // Load Navbar
+  fetch('./component/navbar.html')
+    .then(response => response.text())
+    .then(data => document.getElementById('navbar').innerHTML = data);
+
+  // Load Footer
+  fetch('./component/footer.html')
+    .then(response => response.text())
+    .then(data => document.getElementById('footer').innerHTML = data);
+</script>
 </body>
 
 </html>

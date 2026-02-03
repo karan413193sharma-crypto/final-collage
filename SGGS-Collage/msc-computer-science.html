@@ -11,6 +11,11 @@
     
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="./css/style.css">
+  
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+        
+         <link rel="stylesheet" href="./css/navbar.css">
+         <link rel="stylesheet" href="./css/footer.css">
  <style>
  
    
@@ -642,12 +647,12 @@
 }
 
     </style>
-</style>
+
 </head>
 
 <body>
     
-
+<div id="navbar"></div>
         <!-- Hero Section -->
      <section class="hero">
     <div class="hero-overlay"></div>
@@ -916,5 +921,18 @@
             });
         });
     </script>
+    <div id="footer"></div>
+
+  <script>
+  // Load Navbar
+  fetch('./component/navbar.html')
+    .then(response => response.text())
+    .then(data => document.getElementById('navbar').innerHTML = data);
+
+  // Load Footer
+  fetch('./component/footer.html')
+    .then(response => response.text())
+    .then(data => document.getElementById('footer').innerHTML = data);
+</script>
 </body>
 </html>
