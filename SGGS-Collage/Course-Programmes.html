@@ -429,6 +429,104 @@
     font-size: 0.8rem;
     padding: 0.35rem 0.65rem;
 }
+ /* Faculty section */
+.faculty-section {
+  padding: 60px 20px; /* slightly smaller padding for minimal feel */
+  background: var(--light);
+  color: var(--brand);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.faculty-title {
+  text-align: center;
+  font-size: 32px; /* minimal, not too big */
+  font-weight: 600;
+  color: var(--brand);
+  margin-bottom: 20px;
+}
+
+.faculty-desc {
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto 40px auto;
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/* Table container for horizontal scroll on small screens */
+.faculty-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 60px; /* more margin between departments */
+}
+
+/* Table styling */
+.faculty-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  font-size: 16px;
+  margin-bottom: 60px; /* extra space after each table */
+}
+
+/* Table header */
+.faculty-table thead th {
+  background: var(--brand);
+  color: var(--white);
+  padding: 14px 12px;
+  text-align: left;
+  font-weight: 700;
+}
+
+/* Table body cells */
+.faculty-table tbody td {
+  padding: 12px 12px;
+  border-bottom: 1px solid var(--brand-light);
+  vertical-align: middle;
+}
+
+/* Hover effect */
+.faculty-table tbody tr:hover {
+  background: var(--gray);
+  transition: background 0.3s;
+}
+
+/* Department row */
+.dept-row td {
+  background: var(--brand-light);
+  color: var(--white);
+  font-weight: 700;
+  text-align: center;
+  font-size: 18px;
+  padding: 14px 0;
+  margin-top: 40px;
+}
+
+/* Staff section title */
+.staff-title {
+  font-size: 28px;
+  color: var(--brand);
+  margin: 50px 0 20px 0;
+  text-align: left;
+  border-bottom: 2px solid var(--brand-light);
+  padding-bottom: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .faculty-table { font-size: 15px; }
+  .faculty-desc { font-size: 16px; line-height: 1.7; }
+}
+
+@media (max-width: 768px) {
+  .faculty-title { font-size: 26px; }
+  .faculty-table { font-size: 14px; }
+  .faculty-desc { font-size: 14px; line-height: 1.6; }
+}
 
     </style>
 </head>
@@ -1083,6 +1181,125 @@
 
         </div>
     </section>
+    <section class="faculty-section" id="faculty">
+  <div class="container">
+    <h2 class="faculty-title">COLLEGE FACULTY</h2>
+    <p class="faculty-desc">
+      The college boasts of some of the region’s best brains. The faculty members are experienced,
+      well-qualified and have widely represented in their fields of expertise at various levels and fora.
+      Here is a detailed department-wise list of teaching faculty with their contact particulars, qualifications, etc.
+    </p>
+
+    <div class="faculty-table-wrapper">
+      <table class="faculty-table">
+        <thead>
+          <tr>
+            <th>Sr. No.</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Qualification</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- Agriculture -->
+          <tr class="dept-row"><td colspan="6">Agriculture</td></tr>
+          <tr><td>1</td><td>Dr. Pratibha Chauhan (H.O.D.)</td><td>Agriculture</td><td>M.Sc. Agriculture, Ph.D. (Plant Breeding and Genetics)</td><td>pratibha1707@gmail.com</td><td>94178-03865</td></tr>
+          <tr><td>2</td><td>Mrs. Manpreet Kaur</td><td>Agriculture</td><td>M.Sc. Agriculture (Vegetable Sciences), ARS NET</td><td>manpreetjhass47@gmail.com</td><td>9041100147</td></tr>
+
+          <!-- Zoology -->
+          <tr class="dept-row"><td colspan="6">Zoology</td></tr>
+          <tr><td>1</td><td>Mrs. Apoorva</td><td>Zoology</td><td>M.Sc., B.Ed., P.G.D.C.A., CIC</td><td>apoorva.azad@gmail.com</td><td>-</td></tr>
+
+          <!-- Botany -->
+          <tr class="dept-row"><td colspan="6">Botany</td></tr>
+          <tr><td>1</td><td>Mrs. Navdeep Kaur(H.O.D.)</td><td>Botany</td><td>M.Sc. Botany, CSIR JRF NET, GATE</td><td>navbikram2021@gmail.com</td><td>6239899518</td></tr>
+          <tr><td>2</td><td>Ms. Kirandeep Kaur</td><td>Botany</td><td>M.Sc. Botany</td><td>-</td><td>9915110924</td></tr>
+          <tr><td>3</td><td>Babita Takkhi</td><td>Botany</td><td>M.Sc. Zoology</td><td>tbabita570@gmail.com</td><td>7696161473</td></tr>
+
+          <!-- Chemistry -->
+          <tr class="dept-row"><td colspan="6">Chemistry</td></tr>
+          <tr><td>1</td><td>Dr. Vikrant Singh Rana (H.O.D.)</td><td>Chemistry</td><td>M.Sc. Chemistry, Specialization: Organic Chemistry, CSIR NET, Ph.D. (Chemistry)</td><td>vikrant.rana47@gmail.com</td><td>82840-72216</td></tr>
+          <tr><td>2</td><td>Mr. Rohit Puri</td><td>Chemistry</td><td>M.Sc. Chemistry, CSIR NET</td><td>rpuri1979@gmail.com</td><td>98760-56265</td></tr>
+          <tr><td>3</td><td>Dr. Pooja Bedi</td><td>Chemistry</td><td>M.Sc. Chemistry, B.Ed., CSIR JRF, Ph.D.</td><td>poojabedi1807@gmail.com</td><td>7986144285</td></tr>
+          <tr><td>4</td><td>Mr. Amanpreet Singh</td><td>Chemistry</td><td>M.Sc. Industrial Chemistry</td><td>amanbabbar0007@gmail.com</td><td>94653-79458</td></tr>
+          <tr><td>5</td><td>Mr. Chandan Singh</td><td>Chemistry</td><td>M.Sc. Chemistry, B.Ed.</td><td>chandanvandita@gmail.com</td><td>94636-72266</td></tr>
+          <tr><td>6</td><td>Sh. Ganesh Kumar</td><td>Chemistry</td><td>M.Sc. Chemistry, B.Ed., Ph.D. (Pursuing)</td><td>ganesh.khanna25@gmail.com</td><td>95018-46605</td></tr>
+          <tr><td>7</td><td>Ms. Rajbir Kaur</td><td>Chemistry</td><td>M.Sc. Chemistry, B.Ed.</td><td>rkd09140@gmail.com</td><td>6280520512</td></tr>
+          <tr><td>8</td><td>Ms. Hari Priya</td><td>Chemistry</td><td>M.Sc. Chemistry</td><td>haripriyasharma0898@gmail.com</td><td>9781517865</td></tr>
+          <tr><td>9</td><td>Ms. Shital</td><td>Chemistry</td><td>M.Sc. Chemistry</td><td>shitaldhanjal4@gmail.com</td><td>-</td></tr>
+
+          <!-- Commerce -->
+          <tr class="dept-row"><td colspan="6">Commerce</td></tr>
+          <tr><td>1</td><td>Dr. Bimla Jaswal (H.O.D.)</td><td>Commerce</td><td>B.Com. (Hons.), M.Com., P.G. Diploma in Personnel Management and Labour Welfare, JPT, M.Phil, Ph.D.</td><td>bimla321@gmail.com</td><td>94176-48860</td></tr>
+          <tr><td>2</td><td>Mr. Amarjit Lal</td><td>Commerce</td><td>M.Com., UGC NET</td><td>sr057205@gmail.com</td><td>8837789195</td></tr>
+          <tr><td>3</td><td>Dr. Rakesh Kumar</td><td>Commerce</td><td>M.Com., UGC NET, M.Phil., Ph.D.(BASEL Banking NORMS)</td><td>rakeshkumar.mehta@yahoo.com</td><td>98884-46484</td></tr>
+          <tr><td>4</td><td>Mrs. Jagdeep Kumari</td><td>Commerce</td><td>M.Com., UGC NET, M.Phil., PGDCA</td><td>Jagdeep2015@hotmail.com</td><td>98552-66551</td></tr>
+          <tr><td>5</td><td>Mrs. Amarjyoti</td><td>Commerce</td><td>M.Com., UGC NET</td><td>simmy88amar@gmail.com</td><td>95928-62088</td></tr>
+          <tr><td>6</td><td>Mrs. Sandeep Kaur</td><td>Commerce</td><td>M.Com., UGC NET</td><td>skrandhawa688@gmail.com</td><td>76962-35221</td></tr>
+          <tr><td>7</td><td>Mrs. Harpreet Kaur</td><td>Commerce</td><td>M.Com., B.Ed.</td><td>hksekhon01@gmail.com</td><td>75268-80968</td></tr>
+          <tr><td>8</td><td>Ms. Priya Sharma</td><td>Commerce</td><td>M.Com., UGC NET, B.Ed.</td><td>priyasharma2883@yahoo.in</td><td>7696115159</td></tr>
+          <tr><td>9</td><td>Ms. Gurpreet Kaur</td><td>Commerce</td><td>M.Com., UGC NET</td><td>sainipreeti758@gmail.com</td><td>8847233307</td></tr>
+
+          <!-- Computer Science & IT -->
+          <tr class="dept-row"><td colspan="6">Computer Science & I.T.</td></tr>
+          <tr><td>1</td><td>Ms. Gurpreet Kaur (H.O.D.)</td><td>Computer Science & IT</td><td>M.Sc. Comp.Sc., UGC NET</td><td>itsgurpreetk90@gmail.com</td><td>8968721871</td></tr>
+          <tr><td>2</td><td>Mr. Manpreet Singh</td><td>Computer Science & IT</td><td>M.Sc. IT, UGC NET</td><td>manpreets98h@gmail.com</td><td>9501189652</td></tr>
+          <tr><td>3</td><td>Ms. Neha</td><td>Computer Science & IT</td><td>M.Sc. IT, UGC NET</td><td>nehanahar000001@gmail.com</td><td>76967068212</td></tr>
+          <tr><td>4</td><td>Mrs. Deepti Verma</td><td>Computer Science & IT</td><td>M.Sc. Comp. Sc., UGC NET</td><td>deeptiverma30@yahoo.com</td><td>7015233501</td></tr>
+          <tr><td>5</td><td>Mrs. Nandika Salwan</td><td>Computer Science & IT</td><td>M.Tech.</td><td>sharma_nandika@yahoo.co.in</td><td>7508872533</td></tr>
+          <tr><td>6</td><td>Ms. Gurjot Kaur</td><td>Computer Science & IT</td><td>M.Tech.</td><td>kaur.gurjot93@gmail.com</td><td>9501894316</td></tr>
+          <tr><td>7</td><td>Mr. Varinder Singh</td><td>Computer Science & IT</td><td>M.Sc. IT</td><td>varindersinghdhanjal@gmail.com</td><td>9464790433</td></tr>
+          <tr><td>8</td><td>Mrs. Akashdeep Kaur</td><td>Computer Science & IT</td><td>M.Tech</td><td>akashnarwal@ymail.com</td><td>8437778401</td></tr>
+          <tr><td>9</td><td>Mrs. Navjot Kaur</td><td>Computer Science & IT</td><td>M.Sc. IT</td><td>navjotkaur5180@gmail.com</td><td>7087263087</td></tr>
+          <tr><td>10</td><td>Mrs. Rajwinder Kaur</td><td>Computer Science & IT</td><td>M.C.A.</td><td>rajwinderkaur11995@gmail.com</td><td>7009921293</td></tr>
+          <tr><td>11</td><td>Mrs. Harminder Kaur</td><td>Computer Science & IT</td><td>M.Sc. IT</td><td>hdhanoabains@gmail.com</td><td>6280478922</td></tr>
+          <tr><td>12</td><td>Ms. Shaveta</td><td>Computer Science & IT</td><td>M.Sc. IT</td><td>shavetadhiman739@gmail.com</td><td>7814404097</td></tr>
+          <tr><td>13</td><td>Mr. Sarbjit Singh (Computer Lab Technician)</td><td>Computer Science & IT</td><td>M.Sc. IT</td><td>sarbjit.s.sabi@gmail.com</td><td>9877270485</td></tr>
+
+          <!-- Additional departments like Economics, English, Fashion, Hindi, etc. follow the same pattern -->
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Library Staff -->
+    <h3 class="staff-title">Library Staff</h3>
+    <table class="faculty-table">
+      <thead>
+        <tr><th>Sr. No.</th><th>Name</th><th>Designation</th><th>Email</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Mr. Shashi Kumar Kapoor</td><td>Restorer</td><td>-</td></tr>
+        <tr><td>2</td><td>Mrs. Amarjit Kaur</td><td>Restorer</td><td>-</td></tr>
+        <tr><td>3</td><td>Mr. Sandeep Kumar</td><td>Restorer</td><td>-</td></tr>
+        <tr><td>4</td><td>Mrs. Shama Rani</td><td>Restorer</td><td>-</td></tr>
+      </tbody>
+    </table>
+
+    <!-- Office Staff -->
+    <h3 class="staff-title">Office Staff</h3>
+    <table class="faculty-table">
+      <thead>
+        <tr><th>Sr. No.</th><th>Name</th><th>Designation</th><th>Phone No.</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Mr. Gurpreet Singh</td><td>Office Superintendent, Offg.</td><td>99145-84133</td></tr>
+        <tr><td>2</td><td>Mr. Ranjit Singh</td><td>Clerk</td><td>84373-07661</td></tr>
+        <tr><td>3</td><td>Mr. Sukhjinder Singh</td><td>Senior Assistant (Accounts)</td><td>98782-46981</td></tr>
+        <tr><td>4</td><td>Mr. Anil Kumar</td><td>Clerk</td><td>97813-13490</td></tr>
+        <tr><td>5</td><td>Mr. Kamaljit Singh</td><td>Clerk</td><td>99885-04466</td></tr>
+        <tr><td>6</td><td>Mr. Avtar Singh</td><td>Fee Clerk</td><td>94633-43737</td></tr>
+        <tr><td>7</td><td>Ms. Himani</td><td>Fee Clerk</td><td>-</td></tr>
+        <tr><td>8</td><td>Mr. Sukhwinder Singh</td><td>Record Keeper</td><td>-</td></tr>
+        <tr><td>9</td><td>Mr. Paramjit Singh</td><td>Office Clerk</td><td>-</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 
     <!-- FINAL CTA / CONTACT -->
     <section id="contact" class="final-cta py-5">
@@ -1105,6 +1322,7 @@
             </div>
         </div>
     </section>
+    
 
 
 
