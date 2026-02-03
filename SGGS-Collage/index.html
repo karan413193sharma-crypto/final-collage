@@ -84,7 +84,7 @@
     .header {
         background-color: var(--wine-color);
         color: white;
-        padding: 8px 8%;
+        padding: 8px 18px;
         display: flex;
         /* justify-content: space-between; */
         align-items: center;
@@ -110,88 +110,185 @@
         /* this makes the icon white on hover */
     }
 
-    /* Navbar Main */
-    .navbar {
-        max-width: 100% !important;
+    /* ================================
+   PREMIUM NAVBAR DESIGN (ALL)
+================================ */
+    /* ===============================
+   CLASSY PREMIUM NAVBAR
+================================ */
+
+    .classy-navbar {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+        padding: 14px 0;
     }
 
-    .navbar-brand img {
-        max-width: 100%;
-        height: auto;
+    /* Logo */
+    .nav-logo {
+        height: 68px;
+        width: 100%;
+        object-fit: contain;
+        transition: transform 0.3s ease;
     }
 
-    .navbar-toggler {
-        padding: 5px 8px;
-        border: 1px solid var(--wine-color);
-        outline: none;
+    .nav-logo:hover {
+        transform: scale(1.02);
+    }
+
+    /* Nav spacing */
+    .classy-nav {
+        gap: 6px;
+    }
+
+    /* Link style */
+    .classy-link {
+        color: #5b0b06 !important;
+        font-weight: 600;
+        font-size: 15px;
+        padding: 10px 14px !important;
+        border-radius: 4px;
+        transition: all 0.25s ease;
+        letter-spacing: 0.2px;
+    }
+
+    /* Hover: clean & professional */
+    .classy-link:hover {
+        background: rgba(140, 16, 7, 0.08);
+        color: #8C1007 !important;
+    }
+
+    /* Active look (optional) */
+    .classy-link.active {
+        background: rgba(140, 16, 7, 0.12);
+        color: #8C1007 !important;
+    }
+
+    /* Dropdown menu */
+    .classy-dropdown {
+        border: 0;
+        border-radius: 8px;
+        padding: 10px;
+        margin-top: 12px;
+        min-width: 260px;
+        box-shadow: 0 22px 50px rgba(0, 0, 0, 0.12);
+        animation: classyDrop 0.25s ease;
+    }
+
+    @keyframes classyDrop {
+        from {
+            opacity: 0;
+            transform: translateY(12px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Dropdown items */
+    .classy-dropdown .dropdown-item {
+        border-radius: 4px;
+        padding: 10px 12px;
+        font-weight: 500;
+        color: #7a120b;
+        transition: all 0.25s ease;
+    }
+
+    .classy-dropdown .dropdown-item:hover {
+        background: linear-gradient(135deg, #8C1007, #c41a1a);
+        color: #fff;
+        transform: translateX(4px);
+    }
+
+    /* Divider */
+    .classy-dropdown .dropdown-divider {
+        margin: 8px 0;
+        opacity: 0.12;
+    }
+
+    /* Apply button */
+    .classy-apply-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+
+        padding: 10px 18px;
+        border-radius: 4px;
+
+        background: linear-gradient(135deg, #8C1007, #c41a1a);
+        color: #fff !important;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 15px;
+
+        box-shadow: 0 14px 30px rgba(140, 16, 7, 0.25);
+        transition: all 0.3s ease;
+    }
+
+    .classy-apply-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 38px rgba(140, 16, 7, 0.35);
+    }
+
+    /* Toggler */
+    .classy-toggler {
+        border-radius: 4px;
+        padding: 6px 10px;
+        border: 1px solid rgba(140, 16, 7, 0.35);
     }
 
     .navbar-toggler-icon {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%238C1007' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
     }
 
-    .navbar-collapse {
-        overflow: visible !important;
-        transition: height 0.3s ease;
+    /* ===============================
+   MOBILE MENU (CLEAN STACK)
+================================ */
+    @media (max-width: 991.98px) {
+
+        .navbar-collapse {
+            margin-top: 14px;
+            padding: 14px;
+            border-radius: 18px;
+            background: #fff;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .navbar-nav {
+            gap: 10px;
+        }
+
+        .navbar-nav .nav-item {
+            width: 100%;
+        }
+
+        .classy-link {
+            width: 100%;
+            padding: 12px 14px !important;
+        }
+
+        /* Dropdown becomes inline */
+        .dropdown-menu {
+            position: static !important;
+            width: 100%;
+            min-width: 100%;
+            box-shadow: none;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            margin-top: 8px;
+        }
+
+        .classy-apply-btn {
+            width: 100%;
+        }
     }
 
-    .navbar-nav .nav-item {
-        white-space: nowrap;
-    }
-
-    .nav-link {
-        color: var(--wine-800) !important;
-        font-weight: bold;
-    }
-
-    .nav-link:hover {
-        color: var(--wine-color-hover) !important;
-    }
-
-    /* Dropdown Menus */
-    .dropdown-menu {
-        color: #8C1007;
-        overflow: hidden !important;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    .dropdown-item {
-        color: #8C1007;
-    }
-
-    .dropdown-item:hover {
-        background-color: #8C1007 !important;
-        color: white;
-        overflow: hidden !important;
-    }
 
 
-    /* ======================================================= */
-    /* 3. BUTTONS & CTAs (Call-to-Action) */
-    /* ======================================================= */
-
-    /* Apply Button (Used inside or outside main nav) */
-    .apply-btn {
-        display: inline-block;
-        white-space: nowrap;
-        padding: 8px 16px;
-        max-width: 100%;
-        background-color: var(--wine-color);
-        color: white !important;
-        text-decoration: none;
-        border-radius: 4px;
-        transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-    }
-
-    .apply-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 28px rgba(140, 16, 7, 0.4);
-        background: linear-gradient(135deg, #9a1108, #c41a1a) !important;
-    }
-
-    .apply-btn i {
-        font-size: 1.1rem;
-    }
 
     /* Secondary/Promo Button (e.g., inside navbar) */
     .pro-btn {
@@ -1065,6 +1162,7 @@
         text-align: center;
         background-color: #f7f7f7;
         overflow: hidden;
+        margin-top: 5%;
     }
 
     .placement-marquee h2 {
@@ -1078,6 +1176,7 @@
     .marquee-container {
         width: 100%;
         overflow: hidden;
+        margin-bottom: 5%;
     }
 
     .marquee-content {
@@ -1915,6 +2014,7 @@
         }
     }
 </style>
+
 <body>
 
     <!-- Header -->
@@ -1936,41 +2036,50 @@
 
 
     <!-- navbar start -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow sticky-top py-4">
-        <div class="container">
+    <nav class="navbar navbar-expand-lg classy-navbar sticky-top">
+        <div class="container-fluid">
 
-            <a class="navbar-brand fw-semibold" href="index.html">
-                <img src="./images/Logosggs.jpg" alt="SGGS College Logo" height="70px">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <img src="./images/Logosggs.jpg" alt="SGGS College Logo" class="nav-logo">
             </a>
 
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+            <!-- Toggle -->
+            <button class="navbar-toggler classy-toggler ms-auto" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarsExample" aria-controls="navbarsExample" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
+            <!-- Menu -->
             <div class="collapse navbar-collapse" id="navbarsExample">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+
+                <!-- Left links -->
+                <ul class="navbar-nav ms-auto align-items-lg-center classy-nav gap-lg-2">
+
+                    <li class="nav-item"><a class="nav-link classy-link" href="about.html">About</a></li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle classy-link" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">Programs</a>
-                        <ul class="dropdown-menu">
+
+                        <ul class="dropdown-menu classy-dropdown">
                             <li><a class="dropdown-item" href="Course-Programmes.html#ug">Undergraduate</a></li>
                             <li><a class="dropdown-item" href="Course-Programmes.html#pg">Postgraduate</a></li>
                             <li><a class="dropdown-item" href="Course-Programmes.html#diploma">Diploma</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="Course-Programmes.html">All Programs →</a></li>
+                            <li><a class="dropdown-item fw-semibold" href="Course-Programmes.html">All Programs →</a>
+                            </li>
                         </ul>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle classy-link" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">Departments</a>
-                        <ul class="dropdown-menu">
+
+                        <ul class="dropdown-menu classy-dropdown">
                             <li><a class="dropdown-item" href="ba-department.html">Department of Arts</a></li>
                             <li><a class="dropdown-item" href="bsc-department.html">Department of Science</a></li>
                             <li><a class="dropdown-item" href="bcom-department.html">Department of Commerce</a></li>
@@ -1982,24 +2091,30 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="Departments-of-SGGS-Collage.html">View All Departments
-                                    →</a></li>
+                            <li><a class="dropdown-item fw-semibold" href="Departments-of-SGGS-Collage.html">View All
+                                    Departments →</a></li>
                         </ul>
                     </li>
 
-                    <li class="nav-item"><a class="nav-link" href="Facility-in SGGS-Collage.html">Facilities</a></li>
-                    <li class="nav-item"><a class="nav-link" href="CarrerGuidance.html">Placements</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contactus copy.html">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Addimision-page.html">Admissions</a></li>
-                    <li class="nav-item">
-                        <a href="contactus copy.html" class="apply-btn">
+                    <li class="nav-item"><a class="nav-link classy-link"
+                            href="Facility-in SGGS-Collage.html">Facilities</a></li>
+                    <li class="nav-item"><a class="nav-link classy-link" href="CarrerGuidance.html">Placements</a></li>
+                    <li class="nav-item"><a class="nav-link classy-link" href="contactus copy.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link classy-link" href="Addimision-page.html">Admissions</a></li>
+
+                    <!-- CTA -->
+                    <li class="nav-item ms-lg-2">
+                        <a href="contactus copy.html" class="classy-apply-btn">
                             <i class="fas fa-graduation-cap"></i> Apply Now
                         </a>
                     </li>
+
                 </ul>
             </div>
+
         </div>
     </nav>
+
 
 
     <!-- banner -->
@@ -2016,7 +2131,7 @@
 
             <div class="carousel-item custom-carousel-item">
                 <img src="./images/banner2.jpg" alt="...">
-                
+
             </div>
 
             <div class="carousel-item custom-carousel-item">
@@ -2317,7 +2432,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="photo-card2 position-relative rounded-4 overflow-hidden shadow-sm">
-                        <img src="./images/khalsa2.jpeg" alt="Campus" class="bg" />
+                        <img src="./images/khalsa-college-mahilpur.jpg" alt="Campus" class="bg" />
                         <div class="photo-overlay2"></div>
                     </div>
                 </div>
@@ -2574,8 +2689,7 @@
             <button class="zoom" aria-label="Open image"><i class="bi bi-arrows-fullscreen"></i></button>
         </article>
         <article class="ach-card span-3x1" data-tags="academics">
-            <img src="./images/college-banner-3.jpg"
-                alt="Cultural fest" class="bg"
+            <img src="./images/college-banner-3.jpg" alt="Cultural fest" class="bg"
                 data-full="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2000&auto=format&fit=crop">
             <div class="overlay"></div>
             <div class="content">
@@ -3177,14 +3291,6 @@
     </section>
 
 
-
-
-
-
-
-
-
-
     <section class="sggs-combined">
 
         <!-- COURSES PART -->
@@ -3212,22 +3318,7 @@
             </div>
         </div>
 
-        <!-- MAP PART -->
-        <div class="sggs-map">
-            <h2 class="map-title">Find Us</h2>
-            <p class="map-text">
-                Sri Guru Gobind Singh College is easily accessible for students, parents,
-                and visitors.
-            </p>
-
-            <div class="map-box">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d716.1707140950099!2d76.03931659557416!3d31.367222725986633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391ae9665cdaaf79%3A0x80d2b85a4c1ba8e3!2sSGGS%20KHALSA%20COLLEGE%20MAHILPUR!5e0!3m2!1sen!2sin!4v1765658916770!5m2!1sen!2sin"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </iframe>
-            </div>
-        </div>
+       
 
     </section>
 
@@ -3275,6 +3366,23 @@
                 <div class="company"><img src="./logo/Tech Mahindra.png" alt="Tech Mahindra"></div>
                 <div class="company"><img src="./logo/my flipcart.png" alt="Flipkart"></div>
                 <div class="company"><img src="./logo/Walmart.png" alt="Walmart Labs"></div>
+            </div>
+
+        </div>
+         <!-- MAP PART -->
+        <div class="sggs-map">
+            <h2 class="map-title">Find Us</h2>
+            <p class="map-text">
+                Sri Guru Gobind Singh College is easily accessible for students, parents,
+                and visitors.
+            </p>
+
+            <div class="map-box">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d716.1707140950099!2d76.03931659557416!3d31.367222725986633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391ae9665cdaaf79%3A0x80d2b85a4c1ba8e3!2sSGGS%20KHALSA%20COLLEGE%20MAHILPUR!5e0!3m2!1sen!2sin!4v1765658916770!5m2!1sen!2sin"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </iframe>
             </div>
         </div>
     </section>
@@ -3381,23 +3489,14 @@
                 </ul>
             </div>
 
-
-
         </div>
-
         <div class="footer-bottom">
             <p>© 2025 SGGS College | Designed & Maintained by SGGS Web Team</p>
         </div>
     </footer>
 
-
-
     <!-- footer end -->
-
     <!-- Toast (Form submission) -->
-
-
-
 
     <!-- old js -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
