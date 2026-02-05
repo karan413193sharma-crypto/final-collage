@@ -9,30 +9,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="./css/style.css">
-     <!-- BOOTSTRAP CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- BOOTSTRAP JS (for toggle + dropdown)  -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
- 
-         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
-        
-         <link rel="stylesheet" href="./css/navbar.css">
-         <link rel="stylesheet" href="./css/footer.css">
+    <!-- BOOTSTRAP JS (for toggle + dropdown)  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <style>
-      
+        .highlight-points,
+        .outcomes-list {
+            list-style: none !important;
+            padding-left: 0 !important;
+            margin: 1.5rem 0 !important;
+            text-align: left !important;
+        }
 
-  
-.highlight-points,
-.outcomes-list {
-    list-style: none !important;
-    padding-left: 0 !important;
-    margin: 1.5rem 0 !important;
-    text-align: left !important;
-}
-
-/* {
+        /* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -196,7 +193,8 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
- /* Animations */
+
+        /* Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -651,381 +649,397 @@
         }
 
         /* ================================================== */
-/* --- HERO SECTION MEDIA QUERIES --- */
-/* ================================================== */
+        /* --- HERO SECTION MEDIA QUERIES --- */
+        /* ================================================== */
 
-/* 1. Desktop / Large Tablet Adjustments (max-width: 1200px) */
-@media (max-width: 1200px) {
-    /* Adjust container padding if necessary, but focusing on hero content */
-    .hero-content {
-        padding: 0 1.5rem; /* Ensure content is contained within padding */
-    }
-}
+        /* 1. Desktop / Large Tablet Adjustments (max-width: 1200px) */
+        @media (max-width: 1200px) {
 
-/* 2. Tablet / Landscape Mobile Adjustments (max-width: 992px) */
-@media (max-width: 992px) {
-    .program-hero {
-        padding: 100px 24px 80px; /* Reduced vertical padding */
-        min-height: 500px;
-    }
+            /* Adjust container padding if necessary, but focusing on hero content */
+            .hero-content {
+                padding: 0 1.5rem;
+                /* Ensure content is contained within padding */
+            }
+        }
 
-    .hero h1 {
-        font-size: 3.5rem; /* Slightly smaller heading */
-    }
+        /* 2. Tablet / Landscape Mobile Adjustments (max-width: 992px) */
+        @media (max-width: 992px) {
+            .program-hero {
+                padding: 100px 24px 80px;
+                /* Reduced vertical padding */
+                min-height: 500px;
+            }
 
-    .hero p {
-        font-size: 1.25rem; /* Slightly smaller lead text */
-        margin-bottom: 40px;
-    }
-}
+            .hero h1 {
+                font-size: 3.5rem;
+                /* Slightly smaller heading */
+            }
 
-/* 3. Portrait Tablet / Mobile Adjustments (max-width: 768px) */
-@media (max-width: 768px) {
-    .program-hero {
-        padding: 80px 16px 60px;
-        min-height: 450px;
-    }
+            .hero p {
+                font-size: 1.25rem;
+                /* Slightly smaller lead text */
+                margin-bottom: 40px;
+            }
+        }
 
-    .college-badge {
-        width: 60px;
-        height: 60px;
-        font-size: 2rem;
-        margin-bottom: 15px;
-    }
+        /* 3. Portrait Tablet / Mobile Adjustments (max-width: 768px) */
+        @media (max-width: 768px) {
+            .program-hero {
+                padding: 80px 16px 60px;
+                min-height: 450px;
+            }
 
-    .hero h1 {
-        /* Use clamp for fluid sizing between 2.5rem and 3rem */
-        font-size: clamp(2.5rem, 8vw, 3rem); 
-        margin-bottom: 15px;
-    }
+            .college-badge {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
 
-    .hero p {
-        font-size: 1.1rem;
-        margin-bottom: 30px;
-    }
+            .hero h1 {
+                /* Use clamp for fluid sizing between 2.5rem and 3rem */
+                font-size: clamp(2.5rem, 8vw, 3rem);
+                margin-bottom: 15px;
+            }
 
-    /* Stats Bar Adjustments for stacking */
-    .stats-bar {
-        padding: 24px 20px;
-        gap: 20px; /* Reduced space between stats */
-    }
-    
-    .stat-number {
-        font-size: 1.8rem;
-    }
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
 
-    .stat-label {
-        font-size: 0.8rem;
-    }
-}
+            /* Stats Bar Adjustments for stacking */
+            .stats-bar {
+                padding: 24px 20px;
+                gap: 20px;
+                /* Reduced space between stats */
+            }
 
-/* 4. Small Mobile Adjustments (max-width: 576px) */
-@media (max-width: 576px) {
-    /* Stack the stats bar items vertically to prevent overflow */
-    .stats-bar {
-        flex-direction: column;
-        align-items: stretch;
-        border-radius: 12px;
-        padding: 20px 15px;
-        margin: 0 10px; /* Minor horizontal margin to prevent touching screen edges */
-    }
+            .stat-number {
+                font-size: 1.8rem;
+            }
 
-    .stat-item {
-        padding: 10px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separator when stacked */
-    }
+            .stat-label {
+                font-size: 0.8rem;
+            }
+        }
 
-    .stat-item:last-child {
-        border-bottom: none;
-    }
+        /* 4. Small Mobile Adjustments (max-width: 576px) */
+        @media (max-width: 576px) {
 
-    .stat-divider {
-        display: none; /* Hide vertical divider when stacking */
-    }
-    
-    /* Ensure the existing small mobile adjustment is incorporated */
-    .program-hero h1 { 
-        font-size: 2.2rem !important; 
-    }
-}
+            /* Stack the stats bar items vertically to prevent overflow */
+            .stats-bar {
+                flex-direction: column;
+                align-items: stretch;
+                border-radius: 12px;
+                padding: 20px 15px;
+                margin: 0 10px;
+                /* Minor horizontal margin to prevent touching screen edges */
+            }
+
+            .stat-item {
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                /* Separator when stacked */
+            }
+
+            .stat-item:last-child {
+                border-bottom: none;
+            }
+
+            .stat-divider {
+                display: none;
+                /* Hide vertical divider when stacking */
+            }
+
+            /* Ensure the existing small mobile adjustment is incorporated */
+            .program-hero h1 {
+                font-size: 2.2rem !important;
+            }
+        }
     </style>
 </head>
 
 <body>
-    
-   <div id="navbar"></div>
 
-        <!-- Hero Section -->
-       <section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-particles"></div>
-    <div class="hero-content">
-        <div class="college-badge">
-            <i class="fas fa-graduation-cap" style="font-size: 50px;"></i>
-        </div>
-        <h1 class="fade-in">B.Voc</h1>
-        <p class="fade-in-delay">3 Years | 6 Semesters | Skill-Oriented Vocational Curriculum</p>
-        <div class="stats-bar fade-in-delay-2">
-    <div class="stat-item">
-        <div class="stat-number">30+</div>
-        <div class="stat-label">Courses & <br>Programs</div>
-    </div>
+    <div id="navbar"></div>
 
-    <div class="stat-divider"></div>
-
-    <div class="stat-item">
-        <div class="stat-number">20+</div>
-        <div class="stat-label">Undergraduate <br>Programs</div>
-    </div>
-
-    <div class="stat-divider"></div>
-
-    <div class="stat-item">
-        <div class="stat-number">10+</div>
-        <div class="stat-label">Postgraduate <br> Programs</div>
-    </div>
-
-    <div class="stat-divider"></div>
-
-    <div class="stat-item">
-        <div class="stat-number">5+</div>
-        <div class="stat-label">Diploma & <br> Add-On Courses</div>
-    </div>
-</div>
-    </div>
-</section>
- <div class="container"></div>
-        <!-- Description -->
-        <div class="section-card">
-            <h2 class="desc-title">Why Choose B.Voc at SGGS Khalsa College Mahilpur?</h2>
-            <p><b>B.Voc at SGGS Khalsa College Mahilpur</b> focuses on skill development, industry-ready training, and practical exposure. Students gain hands-on experience in their chosen vocational streams and enhance employability.</p>
-            <ul class="highlight-points">
-                <li>Industry-Integrated Curriculum</li>
-                <li>Hands-on Practical Training & Projects</li>
-                <li>Internship & Industrial Exposure</li>
-                <li>Skill Development Workshops</li>
-                <li>Experienced Faculty Guidance</li>
-                <li>Career-Oriented Learning & Placement Opportunities</li>
-            </ul>
-        </div>
-
-        <!-- Overview Section -->
-        <div class="summary-section">
-            <div class="summary-content">
-                <h2>B.Voc – Overview</h2>
-                <p><strong>B.Voc</strong> is a 3-year undergraduate program focused on <strong>vocational skills, practical training, and industry-oriented knowledge</strong> to make students job-ready.</p>
-                <h3>Why Choose B.Voc?</h3>
-                <ul>
-                    <li>Hands-on training in industry-relevant skills</li>
-                    <li>Develop professional, managerial, and technical skills</li>
-                    <li>Opportunities for internships, projects, and industrial visits</li>
-                    <li>Prepares for employment, entrepreneurship, or higher vocational studies</li>
-                </ul>
-                <h3>Career Opportunities</h3>
-                <p>Graduates can work as skilled professionals, project associates, industry trainees, or entrepreneurs in their chosen vocational domain.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-particles"></div>
+        <div class="hero-content">
+            <div class="college-badge">
+                <i class="fas fa-graduation-cap" style="font-size: 50px;"></i>
             </div>
-            <div class="summary-image">
-                 <img src="./images/course.jpg" height="300px" alt="B.Voc Course Image">
-                <i class="bi bi-zoom-in"></i>
-            </div>
-        </div>
+            <h1 class="fade-in">B.Voc</h1>
+            <p class="fade-in-delay">3 Years | 6 Semesters | Skill-Oriented Vocational Curriculum</p>
+            <div class="stats-bar fade-in-delay-2">
+                <div class="stat-item">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Courses & <br>Programs</div>
+                </div>
 
-        <!-- Admission -->
-        <div class="section-card">
-            <div class="card-title">Admission</div>
-            <p class="desc-text">Admissions for B.Voc are open! Eligible students (10+2 pass in relevant streams) can apply online.</p>
-        </div>
+                <div class="stat-divider"></div>
 
-        <!-- Duration & Eligibility -->
-        <div class="duration-section">
-            <div class="duration-content">
-                <h2>Course Duration & Eligibility</h2>
-                <p>The B.Voc program is a 3-year course divided into 6 semesters.</p>
-                <div class="duration-details">
-                    <div class="detail-box">
-                        <h3>Duration</h3>
-                        <p>3 Years (6 Semesters)</p>
-                    </div>
-                    <div class="detail-box">
-                        <h3>Eligibility</h3>
-                        <p>10+2 Pass in any relevant stream from a recognized board</p>
-                    </div>
+                <div class="stat-item">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Undergraduate <br>Programs</div>
+                </div>
+
+                <div class="stat-divider"></div>
+
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Postgraduate <br> Programs</div>
+                </div>
+
+                <div class="stat-divider"></div>
+
+                <div class="stat-item">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Diploma & <br> Add-On Courses</div>
                 </div>
             </div>
         </div>
+    </section>
+    <div class="container"></div>
+    <!-- Description -->
+    <div class="section-card">
+        <h2 class="desc-title">Why Choose B.Voc at SGGS Khalsa College Mahilpur?</h2>
+        <p><b>B.Voc at SGGS Khalsa College Mahilpur</b> focuses on skill development, industry-ready training, and
+            practical exposure. Students gain hands-on experience in their chosen vocational streams and enhance
+            employability.</p>
+        <ul class="highlight-points">
+            <li>Industry-Integrated Curriculum</li>
+            <li>Hands-on Practical Training & Projects</li>
+            <li>Internship & Industrial Exposure</li>
+            <li>Skill Development Workshops</li>
+            <li>Experienced Faculty Guidance</li>
+            <li>Career-Oriented Learning & Placement Opportunities</li>
+        </ul>
+    </div>
 
-        <!-- Program Outcomes -->
-        <div class="section-card">
-            <div class="card-title">Program Outcomes</div>
-            <ul class="outcomes-list">
-                <li>Acquire vocational skills aligned with industry needs</li>
-                <li>Gain hands-on experience through projects and practical sessions</li>
-                <li>Develop professional and technical competencies</li>
-                <li>Enhance employability and entrepreneurship capabilities</li>
-                <li>Prepare for higher studies or specialized vocational courses</li>
+    <!-- Overview Section -->
+    <div class="summary-section">
+        <div class="summary-content">
+            <h2>B.Voc – Overview</h2>
+            <p><strong>B.Voc</strong> is a 3-year undergraduate program focused on <strong>vocational skills, practical
+                    training, and industry-oriented knowledge</strong> to make students job-ready.</p>
+            <h3>Why Choose B.Voc?</h3>
+            <ul>
+                <li>Hands-on training in industry-relevant skills</li>
+                <li>Develop professional, managerial, and technical skills</li>
+                <li>Opportunities for internships, projects, and industrial visits</li>
+                <li>Prepares for employment, entrepreneurship, or higher vocational studies</li>
             </ul>
+            <h3>Career Opportunities</h3>
+            <p>Graduates can work as skilled professionals, project associates, industry trainees, or entrepreneurs in
+                their chosen vocational domain.</p>
         </div>
+        <div class="summary-image">
+            <img src="./images/course.jpg" height="300px" alt="B.Voc Course Image">
+            <i class="bi bi-zoom-in"></i>
+        </div>
+    </div>
 
-        <!-- Career Opportunities -->
-        <div class="section-card">
-            <div class="card-title">Career Opportunities</div>
-            <div class="career-grid">
-                <div class="career-box">Industry Trainee</div>
-                <div class="career-box">Project Associate</div>
-                <div class="career-box">Entrepreneur</div>
-                <div class="career-box">Skilled Professional</div>
-                <div class="career-box">Freelancer / Consultant</div>
-                <div class="career-box">Higher Studies / Certifications</div>
-            </div>
-        </div>
+    <!-- Admission -->
+    <div class="section-card">
+        <div class="card-title">Admission</div>
+        <p class="desc-text">Admissions for B.Voc are open! Eligible students (10+2 pass in relevant streams) can apply
+            online.</p>
+    </div>
 
-        <!-- Semester Tables -->
-        <div class="section-card">
-            <div class="card-title">First Year</div>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Semester</th>
-                        <th>Subjects</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>First Semester</td>
-                        <td>Vocational Foundation, Communication Skills, Computer Applications, Industry Basics</td>
-                    </tr>
-                    <tr>
-                        <td>Second Semester</td>
-                        <td>Domain-specific Skill Training, Practical Labs, Entrepreneurship Basics</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="section-card">
-            <div class="card-title">Second Year</div>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Semester</th>
-                        <th>Subjects</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Third Semester</td>
-                        <td>Advanced Skill Training, Industry Project I, Soft Skills</td>
-                    </tr>
-                    <tr>
-                        <td>Fourth Semester</td>
-                        <td>Advanced Practical Labs, Entrepreneurship Project, Industrial Visits</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="section-card">
-            <div class="card-title">Third Year</div>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Semester</th>
-                        <th>Subjects</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Fifth Semester</td>
-                        <td>Industry Project II, Advanced Domain Skills, Internship Preparation</td>
-                    </tr>
-                    <tr>
-                        <td>Sixth Semester</td>
-                        <td>Internship / Industrial Training, Final Project, Career Guidance</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Syllabus Accordion -->
-        <div class="section-card">
-            <div class="card-title">B.Voc – Detailed Syllabus</div>
-            <button class="accordion">First Year – Semester I</button>
-            <div class="panel">
-                <ul>
-                    <li>Vocational Foundation</li>
-                    <li>Communication Skills</li>
-                    <li>Computer Applications</li>
-                    <li>Industry Basics</li>
-                </ul>
-            </div>
-            <button class="accordion">First Year – Semester II</button>
-            <div class="panel">
-                <ul>
-                    <li>Domain-specific Skill Training</li>
-                    <li>Practical Labs</li>
-                    <li>Entrepreneurship Basics</li>
-                </ul>
-            </div>
-            <button class="accordion">Second Year – Semester III</button>
-            <div class="panel">
-                <ul>
-                    <li>Advanced Skill Training</li>
-                    <li>Industry Project I</li>
-                    <li>Soft Skills</li>
-                </ul>
-            </div>
-            <button class="accordion">Second Year – Semester IV</button>
-            <div class="panel">
-                <ul>
-                    <li>Advanced Practical Labs</li>
-                    <li>Entrepreneurship Project</li>
-                    <li>Industrial Visits</li>
-                </ul>
-            </div>
-            <button class="accordion">Third Year – Semester V</button>
-            <div class="panel">
-                <ul>
-                    <li>Industry Project II</li>
-                    <li>Advanced Domain Skills</li>
-                    <li>Internship Preparation</li>
-                </ul>
-            </div>
-            <button class="accordion">Third Year – Semester VI</button>
-            <div class="panel">
-                <ul>
-                    <li>Internship / Industrial Training</li>
-                    <li>Final Project</li>
-                    <li>Career Guidance</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Faculty Section -->
-        <section class="faculty-section py-5" style="background: #f0f8ff;">
-            <div class="container">
-                <h2 class="text-center mb-4" style="font-size: 32px; color:#8C1007; font-weight:700;">B.Voc Department Faculty</h2>
-                <div class="faculty-wrapper">
-                    <div class="faculty-card">
-                        <h4>Dr. Neha Verma</h4>
-                        <p>Vocational Studies, Ph.D.</p>
-                        <p>Email: neha@example.com<br>Phone: 98765-43233</p>
-                    </div>
-                    <div class="faculty-card">
-                        <h4>Mr. Rajesh Kumar</h4>
-                        <p>Industry Expert</p>
-                        <p>Email: rajesh@example.com<br>Phone: 98765-43234</p>
-                    </div>
-                    <div class="faculty-card">
-                        <h4>Ms. Priya Singh</h4>
-                        <p>Vocational Trainer</p>
-                        <p>Email: priya@example.com<br>Phone: 98765-43235</p>
-                    </div>
+    <!-- Duration & Eligibility -->
+    <div class="duration-section">
+        <div class="duration-content">
+            <h2>Course Duration & Eligibility</h2>
+            <p>The B.Voc program is a 3-year course divided into 6 semesters.</p>
+            <div class="duration-details">
+                <div class="detail-box">
+                    <h3>Duration</h3>
+                    <p>3 Years (6 Semesters)</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Eligibility</h3>
+                    <p>10+2 Pass in any relevant stream from a recognized board</p>
                 </div>
             </div>
-        </section>
-
-        <!-- Apply Now Button -->
-        <div style="text-align: center; margin: 50px 0;">
-            <a href="Addimision-page.html" class="apply-btn">Apply Now</a>
         </div>
+    </div>
+
+    <!-- Program Outcomes -->
+    <div class="section-card">
+        <div class="card-title">Program Outcomes</div>
+        <ul class="outcomes-list">
+            <li>Acquire vocational skills aligned with industry needs</li>
+            <li>Gain hands-on experience through projects and practical sessions</li>
+            <li>Develop professional and technical competencies</li>
+            <li>Enhance employability and entrepreneurship capabilities</li>
+            <li>Prepare for higher studies or specialized vocational courses</li>
+        </ul>
+    </div>
+
+    <!-- Career Opportunities -->
+    <div class="section-card">
+        <div class="card-title">Career Opportunities</div>
+        <div class="career-grid">
+            <div class="career-box">Industry Trainee</div>
+            <div class="career-box">Project Associate</div>
+            <div class="career-box">Entrepreneur</div>
+            <div class="career-box">Skilled Professional</div>
+            <div class="career-box">Freelancer / Consultant</div>
+            <div class="career-box">Higher Studies / Certifications</div>
+        </div>
+    </div>
+
+    <!-- Semester Tables -->
+    <div class="section-card">
+        <div class="card-title">First Year</div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Semester</th>
+                    <th>Subjects</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>First Semester</td>
+                    <td>Vocational Foundation, Communication Skills, Computer Applications, Industry Basics</td>
+                </tr>
+                <tr>
+                    <td>Second Semester</td>
+                    <td>Domain-specific Skill Training, Practical Labs, Entrepreneurship Basics</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="section-card">
+        <div class="card-title">Second Year</div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Semester</th>
+                    <th>Subjects</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Third Semester</td>
+                    <td>Advanced Skill Training, Industry Project I, Soft Skills</td>
+                </tr>
+                <tr>
+                    <td>Fourth Semester</td>
+                    <td>Advanced Practical Labs, Entrepreneurship Project, Industrial Visits</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="section-card">
+        <div class="card-title">Third Year</div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Semester</th>
+                    <th>Subjects</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Fifth Semester</td>
+                    <td>Industry Project II, Advanced Domain Skills, Internship Preparation</td>
+                </tr>
+                <tr>
+                    <td>Sixth Semester</td>
+                    <td>Internship / Industrial Training, Final Project, Career Guidance</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Syllabus Accordion -->
+    <div class="section-card">
+        <div class="card-title">B.Voc – Detailed Syllabus</div>
+        <button class="accordion">First Year – Semester I</button>
+        <div class="panel">
+            <ul>
+                <li>Vocational Foundation</li>
+                <li>Communication Skills</li>
+                <li>Computer Applications</li>
+                <li>Industry Basics</li>
+            </ul>
+        </div>
+        <button class="accordion">First Year – Semester II</button>
+        <div class="panel">
+            <ul>
+                <li>Domain-specific Skill Training</li>
+                <li>Practical Labs</li>
+                <li>Entrepreneurship Basics</li>
+            </ul>
+        </div>
+        <button class="accordion">Second Year – Semester III</button>
+        <div class="panel">
+            <ul>
+                <li>Advanced Skill Training</li>
+                <li>Industry Project I</li>
+                <li>Soft Skills</li>
+            </ul>
+        </div>
+        <button class="accordion">Second Year – Semester IV</button>
+        <div class="panel">
+            <ul>
+                <li>Advanced Practical Labs</li>
+                <li>Entrepreneurship Project</li>
+                <li>Industrial Visits</li>
+            </ul>
+        </div>
+        <button class="accordion">Third Year – Semester V</button>
+        <div class="panel">
+            <ul>
+                <li>Industry Project II</li>
+                <li>Advanced Domain Skills</li>
+                <li>Internship Preparation</li>
+            </ul>
+        </div>
+        <button class="accordion">Third Year – Semester VI</button>
+        <div class="panel">
+            <ul>
+                <li>Internship / Industrial Training</li>
+                <li>Final Project</li>
+                <li>Career Guidance</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Faculty Section -->
+    <section class="faculty-section py-5" style="background: #f0f8ff;">
+        <div class="container">
+            <h2 class="text-center mb-4" style="font-size: 32px; color:#8C1007; font-weight:700;">B.Voc Department
+                Faculty</h2>
+            <div class="faculty-wrapper">
+                <div class="faculty-card">
+                    <h4>Dr. Neha Verma</h4>
+                    <p>Vocational Studies, Ph.D.</p>
+                    <p>Email: neha@example.com<br>Phone: 98765-43233</p>
+                </div>
+                <div class="faculty-card">
+                    <h4>Mr. Rajesh Kumar</h4>
+                    <p>Industry Expert</p>
+                    <p>Email: rajesh@example.com<br>Phone: 98765-43234</p>
+                </div>
+                <div class="faculty-card">
+                    <h4>Ms. Priya Singh</h4>
+                    <p>Vocational Trainer</p>
+                    <p>Email: priya@example.com<br>Phone: 98765-43235</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apply Now Button -->
+    <div style="text-align: center; margin: 50px 0;">
+        <a href="Addimision-page.html" class="apply-btn">Apply Now</a>
+    </div>
 
     </div> <!-- End container -->
 
@@ -1044,20 +1058,20 @@
             });
         });
     </script>
-<div id="footer"></div>
+    <div id="footer"></div>
 
-  <script>
-  // Load Navbar
-  fetch('./component/navbar.html')
-    .then(response => response.text())
-    .then(data => document.getElementById('navbar').innerHTML = data);
+    <script>
+        // Load Navbar
+        fetch('./component/navbar.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('navbar').innerHTML = data);
 
-  // Load Footer
-  fetch('./component/footer.html')
-    .then(response => response.text())
-    .then(data => document.getElementById('footer').innerHTML = data);
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        // Load Footer
+        fetch('./component/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
