@@ -589,307 +589,241 @@
         </div>
 
     </div>
+<!-- ONLY JS PART UPDATED (keep your HTML + CSS same) -->
 
-    <!-- showing uploaded news -->
-    <script>
-        async function loadNews() {
-            const token = localStorage.getItem("token");
+<script>
+// SHOW SECTION
+function showSection(sectionId, el) {
+    document.querySelectorAll('.main > div').forEach(div => div.classList.add('hidden'));
+    document.getElementById(sectionId).classList.remove('hidden');
+    document.querySelectorAll('.sidebar ul li').forEach(li => li.classList.remove('active'));
+    el.classList.add('active');
+}
 
-            try {
-                const res = await fetch("https://final-collage-1.onrender.com/news");
+// LOGOUT
+function logout() {
+    localStorage.removeItem("token");
+    window.location.href = "login.html";
+}
+</script>
 
-                if (!res.ok) throw new Error("Failed to fetch news");
+<!-- ================= NEWS ================= -->
 
-                const news = await res.json();
-                const container = document.getElementById("uploaded");
-                container.innerHTML = "";
+<script>
+// LOAD NEWS
+async function loadNews() {
+    try {
+        const res = await fetch("https://final-collage-1.onrender.com/news");
+        const news = await res.json();
 
-                news.forEach((item, index) => {
-                    const imageUrl = item.image;
+        const container = document.getElementById("uploaded");
+        container.innerHTML = "";
 
-                    container.insertAdjacentHTML("beforeend", `
-    <div class="news-card ${index === 0 ? "big-card" : "small-card"}">
-        <img src="${imageUrl}" alt="">
-        <div class="overlay"></div>
-        <h3>${item.title}</h3>
+        news.forEach((item, index) => {
+            const imageUrl = `https://final-collage-1.onrender.com${item.image}`;
 
-        <button 
-        class="delete-btn" 
-        onclick="deleteNews('${item._id}')"
-        title="Delete News"
-        >
-        <i class="fa-solid fa-trash"></i>
-        </button>
-    </div>
-    `);
+            container.insertAdjacentHTML("beforeend", `
+                <div class="news-card ${index === 0 ? "big-card" : "small-card"}">
+                    <img src="${imageUrl}" alt="">
+                    <div class="overlay"></div>
+                    <h3>${item.title}</h3>
 
-                });
-
-            } catch (err) {
-                console.error(err);
-                document.getElementById("uploaded").innerHTML =
-                    "<p style='color:red'>Failed to load news</p>";
-            }
-        }
-
-        // Load news when page loads
-        loadNews();
-    </script>
-    <script>
-        async function deleteNews(id) {
-            if (!confirm("Delete this news?")) return;
-
-            const token = localStorage.getItem("token");
-
-            try {
-                const res = await fetch(`https://final-collage-1.onrender.com/news/${id}`, {
-                    method: "DELETE",
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                });
-
-                if (!res.ok) throw new Error("Delete failed");
-
-                alert("News deleted");
-                loadNews(); // refresh list
-
-            } catch (err) {
-                alert("Error deleting news");
-            }
-        }
-
-    </script>
-
-    <script>
-        // SHOW SECTION FUNCTION
-        function showSection(sectionId, el) {
-            document.querySelectorAll('.main > div').forEach(div => div.classList.add('hidden'));
-            document.getElementById(sectionId).classList.remove('hidden');
-            document.querySelectorAll('.sidebar ul li').forEach(li => li.classList.remove('active'));
-            el.classList.add('active');
-        }
-        // LOGOUT
-        function logout() {
-            localStorage.removeItem("token");
-            window.location.href = "login.html";
-        }
-
-        // UNIFIED FETCH FUNCTION
-        function fetchTableData(url, tbodyId, mapCallback, countId) {
-            fetch(url, {
-                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
-            })
-                .then(res => {
-                    if (!res.ok) window.location.href = "login.html"; // redirect on 401/403
-                    return res.json();
-                })
-                .then(data => {
-                    document.getElementById(tbodyId).innerHTML =
-                        data.map((item, index) => mapCallback(item, index)).join('');
-                    if (countId) document.getElementById(countId).textContent = data.length;
-                })
-                .catch(err => console.log(err));
-        }
-
-
-        //
-
-        // FETCH USERS / ADMISSIONS
-        fetchTableData("https://final-collage-1.onrender.com/users", "admissionbody", (item, index) => `
-        <tr>
-             <td>${index + 1}</td>
-            <td>${item.fullName}</td>
-            <td>${item.course}</td> 
-            <td>${item.gender}</td>
-            <td>${item.category}</td>
-            <td>${item.fatherName}</td>
-            <td>${item.motherName}</td>
-            <td>${item.previousSchool}</td>
-           <td>${datetime}</td>
-        </tr>
-    `, "totalAdmissions");
-        // FETCH MESSAGES
-        fetchTableData("https://final-collage-1.onrender.com/messages", "messagebody", (item, index) => `
-        <tr>
-            <td>${index + 1}</td>
-            <td>${item.name}</td>
-            <td>${item.email}</td>
-            <td>${item.subject || '-'}</td>
-            <td>${item.message}</td>
-            <td>${datetime}</td>
-        </tr>
-    `, "totalMessages");
-
-    </script>
-    <script>
-        const form = document.getElementById("uploadForm");
-        const msg = document.getElementById("msg");
-
-        form.addEventListener("submit", async (e) => {
-            e.preventDefault();
-
-            const formData = new FormData(form);
-            const token = localStorage.getItem("token");
-
-            if (!token) {
-                alert("Please login again");
-                return;
-            }
-            try {
-                const res = await fetch("https://final-collage-1.onrender.com/news", {
-                    method: "POST",
-                    headers: {
-                        Authorization: "Bearer " + token
-                    },
-                    body: formData
-                });
-
-                if (!res.ok) {
-                    const errText = await res.text();
-                    console.log("Backend Error:", errText);
-                    throw new Error(errText);
-                }
-                const data = await res.json();
-                msg.innerText = "News uploaded successfully!";
-                form.reset();
-
-                if (typeof loadNews === "function") {
-                    loadNews();
-                }
-
-            } catch (err) {
-                console.error(err);
-                msg.innerText = "Upload failed";
-            }
+                    <button class="delete-btn" onclick="deleteNews('${item._id}')">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            `);
         });
-    </script>
 
+    } catch {
+        document.getElementById("uploaded").innerHTML =
+            "<p style='color:red'>Failed to load news</p>";
+    }
+}
+loadNews();
 
-    <script>
-        // Fetch and filter by month
-        function fetchTableDataMonth(url, tbodyId, mapCallback, countId, monthInputId) {
-            const monthInput = document.getElementById(monthInputId);
+// DELETE NEWS
+async function deleteNews(id) {
+    if (!confirm("Delete this news?")) return;
 
-            function loadData() {
-                const monthValue = monthInput.value;
+    const token = localStorage.getItem("token");
+    console.log(token)
 
-                fetch(url, {
-                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
-                })
-                    .then(res => {
-                        if (!res.ok) window.location.href = "login.html";
-                        return res.json();
-                    })
-                    .then(data => {
-                        let filteredData = data;
+    try {
+        await fetch(`https://final-collage-1.onrender.com/news/${id}`, {
+            method: "DELETE",
+            headers: { Authorization: `Bearer ${token}` }
+        });
 
-                        if (monthValue) {
-                            const [year, month] = monthValue.split("-");
-                            filteredData = data.filter(item => {
-                                if (!item.createdAt) return false;
-                                const d = new Date(item.createdAt);
-                                return d.getFullYear() === +year && d.getMonth() + 1 === +month;
-                            });
-                        }
+        alert("Deleted");
+        loadNews();
 
-                        document.getElementById(tbodyId).innerHTML =
-                            filteredData.map((item, index) => mapCallback(item, index)).join("")
+    } catch {
+        alert("Delete failed");
+    }
+}
 
+// UPLOAD NEWS
+const form = document.getElementById("uploadForm");
+const msg = document.getElementById("msg");
 
-                        if (countId) document.getElementById(countId).textContent = filteredData.length;
-                    })
-                    .catch(console.error);
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const token = localStorage.getItem("token");
+    console.log(token)
+
+    if (!token) return alert("Login again");
+
+    const formData = new FormData(form);
+    console.log(formData)
+
+    try {
+        const res = await fetch("https://final-collage-1.onrender.com/news", {
+            method: "POST",
+            headers: { Authorization: "Bearer " + token },
+            body: formData
+        });
+        console.log("data")
+
+        if (!res.ok) throw new Error();
+
+        msg.innerText = "Uploaded ✅";
+        msg.style.color = "green";
+
+        form.reset();
+        loadNews();
+
+    } catch {
+        msg.innerText = "Upload failed ❌";
+        msg.style.color = "red";
+    }
+
+    setTimeout(() => msg.innerText = "", 3000);
+});
+</script>
+
+<!-- ================= COMMON FUNCTION ================= -->
+
+<script>
+function fetchTableDataMonth(url, tbodyId, mapCallback, countId, monthInputId) {
+    const monthInput = document.getElementById(monthInputId);
+
+    async function loadData() {
+        try {
+            const res = await fetch(url, {
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+            });
+
+            if (!res.ok) return window.location.href = "login.html";
+
+            const data = await res.json();
+            let filtered = data;
+
+            if (monthInput.value) {
+                const [year, month] = monthInput.value.split("-");
+                filtered = data.filter(item => {
+                    if (!item.createdAt) return false;
+                    const d = new Date(item.createdAt);
+                    return d.getFullYear() == year && (d.getMonth()+1) == month;
+                });
             }
 
-            monthInput.addEventListener("change", loadData);
-            loadData();
+            document.getElementById(tbodyId).innerHTML =
+                filtered.map((item, i) => mapCallback(item, i)).join("");
+
+            if (countId) document.getElementById(countId).textContent = filtered.length;
+
+        } catch (err) {
+            console.error(err);
         }
+    }
 
+    monthInput.addEventListener("change", loadData);
+    loadData();
+}
+</script>
 
-        fetchTableDataMonth(
-            "https://final-collage-1.onrender.com/admins",
-            "leadsBody",
-            (item, index) => {
-                const dateTime = item.createdAt
-                    ? new Date(item.createdAt).toLocaleString("en-IN", {
-                        dateStyle: "medium",
-                        timeStyle: "short"
-                    })
-                    : "-";
+<!-- ================= LEADS ================= -->
 
-                return `
+<script>
+fetchTableDataMonth(
+    "https://final-collage-1.onrender.com/admins",
+    "leadsBody",
+    (item, i) => {
+        const dateTime = item.createdAt
+            ? new Date(item.createdAt).toLocaleString("en-IN")
+            : "-";
+
+        return `
         <tr>
-            <td>${index + 1}</td>
+            <td>${i+1}</td>
             <td>${item.name}</td>
             <td>${item.email}</td>
             <td>${item.phone}</td>
             <td>${item.program}</td>
             <td>${dateTime}</td>
-        </tr>
-        `;
-            },
-            "totalLeads",
-            "leadsMonth"
-        );
+        </tr>`;
+    },
+    "totalLeads",
+    "leadsMonth"
+);
+</script>
 
+<!-- ================= ADMISSIONS ================= -->
 
-        fetchTableDataMonth(
-            "https://final-collage-1.onrender.com/users",
-            "admissionbody",
-            (item, index) => {
+<script>
+fetchTableDataMonth(
+    "https://final-collage-1.onrender.com/users",
+    "admissionbody",
+    (item, i) => {
+        const dateTime = item.createdAt
+            ? new Date(item.createdAt).toLocaleString("en-IN")
+            : "-";
 
-                const dateTime = item.createdAt
-                    ? new Date(item.createdAt).toLocaleString("en-IN", {
-                        dateStyle: "medium",
-                        timeStyle: "short"
-                    })
-                    : "-";
-
-                return `
-      <tr>
-        <td>${index + 1}</td>
-        <td>${item.fullName}</td>
-        <td>${item.course}</td>
-        <td>${item.gender}</td>
-        <td>${item.category}</td>
-        <td>${item.fatherName}</td>
-        <td>${item.motherName}</td>
-        <td>${item.previousSchool}</td>
-        
-        <td>${dateTime}</td>
-      </tr>
-    `;
-            },
-            "totalAdmissions",
-            "admissionsMonth"
-        );
-
-
-        // Messages
-        fetchTableDataMonth("https://final-collage-1.onrender.com/messages", "messagebody",
-            (item, index) => {
-
-                const dateTime = item.createdAt
-                    ? new Date(item.createdAt).toLocaleString("en-IN", {
-                        dateStyle: "medium",
-                        timeStyle: "short"
-                    })
-                    : "-";
-                return `
+        return `
         <tr>
-            <td>${index + 1}</td>
+            <td>${i+1}</td>
+            <td>${item.fullName}</td>
+            <td>${item.course}</td>
+            <td>${item.gender}</td>
+            <td>${item.category}</td>
+            <td>${item.fatherName}</td>
+            <td>${item.motherName}</td>
+            <td>${item.previousSchool}</td>
+            <td>${dateTime}</td>
+        </tr>`;
+    },
+    "totalAdmissions",
+    "admissionsMonth"
+);
+</script>
+
+<!-- ================= MESSAGES ================= -->
+
+<script>
+fetchTableDataMonth(
+    "https://final-collage-1.onrender.com/messages",
+    "messagebody",
+    (item, i) => {
+        const dateTime = item.createdAt
+            ? new Date(item.createdAt).toLocaleString("en-IN")
+            : "-";
+
+        return `
+        <tr>
+            <td>${i+1}</td>
             <td>${item.name}</td>
             <td>${item.email}</td>
             <td>${item.subject || '-'}</td>
             <td>${item.message}</td>
             <td>${dateTime}</td>
-        </tr>
-    `;
-            }, "totalMessages", "messagesMonth");
-
-    </script>
-
+        </tr>`;
+    },
+    "totalMessages",
+    "messagesMonth"
+);
+</script>
 
 </body>
 

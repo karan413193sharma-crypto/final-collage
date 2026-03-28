@@ -236,6 +236,10 @@
         .fade-in-delay-2 {
             animation: fadeIn 0.8s ease-out 0.4s both;
         }
+        #successToast{
+                     background: linear-gradient(135deg, #8c1007 0%, #b51610 100%);
+                     color:white;
+        }
     </style>
     </head>
 
@@ -362,6 +366,13 @@
     .then(response => response.text())
     .then(data => document.getElementById('footer').innerHTML = data);
 </script>
+<div class="toast-container position-fixed top-50 start-50 translate-middle">
+  <div id="successToast" class="toast text">  
+    <div class="toast-body">
+      Message sent successfully
+    </div>
+  </div>
+</div>
 </body>
 <script>
 
@@ -387,12 +398,20 @@
                 message
             })
         })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log("message stored",data)
-                 alert("Data stored successfully");
-        })
-        .catch(err=>console.error(err))
+        .then(res => res.json())
+.then(data => {
+    console.log("message stored", data);
+
+    const toastElement = document.getElementById('successToast');
+
+    const toast = new bootstrap.Toast(toastElement, {
+        delay: 3000,   // 3 seconds
+        autohide: true
+    });
+
+    toast.show();
+})
+.catch(err => console.error(err));
     }
 </script>
 

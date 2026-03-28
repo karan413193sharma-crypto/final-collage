@@ -43,9 +43,15 @@
 }
 
 .nav-logo {
-    height: 68px;
-    object-fit: contain;
-}
+        height: 68px;
+        width: 100%;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+
+    .nav-logo:hover {
+        transform: scale(1.02);
+    }
 
 .classy-link {
     color: #5b0b06 !important;

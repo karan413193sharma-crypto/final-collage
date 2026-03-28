@@ -4,6 +4,7 @@ process.on("uncaughtException", (err) => {
 process.on("unhandledRejection", (err) => {
   console.error("Unhandled Rejection:", err);
 });
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -12,48 +13,35 @@ const nodemailer = require("nodemailer");
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
-const cloudinary = require("cloudinary").v2;
-const CloudinaryStorage = require("multer-storage-cloudinary");
 
-cloudinary.config({
-  cloud_name: "dbcnoncz2",
-  api_key: "565745529828312",
-  api_secret: "Of5s4_19Md0GCINZRmkXXKWKe4M",
-});
 const app = express();
 
-app.use(express.static(path.join(__dirname,"../SGGS-Collage")));
+/* -------------------- STATIC -------------------- */
+app.use(express.static(path.join(__dirname, "../SGGS-Collage")));
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../SGGS-Collage/index.html"));
 });
 
+/* -------------------- CORS -------------------- */
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS");
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
-  if (req.method === "OPTIONS") {
-    return res.sendStatus(200); // important
-  }
-
+  if (req.method === "OPTIONS") return res.sendStatus(200);
   next();
 });
 
-app.use(cors({
-  origin: "*",
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-}));
+app.use(cors());
 
+/* -------------------- BODY -------------------- */
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-  
 /* -------------------- MongoDB -------------------- */
 mongoose
-  .connect( "mongodb+srv://karansharma:kransiar@cluster0.umieigv.mongodb.net/myAppDB?retryWrites=true&w=majority"
-)
+  .connect("mongodb+srv://karansharma:kransiar@cluster0.umieigv.mongodb.net/myAppDB?retryWrites=true&w=majority")
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
 
@@ -90,7 +78,6 @@ const newsSchema = new mongoose.Schema({
   title: String,
   description: String,
   image: String,
-  public_id:String,
   createdAt: { type: Date, default: Date.now }
 });
 
@@ -107,103 +94,90 @@ const authMiddleware = (req, res, next) => {
 
   const token = authHeader.split(" ")[1];
   try {
-  req.admin = jwt.verify(token, process.env.JWT_SECRET || "SECRET_KEY");
-  next();
-} catch (err) {
-  console.error("JWT error:", err);
-  res.status(403).json({ message: "Invalid token" });
-}
-
+    req.admin = jwt.verify(token, "SECRET_KEY");
+    next();
+  } catch (err) {
+    console.error("JWT error:", err);
+    res.status(403).json({ message: "Invalid token" });
+  }
 };
 
-/* -------------------- Multer -------------------- */
-// Multer storage for Cloudinary
-const storage = new CloudinaryStorage({
-  cloudinary: cloudinary,
-  params: {
-    folder: "news_images",
-    allowed_formats: ["jpg", "png", "jpeg"]
+/* -------------------- MULTER (LOCAL) -------------------- */
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads/");
+  },
+  filename: (req, file, cb) => {
+    const uniqueName = Date.now() + "-" + file.originalname;
+    cb(null, uniqueName);
   }
 });
 
-// Multer upload using Cloudinary storage
 const upload = multer({
-    storage,
-    limits: { fileSize: 2 * 1024 * 1024 }, // 2MB
-    fileFilter: (req, file, cb) =>
-        file.mimetype.startsWith("image/") ? cb(null, true) : cb(new Error("Only images allowed"))
+  storage,
+  limits: { fileSize: 2 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype.startsWith("image/")) cb(null, true);
+    else cb(new Error("Only images allowed"));
+  }
 });
-
 
 /* -------------------- LOGIN -------------------- */
 const adminCredentials = { UserId: "karan", password: "12345678" };
+
 app.post("/login", (req, res) => {
   const { UserId, password } = req.body;
 
-  if (
-    UserId === adminCredentials.UserId &&
-    password === adminCredentials.password
-  ) {
-    const token = jwt.sign({ role: "admin" }, "SECRET_KEY", {
-      expiresIn: "1h"
-    });
+  if (UserId === adminCredentials.UserId && password === adminCredentials.password) {
+    const token = jwt.sign({ role: "admin" }, "SECRET_KEY", { expiresIn: "1h" });
     return res.json({ success: true, token });
   }
 
   res.status(401).json({ success: false, message: "Invalid credentials" });
 });
 
-/* -------------------- FORGOT PASSWORD (OTP) -------------------- */
-const ADMIN_EMAIL = "karan413193sharma@gmail.com"; // fixed email
+/* -------------------- OTP -------------------- */
+const ADMIN_EMAIL = "karan413193sharma@gmail.com";
 let generatedOTP = null;
 let otpExpiry = null;
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "karan413193sharma@gmail.com",
+    user: ADMIN_EMAIL,
     pass: "thoj lpeh zorn dcrm"
   }
 });
 
-app.get("/version", (req, res) => {
-  res.json({ version: "cors-fixed-v1" });
-});
-
-
 app.post("/forgot", async (req, res) => {
   try {
     generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
-    otpExpiry = Date.now() + 5 * 60 * 1000; // 5 min
+    otpExpiry = Date.now() + 5 * 60 * 1000;
 
     await transporter.sendMail({
-      from: "Admin Panel <karan413193sharma@gmail.com>",
+      from: "Admin Panel",
       to: ADMIN_EMAIL,
-      subject: "Admin OTP Verification",
-      html: `<h2>Your OTP</h2><h1>${generatedOTP}</h1>`
-    }); 
-    res.json({ success: true, message: "OTP sent" });
+      subject: "OTP Verification",
+      html: `<h1>${generatedOTP}</h1>`
+    });
+
+    res.json({ success: true });
   } catch (err) {
     console.error(err);
     res.status(500).json({ success: false });
   }
 });
 
-/* -------------------- VERIFY OTP -------------------- */
 app.post("/verify", (req, res) => {
   const { otp } = req.body;
 
-  if (!generatedOTP || Date.now() > otpExpiry) {
-    return res.status(400).json({ success: false, message: "OTP expired" });
-  }
+  if (!generatedOTP || Date.now() > otpExpiry)
+    return res.status(400).json({ message: "OTP expired" });
 
-  if (otp !== generatedOTP) {
-    return res.status(400).json({ success: false, message: "Invalid OTP" });
-  }
+  if (otp !== generatedOTP)
+    return res.status(400).json({ message: "Invalid OTP" });
 
-  const token = jwt.sign({ role: "admin" }, "SECRET_KEY", {
-    expiresIn: "1h"
-  });
+  const token = jwt.sign({ role: "admin" }, "SECRET_KEY", { expiresIn: "1h" });
 
   generatedOTP = null;
   otpExpiry = null;
@@ -239,7 +213,6 @@ app.get("/messages", authMiddleware, async (req, res) => {
   res.json(await Message.find().sort({ createdAt: -1 }));
 });
 
-
 /* -------------------- NEWS -------------------- */
 app.post("/news", authMiddleware, upload.single("image"), async (req, res) => {
   if (!req.file) return res.status(400).json({ message: "Image required" });
@@ -247,8 +220,7 @@ app.post("/news", authMiddleware, upload.single("image"), async (req, res) => {
   const news = await News.create({
     title: req.body.title,
     description: req.body.description,
-    image: req.file.path,
-    public_id: req.file.public_id
+    image: `/uploads/${req.file.filename}`
   });
 
   res.status(201).json(news);
@@ -258,15 +230,13 @@ app.get("/news", async (req, res) => {
   res.json(await News.find().sort({ createdAt: -1 }).limit(5));
 });
 
-// Get single news by ID
 app.get("/news/:id", async (req, res) => {
   try {
     const news = await News.findById(req.params.id);
-    if (!news) return res.status(404).json({ message: "News not found" });
+    if (!news) return res.status(404).json({ message: "Not found" });
     res.json(news);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Failed to fetch news" });
+  } catch {
+    res.status(500).json({ message: "Error" });
   }
 });
 
@@ -274,34 +244,19 @@ app.delete("/news/:id", authMiddleware, async (req, res) => {
   const news = await News.findById(req.params.id);
   if (!news) return res.status(404).json({ message: "Not found" });
 
-  
-  if (news.public_id) {
-    try {
-      await cloudinary.uploader.destroy(news.public_id);
-    } catch (err) {
-      console.error("Cloudinary delete error:", err);
-    }
+  if (news.image) {
+  const filePath = path.join(process.cwd(), news.image);
+    fs.unlink(filePath, (err) => {
+      if (err) console.error("Delete error:", err);
+    });
   }
 
   await News.findByIdAndDelete(req.params.id);
   res.json({ message: "Deleted" });
 });
 
-
-// app.get("/", (req, res) => {
-//   res.send("Backend is running");
-// });
-
-app.use((err, req, res, next) => {
-  if (err instanceof multer.MulterError) {
-    return res.status(400).json({ message: err.message });
-  }
-  if (err) {
-    return res.status(500).json({ message: err.message });
-  }
-  next();
-});
-
+/* -------------------- STATIC UPLOAD -------------------- */
+app.use("/uploads", express.static("uploads"));
 
 /* -------------------- SERVER -------------------- */
 const PORT = process.env.PORT || 4005;
