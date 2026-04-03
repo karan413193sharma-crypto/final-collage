@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "ejs": "^4.0.1",
+    "multer-storage-cloudinary": "^4.0.0"
+  }
+}

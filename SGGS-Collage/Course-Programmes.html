@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Courses & Programs - SGGS College</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- BOOTSTRAP JS (for toggle + dropdown)  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif !important;
+            background-color: #faf7fb;
+            color: #222;
+        }
+
+        :root {
+            --brand: #8c1007;
+            --wine-red: #8C1007;
+            --brand-light: #a8332a;
+            --white: #ffffff;
+            --light: #fdf9f8;
+            --muted: #555;
+            --gray: #f5f5f5;
+            --radius: 16px;
+            --shadow: 0 10px 30px rgba(140, 16, 7, 0.08);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .fade-in-delay {
+            animation: fadeIn 0.8s ease-out 0.2s both;
+        }
+
+        .fade-in-delay-2 {
+            animation: fadeIn 0.8s ease-out 0.4s both;
+        }
+
+        .dropdown-item {
+            color: #8C1007;
+        }
+
+        .dropdown-item:hover {
+            background-color: #8C1007;
+            color: white;
+            overflow: hidden !important;
+        }
+
+        /* APPLY BUTTON */
+        .apply-btn {
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #8c1007, #b01414);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            box-shadow: 0 6px 18px rgba(140, 16, 7, 0.3);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .apply-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(140, 16, 7, 0.4);
+            background: linear-gradient(135deg, #9a1108, #c41a1a);
+
+        }
+
+        .apply-btn i {
+            font-size: 1.1rem;
+        }
+
+        /* navbar css code */
+
+        .navbar {
+            max-width: 100% !important;
+        }
+
+        .navbar-nav .nav-item {
+            white-space: nowrap;
+        }
+
+        .navbar-toggler {
+            padding: 5px 8px;
+            border: none;
+            outline: none;
+        }
+
+        .navbar-brand img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .dropdown-menu {
+            color: #8C1007;
+            overflow: hidden !important;
+        }
+
+        .dropdown-item {
+            color: #8C1007;
+        }
+
+        .dropdown-item:hover {
+            background-color: #8C1007 !important;
+            color: white;
+            overflow: hidden !important;
+        }
+
+        .nav-link {
+            color: var(--brand) !important;
+            font-weight: bold;
+        }
+
+        .navbar-collapse {
+            overflow: visible !important;
+            /* allow collapse to expand */
+            transition: height 0.3s ease;
+            /* smooth animation */
+        }
+
+        .navbar-nav .nav-item {
+            white-space: nowrap;
+            /* prevent wrapping */
+        }
+
+        @media (min-width: 992px) {
+            .navbar .dropdown:hover>.dropdown-menu {
+                display: block;
+            }
+
+            .navbar .dropdown>.dropdown-toggle:active {
+                pointer-events: none;
+            }
+        }
+
+        /* navbar css code end here */
+
+
+
+        /* 2. Hero Section Refinements */
+        .hero {
+            position: relative;
+            padding: 120px 24px 100px;
+            overflow: hidden;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            /* Move text alignment here */
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--wine-red) 0%, #b51610 30%, var(--wine-red) 60%, var(--dark-wine) 100%);
+            opacity: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.15), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1), transparent 40%);
+        }
+
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 100px 100px, 150px 150px, 200px 200px;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .college-badge {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 2.5rem;
+            color: white;
+            animation: float 3s ease-in-out infinite;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.375rem;
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 800px;
+            margin: 0 auto 48px;
+            font-weight: 500;
+        }
+
+
+        .stats-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            padding: 32px 48px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-divider {
+            width: 1px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .pro-btn {
+            background-color: #8C1007 !important;
+            color: white !important;
+        }
+
+        .pro-btn:hover {
+            background-color: white !important;
+            color: #8C1007 !important;
+        }
+
+        @media (max-width: 480px) {
+            .stats-bar {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-auto-flow: row;
+                gap: 15px 10px;
+                padding: 20px 15px;
+                max-width: 90%;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.75rem;
+            }
+
+            .stat-divider {
+                display: none;
+            }
+
+            .stats-bar .stat-item:nth-child(2n+1) {
+                border-right: 1px solid rgba(255, 255, 255, 0.3);
+            }
+        }
+
+
+        @media (max-width: 480px) {
+            .info-card {
+                padding: 1.2rem !important;
+                margin: 0 !important;
+            }
+
+            .info-card h5 {
+                font-size: 1.1rem !important;
+            }
+
+            .check-list {
+                font-size: 0.875rem !important;
+            }
+
+            .btn-sm {
+                font-size: 0.8rem !important;
+                padding: 0.4rem 0.6rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card-modal {
+                position: fixed !important;
+                top: 50% !important;
+                left: 50% !important;
+                transform: translate(-50%, -50%) !important;
+                width: 90% !important;
+                max-height: 80vh !important;
+                overflow-y: auto !important;
+                z-index: 9999 !important;
+            }
+
+            .card-modal-content {
+                max-height: 70vh;
+                overflow-y: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .row.gy-4>* {
+                padding-left: 8px !important;
+                padding-right: 8px !important;
+            }
+        }
+
+        /* View Syllabus Button */
+        .btn-outline-wine {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #8C1007;
+            /* Wine Red */
+            border: 1.5px solid #8C1007;
+            border-radius: 8px;
+            background-color: transparent;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .btn-outline-wine:hover {
+            background-color: #8C1007;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(140, 16, 7, 0.3);
+        }
+
+        .btn-outline-wine:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(140, 16, 7, 0.3);
+        }
+
+        .btn-sm.btn-outline-wine {
+            font-size: 0.8rem;
+            padding: 0.35rem 0.65rem;
+        }
+
+        /* Faculty section */
+        .faculty-section {
+            padding: 60px 20px;
+            /* slightly smaller padding for minimal feel */
+            background: var(--light);
+            color: var(--brand);
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .faculty-title {
+            text-align: center;
+            font-size: 32px;
+            /* minimal, not too big */
+            font-weight: 600;
+            color: var(--brand);
+            margin-bottom: 20px;
+        }
+
+        .faculty-desc {
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto 40px auto;
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--muted);
+        }
+
+        /* Table container for horizontal scroll on small screens */
+        .faculty-table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin-bottom: 60px;
+            /* more margin between departments */
+        }
+
+        /* Table styling */
+        .faculty-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 900px;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            font-size: 16px;
+            margin-bottom: 60px;
+            /* extra space after each table */
+        }
+
+        /* Table header */
+        .faculty-table thead th {
+            background: var(--brand);
+            color: var(--white);
+            padding: 14px 12px;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        /* Table body cells */
+        .faculty-table tbody td {
+            padding: 12px 12px;
+            border-bottom: 1px solid var(--brand-light);
+            vertical-align: middle;
+        }
+
+        /* Hover effect */
+        .faculty-table tbody tr:hover {
+            background: var(--gray);
+            transition: background 0.3s;
+        }
+
+        /* Department row */
+        .dept-row td {
+            background: var(--brand-light);
+            color: var(--white);
+            font-weight: 700;
+            text-align: center;
+            font-size: 18px;
+            padding: 14px 0;
+            margin-top: 40px;
+        }
+
+        /* Staff section title */
+        .staff-title {
+            font-size: 28px;
+            color: var(--brand);
+            margin: 50px 0 20px 0;
+            text-align: left;
+            border-bottom: 2px solid var(--brand-light);
+            padding-bottom: 5px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .faculty-table {
+                font-size: 15px;
+            }
+
+            .faculty-desc {
+                font-size: 16px;
+                line-height: 1.7;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .faculty-title {
+                font-size: 26px;
+            }
+
+            .faculty-table {
+                font-size: 14px;
+            }
+
+            .faculty-desc {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-particles"></div>
+        <div class="hero-content">
+            <div class="college-badge">
+                <i class="fas fa-university"></i>
+            </div>
+            <h1 class="fade-in">SGGS Khalsa College Programs</h1>
+            <p class="fade-in-delay">Excellence in Education Since 1991 • Empowering Minds, Building Futures</p>
+            <div class="stats-bar fade-in-delay-2">
+                <div class="stat-item">
+                    <div class="stat-number">2,247+</div>
+                    <div class="stat-label">Annul Intake</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">3000+</div>
+                    <div class="stat-label">Students</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">28 acer</div>
+                    <div class="stat-label">Campus Area</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">90+</div>
+                    <div class="stat-label">Staff</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="syllabusPopup" class="card p-3"
+        style="display:none; position:absolute; z-index:100; min-width:250px; border:1px solid #C40000;"></div>
+
+
+
+    <!-- FILTER / QUICK LINKS -->
+    <section class="bg-soft-wine">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+                <div>
+                    <h2 class="section-heading mb-2">Browse Programs</h2>
+                    <p class="section-subtitle mb-0">
+                        Quickly jump to your preferred level of study – Undergraduate, Postgraduate or Diploma.
+                    </p>
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                    <a href="#ug" class="btn btn-outline-wine pill-filter active pro-btn">Undergraduate</a>
+                    <a href="#pg" class="btn btn-outline-wine pill-filter pro-btn">Postgraduate</a>
+                    <a href="#diploma" class="btn btn-outline-wine pill-filter pro-btn">Diploma</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNDERGRADUATE PROGRAMS -->
+    <section id="ug">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-3">
+                <div>
+                    <h2 class="section-heading">Undergraduate Programs</h2>
+                    <p class="section-subtitle mb-0">
+                        3-year degree programs providing strong academic foundations and employable skills.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row gy-4">
+                <!-- Example UG Program 1 -->
+                <div class="col-md-4">
+                    <div class="info-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge-stream">Science</span>
+                            <span class="small text-muted">Duration: 3/4 Years under NEP</span>
+                        </div>
+                        <h5 class="fw-semibold mb-1">B.Sc. (Non-Medical)</h5>
+                        <p class="small text-muted mb-2">
+                            A comprehensive program focusing on core science subjects like Physics, Chemistry and
+                            Mathematics.
+                        </p>
+                        <ul class="check-list small mb-3">
+                            <li>Semester-based curriculum</li>
+                            <li>Well-equipped laboratories</li>
+                            <li>Project work / seminars</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small text-muted">Code: UG-BSC-NM</span>
+                            <!-- Change href to actual syllabus page -->
+                            <a href="bsc-non-medical.html" class="btn btn-sm btn-outline-wine ">View
+                                Syllabus</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example UG Program 2 -->
+                <div class="col-md-4">
+                    <div class="info-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge-stream">Science</span>
+                            <span class="small text-muted">Duration: 3/4 Years under NEP</span>
+                        </div>
+                        <h5 class="fw-semibold mb-1">B.Sc. (Medical)</h5>
+                        <p class="small text-muted mb-2">
+                            Program with strong emphasis on biological sciences for students interested in life-science
+                            careers.
+                        </p>
+                        <ul class="check-list small mb-3">
+                            <li>Laboratory-based learning</li>
+                            <li>Field visits / practical exposure</li>
+                            <li>Foundation for higher studies</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small text-muted">Code: UG-BSC-MED</span>
+                            <a href="bsc-medical.html" class="btn btn-sm btn-outline-wine">View Syllabus</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example UG Program 3 -->
+                <div class="col-md-4">
+                    <div class="info-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge-stream">Commerce</span>
+                            <span class="small text-muted">Duration: 3/4 Years under NEP</span>
+                        </div>
+                        <h5 class="fw-semibold mb-1">B.Com</h5>
+                        <p class="small text-muted mb-2">
+                            Commerce program designed to build strong understanding of accounting, finance and business.
+                        </p>
+                        <ul class="check-list small mb-3">
+                            <li>Practical-oriented syllabus</li>
+                            <li>Exposure to taxation &amp; auditing</li>
+                            <li>Career-ready skill sets</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small text-muted">Code: UG-BCOM</span>
+                            <a href="bcom.html" class="btn btn-sm btn-outline-wine">View Syllabus</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example UG Program 4 -->
+                <div class="col-md-4">
+                    <div class="info-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge-stream">Arts</span>
+                            <span class="small text-muted">Duration: 3/4 Years under NEP</span>
+                        </div>
+                        <h5 class="fw-semibold mb-1">B.A.</h5>
+                        <p class="small text-muted mb-2">
+                            Flexible combination of humanities and social science subjects to suit learner interests.
+                        </p>
+                        <ul class="check-list small mb-3">
+                            <li>Language &amp; literature options</li>
+                            <li>Social science specialisations</li>
+                            <li>Strong foundation for civil services</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small text-muted">Code: UG-BA</span>
+                            <a href="ba.html" class="btn btn-sm btn-outline-wine">View Syllabus</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example UG Program 5 -->
+                <div class="col-md-4">
+                    <div class="info-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge-stream">Management</span>
+                            <span class="small text-muted">Duration: 3 Years</span>
+                        </div>
+                        <h5 class="fw-semibold mb-1">BBA</h5>
+                        <p class="small text-muted mb-2">
+                            Industry-oriented program focusing on management principles, entrepreneurship and
+                            leadership.
+                        </p>
+                        <ul class="check-list small mb-3">
+                            <li>Case-study based pedagogy</li>
+                            <li>Guest lectures from industry</li>
+                            <li>Internship / project component</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small text-muted">Code: UG-BBA</span>
+                            <a href="bba.html" class="btn btn-sm btn-outline-wine">View Syllabus</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example UG Program 6 -->
+                <div class="col-md-4">
+                    <div class="info-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge-stream">Computer</span>
+                            <span class="small text-muted">Duration: 3 Years</span>
+                        </div>
+                        <h5 class="fw-semibold mb-1">B.C.A.</h5>
+                        <p class="small text-muted mb-2">
+                            Undergraduate program in Computer Applications for students interested in IT and software.
+                        </p>
+                        <ul class="check-list small mb-3">
+                            <li>Programming &amp; web technologies</li>
+                            <li>Database &amp; networking basics</li>
+                            <li>Hands-on project work</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small text-muted">Code: UG-BCA</span>
+                            <a href="bca.html" class="btn btn-sm btn-outline-wine">View Syllabus</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Example UG Program 7 -->
+                <div class="col-md-4">
+                    <div class="info-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge-stream">Fine Arts or Design</span>
+                            <span class="small text-muted">Duration: 3 Years</span>
+                        </div>
+                        <h5 class="fw-semibold mb-1">B.Sc. Fashion Designing</h5>
+                        <p class="small text-muted mb-2">
+                            Undergraduate program in Fashion Designing for students interested in creativity, design,
+                            and the fashion industry.
+                        </p>
+                        <ul class="check-list small mb-3">
+                            <li>Fashion illustration &amp; garment design</li>
+                            <li>Textile science &amp; fabric studies</li>
+                            <li>Apparel production techniques</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small text-muted">Code: UG-BSC</span>
+                            <a href="bsc-fashiondesign.html" class="btn btn-sm btn-outline-wine">View Syllabus</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Example UG Program 8 -->
+                <div class="col-md-4">
+                    <div class="info-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge-stream">Teaching and Education</span>
+                            <span class="small text-muted">Duration: 2 Years</span>
+                        </div>
+                        <h5 class="fw-semibold mb-1">B.P.Ed</h5>
+                        <p class="small text-muted mb-2">
+                            Undergraduate program in Physical Education for students interested in fitness, sports, and
+                            holistic health development.
+                        </p>
+                        <ul class="check-list small mb-3">
+                            <li>Human anatomy &amp; physiology</li>
+                            <li>Exercise science&amp; kinesiology</li>
+                            <li>Fitness assessment&amp; program design</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small text-muted">Code: UG-BPED</span>
+                            <a href="bped.html" class="btn btn-sm btn-outline-wine">View Syllabus</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Example UG Program 9 -->
+                <div class="col-md-4">
+                    <div class="info-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge-stream">Vocational</span>
+                            <span class="small text-muted">Duration: 3 Years</span>
+                        </div>
+                        <h5 class="fw-semibold mb-1">B.Voc</h5>
+                        <p class="small text-muted mb-2">
+                            Undergraduate program in Vocational Studies for students interested in skill-based
+                            professional training and industry-ready careers.
+                        </p>
+                        <ul class="check-list small mb-3">
+                            <li>Practical workshops &amp; hands-on sessions</li>
+                            <li>Entrepreneurship&amp; business management</li>
+                            <li>Industry-oriented skill training </li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small text-muted">Code: UG-BVOC</span>
+                            <a href="bvoc.html" class="btn btn-sm btn-outline-wine">View Syllabus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- POSTGRADUATE PROGRAMS -->
+    <section id="pg" class="bg-soft-wine">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-3">
+                <div>
+                    <h2 class="section-heading">Postgraduate Programs</h2>
+                    <p class="section-subtitle mb-0">
+                        Advanced programs for in-depth specialisation and research orientation.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row gy-4">
+                <!-- PG Program 1 -->
+                <div class="col-md-4">
+                    <div class="info-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge-stream">Science</span>
+                            <span class="small text-muted">Duration: 2 Years</span>
+                        </div>
+                        <h5 class="fw-semibold mb-1">M.Sc. [Subject]</h5>
+                        <p class="small text-muted mb-2">
+                            Postgraduate program focusing on advanced concepts, research methods and practical
+                            applications.
+                        </p>
+                        <ul class="check-list small mb-3">
+                            <li>Core &amp; elective papers</li>
+                            <li>Dissertation / major project</li>
+                            <li>Seminars and presentations</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small text-muted">Code: PG-MSC</span>
+                            <button class="btn btn-sm btn-outline-wine syllabus-btn">View Syllabus</button>
+
+                            <!-- Card-level popup -->
+                            <div class="card-modal">
+                                <div class="card-modal-content">
+                                    <span class="close-popup">&times;</span>
+                                    <h6 class="fw-semibold mb-2">Subjects:</h6>
+                                    <ul>
+                                        <li><a href="msc-chemistry.html">Chemistry</a></li>
+                                        <li><a href="msc-math.html">Mathematics</a></li>
+                                        <li><a href="msc-physics.html">Physics</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- PG Program 2 -->
+                <div class="col-md-4">
+                    <div class="info-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge-stream">Commerce</span>
+                            <span class="small text-muted">Duration: 2 Years</span>
+                        </div>
+                        <h5 class="fw-semibold mb-1">M.Com</h5>
+                        <p class="small text-muted mb-2">
+                            Program designed for those seeking expertise in commerce, finance and related fields.
+                        </p>
+                        <ul class="check-list small mb-3">
+                            <li>Advanced accounting &amp; finance</li>
+                            <li>Research-oriented curriculum</li>
+                            <li>Suitable for academia / industry</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small text-muted">Code: PG-MCOM</span>
+                            <a href="mcom.html" class="btn btn-sm btn-outline-wine">View Syllabus</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PG Program 3 -->
+                <div class="col-md-4">
+                    <div class="info-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge-stream">Arts</span>
+                            <span class="small text-muted">Duration: 2 Years</span>
+                        </div>
+                        <h5 class="fw-semibold mb-1">M.A. [Subject]</h5>
+                        <p class="small text-muted mb-2">
+                            Advanced degree in languages / humanities / social sciences for in-depth specialisation.
+                        </p>
+                        <ul class="check-list small mb-3">
+                            <li>Critical thinking &amp; research focus</li>
+                            <li>Paper presentations / conferences</li>
+                            <li>Base for Ph.D. / higher research</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small text-muted">Code: PG-MA</span>
+                            <button class="btn btn-sm btn-outline-wine syllabus-btn">View Syllabus</button>
+                            <!-- Card-level popup -->
+                            <div class="card-modal">
+                                <div class="card-modal-content">
+                                    <span class="close-popup">&times;</span>
+                                    <h6 class="fw-semibold mb-2">Subjects:</h6>
+                                    <ul>
+                                        <li><a href="ma-economics.html">Economics</a></li>
+                                        <li><a href="ma-english.html">English</a></li>
+                                        <li><a href="ma-hindi.html">Hindi</a></li>
+                                        <li><a href="ma-human-rights-and-duties.html">Human Rights And Duites</a></li>
+                                        <li><a href="ma-music.html">Music</a></li>
+                                        <li><a href="ma-political-science.html">Political-Science</a></li>
+                                        <li><a href="ma-punjabi.html">Punjabi</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- PG Program 4 -->
+
+                <!-- PG Program 5 -->
+                <div class="col-md-4">
+                    <div class="info-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge-stream">Computer</span>
+                            <span class="small text-muted">Duration: 2 Years</span>
+                        </div>
+                        <h5 class="fw-semibold mb-1">M.Sc </h5>
+                        <p class="small text-muted mb-2">
+                            Postgraduate program in Computer Applications for students interested in advanced IT,
+                            software development, and computer technology skills.
+                        </p>
+                        <ul class="check-list small mb-3">
+                            <li>Programming languages&amp; application development</li>
+                            <li>Industry-oriented internships</li>
+                            <li>Problem-solving&amp;coding skills</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small text-muted">Code: PG-MSC</span>
+                            <a href="msc-computer-science.html" class="btn btn-sm btn-outline-wine">View Syllabus</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- PG Program 6 -->
+                <div class="col-md-4">
+                    <div class="info-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge-stream">Physical Education</span>
+                            <span class="small text-muted">Duration: 2 Years</span>
+                        </div>
+                        <h5 class="fw-semibold mb-1">M.P.Ed. </h5>
+                        <p class="small text-muted mb-2">
+                            Postgraduate program in Physical Education for students aiming to advance their knowledge in
+                            sports, fitness, and holistic health development.
+                        </p>
+                        <ul class="check-list small mb-3">
+                            <li>Advanced exercise science&amp; kinesiology</li>
+                            <li>Research methodology in physical education</li>
+                            <li>Sports coaching&amp;performance analysis</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small text-muted">Code: PG-MPED</span>
+                            <a href="mped.html" class="btn btn-sm btn-outline-wine">View Syllabus</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- PG Program 7 -->
+                <div class="col-md-4">
+                    <div class="info-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge-stream">Fine Srts & Design</span>
+                            <span class="small text-muted">Duration: 2 Years</span>
+                        </div>
+                        <h5 class="fw-semibold mb-1">M.Sc. Fashion Designing </h5>
+                        <p class="small text-muted mb-2">
+                            Postgraduate program in Fashion Designing for students aiming to advance their creativity,
+                            design expertise, and professional skills in the fashion industry.
+                        </p>
+                        <ul class="check-list small mb-3">
+                            <li>Advanced fashion illustration & garment design</li>
+                            <li>Textile innovation & fabric technology</li>
+                            <li>Trend forecasting & styling strategies</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small text-muted">Code: PG-MSC</span>
+                            <a href="msc-fashiondesign.html" class="btn btn-sm btn-outline-wine">View Syllabus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DIPLOMA / CERTIFICATE PROGRAMS -->
+    <section id="diploma">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-3">
+                <div>
+                    <h2 class="section-heading">Diploma &amp; P.G. Diploma</h2>
+                    <p class="section-subtitle mb-0">
+                        Short-term skill-based programs designed to enhance employability and practical knowledge.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row gy-4">
+                <!-- Diploma in Physical Education -->
+                <div class="col-md-4">
+                    <div class="info-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge-stream">PHYSICAL EDUCATION</span>
+                            <span class="small text-muted">2 Years</span>
+                        </div>
+
+                        <h5 class="fw-semibold mb-1">
+                            Diploma in Physical Education (D.P.Ed.)
+                        </h5>
+
+                        <p class="small text-muted mb-2">
+                            Professional diploma course designed to prepare students for careers in physical education,
+                            sports training, and fitness instruction.
+                        </p>
+
+                        <ul class="check-list small mb-3">
+                            <li>Physical education & sports fundamentals</li>
+                            <li>Games, athletics & yoga training</li>
+                            <li>Health education & fitness development</li>
+                            <li>Teaching methods & practical training</li>
+                        </ul>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small text-muted">Code: DPEd</span>
+                            <a href="dped.html" class="btn btn-sm btn-outline-wine">
+                                View Syllabus
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge-stream">Computer</span>
+                            <span class="small text-muted">Duration: 2 Years</span>
+                        </div>
+                        <h5 class="fw-semibold mb-1">PGDCA </h5>
+                        <p class="small text-muted mb-2">
+                            Postgraduate program in Computer Applications for students interested in advanced IT,
+                            software development, and computer technology skills.
+                        </p>
+                        <ul class="check-list small mb-3">
+                            <li>Programming languages&amp; application development</li>
+                            <li>Industry-oriented internships</li>
+                            <li>Problem-solving&amp;coding skills</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small text-muted">Code: PG-PGDCA</span>
+                            <a href="pgdca.html" class="btn btn-sm btn-outline-wine">View Syllabus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <script>
+        const popup = document.getElementById('syllabusPopup');
+        const buttons = document.querySelectorAll('.syllabus-btn');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Get subjects from data attribute and split into array
+                const subjects = btn.dataset.subjects.split(',');
+
+                // Build HTML for popup
+                let html = '<h6 class="fw-semibold mb-2">Subjects:</h6>';
+                subjects.forEach(sub => {
+                    html += `<a href="#" class="d-block py-1 text-decoration-none text-danger">${sub}</a>`;
+                });
+                popup.innerHTML = html;
+
+                // Show popup
+                popup.style.display = 'block';
+
+                // Position popup under button
+                const rect = btn.getBoundingClientRect();
+                popup.style.left = rect.left + window.scrollX + 'px';
+
+                // Calculate top so it appears above the button
+                const popupHeight = popup.offsetHeight;
+                popup.style.top = rect.top + window.scrollY - popupHeight - 10 + 'px'; // 10px gap 
+            });
+        });
+
+        // Close popup if clicked outside
+        window.addEventListener('click', function (e) {
+            if (!popup.contains(e.target) && !e.target.classList.contains('syllabus-btn')) {
+                popup.style.display = 'none';
+            }
+        });
+    </script>
+    <script>
+
+        const syllabusButtons = document.querySelectorAll('.syllabus-btn');
+
+        syllabusButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const card = btn.closest('.info-card'); // get the parent card
+                const modal = card.querySelector('.card-modal');
+                modal.style.display = 'flex'; // show popup + overlay
+            });
+        });
+
+        // Close when clicking the X
+        document.querySelectorAll('.close-popup').forEach(span => {
+            span.addEventListener('click', (e) => {
+                span.closest('.card-modal').style.display = 'none';
+            });
+        });
+
+        // Close if clicked outside the popup content
+        document.querySelectorAll('.card-modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+
+    </script>
+    <div id="footer"></div>
+
+    <script>
+        // Load Navbar
+        fetch('./component/navbar.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('navbar').innerHTML = data);
+
+        // Load Footer
+        fetch('./component/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

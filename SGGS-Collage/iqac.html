@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IQAC – SGGS Khalsa College Mahilpur</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./css/navbar.css" />
+  <link rel="stylesheet" href="./css/footer.css" />
+
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { overflow-x: hidden !important; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+    html { scroll-behavior: smooth; }
+
+    /* ════════════════════════
+       HERO
+    ════════════════════════ */
+    .hero {
+      position: relative;
+      padding: 120px 24px 100px;
+      overflow: hidden;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #8c1007 0%, #b51610 30%, #8c1007 60%, #6b0d05 100%);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.10), transparent 40%);
+    }
+    .hero-particles {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.10) 1px, transparent 1px),
+        radial-gradient(circle at 90% 80%, rgba(255,255,255,0.10) 1px, transparent 1px),
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 100px 100px, 150px 150px, 200px 200px;
+      opacity: .5;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .college-badge {
+      width: 80px; height: 80px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 2.5rem; color: white;
+      animation: float 3s ease-in-out infinite;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    .hero h1 {
+      font-size: 4rem; font-weight: 800; color: white;
+      margin-bottom: 20px; letter-spacing: -0.03em; line-height: 1.1;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+    }
+    .hero p {
+      font-size: 1.375rem; color: rgba(255,255,255,0.95);
+      max-width: 800px; margin: 0 auto 48px; font-weight: 500;
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      display: flex; align-items: center; justify-content: center;
+      gap: 32px; flex-wrap: wrap;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(12px);
+      padding: 32px 48px; border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.2);
+      max-width: 900px; margin: 0 auto;
+    }
+    .stat-item { text-align: center; }
+    .stat-number { font-size: 2rem; font-weight: 800; color: white; margin-bottom: 4px; }
+    .stat-label  { font-size: .875rem; color: rgba(255,255,255,0.9); font-weight: 600; text-transform: uppercase; letter-spacing: .5px; }
+    .stat-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.3); }
+
+    /* ════════════════════════
+       SECTION TAG
+    ════════════════════════ */
+    .section-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, #8c1007 0%, #b51610 100%);
+      color: white; padding: 8px 20px; border-radius: 50px;
+      font-size: .875rem; font-weight: 600;
+      margin-bottom: 24px; text-transform: uppercase; letter-spacing: .5px;
+    }
+
+    /* ════════════════════════
+       MAIN WRAPPER
+    ════════════════════════ */
+    .iqac-section { padding: 80px 0; background: #f8f9fb; }
+
+    .section-heading {
+      font-size: 2.25rem; font-weight: 800; color: #1a1a1a;
+      margin-bottom: 12px; letter-spacing: -0.02em;
+    }
+    .section-subheading {
+      font-size: 1.05rem; color: #666;
+      max-width: 750px; margin-bottom: 48px;
+    }
+
+    /* ════════════════════════
+       INFO CARDS (Objective / Strategy / Functions / Benefits)
+    ════════════════════════ */
+    .info-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 36px 32px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .info-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, #8c1007, #b51610);
+    }
+    .info-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(140,16,7,0.13); }
+
+    .card-icon {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, #8c1007, #b51610);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; color: white;
+      margin-bottom: 20px; flex-shrink: 0;
+    }
+    .info-card h3 {
+      font-size: 1.1rem; font-weight: 700; color: #8c1007;
+      margin-bottom: 14px; text-transform: uppercase; letter-spacing: .4px;
+    }
+    .info-card ul { padding-left: 0; list-style: none; margin: 0; }
+    .info-card ul li {
+      font-size: .93rem; color: #555; line-height: 1.75;
+      padding: 6px 0; border-bottom: 1px solid #f5eded;
+      display: flex; gap: 10px; align-items: flex-start;
+    }
+    .info-card ul li:last-child { border-bottom: none; }
+    .info-card ul li i { color: #b51610; margin-top: 4px; flex-shrink: 0; font-size: .75rem; }
+
+    /* About full-width card */
+    .about-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 36px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      position: relative; overflow: hidden;
+      margin-bottom: 32px;
+    }
+    .about-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, #8c1007, #b51610);
+    }
+    .about-card p {
+      font-size: .97rem; color: #555; line-height: 1.8; margin-bottom: 14px;
+    }
+    .about-card p:last-child { margin-bottom: 0; }
+
+    /* ════════════════════════
+       AQAR TABLE
+    ════════════════════════ */
+    .aqar-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 36px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      position: relative; overflow: hidden;
+      margin-bottom: 32px;
+    }
+    .aqar-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, #8c1007, #b51610);
+    }
+    .aqar-card h3 {
+      font-size: 1.2rem; font-weight: 700; color: #1a1a1a; margin-bottom: 24px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .aqar-card h3 span.tag-badge {
+      background: linear-gradient(135deg, #8c1007, #b51610);
+      color: white; font-size: .75rem; padding: 4px 12px;
+      border-radius: 50px; font-weight: 600; letter-spacing: .4px;
+    }
+
+    .aqar-table {
+      width: 100%; border-collapse: separate; border-spacing: 0;
+      border-radius: 14px; overflow: hidden;
+    }
+    .aqar-table thead tr {
+      background: linear-gradient(135deg, #8c1007, #b51610);
+      color: white;
+    }
+    .aqar-table thead th {
+      padding: 14px 20px; font-size: .88rem; font-weight: 600; letter-spacing: .3px;
+    }
+    .aqar-table tbody tr { transition: background .2s; }
+    .aqar-table tbody tr:nth-child(even) { background: #fdf3f3; }
+    .aqar-table tbody tr:nth-child(odd)  { background: #fff; }
+    .aqar-table tbody tr:hover { background: #ffe8e8; }
+    .aqar-table tbody td {
+      padding: 12px 20px; font-size: .9rem; color: #444;
+      border-bottom: 1px solid #f0e0e0; vertical-align: middle;
+    }
+    .aqar-table tbody tr:last-child td { border-bottom: none; }
+
+    .aqar-table a {
+      color: #8c1007; font-weight: 600; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: color .2s;
+    }
+    .aqar-table a:hover { color: #b51610; text-decoration: underline; }
+    .aqar-table a i { font-size: .8rem; }
+
+    /* Empty cell dash */
+    .dash { color: #ccc; }
+
+    /* ════════════════════════
+       NAAC VISIT BANNER
+    ════════════════════════ */
+    .naac-banner {
+      background: linear-gradient(135deg, #8c1007 0%, #b51610 100%);
+      border-radius: 20px;
+      padding: 40px 36px;
+      color: white;
+      margin-bottom: 32px;
+      display: flex; align-items: center; gap: 28px; flex-wrap: wrap;
+    }
+    .naac-icon {
+      width: 72px; height: 72px; flex-shrink: 0;
+      background: rgba(255,255,255,0.2);
+      border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+    }
+    .naac-banner h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 6px; }
+    .naac-banner p  { font-size: .95rem; color: rgba(255,255,255,0.88); margin: 0; }
+
+    .naac-days { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 20px; }
+    .naac-day-badge {
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 12px;
+      padding: 10px 22px;
+      font-weight: 600; font-size: .92rem; color: white;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    /* ════════════════════════
+       ANIMATIONS
+    ════════════════════════ */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-10px); }
+    }
+    .fade-in         { animation: fadeIn .8s ease-out; }
+    .fade-in-delay   { animation: fadeIn .8s ease-out .2s both; }
+    .fade-in-delay-2 { animation: fadeIn .8s ease-out .4s both; }
+
+    /* ════════════════════════
+       RESPONSIVE
+    ════════════════════════ */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.4rem; }
+      .hero p  { font-size: 1.1rem; }
+      .stats-bar { padding: 24px 20px; gap: 20px; }
+      .stat-divider { display: none; }
+      .iqac-section { padding: 48px 0; }
+      .aqar-table thead th, .aqar-table tbody td { padding: 10px 12px; font-size: .82rem; }
+      .naac-banner { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="navbar"></div>
+
+  <!-- ════════════════════════ HERO ════════════════════════ -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-particles"></div>
+    <div class="hero-content">
+      <div class="college-badge">
+        <i class="fas fa-shield-alt"></i>
+      </div>
+      <h1 class="fade-in">IQAC</h1>
+      <p class="fade-in-delay">Internal Quality Assurance Cell — SGGS Khalsa College, Mahilpur</p>
+      <div class="stats-bar fade-in-delay-2">
+        <div class="stat-item">
+          <div class="stat-number">13</div>
+          <div class="stat-label">AQAR Reports</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number">2011</div>
+          <div class="stat-label">Established</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number">NAAC</div>
+          <div class="stat-label">Accredited</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number">Quality</div>
+          <div class="stat-label">Culture Driven</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ MAIN ════════════════════════ -->
+  <section class="iqac-section">
+    <div class="container">
+
+      <!-- Heading -->
+      <div class="text-center">
+        <span class="section-tag">Internal Quality Assurance</span>
+        <h2 class="section-heading">Internal Quality Assurance Cell (IQAC)</h2>
+        <p class="section-subheading mx-auto">
+          The college IQAC aims at developing a system for conscious, consistent and catalytic improvement
+          in the overall performance of the institution — fostering quality culture among management, staff and students.
+        </p>
+      </div>
+
+      <!-- ── About Block ── -->
+      <div class="about-card">
+        <div class="d-flex align-items-start gap-3 mb-4">
+          <div class="card-icon"><i class="fas fa-info-circle"></i></div>
+          <div>
+            <h3 style="font-size:1.2rem;font-weight:700;color:#1a1a1a;margin-bottom:4px;">About IQAC</h3>
+            <p class="text-muted mb-0" style="font-size:.9rem;">A facilitative and participative voluntary system of the institution.</p>
+          </div>
+        </div>
+        <p>
+          The College has the IQAC which aims at developing a system for conscious, consistent and catalytic
+          improvement in the overall performance of the institution. The primary objective of the IQAC is the
+          promotion of internalization and institutionalization of quality enhancing initiatives by inculcating
+          the sense of belonging and participation in all the constituents of the institution — i.e. management,
+          staff and students.
+        </p>
+        <p>
+          It is a facilitative and participative voluntary system of the institution. It has the potential to
+          become a vehicle for ushering in quality enhancement by working out planned interventionist strategies
+          to remove deficiencies and enhance quality.
+        </p>
+      </div>
+
+      <!-- ── NAAC Peer Visit Banner ── -->
+      <div class="naac-banner">
+        <div class="naac-icon"><i class="fas fa-users"></i></div>
+        <div class="flex-grow-1">
+          <h3>NAAC Peer Team Visit</h3>
+          <p>The NAAC Peer Team conducted an institutional visit to SGGS Khalsa College Mahilpur for quality assessment and accreditation.</p>
+          <div class="naac-days">
+            <div class="naac-day-badge"><i class="fas fa-calendar-day"></i> Day 1 — 14th September 2017</div>
+            <div class="naac-day-badge"><i class="fas fa-calendar-day"></i> Day 2 — 15th September 2017</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── 4 Info Cards ── -->
+      <div class="row g-4 mb-4">
+
+        <!-- Objective -->
+        <div class="col-md-6">
+          <div class="info-card">
+            <div class="card-icon"><i class="fas fa-bullseye"></i></div>
+            <h3>Objective</h3>
+            <ul>
+              <li><i class="fas fa-circle"></i>To develop a system for conscious, consistent and catalytic action to improve the academic and administrative performance of the institution.</li>
+              <li><i class="fas fa-circle"></i>To promote measures for institutional functioning towards quality enhancement through internalization of quality culture and institutionalization of best practices.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Strategies -->
+        <div class="col-md-6">
+          <div class="info-card">
+            <div class="card-icon"><i class="fas fa-chess"></i></div>
+            <h3>Strategies</h3>
+            <ul>
+              <li><i class="fas fa-circle"></i>Ensuring timely, efficient and progressive performance of academic, administrative and financial tasks.</li>
+              <li><i class="fas fa-circle"></i>Relevance and quality of academic and research programmes.</li>
+              <li><i class="fas fa-circle"></i>Equitable access to and affordability of academic programmes for various sections of society.</li>
+              <li><i class="fas fa-circle"></i>Optimization and integration of modern methods of teaching and learning.</li>
+              <li><i class="fas fa-circle"></i>The credibility of evaluation procedures.</li>
+              <li><i class="fas fa-circle"></i>Sharing of research findings and networking with other institutions in India and abroad.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row g-4 mb-5">
+
+        <!-- Functions -->
+        <div class="col-md-6">
+          <div class="info-card">
+            <div class="card-icon"><i class="fas fa-cogs"></i></div>
+            <h3>Functions</h3>
+            <ul>
+              <li><i class="fas fa-circle"></i>Development and application of quality benchmarks/parameters for academic and administrative activities.</li>
+              <li><i class="fas fa-circle"></i>Facilitating a learner-centric environment for quality education and participatory teaching.</li>
+              <li><i class="fas fa-circle"></i>Feedback response from students, parents and other stakeholders on quality-related processes.</li>
+              <li><i class="fas fa-circle"></i>Dissemination of information on various quality parameters of higher education.</li>
+              <li><i class="fas fa-circle"></i>Organization of inter and intra institutional workshops and seminars on quality themes.</li>
+              <li><i class="fas fa-circle"></i>Documentation of various programmes/activities leading to quality improvement.</li>
+              <li><i class="fas fa-circle"></i>Development of institutional database through MIS for maintaining institutional quality.</li>
+              <li><i class="fas fa-circle"></i>Preparation of Annual Quality Assurance Report (AQAR) as per NAAC guidelines.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Benefits -->
+        <div class="col-md-6">
+          <div class="info-card">
+            <div class="card-icon"><i class="fas fa-star"></i></div>
+            <h3>Benefits</h3>
+            <ul>
+              <li><i class="fas fa-circle"></i>Ensure heightened level of clarity and focus in institutional functioning towards quality enhancement.</li>
+              <li><i class="fas fa-circle"></i>Ensure internalization of the quality culture across the institution.</li>
+              <li><i class="fas fa-circle"></i>Enhance and coordinate among various activities of the institution and institutionalize all good practices.</li>
+              <li><i class="fas fa-circle"></i>Provide a sound basis for decision-making to improve institutional functioning.</li>
+              <li><i class="fas fa-circle"></i>Act as a dynamic system for quality changes in Higher Education Institutions (HEIs).</li>
+              <li><i class="fas fa-circle"></i>Build an organised methodology of documentation and internal communication.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── AQAR Table ── -->
+      <div class="aqar-card mb-5">
+        <h3>
+          <i class="fas fa-file-alt text-danger me-2"></i>
+          Annual Quality Assurance Reports
+          <span class="tag-badge">AQAR</span>
+        </h3>
+
+        <div class="table-responsive">
+          <table class="aqar-table">
+            <thead>
+              <tr>
+                <th style="width:60px;">Sr. No</th>
+                <th>AQAR Report</th>
+                <th>Annexures</th>
+                <th>Academic Calendar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/AQAR2011-12.pdf" target="_blank"><i class="fas fa-file-pdf"></i>AQAR 2011-12</a></td>
+                <td><span class="dash">—</span></td>
+                <td><span class="dash">—</span></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/AQAR2012-13.pdf" target="_blank"><i class="fas fa-file-pdf"></i>AQAR 2012-13</a></td>
+                <td><span class="dash">—</span></td>
+                <td><span class="dash">—</span></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/AQAR2013-14.pdf" target="_blank"><i class="fas fa-file-pdf"></i>AQAR 2013-14</a></td>
+                <td><span class="dash">—</span></td>
+                <td><span class="dash">—</span></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/AQAR2014-15.pdf" target="_blank"><i class="fas fa-file-pdf"></i>AQAR 2014-15</a></td>
+                <td><span class="dash">—</span></td>
+                <td><span class="dash">—</span></td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/AQAR2015-16.pdf" target="_blank"><i class="fas fa-file-pdf"></i>AQAR 2015-16</a></td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/Annexure-I.pdf" target="_blank"><i class="fas fa-paperclip"></i>Annexure-I</a></td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/Academic-Calendar-2015-16.pdf" target="_blank"><i class="fas fa-calendar-alt"></i>Calendar 2015-16</a></td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/AQAR2016-17.pdf" target="_blank"><i class="fas fa-file-pdf"></i>AQAR 2016-17</a></td>
+                <td><span class="dash">—</span></td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/2021/05/Academic-Calendar2016-17.pdf" target="_blank"><i class="fas fa-calendar-alt"></i>Calendar 2016-17</a></td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/AQAR-2017-18.pdf" target="_blank"><i class="fas fa-file-pdf"></i>AQAR 2017-18</a></td>
+                <td><span class="dash">—</span></td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/2021/05/Academic-Calendar-2017-18.pdf" target="_blank"><i class="fas fa-calendar-alt"></i>Calendar 2017-18</a></td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/2021/05/AQAR-2018-19.pdf" target="_blank"><i class="fas fa-file-pdf"></i>AQAR 2018-19</a></td>
+                <td><span class="dash">—</span></td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/2021/05/Academic-Calendar-2018-19.pdf" target="_blank"><i class="fas fa-calendar-alt"></i>Calendar 2018-19</a></td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/2021/12/AQAR-2019-20.pdf" target="_blank"><i class="fas fa-file-pdf"></i>AQAR 2019-20</a></td>
+                <td><span class="dash">—</span></td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/2021/05/academic-Calendar-2019-20.pdf" target="_blank"><i class="fas fa-calendar-alt"></i>Calendar 2019-20</a></td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/2024/03/AQAR-2020-21-1.pdf" target="_blank"><i class="fas fa-file-pdf"></i>AQAR 2020-21</a></td>
+                <td><span class="dash">—</span></td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/2024/03/Academic-Calendar-2020-21.pdf" target="_blank"><i class="fas fa-calendar-alt"></i>Calendar 2020-21</a></td>
+              </tr>
+              <tr>
+                <td>11</td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/2023/12/AQAR-2021-22.pdf" target="_blank"><i class="fas fa-file-pdf"></i>AQAR 2021-22</a></td>
+                <td><span class="dash">—</span></td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/2023/08/Academic-Calendar-2021-22.pdf" target="_blank"><i class="fas fa-calendar-alt"></i>Calendar 2021-22</a></td>
+              </tr>
+              <tr>
+                <td>12</td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/2024/03/AQAR-2022-23.pdf" target="_blank"><i class="fas fa-file-pdf"></i>AQAR 2022-23</a></td>
+                <td><span class="dash">—</span></td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/2023/12/Academic-Calendar-2022-23.pdf" target="_blank"><i class="fas fa-calendar-alt"></i>Calendar 2022-23</a></td>
+              </tr>
+              <tr>
+                <td>13</td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/Self-Study-Report.pdf" target="_blank"><i class="fas fa-book"></i>Self Study Report</a></td>
+                <td><span class="dash">—</span></td>
+                <td><a href="https://sggskcm.org/wp-content/uploads/2024/03/IQAC-Meetings-Minutes-2022-23.pdf" target="_blank"><i class="fas fa-clipboard-list"></i>IQAC Meeting Minutes 2022-23</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── CTA ── -->
+      <div class="text-center pt-2">
+        <p class="text-muted mb-3" style="font-size:.95rem;">For more information about IQAC or quality initiatives, get in touch with us.</p>
+        <a href="./contactus copy.html" class="btn btn-danger px-5 py-2 me-2 rounded-pill fw-semibold">
+          <i class="fas fa-envelope me-2"></i>Contact Us
+        </a>
+        <!-- <a href="https://sggskcm.org/naac/" target="_blank" class="btn btn-outline-danger px-5 py-2 rounded-pill fw-semibold">
+          <i class="fas fa-external-link-alt me-2"></i>View NAAC Page
+        </a> -->
+      </div>
+
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    fetch('./component/navbar.html')
+      .then(r => r.text())
+      .then(d => document.getElementById('navbar').innerHTML = d);
+
+    fetch('./component/footer.html')
+      .then(r => r.text())
+      .then(d => document.getElementById('footer').innerHTML = d);
+  </script>
+
+</body>
+</html>
