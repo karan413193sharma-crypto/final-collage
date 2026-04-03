@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endowment Fund | SGGS Khalsa College Mahilpur</title>
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- BOOTSTRAP CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- BOOTSTRAP JS (for toggle + dropdown)  -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+ 
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+        
+         <link rel="stylesheet" href="./css/navbar.css">
+         <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+    <style>
+        /* ── BASE (same as BBA page) ── */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { overflow-x: hidden !important; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        html { scroll-behavior: smooth; }
+        
+        .nav a {
+            color: white;
+            padding: .6rem 1rem;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: .3s
+        }
+
+        .nav a:hover {
+            background: rgba(255, 255, 255, 0.15)
+        }
+
+
+
+        /* ── HERO (identical pattern as BBA page) ── */
+        .hero {
+            position: relative;
+            padding: 120px 24px 100px;
+            overflow: hidden;
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #8c1007 0%, #b51610 30%, #8c1007 60%, #6b0d05 100%);
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.10), transparent 40%);
+        }
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.1) 1px, transparent 1px),
+                radial-gradient(circle at 90% 80%, rgba(255,255,255,0.1) 1px, transparent 1px),
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 100px 100px, 150px 150px, 200px 200px;
+            opacity: 0.5;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .college-badge {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 2.5rem;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 16px;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.92);
+            max-width: 700px;
+            margin: 0 auto 48px;
+            font-weight: 500;
+        }
+        .stats-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(12px);
+            padding: 36px 48px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .stat-item { text-align: center; }
+        .stat-number { font-size: 2rem; font-weight: 800; color: white; margin-bottom: 4px; }
+        .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.9); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .stat-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.3); }
+
+        /* ── MAIN CONTAINER ── */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 60px 24px 80px;
+        }
+
+        /* ── SECTION TAG (red pill — same as BBA) ── */
+        .section-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #8c1007 0%, #b51610 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ── SECTION CARD (same as BBA .section-card) ── */
+        .section-card {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 28px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        .section-card h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .section-card p {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.75;
+            margin-bottom: 12px;
+        }
+
+        /* card-title (same style as BBA .card-title) */
+        .card-title {
+            display: inline-block;
+            background: linear-gradient(135deg, #8c1007 0%, #b51610 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ── OBJECTIVES SECTION ── */
+        .desc-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #8c1007;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        /* ── HIGHLIGHT POINTS (exact BBA style — red checkmarks) ── */
+        .highlight-points {
+            list-style: none !important;
+            padding-left: 0 !important;
+            margin: 1.5rem 0 !important;
+            text-align: left !important;
+        }
+        .highlight-points li {
+            position: relative;
+            padding-left: 2.2rem !important;
+            margin-bottom: 0.9rem !important;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+        .highlight-points li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #8c1007;
+            font-weight: bold;
+            font-size: 1.4rem;
+            width: 1.8rem;
+            text-align: center;
+        }
+
+        /* ── OUTCOMES LIST (exact BBA style — red arrows) ── */
+        .outcomes-list {
+            list-style: none !important;
+            padding-left: 0 !important;
+            margin: 1rem 0 !important;
+            text-align: left !important;
+        }
+        .outcomes-list li {
+            position: relative;
+            padding-left: 2.2rem !important;
+            margin-bottom: 0.9rem !important;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+        .outcomes-list li::before {
+            content: "➤ ";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #8c1007;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* ── SUMMARY SECTION (same layout as BBA bba-summary-section) ── */
+        .summary-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 28px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        @media(max-width: 768px) { .summary-section { grid-template-columns: 1fr; } }
+        .summary-content h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+        .summary-content h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #8c1007;
+            margin: 20px 0 10px;
+        }
+        .summary-content p { font-size: 1rem; color: #444; line-height: 1.75; margin-bottom: 10px; }
+        .summary-content ul {
+            list-style: none !important;
+            padding-left: 0 !important;
+            margin: 1rem 0 !important;
+        }
+        .summary-content ul li {
+            position: relative;
+            padding-left: 2.2rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.97rem;
+            line-height: 1.7;
+            color: #333;
+        }
+        .summary-content ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            color: #8c1007;
+            font-weight: bold;
+            font-size: 1.3rem;
+            width: 1.8rem;
+            text-align: center;
+        }
+        .summary-image-box {
+            background: linear-gradient(135deg, #fdf2f2, #fff0f0);
+            border-radius: 14px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            border: 1px solid #f5c6c6;
+            min-height: 260px;
+        }
+        .summary-image-box .big-icon {
+            width: 80px; height: 80px;
+            background: linear-gradient(135deg, #8c1007, #b51610);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: #fff;
+        }
+        .summary-image-box h3 { font-size: 1.1rem; font-weight: 700; color: #8c1007; text-align: center; }
+        .summary-image-box p { font-size: 0.9rem; color: #666; text-align: center; margin: 0; line-height: 1.6; }
+
+        /* ── RULES NUMBERED LIST ── */
+        .rules-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .rules-list li {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 16px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.97rem;
+            color: #333;
+            line-height: 1.75;
+        }
+        .rules-list li:last-child { border-bottom: none; }
+        .rule-num {
+            flex-shrink: 0;
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, #8c1007, #b51610);
+            color: #fff;
+            border-radius: 50%;
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+        }
+
+        /* ── BANK DETAILS TABLE ── */
+        .bank-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e8e8e8;
+        }
+        .bank-table tr:nth-child(even) td { background: #fafafa; }
+        .bank-table td {
+            padding: 13px 18px;
+            font-size: 0.97rem;
+            border-bottom: 1px solid #e8e8e8;
+            color: #333;
+        }
+        .bank-table tr:last-child td { border-bottom: none; }
+        .bank-table td:first-child {
+            font-weight: 700;
+            color: #1a1a1a;
+            width: 38%;
+            background: #fdf2f2;
+        }
+        .bank-table .accent { color: #8c1007; font-weight: 800; }
+
+        /* ── DURATION BOXES (same as BBA .duration-section) ── */
+        .duration-section {
+            background: linear-gradient(135deg, #8c1007 0%, #b51610 100%);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 28px;
+            color: white;
+        }
+        .duration-section h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.02em; }
+        .duration-section p { color: rgba(255,255,255,0.88); font-size: 1rem; margin-bottom: 24px; }
+        .duration-details { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .detail-box {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 12px;
+            padding: 24px;
+        }
+        .detail-box h3 { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.75); margin-bottom: 8px; }
+        .detail-box p { font-size: 1rem; font-weight: 600; color: white; margin: 0; }
+
+        /* ── NOTE BOX ── */
+        .note-box {
+            background: #fdf2f2;
+            border-left: 4px solid #8c1007;
+            border-radius: 8px;
+            padding: 14px 18px;
+            font-size: 0.95rem;
+            color: #6b0d05;
+            margin: 20px 0;
+            font-weight: 600;
+        }
+
+        /* ── DOWNLOAD BUTTON (same as BBA apply-btn) ── */
+        .apply-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #8c1007, #b51610);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 14px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: transform 0.18s, box-shadow 0.18s;
+            margin-top: 8px;
+        }
+        .apply-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(140,16,7,0.35);
+            color: #fff;
+        }
+
+        /* ── FULL WIDTH LAYOUT ── */
+        .page-layout { display: block; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: linear-gradient(135deg, #8c1007, #6b0d05);
+            color: rgba(255,255,255,0.75);
+            padding: 52px 24px 20px;
+        }
+        .footer-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 36px;
+            padding-bottom: 36px;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+        .footer-col h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(255,255,255,0.25);
+            display: inline-block;
+        }
+        .footer-col ul { list-style: none; padding: 0; margin: 0; }
+        .footer-col ul li { margin-bottom: 8px; }
+        .footer-col ul li a { font-size: 12.5px; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.18s; }
+        .footer-col ul li a:hover { color: #fff; }
+        .footer-col p { font-size: 12.5px; line-height: 1.9; }
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 20px auto 0;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 11.5px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media(max-width: 768px) {
+            .hero h1 { font-size: clamp(2rem, 8vw, 2.8rem); }
+            .hero p { font-size: 1rem; }
+            .stats-bar { flex-direction: column; padding: 20px; }
+            .stat-divider { display: none; }
+            .section-card { padding: 24px 18px; }
+            .summary-section { padding: 24px 18px; }
+            .duration-section { padding: 28px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+ <div id="navbar"></div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-particles"></div>
+    <div class="hero-content">
+        <div class="college-badge">
+            <i class="fas fa-university"></i>
+        </div>
+        <h1>Endowment Fund</h1>
+        <p>Excellence in Education Since 1946 • Empowering Minds, Building Futures</p>
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">₹1.25L</div>
+                <div class="stat-label">Initial<br>Corpus</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-number">2017</div>
+                <div class="stat-label">Year<br>Established</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-number">80%</div>
+                <div class="stat-label">Interest for<br>College Use</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-number">20%</div>
+                <div class="stat-label">Re-invested<br>Annually</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── MAIN CONTENT ── -->
+<div class="container">
+<div class="page-layout">
+
+<!-- LEFT: MAIN CONTENT -->
+<main>
+
+    <!-- OBJECTIVES -->
+    <div class="section-card">
+        <h2 class="desc-title">SGGS KCM ENDOWMENT FUND</h2>
+        <div class="section-tag">Objectives</div>
+        <p>S.G.G.S. Khalsa College, Mahilpur is a regular recipient of the Grant-in-Aid from the Government of Punjab and General Advancement Grants from the U.G.C. under sections 2(f) &amp; 12(B) of the U.G.C. Act, 1956. All this financial aid is not sufficient to fulfill the requirements of the college in meeting the challenges of emerging trends in the academic world. Therefore, in order to generate its own resources for the general advancement of the Institution, the Managing Committee of S.G.G.S. Khalsa College, Mahilpur, vide its meeting held on <strong>25th May, 2017</strong>, resolution no. 03, decided to establish the SGGS KCM Endowment Fund.</p>
+        <p>The SGGS KCM Endowment Fund has come into existence with a corpus of <strong>Rupees 1,25,000/-</strong> as an initial contribution made by <strong>Dr. Raghubir Singh Basi</strong> of Kharaudi, an alumnus of the college.</p>
+        <ul class="highlight-points">
+            <li>Financial self-sufficiency for the institution</li>
+            <li>Support for students' scholarships and sports activities</li>
+            <li>Faculty development and academic growth</li>
+            <li>BHSB Entrepreneurship Centre activities</li>
+            <li>General maintenance and infrastructure of the college</li>
+            <li>Long-term corpus building through Alumni &amp; NRI contributions</li>
+        </ul>
+    </div>
+
+    <!-- SUMMARY SECTION (like BBA overview) -->
+    <div class="summary-section">
+        <div class="summary-content">
+            <h2>About the Fund</h2>
+            <p>The <strong>SGGS KCM Endowment Fund</strong> is a self-sustaining financial corpus established to generate resources for the college's long-term development, independent of government grants.</p>
+            <h3>How the Fund Works</h3>
+            <ul>
+                <li>Contributions placed in a Fixed Deposit with State Bank of India</li>
+                <li>20% of interest reinvested each year to grow the corpus</li>
+                <li>80% of interest allocated annually to college budgetary categories</li>
+                <li>Donor preferences strictly honoured in fund allocation</li>
+            </ul>
+            <h3>Who Can Contribute?</h3>
+            <p>Any Alumnus, NRI, Employee, Retired Employee of the College, or any willing Individual may contribute via Demand Draft, Cheque, or direct bank transfer.</p>
+        </div>
+        <div class="summary-image-box">
+            <div class="big-icon"><i class="fas fa-piggy-bank"></i></div>
+            <h3>SGGS KCM Endowment Fund</h3>
+            <p>State Bank of India<br/>Jaijon Road, Mahilpur<br/>IFSC: SBIN0050710</p>
+            <a href="https://sggskcm.org/wp-content/uploads/2025/06/Endowment-Fund.pdf" class="apply-btn" target="_blank" style="margin-top:8px;font-size:0.85rem;padding:10px 20px;">
+                <i class="fas fa-download"></i> Contributors List
+            </a>
+        </div>
+    </div>
+
+    <!-- RULES FOR OPERATION -->
+    <div class="section-card">
+        <div class="card-title">Rules for the Operation of SGGS KCM Endowment Fund</div>
+        <ul class="rules-list">
+            <li>
+                <span class="rule-num">1</span>
+                <span>A Bank Account in the name of <strong>SGGS KCM Endowment Fund</strong> will be opened in the State Bank of India, Branch Mahilpur, which will be operated by the Principal of the College and any two of the three office bearers of the College Managing Committee, i.e. the President, the Manager and the General Secretary.</span>
+            </li>
+            <li>
+                <span class="rule-num">2</span>
+                <span>The Bank will be instructed to put the contributed amount in a fixed deposit and add <strong>20% of the interest</strong> accrued on the invested amount back into the base fund for investment.</span>
+            </li>
+            <li>
+                <span class="rule-num">3</span>
+                <span>Each year <strong>80% of the interest</strong> will be made available by the bank to the college for allocation to various budgetary categories on or about March 31st.</span>
+            </li>
+            <li>
+                <span class="rule-num">4</span>
+                <span>The budgetary categories will be decided on the basis of donor preferences such as sports, students' scholarships, faculty development, BHSB Entrepreneurship Centre, any other academic activities and general maintenance of the college.</span>
+            </li>
+            <li>
+                <span class="rule-num">5</span>
+                <span>The donor preferences in the allocation of investment income will be <strong>strictly observed</strong>.</span>
+            </li>
+            <li>
+                <span class="rule-num">6</span>
+                <span>An office of the Alumni and NRI Affairs will be set up with an Advisory Committee to garner additional contributions to build up the corpus on an ongoing basis.</span>
+            </li>
+            <li>
+                <span class="rule-num">7</span>
+                <span>In due course of time, an Investment Advisory Committee / Manager will be appointed to oversee the investment of the Endowment Fund.</span>
+            </li>
+            <li>
+                <span class="rule-num">8</span>
+                <span>The rules governing the SGGS KCM Endowment Fund can be changed only on a certain emergency basis on the recommendations of the Alumni &amp; NRI Affairs Advisory Committee and approved by the <strong>unanimous vote of the College Managing Committee</strong>.</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- FUND ALLOCATION (duration-section style) -->
+    <div class="duration-section">
+        <h2>Fund Allocation Categories</h2>
+        <p>Based on donor preferences, the annual interest income is distributed across the following budgetary categories:</p>
+        <div class="duration-details">
+            <div class="detail-box">
+                <h3>Sports</h3>
+                <p>Facilities, equipment & tournaments</p>
+            </div>
+            <div class="detail-box">
+                <h3>Scholarships</h3>
+                <p>Student financial support & merit awards</p>
+            </div>
+            <div class="detail-box">
+                <h3>Faculty Development</h3>
+                <p>Training, research & professional growth</p>
+            </div>
+            <div class="detail-box">
+                <h3>Entrepreneurship</h3>
+                <p>BHSB Entrepreneurship Centre activities</p>
+            </div>
+            <div class="detail-box">
+                <h3>Academic Activities</h3>
+                <p>Seminars, workshops & events</p>
+            </div>
+            <div class="detail-box">
+                <h3>Maintenance</h3>
+                <p>General upkeep and infrastructure</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROGRAMME OUTCOMES STYLE: Key Benefits -->
+    <div class="section-card">
+        <div class="card-title">Why Contribute to the Endowment Fund?</div>
+        <ul class="outcomes-list">
+            <li>Your contribution directly supports deserving students through scholarships</li>
+            <li>Help develop state-of-the-art sports and academic infrastructure</li>
+            <li>Enable faculty to pursue advanced research and training</li>
+            <li>Foster entrepreneurship and innovation through the BHSB Centre</li>
+            <li>Build a lasting legacy in your alma mater or community institution</li>
+            <li>All donations are duly acknowledged and donor preferences strictly honoured</li>
+        </ul>
+    </div>
+
+    <!-- VOLUNTARY CONTRIBUTIONS / BANK DETAILS -->
+    <div class="section-card">
+        <div class="card-title">Voluntary Contributions / Donations towards SGGS KCM Endowment Fund</div>
+        <p>Any Alumnus / NRI / Employee / Retired Employee of the College / Individual willing to contribute to the Fund may do so by sending Demand Draft / Cheque at the following address:</p>
+
+        <table class="bank-table">
+            <tr><td>Account Name</td><td class="accent">SGGS KCM Endowment Fund</td></tr>
+            <tr><td>A/c No.</td><td><strong>37045882191</strong></td></tr>
+            <tr><td>Bank Name</td><td>State Bank of India</td></tr>
+            <tr><td>Address</td><td>Jaijon Road, Mahilpur</td></tr>
+            <tr><td>Branch Code</td><td>50710</td></tr>
+            <tr><td>IFSC</td><td class="accent">SBIN0050710</td></tr>
+            <tr><td>MICR</td><td>144002656</td></tr>
+        </table>
+
+        <div class="note-box">
+            ✅ All donations / contributions will be duly acknowledged.
+        </div>
+    </div>
+
+    <!-- DOWNLOAD BUTTON -->
+    <div style="text-align:center; margin: 10px 0 40px;">
+        <a href="https://sggskcm.org/wp-content/uploads/2025/06/Endowment-Fund.pdf" class="apply-btn" target="_blank">
+            <i class="fas fa-download"></i> Click to Download the List of Contributors
+        </a>
+    </div>
+
+</main>
+
+
+</div><!-- end page-layout -->
+</div><!-- end container -->
+<div id="footer"></div>
+
+  <script>
+  // Load Navbar
+  fetch('./component/navbar.html')
+    .then(response => response.text())
+    .then(data => document.getElementById('navbar').innerHTML = data);
+
+  // Load Footer
+  fetch('./component/footer.html')
+    .then(response => response.text())
+    .then(data => document.getElementById('footer').innerHTML = data);
+</script>
+    
+</body>
+</html>
