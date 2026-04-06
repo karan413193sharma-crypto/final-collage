@@ -11,16 +11,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- BOOTSTRAP CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- BOOTSTRAP JS (for toggle + dropdown)  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
 
-<!-- BOOTSTRAP JS (for toggle + dropdown)  -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
 
- 
-         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
-        
-         <link rel="stylesheet" href="./css/navbar.css">
-         <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <style>
         /* SAME CSS - DO NOT CHANGE ANYTHING */
         :root {
@@ -117,8 +117,6 @@
             font-size: .9rem;
             display: inline-block
         }
-
-      
 
         .lead {
             font-size: 1.15rem;
@@ -251,11 +249,17 @@
         table {
             min-width: 100%;
             border-collapse: collapse;
-         
-       }
-       @media (max-width: 400px){
-        table{font-size: 10px;}.card{padding: 10px;}
-       }
+        }
+
+        @media (max-width: 400px) {
+            table {
+                font-size: 10px;
+            }
+
+            .card {
+                padding: 10px;
+            }
+        }
 
         th {
             background: var(--brand);
@@ -302,7 +306,6 @@
         .faq-a.show {
             display: block
         }
-
 
         @media(max-width:900px) {
             .hero {
@@ -359,11 +362,10 @@
         .fade-in-delay-2 {
             animation: fadeIn 0.8s ease-out 0.4s both;
         }
-        
-   /* Hero Section */
+
+        /* Hero Section */
         .hero {
             position: relative;
-         
             overflow: hidden;
             min-height: 600px;
             display: flex;
@@ -422,31 +424,28 @@
             border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
-       .hero h1 {
-    font-weight: 800;
-    color: white;
-    margin-bottom: 20px;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-    font-size: clamp(28px, 6vw, 80px); /* super responsive */
-    margin-top: 20px;
-}
+        .hero h1 {
+            font-weight: 800;
+            color: white;
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+            font-size: clamp(28px, 6vw, 80px);
+            margin-top: 20px;
+        }
 
-/* For tablets */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: clamp(24px, 8vw, 60px);
-    }
-}
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: clamp(24px, 8vw, 60px);
+            }
+        }
 
-/* For small phones */
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: clamp(20px, 10vw, 45px);
-    }
-}
-
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: clamp(20px, 10vw, 45px);
+            }
+        }
 
         .hero p {
             font-size: 1.375rem;
@@ -497,191 +496,166 @@
             background: rgba(255, 255, 255, 0.3);
         }
 
-        /* ================================================== */
-/* --- HERO SECTION MEDIA QUERIES --- */
-/* ================================================== */
+        @media (max-width: 1200px) {
+            .hero-content {
+                padding: 0 1.5rem;
+            }
+        }
 
-/* 1. Desktop / Large Tablet Adjustments (max-width: 1200px) */
-@media (max-width: 1200px) {
-    /* Adjust container padding if necessary, but focusing on hero content */
-    .hero-content {
-        padding: 0 1.5rem; /* Ensure content is contained within padding */
-    }
-}
+        @media (max-width: 992px) {
+            .program-hero {
+                padding: 100px 24px 80px;
+                min-height: 500px;
+            }
 
-/* 2. Tablet / Landscape Mobile Adjustments (max-width: 992px) */
-@media (max-width: 992px) {
-    .program-hero {
-        padding: 100px 24px 80px; /* Reduced vertical padding */
-        min-height: 500px;
-    }
+            .hero h1 {
+                font-size: 3.5rem;
+            }
 
-    .hero h1 {
-        font-size: 3.5rem; /* Slightly smaller heading */
-    }
+            .hero p {
+                font-size: 1.25rem;
+                margin-bottom: 40px;
+            }
+        }
 
-    .hero p {
-        font-size: 1.25rem; /* Slightly smaller lead text */
-        margin-bottom: 40px;
-    }
-}
+        @media (max-width: 768px) {
+            .program-hero {
+                padding: 80px 16px 60px;
+                min-height: 450px;
+            }
 
-/* 3. Portrait Tablet / Mobile Adjustments (max-width: 768px) */
-@media (max-width: 768px) {
-    .program-hero {
-        padding: 80px 16px 60px;
-        min-height: 450px;
-    }
+            .college-badge {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
 
-    .college-badge {
-        width: 60px;
-        height: 60px;
-        font-size: 2rem;
-        margin-bottom: 15px;
-    }
+            .hero h1 {
+                font-size: clamp(2.5rem, 8vw, 3rem);
+                margin-bottom: 15px;
+            }
 
-    .hero h1 {
-        /* Use clamp for fluid sizing between 2.5rem and 3rem */
-        font-size: clamp(2.5rem, 8vw, 3rem); 
-        margin-bottom: 15px;
-    }
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
 
-    .hero p {
-        font-size: 1.1rem;
-        margin-bottom: 30px;
-    }
+            .stats-bar {
+                padding: 24px 20px;
+                gap: 20px;
+            }
 
-    /* Stats Bar Adjustments for stacking */
-    .stats-bar {
-        padding: 24px 20px;
-        gap: 20px; /* Reduced space between stats */
-    }
-    
-    .stat-number {
-        font-size: 1.8rem;
-    }
+            .stat-number {
+                font-size: 1.8rem;
+            }
 
-    .stat-label {
-        font-size: 0.8rem;
-    }
-}
+            .stat-label {
+                font-size: 0.8rem;
+            }
+        }
 
-/* 4. Small Mobile Adjustments (max-width: 576px) */
-@media (max-width: 576px) {
-    /* Stack the stats bar items vertically to prevent overflow */
-    .stats-bar {
-        flex-direction: column;
-        align-items: stretch;
-        border-radius: 12px;
-        padding: 20px 15px;
-        margin: 0 10px; /* Minor horizontal margin to prevent touching screen edges */
-    }
+        @media (max-width: 576px) {
+            .stats-bar {
+                flex-direction: column;
+                align-items: stretch;
+                border-radius: 12px;
+                padding: 20px 15px;
+                margin: 0 10px;
+            }
 
-    .stat-item {
-        padding: 10px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separator when stacked */
-    }
+            .stat-item {
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
 
-    .stat-item:last-child {
-        border-bottom: none;
-    }
+            .stat-item:last-child {
+                border-bottom: none;
+            }
 
-    .stat-divider {
-        display: none; /* Hide vertical divider when stacking */
-    }
-    
-    /* Ensure the existing small mobile adjustment is incorporated */
-    .program-hero h1 { 
-        font-size: 2.2rem !important; 
-    }
-}
+            .stat-divider {
+                display: none;
+            }
+
+            .program-hero h1 {
+                font-size: 2.2rem !important;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div id="navbar"></div>
-   
-<section class="hero">
-    
+
+    <section class="hero">
         <div class="hero-content">
-            <div class="college-badge">
+            <div class="college-badge" data-aos="zoom-in" data-aos-duration="700">
                 <i class="fas fa-university"></i>
             </div>
             <div class="container hero1">
                 <div>
-                    <span class="eyebrow" style="color: white;">Undergraduate • 3 Years • Full-Time</span>
-                    <h1 >Bachelor of Commerce (B.Com)</h1>
-                    <p class="lead">A foundational commerce program covering accounting, finance, management, and economics skills.</p>
+                    <span class="eyebrow" style="color: white;" data-aos="fade-down" data-aos-duration="700" data-aos-delay="100">Undergraduate • 3 Years • Full-Time</span>
+                    <h1 data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">Bachelor of Commerce (B.Com)</h1>
+                    <p class="lead" data-aos="fade-up" data-aos-duration="800" data-aos-delay="320">A foundational commerce program covering accounting, finance, management, and economics skills.</p>
                 </div>
-
-
             </div>
-           <div class="stats-bar fade-in-delay-2">
-    <div class="stat-item">
-        <div class="stat-number">30+</div>
-        <div class="stat-label">Courses & <br>Programs</div>
-    </div>
-
-    <div class="stat-divider"></div>
-
-    <div class="stat-item">
-        <div class="stat-number">20+</div>
-        <div class="stat-label">Undergraduate <br>Programs</div>
-    </div>
-
-    <div class="stat-divider"></div>
-
-    <div class="stat-item">
-        <div class="stat-number">10+</div>
-        <div class="stat-label">Postgraduate <br> Programs</div>
-    </div>
-
-    <div class="stat-divider"></div>
-
-    <div class="stat-item">
-        <div class="stat-number">5+</div>
-        <div class="stat-label">Diploma & <br> Add-On Courses</div>
-    </div>
-</div>
-
+            <div class="stats-bar fade-in-delay-2" data-aos="fade-up" data-aos-duration="900" data-aos-delay="400">
+                <div class="stat-item" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="550">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Courses & <br>Programs</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="650">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Undergraduate <br>Programs</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="750">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Postgraduate <br> Programs</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="850">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Diploma & <br> Add-On Courses</div>
+                </div>
+            </div>
         </div>
     </section>
-    <!-- HEADER -->
-   
 
     <main class="container">
 
         <!-- WHY SECTION -->
         <section style="background:var(--light);padding:5rem 0">
-            <h2>Why Choose B.Com at Example College?</h2>
-            <p class="section-subtitle">Strong foundation in commerce education with practical exposure</p>
+            <h2 data-aos="fade-up" data-aos-duration="700">Why Choose B.Com at Example College?</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">Strong foundation in commerce education with practical exposure</p>
             <div class="icon-grid">
-                <div class="icon-card card" style="background:var(--brand)">
+                <div class="icon-card card" style="background:var(--brand)" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
                     <i class="fas fa-chart-line"></i>
                     <h4>Analytical Skills</h4>
                     <p>Data analysis, business decisions and accounting fundamentals.</p>
                 </div>
-                <div class="icon-card card" style="background:var(--brand-light)">
+                <div class="icon-card card" style="background:var(--brand-light)" data-aos="fade-up" data-aos-duration="700" data-aos-delay="180">
                     <i class="fas fa-user-tie"></i>
                     <h4>Expert Faculty</h4>
                     <p>Guidance by experienced professors and industry experts.</p>
                 </div>
-                <div class="icon-card card" style="background:var(--brand)">
+                <div class="icon-card card" style="background:var(--brand)" data-aos="fade-up" data-aos-duration="700" data-aos-delay="260">
                     <i class="fas fa-landmark"></i>
                     <h4>Finance Labs</h4>
                     <p>Practical exposure to accounting software and financial analysis.</p>
                 </div>
-                <div class="icon-card card" style="background:var(--brand-light)">
+                <div class="icon-card card" style="background:var(--brand-light)" data-aos="fade-up" data-aos-duration="700" data-aos-delay="340">
                     <i class="fas fa-laptop-code"></i>
                     <h4>Tech-Enabled Learning</h4>
                     <p>ERP, Excel, Tally and business software training.</p>
                 </div>
-                <div class="icon-card card" style="background:var(--brand)">
+                <div class="icon-card card" style="background:var(--brand)" data-aos="fade-up" data-aos-duration="700" data-aos-delay="420">
                     <i class="fas fa-award"></i>
                     <h4>Career Support</h4>
                     <p>Guidance for CA, CMA, CS, and other professional exams.</p>
                 </div>
-                <div class="icon-card card" style="background:var(--brand-light)">
+                <div class="icon-card card" style="background:var(--brand-light)" data-aos="fade-up" data-aos-duration="700" data-aos-delay="500">
                     <i class="fas fa-users"></i>
                     <h4>Collaborative Culture</h4>
                     <p>Peer learning and internships with industry exposure.</p>
@@ -691,30 +665,30 @@
 
         <!-- SPECIALIZATIONS -->
         <section id="courses">
-            <h2>Specializations</h2>
-            <p class="section-subtitle">Choose your advanced field of commerce study</p>
+            <h2 data-aos="fade-up" data-aos-duration="700">Specializations</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">Choose your advanced field of commerce study</p>
             <div class="icon-grid">
-                <div class="icon-card card" style="background:var(--brand)">
+                <div class="icon-card card" style="background:var(--brand)" data-aos="zoom-in-up" data-aos-duration="700" data-aos-delay="100">
                     <i class="fas fa-calculator"></i>
                     <h4>Accounting</h4>
                     <p>Financial accounting, auditing and reporting.</p>
                 </div>
-                <div class="icon-card card" style="background:var(--brand-light)">
+                <div class="icon-card card" style="background:var(--brand-light)" data-aos="zoom-in-up" data-aos-duration="700" data-aos-delay="200">
                     <i class="fas fa-chart-pie"></i>
                     <h4>Finance</h4>
                     <p>Corporate finance, investment and banking studies.</p>
                 </div>
-                <div class="icon-card card" style="background:var(--brand)">
+                <div class="icon-card card" style="background:var(--brand)" data-aos="zoom-in-up" data-aos-duration="700" data-aos-delay="300">
                     <i class="fas fa-briefcase"></i>
                     <h4>Management</h4>
                     <p>Business administration, HR and organizational studies.</p>
                 </div>
-                <div class="icon-card card" style="background:var(--brand-light)">
+                <div class="icon-card card" style="background:var(--brand-light)" data-aos="zoom-in-up" data-aos-duration="700" data-aos-delay="400">
                     <i class="fas fa-globe"></i>
                     <h4>Economics</h4>
                     <p>Micro, macroeconomics and applied economic analysis.</p>
                 </div>
-                <div class="icon-card card" style="background:var(--brand)">
+                <div class="icon-card card" style="background:var(--brand)" data-aos="zoom-in-up" data-aos-duration="700" data-aos-delay="500">
                     <i class="fas fa-balance-scale"></i>
                     <h4>Law & Taxation</h4>
                     <p>Business law, taxation and corporate governance.</p>
@@ -724,48 +698,41 @@
 
         <!-- FACULTY -->
         <section id="faculty" style="background:var(--light)">
-            <h2>Our Faculty</h2>
-            <p class="section-subtitle">Experienced mentors in commerce education</p>
-           <div class="faculty-grid">
-        <div class="faculty-card card">
-            <h4>Dr. Bimla Jaswal</h4>
-            <p style="color:var(--brand);font-weight:600">H.O.D.</p>
-        </div>
-        <div class="faculty-card card">
-            <h4>Mr. Amarjit Lal</h4>
-           
-        </div>
-        <div class="faculty-card card">
-            <h4>Mrs. Jagdeep Kumari</h4>
-           
-        </div>
-         <div class="faculty-card card">
-            <h4>Mrs. Amarjyoti</h4>
-           
-        </div>
-         <div class="faculty-card card">
-            <h4>Mrs. Sandeep Kaur</h4>
-           
-        </div>
-         <div class="faculty-card card">
-            <h4>Mrs. Harpreet Kaur</h4>
-           
-        </div>
-         <div class="faculty-card card">
-            <h4>Ms. Priya Sharma</h4>
-           
-        </div>
-        <div class="faculty-card card">
-            <h4>Ms. Gurpreet Kaur</h4>
-           
-        </div>
-    </div>
+            <h2 data-aos="fade-up" data-aos-duration="700">Our Faculty</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">Experienced mentors in commerce education</p>
+            <div class="faculty-grid">
+                <div class="faculty-card card" data-aos="flip-left" data-aos-duration="700" data-aos-delay="100">
+                    <h4>Dr. Bimla Jaswal</h4>
+                    <p style="color:var(--brand);font-weight:600">H.O.D.</p>
+                </div>
+                <div class="faculty-card card" data-aos="flip-left" data-aos-duration="700" data-aos-delay="180">
+                    <h4>Mr. Amarjit Lal</h4>
+                </div>
+                <div class="faculty-card card" data-aos="flip-left" data-aos-duration="700" data-aos-delay="260">
+                    <h4>Mrs. Jagdeep Kumari</h4>
+                </div>
+                <div class="faculty-card card" data-aos="flip-left" data-aos-duration="700" data-aos-delay="340">
+                    <h4>Mrs. Amarjyoti</h4>
+                </div>
+                <div class="faculty-card card" data-aos="flip-left" data-aos-duration="700" data-aos-delay="420">
+                    <h4>Mrs. Sandeep Kaur</h4>
+                </div>
+                <div class="faculty-card card" data-aos="flip-left" data-aos-duration="700" data-aos-delay="500">
+                    <h4>Mrs. Harpreet Kaur</h4>
+                </div>
+                <div class="faculty-card card" data-aos="flip-left" data-aos-duration="700" data-aos-delay="580">
+                    <h4>Ms. Priya Sharma</h4>
+                </div>
+                <div class="faculty-card card" data-aos="flip-left" data-aos-duration="700" data-aos-delay="660">
+                    <h4>Ms. Gurpreet Kaur</h4>
+                </div>
+            </div>
         </section>
 
         <!-- SYLLABUS -->
         <section id="syllabus">
-            <h2>Program Structure</h2>
-            <div class="card" style="overflow:hidden">
+            <h2 data-aos="fade-up" data-aos-duration="700">Program Structure</h2>
+            <div class="card" style="overflow:hidden" data-aos="zoom-in-up" data-aos-duration="800" data-aos-delay="100">
                 <table>
                     <thead>
                         <tr>
@@ -812,26 +779,26 @@
 
         <!-- CAREERS -->
         <section id="careers" style="background:var(--light)">
-            <h2>Career Opportunities</h2>
-            <p class="section-subtitle">Open doors to professional growth and corporate careers</p>
+            <h2 data-aos="fade-up" data-aos-duration="700">Career Opportunities</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">Open doors to professional growth and corporate careers</p>
             <div class="icon-grid">
-                <div class="career-card card">
+                <div class="career-card card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
                     <i class="fas fa-chart-line fa-2x"></i>
                     <h4>Chartered Accountant (CA)</h4>
                 </div>
-                <div class="career-card card">
+                <div class="career-card card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
                     <i class="fas fa-balance-scale fa-2x"></i>
                     <h4>Company Secretary (CS)</h4>
                 </div>
-                <div class="career-card card">
+                <div class="career-card card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
                     <i class="fas fa-coins fa-2x"></i>
                     <h4>Financial Analyst</h4>
                 </div>
-                <div class="career-card card">
+                <div class="career-card card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="400">
                     <i class="fas fa-briefcase fa-2x"></i>
                     <h4>Manager / HR Executive</h4>
                 </div>
-                <div class="career-card card">
+                <div class="career-card card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="500">
                     <i class="fas fa-university fa-2x"></i>
                     <h4>Banking & Finance</h4>
                 </div>
@@ -840,16 +807,16 @@
 
         <!-- FAQ -->
         <section id="faq">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item card">
+            <h2 data-aos="fade-up" data-aos-duration="700">Frequently Asked Questions</h2>
+            <div class="faq-item card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
                 <div class="faq-q">What is the eligibility for B.Com? <i class="fas fa-plus"></i></div>
                 <div class="faq-a">10+2 in Commerce or equivalent stream from a recognized board.</div>
             </div>
-            <div class="faq-item card">
+            <div class="faq-item card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
                 <div class="faq-q">Can I pursue professional courses with B.Com? <i class="fas fa-plus"></i></div>
                 <div class="faq-a">Yes, including CA, CMA, CS, and CFP along with the B.Com curriculum.</div>
             </div>
-            <div class="faq-item card">
+            <div class="faq-item card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
                 <div class="faq-q">Is internship mandatory? <i class="fas fa-plus"></i></div>
                 <div class="faq-a">Yes, students are encouraged to complete internships in finance, accounting, or management.</div>
             </div>
@@ -873,21 +840,30 @@
             })
         })
     </script>
-  <div id="footer"></div>
 
-  <script>
-  // Load Navbar
-  fetch('./component/navbar.html')
-    .then(response => response.text())
-    .then(data => document.getElementById('navbar').innerHTML = data);
+    <div id="footer"></div>
 
-  // Load Footer
-  fetch('./component/footer.html')
-    .then(response => response.text())
-    .then(data => document.getElementById('footer').innerHTML = data);
-</script>
+    <script>
+        // Load Navbar
+        fetch('./component/navbar.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('navbar').innerHTML = data);
 
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
+        // Load Footer
+        fetch('./component/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            easing: 'ease-out-cubic',
+            offset: 80,
+        });
+    </script>
 
 </body>
 </html>
