@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NAAC – S.G.G.S. Khalsa College Mahilpur</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/navbar.css" />
+  <link rel="stylesheet" href="./css/footer.css" />
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html,body{overflow-x:hidden!important}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;background:#fff;color:#1a1a1a;line-height:1.6}
+    html{scroll-behavior:smooth}
+
+    /* HERO */
+    .hero{position:relative;padding:120px 24px 100px;overflow:hidden;min-height:600px;display:flex;align-items:center;justify-content:center}
+    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#8c1007 0%,#b51610 30%,#8c1007 60%,#6b0d05 100%)}
+    .hero-overlay{position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(255,255,255,.15),transparent 40%),radial-gradient(circle at 80% 70%,rgba(255,255,255,.10),transparent 40%)}
+    .hero-particles{position:absolute;inset:0;background-image:radial-gradient(circle at 10% 20%,rgba(255,255,255,.10) 1px,transparent 1px),radial-gradient(circle at 90% 80%,rgba(255,255,255,.10) 1px,transparent 1px),radial-gradient(circle at 50% 50%,rgba(255,255,255,.05) 1px,transparent 1px);background-size:100px 100px,150px 150px,200px 200px;opacity:.5}
+    .hero-content{position:relative;z-index:10;text-align:center;max-width:1200px;margin:0 auto}
+    .college-badge{width:80px;height:80px;background:rgba(255,255,255,.2);backdrop-filter:blur(10px);border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:2.5rem;color:white;animation:float 3s ease-in-out infinite;border:2px solid rgba(255,255,255,.3)}
+    .hero h1{font-size:4rem;font-weight:800;color:white;margin-bottom:20px;letter-spacing:-.03em;line-height:1.1;text-shadow:0 2px 20px rgba(0,0,0,.2)}
+    .hero p{font-size:1.375rem;color:rgba(255,255,255,.95);max-width:800px;margin:0 auto 48px;font-weight:500}
+    .stats-bar{display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;background:rgba(255,255,255,.15);backdrop-filter:blur(12px);padding:32px 48px;border-radius:20px;border:1px solid rgba(255,255,255,.2);max-width:960px;margin:0 auto}
+    .stat-item{text-align:center}
+    .stat-number{font-size:2rem;font-weight:800;color:white;margin-bottom:4px}
+    .stat-label{font-size:.875rem;color:rgba(255,255,255,.9);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+    .stat-divider{width:1px;height:40px;background:rgba(255,255,255,.3)}
+
+    /* QUICK NAV */
+    .quicknav{background:#fff;border-bottom:2px solid #f0e0e0;position:sticky;top:0;z-index:999;box-shadow:0 2px 16px rgba(0,0,0,.07)}
+    .quicknav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:4px;padding:0 24px;overflow-x:auto;scrollbar-width:none}
+    .quicknav-inner::-webkit-scrollbar{display:none}
+    .qn-btn{display:flex;align-items:center;gap:7px;padding:14px 18px;font-size:.85rem;font-weight:600;color:#555;text-decoration:none;border-bottom:3px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s;flex-shrink:0}
+    .qn-btn:hover,.qn-btn.active{color:#8c1007;border-bottom-color:#8c1007}
+
+    /* SECTIONS */
+    .naac-section{padding:80px 0;background:#f8f9fb}
+    .naac-section.bg-white{background:#fff}
+    .section-divider{height:2px;background:linear-gradient(90deg,transparent,#f0e0e0,transparent)}
+    .section-tag{display:inline-block;background:linear-gradient(135deg,#8c1007 0%,#b51610 100%);color:white;padding:8px 20px;border-radius:50px;font-size:.875rem;font-weight:600;margin-bottom:20px;text-transform:uppercase;letter-spacing:.5px}
+    .section-heading{font-size:2rem;font-weight:800;color:#1a1a1a;margin-bottom:10px;letter-spacing:-.02em}
+    .section-sub{font-size:1rem;color:#666;max-width:680px;margin-bottom:40px}
+
+    /* ACCREDITATION BANNER */
+    .accreditation-banner{background:linear-gradient(135deg,#8c1007 0%,#b51610 100%);border-radius:24px;padding:48px 40px;color:white;display:flex;align-items:center;gap:32px;flex-wrap:wrap;margin-bottom:32px;box-shadow:0 8px 32px rgba(140,16,7,.25)}
+    .acc-grade{width:110px;height:110px;flex-shrink:0;background:rgba(255,255,255,.2);border:3px solid rgba(255,255,255,.4);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .acc-grade .grade{font-size:2.8rem;font-weight:800;line-height:1}
+    .acc-grade .grade-label{font-size:.7rem;font-weight:600;letter-spacing:1px;opacity:.85;text-transform:uppercase}
+    .acc-text h2{font-size:1.6rem;font-weight:800;margin-bottom:8px}
+    .acc-text p{font-size:.97rem;color:rgba(255,255,255,.88);margin:0}
+    .acc-badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+    .acc-badge{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);border-radius:50px;padding:6px 18px;font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:7px}
+
+    /* BASE CARD */
+    .base-card{background:#fff;border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,.07);position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+    .base-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#8c1007,#b51610)}
+    .base-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(140,16,7,.13)}
+    .card-icon{width:54px;height:54px;background:linear-gradient(135deg,#8c1007,#b51610);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:white;margin-bottom:18px;flex-shrink:0}
+
+    /* CERTIFICATE */
+    .cert-img-wrap{border-radius:16px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.15);cursor:zoom-in;position:relative}
+    .cert-img-wrap img{width:100%;display:block}
+    .cert-img-wrap .zoom-badge{position:absolute;bottom:12px;right:12px;background:rgba(140,16,7,.85);color:white;padding:6px 14px;border-radius:50px;font-size:.78rem;font-weight:600;display:flex;align-items:center;gap:6px;backdrop-filter:blur(4px)}
+
+    /* DOC CARDS */
+    .doc-card{padding:32px 28px;height:100%;display:flex;flex-direction:column}
+    .doc-card h4{font-size:1rem;font-weight:700;color:#1a1a1a;margin-bottom:8px}
+    .doc-card p{font-size:.88rem;color:#666;line-height:1.6;flex-grow:1;margin-bottom:20px}
+    .doc-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#8c1007,#b51610);color:white;padding:10px 22px;border-radius:50px;font-size:.85rem;font-weight:600;text-decoration:none;align-self:flex-start;transition:opacity .2s,transform .2s}
+    .doc-btn:hover{opacity:.9;transform:translateY(-1px);color:white}
+    .doc-btn.outline{background:transparent;border:2px solid #b51610;color:#b51610}
+    .doc-btn.outline:hover{background:#b51610;color:white}
+
+    /* PDF LIST */
+    .pdf-list{list-style:none;padding:0;margin:0}
+    .pdf-list li{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 24px;border-bottom:1px solid #f5eded;transition:background .2s}
+    .pdf-list li:last-child{border-bottom:none}
+    .pdf-list li:hover{background:#fff8f8}
+    .pdf-info{display:flex;align-items:center;gap:14px;flex:1;min-width:0}
+    .pdf-icon{width:42px;height:42px;flex-shrink:0;background:linear-gradient(135deg,#8c1007,#b51610);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;color:white}
+    .pdf-name{font-size:.92rem;font-weight:600;color:#1a1a1a}
+    .pdf-meta{font-size:.76rem;color:#999;margin-top:2px}
+    .pdf-dl-btn{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#8c1007,#b51610);color:white;padding:8px 18px;border-radius:50px;font-size:.8rem;font-weight:600;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:opacity .2s,transform .2s}
+    .pdf-dl-btn:hover{opacity:.9;transform:translateY(-1px);color:white}
+
+    /* SSR CRITERIA */
+    .crit-badge{display:inline-block;background:#b51610;color:white;font-size:.7rem;font-weight:700;padding:2px 9px;border-radius:50px;flex-shrink:0}
+    .crit-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #f5eded;font-size:.88rem;color:#555}
+    .crit-row:last-child{border-bottom:none}
+
+    /* GALLERY */
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+    .gallery-item{border-radius:14px;overflow:hidden;aspect-ratio:3/2;position:relative;background:#f0e0e0;cursor:pointer}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s;display:block}
+    .gallery-item:hover img{transform:scale(1.07)}
+    .gallery-item .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(140,16,7,.6),transparent);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:12px}
+    .gallery-item:hover .overlay{opacity:1}
+    .gallery-item .overlay span{font-size:.8rem;color:white;font-weight:600}
+
+    /* LIGHTBOX */
+    .lightbox{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.93);align-items:center;justify-content:center}
+    .lightbox.active{display:flex}
+    .lightbox img{max-width:90vw;max-height:85vh;border-radius:12px;box-shadow:0 8px 48px rgba(0,0,0,.5)}
+    .lightbox-close{position:absolute;top:20px;right:24px;font-size:2rem;color:white;cursor:pointer;background:rgba(255,255,255,.15);border:none;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s}
+    .lightbox-close:hover{background:rgba(255,255,255,.3)}
+
+    /* NOTE BOX */
+    .note-box{background:linear-gradient(135deg,#fff5f5,#fff0f0);border:1px solid #f5c6c6;border-left:4px solid #b51610;border-radius:12px;padding:20px 24px}
+    .note-box p{font-size:.92rem;color:#555;margin-bottom:0}
+
+    /* ANIMATIONS */
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    .fade-in{animation:fadeIn .8s ease-out}
+    .fade-in-delay{animation:fadeIn .8s ease-out .2s both}
+    .fade-in-delay-2{animation:fadeIn .8s ease-out .4s both}
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      .hero h1{font-size:2.4rem}
+      .hero p{font-size:1.1rem}
+      .stats-bar{padding:24px 20px;gap:20px}
+      .stat-divider{display:none}
+      .naac-section{padding:48px 0}
+      .accreditation-banner{flex-direction:column;text-align:center}
+      .acc-grade{margin:0 auto}
+      .gallery-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+      .pdf-list li{flex-direction:column;align-items:flex-start;gap:10px}
+    }
+  </style>
+</head>
+<body>
+
+<div id="navbar"></div>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-particles"></div>
+  <div class="hero-content">
+    <div class="college-badge"><i class="fas fa-medal"></i></div>
+    <h1 class="fade-in">NAAC</h1>
+    <p class="fade-in-delay">National Assessment &amp; Accreditation Council — S.G.G.S. Khalsa College, Mahilpur</p>
+    <div class="stats-bar fade-in-delay-2">
+      <div class="stat-item"><div class="stat-number">A</div><div class="stat-label">NAAC Grade</div></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><div class="stat-number">3.21</div><div class="stat-label">CGPA Score</div></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><div class="stat-number">Cycle 3</div><div class="stat-label">SSR Submitted</div></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><div class="stat-number">6</div><div class="stat-label">DVV Documents</div></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><div class="stat-number">IQAC</div><div class="stat-label">Active Cell</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ QUICK NAV ══ -->
+<nav class="quicknav">
+  <div class="quicknav-inner">
+    <a href="#accreditation" class="qn-btn active"><i class="fas fa-award"></i> Accreditation</a>
+    <a href="#certificate"   class="qn-btn"><i class="fas fa-certificate"></i> Certificate</a>
+    <a href="#documents"     class="qn-btn"><i class="fas fa-folder-open"></i> Key Documents</a>
+    <a href="#ssr"           class="qn-btn"><i class="fas fa-file-alt"></i> SSR Cycle 3</a>
+    <a href="#feedback"      class="qn-btn"><i class="fas fa-comments"></i> Feedback</a>
+    <a href="#dvv"           class="qn-btn"><i class="fas fa-check-double"></i> DVV</a>
+    <a href="#appeal"        class="qn-btn"><i class="fas fa-gavel"></i> Appeal</a>
+    <a href="#gallery"       class="qn-btn"><i class="fas fa-images"></i> Gallery</a>
+  </div>
+</nav>
+
+<!-- ══ ACCREDITATION ══ -->
+<section class="naac-section" id="accreditation">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-tag">NAAC Accreditation</span>
+      <h2 class="section-heading">Our Accreditation Status</h2>
+      <p class="section-sub mx-auto">S.G.G.S. Khalsa College Mahilpur has been re-accredited by NAAC with 'A' Grade and a CGPA of 3.21 (Cycle II), reflecting our commitment to quality higher education.</p>
+    </div>
+    <div class="accreditation-banner">
+      <div class="acc-grade">
+        <div class="grade">A</div>
+        <div class="grade-label">Grade</div>
+      </div>
+      <div class="acc-text flex-grow-1">
+        <h2>Re-Accredited with 'A' Grade — CGPA 3.21 (Cycle II)</h2>
+        <p>S.G.G.S. Khalsa College Mahilpur has been re-accredited by the National Assessment and Accreditation Council (NAAC) with 'A' Grade. The institution continues to pursue quality enhancement through IQAC and has submitted the SSR for Cycle 3.</p>
+        <div class="acc-badges">
+          <div class="acc-badge"><i class="fas fa-check-circle"></i> Grade A — CGPA 3.21</div>
+          <div class="acc-badge"><i class="fas fa-users"></i> Peer Team Visited 2017</div>
+          <div class="acc-badge"><i class="fas fa-shield-alt"></i> IQAC Established</div>
+          <div class="acc-badge"><i class="fas fa-file-contract"></i> SSR Cycle 3 Submitted</div>
+        </div>
+      </div>
+    </div>
+    <div class="note-box">
+      <p><strong>📌 About NAAC:</strong> The National Assessment and Accreditation Council (NAAC) is an autonomous body established by the UGC to assess and accredit institutions of higher education in India. Accreditation provides institutions a benchmark for quality and continual improvement across all academic, administrative and infrastructural domains.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ CERTIFICATE ══ -->
+<section class="naac-section bg-white" id="certificate">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-tag">Official Certificate</span>
+      <h2 class="section-heading">NAAC Accreditation Certificate</h2>
+      <p class="section-sub mx-auto">The official NAAC certificate awarded to S.G.G.S. Khalsa College Mahilpur — Re-accredited with 'A' Grade and CGPA of 3.21 (Cycle II).</p>
+    </div>
+    <div class="row g-4 align-items-start">
+      <div class="col-lg-7">
+        <div class="cert-img-wrap" onclick="openLightbox('https://sggskcm.org/wp-content/uploads/2020/06/naac-certificate.jpg','NAAC Accreditation Certificate')">
+          <img src="https://sggskcm.org/wp-content/uploads/2020/06/naac-certificate.jpg" alt="NAAC Accreditation Certificate – SGGS Khalsa College Mahilpur" loading="lazy" />
+          <div class="zoom-badge"><i class="fas fa-search-plus"></i> Click to enlarge</div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="base-card" style="padding:36px 30px;">
+          <div class="card-icon"><i class="fas fa-award"></i></div>
+          <h4 style="font-size:1.1rem;font-weight:700;color:#1a1a1a;margin-bottom:16px;">Certificate Details</h4>
+          <ul style="list-style:none;padding:0;margin-bottom:24px;">
+            <li style="padding:10px 0;border-bottom:1px solid #f5eded;font-size:.9rem;color:#555;display:flex;gap:10px;align-items:flex-start;"><i class="fas fa-circle" style="color:#b51610;font-size:.55rem;margin-top:5px;flex-shrink:0;"></i><span><strong>Grade:</strong> A — CGPA 3.21 (Re-Accreditation, Cycle II)</span></li>
+            <li style="padding:10px 0;border-bottom:1px solid #f5eded;font-size:.9rem;color:#555;display:flex;gap:10px;align-items:flex-start;"><i class="fas fa-circle" style="color:#b51610;font-size:.55rem;margin-top:5px;flex-shrink:0;"></i><span><strong>Accrediting Body:</strong> National Assessment and Accreditation Council (NAAC), Bengaluru</span></li>
+            <li style="padding:10px 0;border-bottom:1px solid #f5eded;font-size:.9rem;color:#555;display:flex;gap:10px;align-items:flex-start;"><i class="fas fa-circle" style="color:#b51610;font-size:.55rem;margin-top:5px;flex-shrink:0;"></i><span><strong>Institution:</strong> S.G.G.S. Khalsa College Mahilpur, Distt. Hoshiarpur, Punjab – 146105</span></li>
+            <li style="padding:10px 0;border-bottom:1px solid #f5eded;font-size:.9rem;color:#555;display:flex;gap:10px;align-items:flex-start;"><i class="fas fa-circle" style="color:#b51610;font-size:.55rem;margin-top:5px;flex-shrink:0;"></i><span><strong>NAAC Peer Team Visit:</strong> 14th &amp; 15th September 2017</span></li>
+            <li style="padding:10px 0;font-size:.9rem;color:#555;display:flex;gap:10px;align-items:flex-start;"><i class="fas fa-circle" style="color:#b51610;font-size:.55rem;margin-top:5px;flex-shrink:0;"></i><span><strong>Affiliated to:</strong> Panjab University, Chandigarh</span></li>
+          </ul>
+          <a href="https://sggskcm.org/wp-content/uploads/2020/06/naac-certificate.jpg" download target="_blank" class="doc-btn"><i class="fas fa-download"></i> Download Certificate</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ KEY DOCUMENTS ══ -->
+<section class="naac-section" id="documents">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-tag">Official Documents</span>
+      <h2 class="section-heading">Key NAAC Documents</h2>
+      <p class="section-sub mx-auto">Download all essential NAAC-related documents — IIQA, Affiliation, Best Practices, Institutional Distinctiveness and more — directly from this page.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="base-card doc-card">
+          <div class="card-icon"><i class="fas fa-file-signature"></i></div>
+          <h4>IIQA Registration</h4>
+          <p>Institutional Information for Quality Assessment (IIQA) document submitted to NAAC as the first step in the Cycle 3 accreditation process.</p>
+          <a href="https://sggskcm.org/wp-content/uploads/2024/05/IIQA-Registration.pdf" download target="_blank" class="doc-btn"><i class="fas fa-download"></i> Download IIQA</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="base-card doc-card">
+          <div class="card-icon"><i class="fas fa-link"></i></div>
+          <h4>Affiliation Documents</h4>
+          <p>Official affiliation documents from Panjab University, Chandigarh, confirming the college's recognised affiliation status and programme approvals.</p>
+          <a href="https://sggskcm.org/wp-content/uploads/2024/05/Affiliations.pdf" download target="_blank" class="doc-btn"><i class="fas fa-download"></i> Download Affiliations</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="base-card doc-card">
+          <div class="card-icon"><i class="fas fa-star"></i></div>
+          <h4>Best Practices</h4>
+          <p>Comprehensive document outlining the institution's best practices across academic, administrative and social domains — NAAC Criterion VII (7.1 &amp; 7.2).</p>
+          <a href="https://sggskcm.org/wp-content/uploads/2024/05/Best-Practices.pdf" download target="_blank" class="doc-btn"><i class="fas fa-download"></i> Download Best Practices</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="base-card doc-card">
+          <div class="card-icon"><i class="fas fa-gem"></i></div>
+          <h4>Institutional Distinctiveness</h4>
+          <p>The Institutional Distinctiveness report (Criterion 7.3) highlighting unique features, achievements and distinguishing characteristics of the college.</p>
+          <a href="https://sggskcm.org/wp-content/uploads/2024/05/final-7.3-Institutional-Distinctiveness.pdf" download target="_blank" class="doc-btn"><i class="fas fa-download"></i> Download Report</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="base-card doc-card">
+          <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+          <h4>IQAC — Annual Reports</h4>
+          <p>The IQAC oversees quality at the college. View all AQARs from 2011–23, meeting minutes and academic calendars on the dedicated IQAC page.</p>
+          <a href="./iqac.html" class="doc-btn"><i class="fas fa-arrow-right"></i> View IQAC Page</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="base-card doc-card">
+          <div class="card-icon"><i class="fas fa-globe"></i></div>
+          <h4>NAAC Official Website</h4>
+          <p>Visit the National Assessment and Accreditation Council's official website for accreditation guidelines, frameworks and institutional profiles.</p>
+          <a href="https://www.naac.gov.in/" target="_blank" class="doc-btn outline"><i class="fas fa-external-link-alt"></i> Visit NAAC.gov.in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ SSR CYCLE 3 ══ -->
+<section class="naac-section bg-white" id="ssr">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-tag">Self Study Report</span>
+      <h2 class="section-heading">SSR — Cycle 3</h2>
+      <p class="section-sub mx-auto">The Self Study Report (SSR) is a comprehensive institutional document submitted to NAAC covering all seven evaluation criteria.</p>
+    </div>
+    <div class="row g-4 align-items-stretch">
+      <div class="col-lg-7">
+        <div class="base-card" style="padding:40px 36px;">
+          <div class="card-icon" style="width:60px;height:60px;font-size:1.6rem;margin-bottom:22px;"><i class="fas fa-book-open"></i></div>
+          <h4 style="font-size:1.2rem;font-weight:700;margin-bottom:12px;">Self Study Report — Cycle 3 (Final Revised)</h4>
+          <p style="font-size:.94rem;color:#555;line-height:1.8;margin-bottom:20px;">The SSR for Cycle 3 covers the complete academic, administrative, research and infrastructural profile of S.G.G.S. Khalsa College Mahilpur across all seven NAAC evaluation criteria, reflecting our commitment to quality and continuous improvement.</p>
+          <div class="row g-3 mb-4">
+            <div class="col-6"><div style="background:#fff5f5;border-radius:12px;padding:16px;text-align:center;"><div style="font-size:1.5rem;font-weight:800;color:#8c1007;">7</div><div style="font-size:.75rem;color:#666;font-weight:600;text-transform:uppercase;letter-spacing:.4px;">NAAC Criteria</div></div></div>
+            <div class="col-6"><div style="background:#fff5f5;border-radius:12px;padding:16px;text-align:center;"><div style="font-size:1.5rem;font-weight:800;color:#8c1007;">Cycle 3</div><div style="font-size:.75rem;color:#666;font-weight:600;text-transform:uppercase;letter-spacing:.4px;">Accreditation Round</div></div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2024/08/SSR-Final-Revised-PBCOGN14491-2.pdf" download target="_blank" class="doc-btn" style="font-size:.92rem;padding:13px 30px;"><i class="fas fa-download"></i> Download SSR Cycle 3 (PDF)</a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="base-card" style="padding:36px 28px;">
+          <div class="card-icon" style="font-size:1.2rem;margin-bottom:18px;"><i class="fas fa-list-check"></i></div>
+          <h4 style="margin-bottom:18px;font-size:1rem;font-weight:700;">Coverage — Seven NAAC Criteria</h4>
+          <div class="crit-row"><span class="crit-badge">C1</span> Curricular Aspects</div>
+          <div class="crit-row"><span class="crit-badge">C2</span> Teaching-Learning and Evaluation</div>
+          <div class="crit-row"><span class="crit-badge">C3</span> Research, Innovations and Extension</div>
+          <div class="crit-row"><span class="crit-badge">C4</span> Infrastructure and Learning Resources</div>
+          <div class="crit-row"><span class="crit-badge">C5</span> Student Support and Progression</div>
+          <div class="crit-row"><span class="crit-badge">C6</span> Governance, Leadership and Management</div>
+          <div class="crit-row"><span class="crit-badge">C7</span> Institutional Values and Best Practices</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ FEEDBACK ══ -->
+<section class="naac-section" id="feedback">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-tag">Stakeholder Feedback</span>
+      <h2 class="section-heading">Feedback Forms</h2>
+      <p class="section-sub mx-auto">NAAC mandates structured feedback from all stakeholders. Download the official feedback PDF forms directly from our server below.</p>
+    </div>
+    <div class="base-card" style="padding:0;">
+      <div style="padding:28px 32px 20px;border-bottom:1px solid #f5eded;">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="card-icon" style="margin-bottom:0;width:48px;height:48px;font-size:1.2rem;flex-shrink:0;"><i class="fas fa-comments"></i></div>
+          <div>
+            <div style="font-size:1.1rem;font-weight:700;color:#1a1a1a;">Stakeholder Feedback Documents</div>
+            <div style="font-size:.84rem;color:#999;">All forms are hosted on our server — direct PDF downloads, no external redirects</div>
+          </div>
+        </div>
+      </div>
+      <ul class="pdf-list">
+        <li>
+          <div class="pdf-info">
+            <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+            <div><div class="pdf-name">Student Feedback Form</div><div class="pdf-meta">Criterion 2 — Teaching-Learning &amp; Evaluation | Student Experience Survey</div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2024/05/Student-Feedback.pdf" download target="_blank" class="pdf-dl-btn"><i class="fas fa-download"></i> Download</a>
+        </li>
+        <li>
+          <div class="pdf-info">
+            <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+            <div><div class="pdf-name">Alumni Feedback Form</div><div class="pdf-meta">Criterion 5 — Student Progression &amp; Support | Alumni Experience Review</div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2024/05/Alumni-Feedback.pdf" download target="_blank" class="pdf-dl-btn"><i class="fas fa-download"></i> Download</a>
+        </li>
+        <li>
+          <div class="pdf-info">
+            <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+            <div><div class="pdf-name">Parent / Guardian Feedback Form</div><div class="pdf-meta">Criterion 5 — Student Support | Guardian Satisfaction Survey</div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2024/05/Parent-Feedback.pdf" download target="_blank" class="pdf-dl-btn"><i class="fas fa-download"></i> Download</a>
+        </li>
+        <li>
+          <div class="pdf-info">
+            <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+            <div><div class="pdf-name">Teacher / Faculty Feedback Form</div><div class="pdf-meta">Criterion 2 — Curriculum Design Feedback by Faculty Members</div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2024/05/Teacher-Feedback.pdf" download target="_blank" class="pdf-dl-btn"><i class="fas fa-download"></i> Download</a>
+        </li>
+        <li>
+          <div class="pdf-info">
+            <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+            <div><div class="pdf-name">Employer Feedback Form</div><div class="pdf-meta">Criterion 5 — Employability &amp; Industry Readiness Evaluation</div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2024/05/Employer-Feedback.pdf" download target="_blank" class="pdf-dl-btn"><i class="fas fa-download"></i> Download</a>
+        </li>
+        <li>
+          <div class="pdf-info">
+            <div class="pdf-icon"><i class="fas fa-chart-bar"></i></div>
+            <div><div class="pdf-name">Feedback Analysis Report</div><div class="pdf-meta">Consolidated IQAC analysis of all stakeholder feedback responses</div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2024/05/Feedback-Analysis.pdf" download target="_blank" class="pdf-dl-btn"><i class="fas fa-download"></i> Download</a>
+        </li>
+      </ul>
+    </div>
+    <div class="note-box mt-4">
+      <p><strong>📋 Why Feedback Matters:</strong> Systematic stakeholder feedback is a core NAAC requirement under Criterion 2 (Teaching-Learning) and Criterion 6 (Governance). The college analyses collected feedback regularly to improve academic programmes, teaching methods and student services.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ DVV ══ -->
+<section class="naac-section bg-white" id="dvv">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-tag">Data Verification &amp; Validation</span>
+      <h2 class="section-heading">DVV Clarification Documents</h2>
+      <p class="section-sub mx-auto">NAAC's DVV process independently verifies quantitative metrics submitted in the SSR. Download each DVV clarification document directly from our server.</p>
+    </div>
+    <div class="base-card" style="padding:0;">
+      <div style="padding:28px 32px 20px;border-bottom:1px solid #f5eded;">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="card-icon" style="margin-bottom:0;width:48px;height:48px;font-size:1.2rem;flex-shrink:0;"><i class="fas fa-check-double"></i></div>
+          <div>
+            <div style="font-size:1.1rem;font-weight:700;color:#1a1a1a;">DVV Clarification Files</div>
+            <div style="font-size:.84rem;color:#999;">6 documents — all hosted on our server with direct PDF downloads</div>
+          </div>
+        </div>
+      </div>
+      <ul class="pdf-list">
+        <li>
+          <div class="pdf-info">
+            <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+            <div><div class="pdf-name">DVV 2.4.2 — List of Teachers (2018-19 to 2022-23)</div><div class="pdf-meta">Criterion 2 — Teaching-Learning &amp; Evaluation | Faculty Qualification &amp; Appointment Data</div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2025/01/List-of-Teachers-from-2018-19-to-2022-23-merged.pdf" download target="_blank" class="pdf-dl-btn"><i class="fas fa-download"></i> Download</a>
+        </li>
+        <li>
+          <div class="pdf-info">
+            <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+            <div><div class="pdf-name">DVV 3.1.1 — Endowment / Research Fund Proof</div><div class="pdf-meta">Criterion 3 — Research, Innovations &amp; Extension | Endowment Fund Evidence</div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2025/01/Endowment-Proof-merge.pdf" download target="_blank" class="pdf-dl-btn"><i class="fas fa-download"></i> Download</a>
+        </li>
+        <li>
+          <div class="pdf-info">
+            <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+            <div><div class="pdf-name">DVV 4.3.2 — ICT Infrastructure Clarification</div><div class="pdf-meta">Criterion 4 — Infrastructure &amp; Learning Resources | ICT Facilities &amp; Usage</div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2025/01/4.3.2-DVV-clarification.pdf" download target="_blank" class="pdf-dl-btn"><i class="fas fa-download"></i> Download</a>
+        </li>
+        <li>
+          <div class="pdf-info">
+            <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+            <div><div class="pdf-name">DVV 5.1.2 — Student Scholarship &amp; Financial Support Data</div><div class="pdf-meta">Criterion 5 — Student Support &amp; Progression | Scholarship Records &amp; Evidence</div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2025/01/DVV-5.1.2.pdf" download target="_blank" class="pdf-dl-btn"><i class="fas fa-download"></i> Download</a>
+        </li>
+        <li>
+          <div class="pdf-info">
+            <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+            <div><div class="pdf-name">DVV 5.1.3 — Career Guidance &amp; Counselling Evidence</div><div class="pdf-meta">Criterion 5 — Student Support &amp; Progression | Career Guidance Activities</div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2025/01/DVV-5.1.3.pdf" download target="_blank" class="pdf-dl-btn"><i class="fas fa-download"></i> Download</a>
+        </li>
+        <li>
+          <div class="pdf-info">
+            <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+            <div><div class="pdf-name">DVV 5.3.2 — Sports &amp; Cultural Programme Records</div><div class="pdf-meta">Criterion 5 — Student Support &amp; Progression | Co-curricular &amp; Sports Activities</div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2025/01/Compress-Sports-and-Cultural-Programme-1.pdf" download target="_blank" class="pdf-dl-btn"><i class="fas fa-download"></i> Download</a>
+        </li>
+      </ul>
+    </div>
+    <div class="note-box mt-4">
+      <p><strong>📌 About DVV:</strong> Data Verification and Validation (DVV) is NAAC's process of independently verifying the quantitative metrics submitted by institutions in their SSR. All clarification documents above are linked directly to our server — no external redirects.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ APPEAL ══ -->
+<section class="naac-section" id="appeal">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-tag">NAAC Appeal</span>
+      <h2 class="section-heading">NAAC Appeal Documents</h2>
+      <p class="section-sub mx-auto">The college has formally submitted a NAAC Appeal with comprehensive supporting documentation for review of the accreditation outcome. Download all appeal documents directly below.</p>
+    </div>
+    <div class="base-card" style="padding:0;">
+      <div style="padding:28px 32px 20px;border-bottom:1px solid #f5eded;">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="card-icon" style="margin-bottom:0;width:48px;height:48px;font-size:1.2rem;flex-shrink:0;"><i class="fas fa-gavel"></i></div>
+          <div>
+            <div style="font-size:1.1rem;font-weight:700;color:#1a1a1a;">Appeal Supporting Files</div>
+            <div style="font-size:.84rem;color:#999;">9 documents — all hosted on our server with direct PDF downloads</div>
+          </div>
+        </div>
+      </div>
+      <ul class="pdf-list">
+        <li>
+          <div class="pdf-info">
+            <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+            <div><div class="pdf-name">Appeal 2.4.2 — List of Teaching Staff (PhD &amp; NET Data)</div><div class="pdf-meta">Criterion 2 — Teaching-Learning &amp; Evaluation | Faculty Qualification Evidence</div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2024/12/Teaching-Staff-Phd-NET-data.pdf" download target="_blank" class="pdf-dl-btn"><i class="fas fa-download"></i> Download</a>
+        </li>
+        <li>
+          <div class="pdf-info">
+            <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+            <div><div class="pdf-name">Appeal 3.5.1 — MOU with Think Next Co. &amp; Student Internship / Training Certificates</div><div class="pdf-meta">Criterion 3 — Research, Innovations &amp; Extension | MOU &amp; Internship Records</div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2024/12/3.5.1.-MOU-and-internship-training.pdf" download target="_blank" class="pdf-dl-btn"><i class="fas fa-download"></i> Download</a>
+        </li>
+        <li>
+          <div class="pdf-info">
+            <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+            <div><div class="pdf-name">Appeal 4.3.2 — Computer Stock Register &amp; Bills (up to June 2023)</div><div class="pdf-meta">Criterion 4 — Infrastructure &amp; Learning Resources | ICT Asset Records</div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2024/12/4.3.2-Computer-Stock-Register-and-Bills.pdf" download target="_blank" class="pdf-dl-btn"><i class="fas fa-download"></i> Download</a>
+        </li>
+        <li>
+          <div class="pdf-info">
+            <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+            <div><div class="pdf-name">Appeal 4.4.1 — Balance Sheet &amp; Income-Expenditure Statement (2018-19 to 2022-23)</div><div class="pdf-meta">Criterion 4 — Infrastructure &amp; Learning Resources | Financial Statements</div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2025/01/4.4.1.-Balance-Sheet-Updated.pdf" download target="_blank" class="pdf-dl-btn"><i class="fas fa-download"></i> Download</a>
+        </li>
+        <li>
+          <div class="pdf-info">
+            <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+            <div><div class="pdf-name">Appeal 5.1.2 — Skill Development &amp; Capacity Building Programmes</div><div class="pdf-meta">Criterion 5 — Student Support &amp; Progression | Skill Enhancement Activities</div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2024/12/5.1.2-Skill-Development-and-Capacity-Building-Programmes.pdf" download target="_blank" class="pdf-dl-btn"><i class="fas fa-download"></i> Download</a>
+        </li>
+        <li>
+          <div class="pdf-info">
+            <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+            <div><div class="pdf-name">Appeal 5.1.3 — Students Benefitted from Guidance &amp; Competitive Examinations</div><div class="pdf-meta">Criterion 5 — Student Support &amp; Progression | Career Guidance Records</div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2024/12/5.1.3-Students-benefitted-from-Guidance-and-Competitive-Examinations.pdf" download target="_blank" class="pdf-dl-btn"><i class="fas fa-download"></i> Download</a>
+        </li>
+        <li>
+          <div class="pdf-info">
+            <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+            <div><div class="pdf-name">Appeal 5.3.1 — Awards &amp; Medals for Outstanding Performance in Sports / Cultural Activities</div><div class="pdf-meta">Criterion 5 — Student Support &amp; Progression | Student Achievements &amp; Honours</div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2024/12/5.3.1-Number-of-awards-Medals-for-outstanding-performance-in-Sports-Cultural-Activities.pdf" download target="_blank" class="pdf-dl-btn"><i class="fas fa-download"></i> Download</a>
+        </li>
+        <li>
+          <div class="pdf-info">
+            <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+            <div><div class="pdf-name">Appeal 5.3.2 — Student Participation in Sports &amp; Cultural Activities (2018-19 to 2022-23)</div><div class="pdf-meta">Criterion 5 — Student Support &amp; Progression | Co-curricular Participation Records</div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2024/12/5.3.2-Participation-of-students-in-Sports-and-Cultural-Activities-from-2018-19-to-2022-23.pdf" download target="_blank" class="pdf-dl-btn"><i class="fas fa-download"></i> Download</a>
+        </li>
+        <li>
+          <div class="pdf-info">
+            <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+            <div><div class="pdf-name">Appeal 3.1.1 — Endowment Fund Proof</div><div class="pdf-meta">Criterion 3 — Research, Innovations &amp; Extension | Endowment Fund Evidence</div></div>
+          </div>
+          <a href="https://sggskcm.org/wp-content/uploads/2025/01/Endowment-Proof-merge.pdf" download target="_blank" class="pdf-dl-btn"><i class="fas fa-download"></i> Download</a>
+        </li>
+      </ul>
+    </div>
+    <div class="note-box mt-4">
+      <p><strong>⚖️ About the NAAC Appeal:</strong> An institution may submit a formal appeal to NAAC when it believes there are grounds for a review of the accreditation outcome. Our appeal includes detailed supporting evidence across all relevant criteria — covering faculty qualifications, infrastructure, student support, research activities and financial records — and has been submitted with complete documentation.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ GALLERY ══ -->
+<section class="naac-section bg-white" id="gallery">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-tag">Campus Life</span>
+      <h2 class="section-heading">College Gallery</h2>
+      <p class="section-sub mx-auto">Glimpses of academic life, events, sports, alumni meets, convocations and the vibrant campus culture at S.G.G.S. Khalsa College Mahilpur.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox('https://sggskcm.org/wp-content/uploads/2022/05/WhatsApp-Image-2022-05-24-at-10.48.54-AM-1-600x400.jpeg','College Event')"><img src="https://sggskcm.org/wp-content/uploads/2022/05/WhatsApp-Image-2022-05-24-at-10.48.54-AM-1-600x400.jpeg" alt="College Event" loading="lazy"/><div class="overlay"><span>College Event</span></div></div>
+      <div class="gallery-item" onclick="openLightbox('https://sggskcm.org/wp-content/uploads/2022/05/WhatsApp-Image-2022-05-20-at-10.58.28-AM-600x400.jpeg','Campus Activity')"><img src="https://sggskcm.org/wp-content/uploads/2022/05/WhatsApp-Image-2022-05-20-at-10.58.28-AM-600x400.jpeg" alt="Campus Activity" loading="lazy"/><div class="overlay"><span>Campus Activity</span></div></div>
+      <div class="gallery-item" onclick="openLightbox('https://sggskcm.org/wp-content/uploads/2022/05/DSC_0731-600x400.jpg','Campus')"><img src="https://sggskcm.org/wp-content/uploads/2022/05/DSC_0731-600x400.jpg" alt="Campus" loading="lazy"/><div class="overlay"><span>Campus</span></div></div>
+      <div class="gallery-item" onclick="openLightbox('https://sggskcm.org/wp-content/uploads/2022/05/IMG-20220510-WA0015-600x400.jpg','Students')"><img src="https://sggskcm.org/wp-content/uploads/2022/05/IMG-20220510-WA0015-600x400.jpg" alt="Students" loading="lazy"/><div class="overlay"><span>Students</span></div></div>
+      <div class="gallery-item" onclick="openLightbox('https://sggskcm.org/wp-content/uploads/2024/02/ncc-600x400.jpg','NCC')"><img src="https://sggskcm.org/wp-content/uploads/2024/02/ncc-600x400.jpg" alt="NCC" loading="lazy"/><div class="overlay"><span>NCC</span></div></div>
+      <div class="gallery-item" onclick="openLightbox('https://sggskcm.org/wp-content/uploads/2024/02/music-600x400.jpg','Music Department')"><img src="https://sggskcm.org/wp-content/uploads/2024/02/music-600x400.jpg" alt="Music" loading="lazy"/><div class="overlay"><span>Music Department</span></div></div>
+      <div class="gallery-item" onclick="openLightbox('https://sggskcm.org/wp-content/uploads/2023/10/DSC_0335-600x400.jpg','Student Achievement')"><img src="https://sggskcm.org/wp-content/uploads/2023/10/DSC_0335-600x400.jpg" alt="Student" loading="lazy"/><div class="overlay"><span>Student Achievement</span></div></div>
+      <div class="gallery-item" onclick="openLightbox('https://sggskcm.org/wp-content/uploads/2024/05/DSC_3044-600x400.jpg','Campus Life')"><img src="https://sggskcm.org/wp-content/uploads/2024/05/DSC_3044-600x400.jpg" alt="Campus Life" loading="lazy"/><div class="overlay"><span>Campus Life</span></div></div>
+      <div class="gallery-item" onclick="openLightbox('https://sggskcm.org/wp-content/uploads/2024/05/DSC_1146-600x400.jpg','Convocation')"><img src="https://sggskcm.org/wp-content/uploads/2024/05/DSC_1146-600x400.jpg" alt="Convocation" loading="lazy"/><div class="overlay"><span>Convocation</span></div></div>
+      <div class="gallery-item" onclick="openLightbox('https://sggskcm.org/wp-content/uploads/2024/05/DSC_0520-scaled-600x400.jpg','Alumni Meet')"><img src="https://sggskcm.org/wp-content/uploads/2024/05/DSC_0520-scaled-600x400.jpg" alt="Alumni Meet" loading="lazy"/><div class="overlay"><span>Alumni Meet</span></div></div>
+      <div class="gallery-item" onclick="openLightbox('https://sggskcm.org/wp-content/uploads/2024/04/am24-600x400.jpg','Alumni Meet 2024')"><img src="https://sggskcm.org/wp-content/uploads/2024/04/am24-600x400.jpg" alt="Alumni Meet 2024" loading="lazy"/><div class="overlay"><span>Alumni Meet 2024</span></div></div>
+      <div class="gallery-item" onclick="openLightbox('https://sggskcm.org/wp-content/uploads/2021/09/amandeep-singh-1-600x400.jpg','Student Achievement')"><img src="https://sggskcm.org/wp-content/uploads/2021/09/amandeep-singh-1-600x400.jpg" alt="Student" loading="lazy"/><div class="overlay"><span>Student Achievement</span></div></div>
+      <div class="gallery-item" onclick="openLightbox('https://sggskcm.org/wp-content/uploads/2024/05/418851659_911348747450629_5784420673145472628_n-600x400.jpg','College Event')"><img src="https://sggskcm.org/wp-content/uploads/2024/05/418851659_911348747450629_5784420673145472628_n-600x400.jpg" alt="Event" loading="lazy"/><div class="overlay"><span>College Event</span></div></div>
+      <div class="gallery-item" onclick="openLightbox('https://sggskcm.org/wp-content/uploads/2024/05/438906644_950853903384266_8250800380471273248_n-600x400.jpg','College Event')"><img src="https://sggskcm.org/wp-content/uploads/2024/05/438906644_950853903384266_8250800380471273248_n-600x400.jpg" alt="Event" loading="lazy"/><div class="overlay"><span>College Event</span></div></div>
+      <div class="gallery-item" onclick="openLightbox('https://sggskcm.org/wp-content/uploads/2022/05/WhatsApp-Image-2022-05-23-at-9.06.21-PM-1-600x400.jpeg','Campus Event')"><img src="https://sggskcm.org/wp-content/uploads/2022/05/WhatsApp-Image-2022-05-23-at-9.06.21-PM-1-600x400.jpeg" alt="Campus Event" loading="lazy"/><div class="overlay"><span>Campus Event</span></div></div>
+      <div class="gallery-item" onclick="openLightbox('https://sggskcm.org/wp-content/uploads/2021/08/sugandha-600x400.jpg','Student')"><img src="https://sggskcm.org/wp-content/uploads/2021/08/sugandha-600x400.jpg" alt="Student" loading="lazy"/><div class="overlay"><span>Student</span></div></div>
+      <div class="gallery-item" onclick="openLightbox('https://sggskcm.org/wp-content/uploads/2024/04/ameet2-600x400.jpg','Alumni Meet')"><img src="https://sggskcm.org/wp-content/uploads/2024/04/ameet2-600x400.jpg" alt="Alumni" loading="lazy"/><div class="overlay"><span>Alumni Meet</span></div></div>
+      <div class="gallery-item" onclick="openLightbox('https://sggskcm.org/wp-content/uploads/2020/05/DSC_0924-600x400.jpg','Campus')"><img src="https://sggskcm.org/wp-content/uploads/2020/05/DSC_0924-600x400.jpg" alt="Campus" loading="lazy"/><div class="overlay"><span>Campus</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+  <img id="lightboxImg" src="" alt="" onclick="event.stopPropagation()" />
+</div>
+
+<!-- CTA -->
+<section style="padding:60px 0;background:#f8f9fb;text-align:center;">
+  <div class="container">
+    <p class="text-muted mb-3" style="font-size:.97rem;">For more information about NAAC accreditation or quality initiatives, reach out to us.</p>
+    <a href="./contactus copy.html" class="btn btn-danger px-5 py-2 me-2 rounded-pill fw-semibold"><i class="fas fa-envelope me-2"></i>Contact Us</a>
+    <a href="./iqac.html" class="btn btn-outline-danger px-5 py-2 me-2 rounded-pill fw-semibold"><i class="fas fa-shield-alt me-2"></i>View IQAC Page</a>
+    <a href="https://www.naac.gov.in/" target="_blank" class="btn btn-outline-secondary px-5 py-2 rounded-pill fw-semibold"><i class="fas fa-external-link-alt me-2"></i>NAAC Official Site</a>
+  </div>
+</section>
+
+<div id="footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  fetch('./component/navbar.html').then(r=>r.text()).then(d=>document.getElementById('navbar').innerHTML=d);
+  fetch('./component/footer.html').then(r=>r.text()).then(d=>document.getElementById('footer').innerHTML=d);
+
+  function openLightbox(src,alt){
+    document.getElementById('lightboxImg').src=src;
+    document.getElementById('lightboxImg').alt=alt||'';
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow='hidden';
+  }
+  function closeLightbox(){
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow='';
+  }
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
+
+  const sections=document.querySelectorAll('section[id]');
+  const qnBtns=document.querySelectorAll('.qn-btn');
+  window.addEventListener('scroll',()=>{
+    let current='';
+    sections.forEach(s=>{if(window.scrollY>=s.offsetTop-130)current=s.id;});
+    qnBtns.forEach(b=>b.classList.toggle('active',b.getAttribute('href')==='#'+current));
+  },{passive:true});
+</script>
+</body>
+</html>
