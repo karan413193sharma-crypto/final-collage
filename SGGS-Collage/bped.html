@@ -9,17 +9,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="./css/style.css">
-     <!-- BOOTSTRAP CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- ========== ADDED AOS CSS LIBRARY ========== -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- BOOTSTRAP JS (for toggle + dropdown)  -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- BOOTSTRAP JS (for toggle + dropdown)  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
  
-         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
-        
-         <link rel="stylesheet" href="./css/navbar.css">
-         <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+    
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    
     <style>
        * {
             margin: 0;
@@ -27,9 +32,8 @@
             box-sizing: border-box;
         }
         html, body {
-    overflow-x: hidden !important;
-}
-
+            overflow-x: hidden !important;
+        }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
@@ -44,7 +48,8 @@
         html {
             scroll-behavior: smooth;
         }
-/* Hero Section */
+
+        /* Hero Section */
         .hero {
             position: relative;
             padding: 120px 24px 100px;
@@ -164,13 +169,13 @@
             height: 40px;
             background: rgba(255, 255, 255, 0.3);
         }
- /* Animations */
+
+        /* Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
                 transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -178,12 +183,9 @@
         }
 
         @keyframes float {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translateY(0);
             }
-
             50% {
                 transform: translateY(-10px);
             }
@@ -193,7 +195,6 @@
             0% {
                 background-position: -1000px 0;
             }
-
             100% {
                 background-position: 1000px 0;
             }
@@ -230,7 +231,6 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-
 
         /* Section Cards */
         .section-card {
@@ -409,395 +409,333 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(181, 22, 16, 0.35);
         }
+
         /* ======= Summary / Overview Section ======= */
-.summary-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    align-items: center;
-    margin: 50px 0;
-    background: #fff;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
-}
+        .summary-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            margin: 50px 0;
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+        }
 
-.summary-content {
-    flex: 1 1 500px;
-}
+        .summary-content {
+            flex: 1 1 500px;
+        }
 
-.summary-content h2 {
-    font-size: 32px;
-    color: #8C1007;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
+        .summary-content h2 {
+            font-size: 32px;
+            color: #8C1007;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
 
-.summary-content h3 {
-    font-size: 22px;
-    color: #B51610;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-weight: 600;
-}
+        .summary-content h3 {
+            font-size: 22px;
+            color: #B51610;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
 
-.summary-content p {
-    font-size: 16px;
-    line-height: 1.7;
-    margin-bottom: 15px;
-    color: #333;
-}
+        .summary-content p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: #333;
+        }
 
-.summary-content ul {
-    list-style: disc inside;
-    margin-left: 0;
-    padding-left: 0;
-    color: #444;
-    font-size: 16px;
-    line-height: 1.6;
-}
+        .summary-content ul {
+            list-style: disc inside;
+            margin-left: 0;
+            padding-left: 0;
+            color: #444;
+            font-size: 16px;
+            line-height: 1.6;
+        }
 
-.summary-content ul li {
-    margin-bottom: 10px;
-}
+        .summary-content ul li {
+            margin-bottom: 10px;
+        }
 
-/* Image section */
-.summary-image {
-    flex: 1 1 400px;
-    position: relative;
-    text-align: center;
-}
+        .summary-image {
+            flex: 1 1 400px;
+            position: relative;
+            text-align: center;
+        }
 
-.summary-image img {
-    max-width: 100%;
-    border-radius: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 8px 20px rgba(140, 16, 7, 0.15);
-}
+        .summary-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 20px rgba(140, 16, 7, 0.15);
+        }
 
-.summary-image img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 35px rgba(140, 16, 7, 0.25);
-}
+        .summary-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(140, 16, 7, 0.25);
+        }
 
-/* Optional Zoom Icon */
-.summary-image i {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 28px;
-    color: #B51610;
-    background: rgba(255, 255, 255, 0.85);
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.3s ease, background 0.3s ease;
-}
+        .summary-image i {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 28px;
+            color: #B51610;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
 
-.summary-image i:hover {
-    transform: scale(1.2);
-    background: #B51610;
-    color: #fff;
-}
+        .summary-image i:hover {
+            transform: scale(1.2);
+            background: #B51610;
+            color: #fff;
+        }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .summary-section {
-        flex-direction: column;
-        padding: 30px 20px;
-    }
+        @media (max-width: 992px) {
+            .summary-section {
+                flex-direction: column;
+                padding: 30px 20px;
+            }
+            .summary-image {
+                margin-top: 25px;
+            }
+        }
 
-    .summary-image {
-        margin-top: 25px;
-    }
-}
-/* ======= Duration & Eligibility Section ======= */
-.duration-section {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    background: #fde7e7; /* Light red background */
-    padding: 50px 30px;
-    border-radius: 20px;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
-    margin-bottom: 40px;
-    position: relative;
-    overflow: hidden;
-    transition: 0.35s ease;
-}
+        /* Duration & Eligibility Section */
+        .duration-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            background: #fde7e7;
+            padding: 50px 30px;
+            border-radius: 20px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: 0.35s ease;
+        }
 
-.duration-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    height: 4px;
-    width: 100%;
-    background: linear-gradient(90deg, #8C1007, #B51610); /* Gradient accent */
-    transform: translateX(-50%) scaleX(0);
-    transform-origin: center;
-    transition: transform 0.35s ease;
-}
+        .duration-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            height: 4px;
+            width: 100%;
+            background: linear-gradient(90deg, #8C1007, #B51610);
+            transform: translateX(-50%) scaleX(0);
+            transform-origin: center;
+            transition: transform 0.35s ease;
+        }
 
-.duration-section:hover::before {
-    transform: translateX(-50%) scaleX(1);
-}
+        .duration-section:hover::before {
+            transform: translateX(-50%) scaleX(1);
+        }
 
-.duration-section:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 32px rgba(140, 16, 7, 0.18);
-}
+        .duration-section:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(140, 16, 7, 0.18);
+        }
 
-/* Content */
-.duration-content {
-    flex: 1 1 500px;
-}
+        .duration-content {
+            flex: 1 1 500px;
+        }
 
-.duration-content h2 {
-    font-size: 32px;
-    color: #8C1007;
-    font-weight: 800;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
+        .duration-content h2 {
+            font-size: 32px;
+            color: #8C1007;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
 
-.duration-content p {
-    font-size: 17px;
-    line-height: 1.7;
-    color: #333;
-    margin-bottom: 25px;
-}
+        .duration-content p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 25px;
+        }
 
-/* Details Boxes */
-.duration-details {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
+        .duration-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
 
-.detail-box {
-    background: #fff;
-    border-radius: 16px;
-    border: 2px solid #eee;
-    padding: 24px;
-    flex: 1 1 200px;
-    text-align: center;
-    font-size: 16px;
-    font-weight: 600;
-    position: relative;
-    overflow: hidden;
-    transition: 0.35s ease;
-}
+        .detail-box {
+            background: #fff;
+            border-radius: 16px;
+            border: 2px solid #eee;
+            padding: 24px;
+            flex: 1 1 200px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            transition: 0.35s ease;
+        }
 
-.detail-box::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    height: 4px;
-    width: 100%;
-    background: linear-gradient(90deg, #8C1007, #B51610);
-    transform: translateX(-50%) scaleX(0);
-    transform-origin: center;
-    transition: transform 0.35s ease;
-}
+        .detail-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            height: 4px;
+            width: 100%;
+            background: linear-gradient(90deg, #8C1007, #B51610);
+            transform: translateX(-50%) scaleX(0);
+            transform-origin: center;
+            transition: transform 0.35s ease;
+        }
 
-.detail-box:hover::before {
-    transform: translateX(-50%) scaleX(1);
-}
+        .detail-box:hover::before {
+            transform: translateX(-50%) scaleX(1);
+        }
 
-.detail-box:hover {
-    background: #B51610;
-    color: #fff;
-    transform: translateY(-6px);
-    border-color: rgba(140, 16, 7, 0.35);
-    box-shadow: 0 10px 32px rgba(181, 22, 16, 0.28);
-}
+        .detail-box:hover {
+            background: #B51610;
+            color: #fff;
+            transform: translateY(-6px);
+            border-color: rgba(140, 16, 7, 0.35);
+            box-shadow: 0 10px 32px rgba(181, 22, 16, 0.28);
+        }
 
-.detail-box h3,
-.detail-box p {
-    transition: color 0.35s ease;
-}
+        .detail-box:hover h3,
+        .detail-box:hover p {
+            color: #fff !important;
+        }
 
-.detail-box:hover h3,
-.detail-box:hover p {
-    color: #fff !important;
-}
+        @media(max-width: 900px) {
+            .duration-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .duration-content {
+                padding-right: 0;
+                margin-bottom: 25px;
+            }
+            .duration-details {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
 
-/* Responsive */
-@media(max-width: 900px) {
-    .duration-section {
-        flex-direction: column;
-        text-align: center;
-    }
+        .highlight-points,
+        .outcomes-list {
+            list-style: none !important;
+            padding-left: 0 !important;
+            margin: 1.5rem 0 !important;
+            text-align: left !important;
+        }
 
-    .duration-content {
-        padding-right: 0;
-        margin-bottom: 25px;
-    }
+        /* Career Grid */
+        .career-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .career-box {
+            background: #fde7e7;
+            padding: 12px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #8C1007;
+            transition: 0.3s;
+            border: 1px solid #8C1007;
+        }
+        .career-box:hover {
+            background: #8C1007;
+            color: white;
+            transform: translateY(-3px);
+        }
 
-    .duration-details {
-        flex-direction: column;
-        gap: 15px;
-    }
-}
-/* PERFECT LEFT-ALIGNED BULLETS — EXACTLY UNDER THE TEXT */
-.highlight-points,
-.outcomes-list {
-    list-style: none !important;
-    padding-left: 0 !important;
-    margin: 1.5rem 0 !important;
-    text-align: left !important;
-}
-/* ================================================== */
-/* --- HERO SECTION MEDIA QUERIES --- */
-/* ================================================== */
+        .desc-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #8C1007;
+            margin-bottom: 20px;
+        }
 
-/* 1. Desktop / Large Tablet Adjustments (max-width: 1200px) */
-@media (max-width: 1200px) {
-    /* Adjust container padding if necessary, but focusing on hero content */
-    .hero-content {
-        padding: 0 1.5rem; /* Ensure content is contained within padding */
-    }
-}
-
-/* 2. Tablet / Landscape Mobile Adjustments (max-width: 992px) */
-@media (max-width: 992px) {
-    .program-hero {
-        padding: 100px 24px 80px; /* Reduced vertical padding */
-        min-height: 500px;
-    }
-
-    .hero h1 {
-        font-size: 3.5rem; /* Slightly smaller heading */
-    }
-
-    .hero p {
-        font-size: 1.25rem; /* Slightly smaller lead text */
-        margin-bottom: 40px;
-    }
-}
-
-/* 3. Portrait Tablet / Mobile Adjustments (max-width: 768px) */
-@media (max-width: 768px) {
-    .program-hero {
-        padding: 80px 16px 60px;
-        min-height: 450px;
-    }
-
-    .college-badge {
-        width: 60px;
-        height: 60px;
-        font-size: 2rem;
-        margin-bottom: 15px;
-    }
-
-    .hero h1 {
-        /* Use clamp for fluid sizing between 2.5rem and 3rem */
-        font-size: clamp(2.5rem, 8vw, 3rem); 
-        margin-bottom: 15px;
-    }
-
-    .hero p {
-        font-size: 1.1rem;
-        margin-bottom: 30px;
-    }
-
-    /* Stats Bar Adjustments for stacking */
-    .stats-bar {
-        padding: 24px 20px;
-        gap: 20px; /* Reduced space between stats */
-    }
-    
-    .stat-number {
-        font-size: 1.8rem;
-    }
-
-    .stat-label {
-        font-size: 0.8rem;
-    }
-}
-
-/* 4. Small Mobile Adjustments (max-width: 576px) */
-@media (max-width: 576px) {
-    /* Stack the stats bar items vertically to prevent overflow */
-    .stats-bar {
-        flex-direction: column;
-        align-items: stretch;
-        border-radius: 12px;
-        padding: 20px 15px;
-        margin: 0 10px; /* Minor horizontal margin to prevent touching screen edges */
-    }
-
-    .stat-item {
-        padding: 10px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separator when stacked */
-    }
-
-    .stat-item:last-child {
-        border-bottom: none;
-    }
-
-    .stat-divider {
-        display: none; /* Hide vertical divider when stacking */
-    }
-    
-    /* Ensure the existing small mobile adjustment is incorporated */
-    .program-hero h1 { 
-        font-size: 2.2rem !important; 
-    }
-}
+        @media (max-width: 1200px) {
+            .hero-content { padding: 0 1.5rem; }
+        }
+        @media (max-width: 992px) {
+            .hero { padding: 100px 24px 80px; min-height: 500px; }
+            .hero h1 { font-size: 3.5rem; }
+            .hero p { font-size: 1.25rem; margin-bottom: 40px; }
+        }
+        @media (max-width: 768px) {
+            .hero { padding: 80px 16px 60px; min-height: 450px; }
+            .college-badge { width: 60px; height: 60px; font-size: 2rem; margin-bottom: 15px; }
+            .hero h1 { font-size: clamp(2.5rem, 8vw, 3rem); margin-bottom: 15px; }
+            .hero p { font-size: 1.1rem; margin-bottom: 30px; }
+            .stats-bar { padding: 24px 20px; gap: 20px; }
+            .stat-number { font-size: 1.8rem; }
+            .stat-label { font-size: 0.8rem; }
+        }
+        @media (max-width: 576px) {
+            .stats-bar { flex-direction: column; align-items: stretch; border-radius: 12px; padding: 20px 15px; margin: 0 10px; }
+            .stat-item { padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+            .stat-item:last-child { border-bottom: none; }
+            .stat-divider { display: none; }
+            .hero h1 { font-size: 2.2rem !important; }
+        }
     </style>
 </head>
 
 <body>
     <div id="navbar"></div>
 
-       <section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-particles"></div>
-    <div class="hero-content">
-        <div class="college-badge">
-            <i class="fas fa-dumbbell" style="font-size: 50px;"></i>
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-particles"></div>
+        <div class="hero-content">
+            <div class="college-badge" data-aos="zoom-in" data-aos-duration="800">
+                <i class="fas fa-dumbbell" style="font-size: 50px;"></i>
+            </div>
+            <h1 class="fade-in" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">B.P.Ed</h1>
+            <p class="fade-in-delay" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">2 Years | 4 Semesters | NEP-2020 Based Curriculum</p>
+            <div class="stats-bar fade-in-delay-2" data-aos="flip-up" data-aos-duration="900" data-aos-delay="500">
+                <div class="stat-item">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Courses & <br>Programs</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Undergraduate <br>Programs</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Postgraduate <br> Programs</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Diploma & <br> Add-On Courses</div>
+                </div>
+            </div>
         </div>
-        <h1 class="fade-in">B.P.Ed</h1>
-        <p class="fade-in-delay">2 Years | 4 Semesters | NEP-2020 Based Curriculum</p>
-      <div class="stats-bar fade-in-delay-2">
-    <div class="stat-item">
-        <div class="stat-number">30+</div>
-        <div class="stat-label">Courses & <br>Programs</div>
-    </div>
+    </section>
 
-    <div class="stat-divider"></div>
-
-    <div class="stat-item">
-        <div class="stat-number">20+</div>
-        <div class="stat-label">Undergraduate <br>Programs</div>
-    </div>
-
-    <div class="stat-divider"></div>
-
-    <div class="stat-item">
-        <div class="stat-number">10+</div>
-        <div class="stat-label">Postgraduate <br> Programs</div>
-    </div>
-
-    <div class="stat-divider"></div>
-
-    <div class="stat-item">
-        <div class="stat-number">5+</div>
-        <div class="stat-label">Diploma & <br> Add-On Courses</div>
-    </div>
-</div>
-    </div>
-</section>
     <div class="container">
-
         <!-- Description -->
-        <div class="section-card">
-            <h2 class="desc-title">Why Choose B.P.Ed at SGGS Khalsa College Mahilpur?</h2>
-            <p><b>B.P.Ed at SGGS Khalsa College Mahilpur</b> focuses on physical fitness, sports science, and teacher training in Physical Education. Students get practical experience, fitness workshops, and career-ready skills.</p>
+        <div class="section-card" data-aos="fade-up" data-aos-duration="700">
+            <h2 class="desc-title">Why Choose B.P.Ed at S.G.G.S. Khalsa College Mahilpur?</h2>
+            <p><b>B.P.Ed at S.G.G.S. Khalsa College Mahilpur</b> focuses on physical fitness, sports science, and teacher training in Physical Education. Students get practical experience, fitness workshops, and career-ready skills.</p>
             <ul class="highlight-points">
                 <li>Comprehensive Physical Education Curriculum</li>
                 <li>Practical Training & Field Work</li>
@@ -809,7 +747,7 @@
         </div>
 
         <!-- Overview Section -->
-        <div class="summary-section">
+        <div class="summary-section" data-aos="fade-right" data-aos-duration="800">
             <div class="summary-content">
                 <h2>B.P.Ed – Overview</h2>
                 <p><strong>B.P.Ed</strong> is a 2-year professional program designed for graduates interested in <strong>Physical Education, Sports Science, Fitness Training, and Coaching.</strong></p>
@@ -823,29 +761,29 @@
                 <h3>Career Opportunities</h3>
                 <p>Graduates can work as Physical Education Teachers, Fitness Trainers, Sports Coaches, Wellness Consultants, Sports Administrators, or pursue higher studies.</p>
             </div>
-            <div class="summary-image">
+            <div class="summary-image" data-aos="zoom-in-left" data-aos-duration="700">
                 <img src="./images/course.jpg" height="300px" alt="B.P.Ed Course Image">
                 <i class="bi bi-zoom-in"></i>
             </div>
         </div>
 
         <!-- Admission -->
-        <div class="section-card">
+        <div class="section-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
             <div class="card-title">Admission</div>
             <p class="desc-text">Admissions for B.P.Ed are open! Eligible students (Graduates in any discipline) can apply online.</p>
         </div>
 
         <!-- Duration & Eligibility -->
-        <div class="duration-section">
+        <div class="duration-section" data-aos="fade-up" data-aos-duration="700">
             <div class="duration-content">
                 <h2>Course Duration & Eligibility</h2>
                 <p>The B.P.Ed program is a 2-year course divided into 4 semesters.</p>
                 <div class="duration-details">
-                    <div class="detail-box">
+                    <div class="detail-box" data-aos="flip-left" data-aos-duration="500" data-aos-delay="200">
                         <h3>Duration</h3>
                         <p>2 Years (4 Semesters)</p>
                     </div>
-                    <div class="detail-box">
+                    <div class="detail-box" data-aos="flip-left" data-aos-duration="500" data-aos-delay="400">
                         <h3>Eligibility</h3>
                         <p>Graduation in any discipline from a recognized university</p>
                     </div>
@@ -854,7 +792,7 @@
         </div>
 
         <!-- Program Outcomes -->
-        <div class="section-card">
+        <div class="section-card" data-aos="fade-up" data-aos-duration="600">
             <div class="card-title">Program Outcomes</div>
             <ul class="outcomes-list">
                 <li>Develop physical fitness, sports, and coaching skills</li>
@@ -866,118 +804,72 @@
         </div>
 
         <!-- Career Opportunities -->
-        <div class="section-card">
+        <div class="section-card" data-aos="fade-up" data-aos-duration="600">
             <div class="card-title">Career Opportunities</div>
             <div class="career-grid">
-                <div class="career-box">Physical Education Teacher</div>
-                <div class="career-box">Fitness Trainer</div>
-                <div class="career-box">Sports Coach</div>
-                <div class="career-box">Wellness Consultant</div>
-                <div class="career-box">Sports Administrator</div>
-                <div class="career-box">Rehabilitation Specialist</div>
-                <div class="career-box">Higher Studies: M.P.Ed, Coaching</div>
+                <div class="career-box" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="50">Physical Education Teacher</div>
+                <div class="career-box" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="100">Fitness Trainer</div>
+                <div class="career-box" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="150">Sports Coach</div>
+                <div class="career-box" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="200">Wellness Consultant</div>
+                <div class="career-box" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="250">Sports Administrator</div>
+                <div class="career-box" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="300">Rehabilitation Specialist</div>
+                <div class="career-box" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="350">Higher Studies: M.P.Ed, Coaching</div>
             </div>
         </div>
 
         <!-- Semester Tables -->
-        <div class="section-card">
+        <div class="section-card" data-aos="fade-up" data-aos-duration="600">
             <div class="card-title">First Year</div>
             <table class="table table-bordered">
                 <thead>
-                    <tr>
-                        <th>Semester</th>
-                        <th>Subjects</th>
-                    </tr>
+                    <tr><th>Semester</th><th>Subjects</th></tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>First Semester</td>
-                        <td>Foundations of Physical Education, Anatomy & Physiology, Health Education, Yoga</td>
-                    </tr>
-                    <tr>
-                        <td>Second Semester</td>
-                        <td>Psychology in Sports, Kinesiology, Sports Sociology, Fitness Training Methods</td>
-                    </tr>
+                    <tr><td>First Semester</td><td>Foundations of Physical Education, Anatomy & Physiology, Health Education, Yoga</td></tr>
+                    <tr><td>Second Semester</td><td>Psychology in Sports, Kinesiology, Sports Sociology, Fitness Training Methods</td></tr>
                 </tbody>
             </table>
         </div>
-        <div class="section-card">
+        <div class="section-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
             <div class="card-title">Second Year</div>
             <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Semester</th>
-                        <th>Subjects</th>
-                    </tr>
-                </thead>
+                <thead><tr><th>Semester</th><th>Subjects</th></tr></thead>
                 <tbody>
-                    <tr>
-                        <td>Third Semester</td>
-                        <td>Coaching Techniques, Exercise Physiology, Sports Injuries & Rehabilitation</td>
-                    </tr>
-                    <tr>
-                        <td>Fourth Semester</td>
-                        <td>Curriculum Design, Fitness Assessment, Internship & Field Work</td>
-                    </tr>
+                    <tr><td>Third Semester</td><td>Coaching Techniques, Exercise Physiology, Sports Injuries & Rehabilitation</td></tr>
+                    <tr><td>Fourth Semester</td><td>Curriculum Design, Fitness Assessment, Internship & Field Work</td></tr>
                 </tbody>
             </table>
         </div>
 
         <!-- Syllabus Accordion -->
-        <div class="section-card">
+        <div class="section-card" data-aos="fade-up" data-aos-duration="700">
             <div class="card-title">B.P.Ed – Detailed Syllabus</div>
-            <button class="accordion">First Year – Semester I</button>
-            <div class="panel">
-                <ul>
-                    <li>Foundations of Physical Education</li>
-                    <li>Anatomy & Physiology</li>
-                    <li>Health Education</li>
-                    <li>Yoga</li>
-                </ul>
-            </div>
-            <button class="accordion">First Year – Semester II</button>
-            <div class="panel">
-                <ul>
-                    <li>Psychology in Sports</li>
-                    <li>Kinesiology</li>
-                    <li>Sports Sociology</li>
-                    <li>Fitness Training Methods</li>
-                </ul>
-            </div>
-            <button class="accordion">Second Year – Semester III</button>
-            <div class="panel">
-                <ul>
-                    <li>Coaching Techniques</li>
-                    <li>Exercise Physiology</li>
-                    <li>Sports Injuries & Rehabilitation</li>
-                </ul>
-            </div>
-            <button class="accordion">Second Year – Semester IV</button>
-            <div class="panel">
-                <ul>
-                    <li>Curriculum Design</li>
-                    <li>Fitness Assessment</li>
-                    <li>Internship & Field Work</li>
-                </ul>
-            </div>
+            <button class="accordion" data-aos="fade-right" data-aos-duration="400">First Year – Semester I</button>
+            <div class="panel"><ul><li>Foundations of Physical Education</li><li>Anatomy & Physiology</li><li>Health Education</li><li>Yoga</li></ul></div>
+            <button class="accordion" data-aos="fade-right" data-aos-duration="400" data-aos-delay="50">First Year – Semester II</button>
+            <div class="panel"><ul><li>Psychology in Sports</li><li>Kinesiology</li><li>Sports Sociology</li><li>Fitness Training Methods</li></ul></div>
+            <button class="accordion" data-aos="fade-right" data-aos-duration="400" data-aos-delay="100">Second Year – Semester III</button>
+            <div class="panel"><ul><li>Coaching Techniques</li><li>Exercise Physiology</li><li>Sports Injuries & Rehabilitation</li></ul></div>
+            <button class="accordion" data-aos="fade-right" data-aos-duration="400" data-aos-delay="150">Second Year – Semester IV</button>
+            <div class="panel"><ul><li>Curriculum Design</li><li>Fitness Assessment</li><li>Internship & Field Work</li></ul></div>
         </div>
 
         <!-- Faculty Section -->
-        <section class="faculty-section py-5" style="background: #f0f8ff;">
-            <div class="container">
-                <h2 class="text-center mb-4" style="font-size: 32px; color:#8C1007; font-weight:700;">B.P.Ed Department Faculty</h2>
+        <section class="faculty-section py-5" style="background: #f0f8ff; border-radius: 24px; padding: 40px 20px; margin: 30px 0;">
+            <div class="container" style="padding: 0;">
+                <h2 class="text-center mb-4" style="font-size: 32px; color:#8C1007; font-weight:700;" data-aos="fade-down">B.P.Ed Department Faculty</h2>
                 <div class="faculty-wrapper">
-                    <div class="faculty-card">
+                    <div class="faculty-card" data-aos="flip-up" data-aos-duration="600" data-aos-delay="100">
                         <h4>Dr. Rakesh Kumar</h4>
                         <p>M.P.Ed, Ph.D.</p>
                         <p>Email: rakesh@example.com<br>Phone: 98765-43230</p>
                     </div>
-                    <div class="faculty-card">
+                    <div class="faculty-card" data-aos="flip-up" data-aos-duration="600" data-aos-delay="200">
                         <h4>Ms. Anjali Singh</h4>
                         <p>M.P.Ed, NET</p>
                         <p>Email: anjali@example.com<br>Phone: 98765-43231</p>
                     </div>
-                    <div class="faculty-card">
+                    <div class="faculty-card" data-aos="flip-up" data-aos-duration="600" data-aos-delay="300">
                         <h4>Mr. Vinod Sharma</h4>
                         <p>M.P.Ed, CS</p>
                         <p>Email: vinod@example.com<br>Phone: 98765-43232</p>
@@ -987,11 +879,10 @@
         </section>
 
         <!-- Apply Now Button -->
-        <div style="text-align: center; margin: 50px 0;">
+        <div style="text-align: center; margin: 50px 0;" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="200">
             <a href="Addimision-page.html" class="apply-btn">Apply Now</a>
         </div>
-
-    </div> <!-- End container -->
+    </div>
 
     <!-- Accordion Script -->
     <script>
@@ -1008,22 +899,30 @@
             });
         });
     </script>
+
     <div id="footer"></div>
 
-  <script>
-  // Load Navbar
-  fetch('./component/navbar.html')
-    .then(response => response.text())
-    .then(data => document.getElementById('navbar').innerHTML = data);
+    <script>
+        fetch('./component/navbar.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('navbar').innerHTML = data);
+        fetch('./component/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
 
-  // Load Footer
-  fetch('./component/footer.html')
-    .then(response => response.text())
-    .then(data => document.getElementById('footer').innerHTML = data);
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- ========== ADDED AOS JS INITIALIZATION ========== -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: false,
+            mirror: true,
+            offset: 80,
+            easing: 'ease-out-cubic',
+        });
+    </script>
 </body>
-
 </html>
