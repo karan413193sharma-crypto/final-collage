@@ -1,174 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>College Faculty | SGGS Khalsa College Mahilpur</title>
+    <title>College Faculty | S.G.G.S. Khalsa College Mahilpur</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Font Awesome (optional) -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
-        
-         <link rel="stylesheet" href="./css/navbar.css">
-         <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/footer.css">
 
     <style>
         body {
             background-color: #f8f9fa;
         }
-        .page-header {
-            background: #8C1007;
-            color: #fff;
-            padding: 50px 0;
-            text-align: center;
-        }
+
         .section-title {
             color: #8C1007;
         }
+
         .faculty-table th {
             background-color: #8C1007;
             color: #fff;
             vertical-align: middle;
         }
+
         .faculty-table td {
             vertical-align: middle;
         }
+
         /* ================= HERO SECTION ================= */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #8c1007 0%, #b51610 30%, #8c1007 60%, #6b0d05 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: #fff;
+            text-align: center;
+        }
 
-.hero {
-    position: relative;
-    min-height: 100vh;
-     background: linear-gradient(135deg, #8c1007 0%, #b51610 30%, #8c1007 60%, #6b0d05 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    color: #fff;
-    text-align: center;
-}
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #8c1007 0%, #b51610 30%, #8c1007 60%, #6b0d05 100%);
+            z-index: 1;
+        }
 
-/* Dark overlay */
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, #8c1007 0%, #b51610 30%, #8c1007 60%, #6b0d05 100%);
-    z-index: 1;
-}
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+        }
 
-/* Optional particles layer */
-.hero-particles {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
-}
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 1000px;
+            padding: 40px 20px;
+        }
 
-/* Main content */
-.hero-content {
-    position: relative;
-    z-index: 3;
-    max-width: 1000px;
-    padding: 40px 20px;
-}
+        .college-badge {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(6px);
+            animation: float 3s ease-in-out infinite;
+        }
 
-/* Badge icon */
-.college-badge {
-    width: 90px;
-    height: 90px;
-    margin: 0 auto 20px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(6px);
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
 
-    /* FLOAT ANIMATION */
-    animation: float 3s ease-in-out infinite;
-}
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 35px;
+        }
 
+        /* ================= STATS BAR ================= */
+        .stats-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 25px 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+        }
 
-/* Heading */
-.hero h1 {
-    font-size: 3.2rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
+        .stat-item {
+            min-width: 150px;
+        }
 
-/* Subtitle */
-.hero p {
-    font-size: 1.1rem;
-    opacity: 0.9;
-    margin-bottom: 35px;
-}
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
 
-/* ================= STATS BAR ================= */
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
 
-.stats-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-    background: rgba(255, 255, 255, 0.12);
-    padding: 25px 30px;
-    border-radius: 20px;
-    backdrop-filter: blur(8px);
-}
+        .stat-divider {
+            width: 1px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.35);
+        }
 
-.stat-item {
-    min-width: 150px;
-}
+        /* ================= ANIMATIONS ================= */
+        .fade-in {
+            animation: fadeInUp 0.9s ease forwards;
+        }
 
-.stat-number {
-    font-size: 2.2rem;
-    font-weight: 700;
-}
+        .fade-in-delay {
+            animation: fadeInUp 0.9s ease forwards;
+            animation-delay: 0.2s;
+        }
 
-.stat-label {
-    font-size: 0.9rem;
-    opacity: 0.9;
-    line-height: 1.4;
-}
+        .fade-in-delay-2 {
+            animation: fadeInUp 0.9s ease forwards;
+            animation-delay: 0.4s;
+        }
 
-/* Divider */
-.stat-divider {
-    width: 1px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.35);
-}
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
 
-/* ================= ANIMATIONS ================= */
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-.fade-in {
-    animation: fadeInUp 0.9s ease forwards;
-}
-
-.fade-in-delay {
-    animation: fadeInUp 0.9s ease forwards;
-    animation-delay: 0.2s;
-}
-
-.fade-in-delay-2 {
-    animation: fadeInUp 0.9s ease forwards;
-    animation-delay: 0.4s;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
- @keyframes float {
+        @keyframes float {
 
             0%,
             100% {
@@ -180,430 +171,1805 @@
             }
         }
 
-/* ================= RESPONSIVE ================= */
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
 
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.4rem;
-    }
+            .stats-bar {
+                padding: 20px;
+            }
 
-    .stats-bar {
-        padding: 20px;
-    }
+            .stat-divider {
+                display: none;
+            }
+        }
 
-    .stat-divider {
-        display: none;
-    }
-}
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 90vh;
+            }
 
-@media (max-width: 480px) {
-    .hero {
-        min-height: 90vh;
-    }
+            .hero p {
+                font-size: 1rem;
+            }
 
-    .hero p {
-        font-size: 1rem;
-    }
+            .stat-number {
+                font-size: 1.8rem;
+            }
+        }
 
-    .stat-number {
-        font-size: 1.8rem;
-    }
-}
-/* ================= FACULTY INTRO SECTION ================= */
+        /* ================= FACULTY INTRO SECTION ================= */
+        .faculty-intro {
+            background-color: #ffffff;
+        }
 
-.faculty-intro {
-    background-color: #ffffff;
-}
+        .faculty-intro h2.section-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
 
-.faculty-intro h2.section-title {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
+        .faculty-intro p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #6c757d;
+            margin-bottom: 12px;
+        }
 
-.faculty-intro p {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #6c757d;
-    margin-bottom: 12px;
-}
+        .faculty-intro::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #8C1007;
+            margin: 25px auto 0;
+            border-radius: 2px;
+        }
 
-/* Optional subtle divider */
-.faculty-intro::after {
-    content: "";
-    display: block;
-    width: 80px;
-    height: 3px;
-    background-color: #8C1007;
-    margin: 25px auto 0;
-    border-radius: 2px;
-}
+        @media (max-width: 768px) {
+            .faculty-intro h2.section-title {
+                font-size: 1.7rem;
+            }
 
-/* Responsive tweaks */
-@media (max-width: 768px) {
-    .faculty-intro h2.section-title {
-        font-size: 1.7rem;
-    }
+            .faculty-intro p {
+                font-size: 0.95rem;
+            }
+        }
 
-    .faculty-intro p {
-        font-size: 0.95rem;
-    }
-}
-/* ================= OUR FACULTY SECTION ================= */
+        /* ================= OUR FACULTY SECTION ================= */
+        section.bg-white {
+            position: relative;
+        }
 
-section.bg-white {
-    position: relative;
-}
+        section.bg-white .section-title {
+            font-size: 2rem;
+            letter-spacing: 0.5px;
+        }
 
-section.bg-white .section-title {
-    font-size: 2rem;
-    letter-spacing: 0.5px;
-}
+        section.bg-white p {
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
 
-section.bg-white p {
-    max-width: 850px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.8;
-    font-size: 1rem;
-}
+        section.bg-white .section-title::after {
+            content: "";
+            display: block;
+            width: 70px;
+            height: 3px;
+            background-color: #8C1007;
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
 
-/* Decorative underline below heading */
-section.bg-white .section-title::after {
-    content: "";
-    display: block;
-    width: 70px;
-    height: 3px;
-    background-color: #8C1007;
-    margin: 12px auto 0;
-    border-radius: 2px;
-}
+        @media (max-width: 768px) {
+            section.bg-white .section-title {
+                font-size: 1.7rem;
+            }
 
-/* Responsive tweaks */
-@media (max-width: 768px) {
-    section.bg-white .section-title {
-        font-size: 1.7rem;
-    }
+            section.bg-white p {
+                font-size: 0.95rem;
+                line-height: 1.7;
+            }
+        }
 
-    section.bg-white p {
-        font-size: 0.95rem;
-        line-height: 1.7;
-    }
-}
+        /* ================= DEPARTMENT FILTER TABS ================= */
+        .dept-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
 
+        .dept-tab {
+            background: #fff;
+            border: 2px solid #8C1007;
+            color: #8C1007;
+            border-radius: 30px;
+            padding: 7px 18px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.25s;
+            white-space: nowrap;
+        }
 
+        .dept-tab:hover,
+        .dept-tab.active {
+            background: #8C1007;
+            color: #fff;
+        }
+
+        /* ================= DEPARTMENT SECTION WRAPPER ================= */
+        .dept-section {
+            margin-bottom: 55px;
+        }
+
+        .dept-heading {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .dept-icon {
+            width: 44px;
+            height: 44px;
+            background: #8C1007;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .dept-heading h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #8C1007;
+            margin: 0;
+        }
+
+        .dept-count {
+            background: #fde7e7;
+            color: #8C1007;
+            border-radius: 20px;
+            padding: 2px 12px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-left: auto;
+            white-space: nowrap;
+        }
+
+        /* ================= TABLE STYLING ================= */
+        .faculty-table {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 16px rgba(140, 16, 7, 0.07);
+        }
+
+        .faculty-table thead th {
+            background: #8C1007;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.92rem;
+            letter-spacing: 0.3px;
+            border: none;
+            padding: 13px 14px;
+        }
+
+        .faculty-table tbody td {
+            font-size: 0.9rem;
+            padding: 11px 14px;
+            vertical-align: middle;
+            border-color: #fde7e7;
+        }
+
+        .faculty-table tbody tr:nth-child(even) {
+            background: #fff8f8;
+        }
+
+        .faculty-table tbody tr:hover {
+            background: #fde7e7;
+            transition: 0.2s;
+        }
+
+        .name-cell {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .hod-badge {
+            display: inline-block;
+            background: #8C1007;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 8px;
+            margin-left: 6px;
+            vertical-align: middle;
+            letter-spacing: 0.3px;
+        }
+
+        .email-link {
+            color: #8C1007;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+        /* ================= SECTION DIVIDER ================= */
+        .section-divider {
+            height: 3px;
+            background: linear-gradient(90deg, #8C1007, #fde7e7, transparent);
+            border-radius: 2px;
+            margin-bottom: 50px;
+        }
+
+        /* ================= STAFF SECTIONS ================= */
+        .staff-section {
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 2px 16px rgba(140, 16, 7, 0.07);
+            margin-bottom: 40px;
+        }
+
+        .staff-section h3 {
+            color: #8C1007;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #fde7e7;
+        }
+
+        .staff-table td {
+            font-size: 0.9rem;
+            padding: 10px 14px;
+            vertical-align: middle;
+            border-color: #fde7e7;
+        }
+
+        .staff-table thead th {
+            background: #8C1007;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 12px 14px;
+            border: none;
+        }
+
+        .staff-table tbody tr:nth-child(even) {
+            background: #fff8f8;
+        }
     </style>
 </head>
+
 <body>
-    
+
     <div id="navbar"></div>
-<!-- ===== PAGE HEADER ===== -->
- 
-<section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-particles"></div>
 
-    <div class="hero-content">
-        <div class="college-badge">
-            <i class="fas fa-chalkboard-teacher" style="font-size: 50px;"></i>
-        </div>
-
-        <h1 class="fade-in">College Faculty</h1>
-        <p class="fade-in-delay">
-            Experienced • Qualified • Dedicated Academic Professionals
-        </p>
-
-        <div class="stats-bar fade-in-delay-2">
-            <div class="stat-item">
-                <div class="stat-number">80+</div>
-                <div class="stat-label">Teaching <br>Faculty</div>
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-particles"></div>
+        <div class="hero-content">
+            <div class="college-badge" data-aos="zoom-in" data-aos-duration="700">
+                <i class="fas fa-chalkboard-teacher" style="font-size: 50px;"></i>
             </div>
-
-            <div class="stat-divider"></div>
-
-            <div class="stat-item">
-                <div class="stat-number">15+</div>
-                <div class="stat-label">Academic <br>Departments</div>
-            </div>
-
-            <div class="stat-divider"></div>
-
-            <div class="stat-item">
-                <div class="stat-number">30+</div>
-                <div class="stat-label">Years of <br>Experience</div>
-            </div>
-
-            <div class="stat-divider"></div>
-
-            <div class="stat-item">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Qualified & <br>Certified Staff</div>
+            <h1 class="fade-in" data-aos="fade-down" data-aos-duration="800" data-aos-delay="100">College Faculty</h1>
+            <p class="fade-in-delay" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                Experienced • Qualified • Dedicated Academic Professionals
+            </p>
+            <div class="stats-bar fade-in-delay-2" data-aos="fade-up" data-aos-duration="900" data-aos-delay="350">
+                <div class="stat-item" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="500">
+                    <div class="stat-number">80+</div>
+                    <div class="stat-label">Teaching <br>Faculty</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="600">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Academic <br>Departments</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="700">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Years of <br>Experience</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="800">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Qualified & <br>Certified Staff</div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-<section class="py-5 bg-white">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10 text-center">
-                <h2 class="section-title fw-bold mb-3">Our Faculty</h2>
-                <p class="text-muted fs-6">
-                    SGGS Khalsa College, Mahilpur takes pride in its highly qualified, experienced, and dedicated
-                    faculty members who form the backbone of the institution’s academic excellence. The faculty
-                    comprises scholars, researchers, and educators who have consistently contributed to teaching,
-                    research, and academic development at university, state, and national levels.
-                </p>
-                <p class="text-muted fs-6">
-                    With strong academic credentials and a student-centric approach, our faculty members strive to
-                    nurture intellectual growth, critical thinking, and ethical values among students. Their
-                    commitment to quality education ensures a supportive learning environment and prepares students
-                    for professional success and higher studies.
-                </p>
+    </section>
+
+    <!-- ===== INTRO SECTION ===== -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h2 class="section-title fw-bold mb-3" data-aos="fade-up" data-aos-duration="700">Our Faculty</h2>
+                    <p class="text-muted fs-6" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+                        S.G.G.S. Khalsa College, Mahilpur takes pride in its highly qualified, experienced, and
+                        dedicated
+                        faculty members who form the backbone of the institution's academic excellence. The faculty
+                        comprises scholars, researchers, and educators who have consistently contributed to teaching,
+                        research, and academic development at university, state, and national levels.
+                    </p>
+                    <p class="text-muted fs-6" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
+                        With strong academic credentials and a student-centric approach, our faculty members strive to
+                        nurture intellectual growth, critical thinking, and ethical values among students. Their
+                        commitment to quality education ensures a supportive learning environment and prepares students
+                        for professional success and higher studies.
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
+    <!-- ===== MAIN FACULTY CONTENT ===== -->
+    <div class="container my-5">
 
-<div class="container my-5">
+        <!-- DEPARTMENT QUICK LINKS -->
+        <div class="dept-tabs" data-aos="fade-up" data-aos-duration="700">
+            <button class="dept-tab active" onclick="scrollToDept('agriculture')">Agriculture</button>
+            <button class="dept-tab" onclick="scrollToDept('zoology')">Zoology</button>
+            <button class="dept-tab" onclick="scrollToDept('botany')">Botany</button>
+            <button class="dept-tab" onclick="scrollToDept('chemistry')">Chemistry</button>
+            <button class="dept-tab" onclick="scrollToDept('commerce')">Commerce</button>
+            <button class="dept-tab" onclick="scrollToDept('cs')">Computer Science & IT</button>
+            <button class="dept-tab" onclick="scrollToDept('economics')">Economics</button>
+            <button class="dept-tab" onclick="scrollToDept('english')">English</button>
+            <button class="dept-tab" onclick="scrollToDept('fashion')">Fashion Designing</button>
+            <button class="dept-tab" onclick="scrollToDept('hindi')">Hindi</button>
+            <button class="dept-tab" onclick="scrollToDept('history')">History</button>
+            <button class="dept-tab" onclick="scrollToDept('humanrights')">Human Rights & Duties</button>
+            <button class="dept-tab" onclick="scrollToDept('instrumentation')">Instrumentation</button>
+            <button class="dept-tab" onclick="scrollToDept('mathematics')">Mathematics</button>
+            <button class="dept-tab" onclick="scrollToDept('music')">Music</button>
+            <button class="dept-tab" onclick="scrollToDept('physed')">Physical Education</button>
+            <button class="dept-tab" onclick="scrollToDept('physics')">Physics</button>
+            <button class="dept-tab" onclick="scrollToDept('polsci')">Political Science</button>
+            <button class="dept-tab" onclick="scrollToDept('punjabi')">Punjabi</button>
+        </div>
 
-<!-- ================= AGRICULTURE ================= -->
-<h3 class="section-title fw-bold mb-3">Department of Agriculture</h3>
-<div class="table-responsive mb-5">
-<table class="table table-bordered faculty-table">
-<thead>
-<tr>
-<th>Sr. No.</th>
-<th>Name</th>
-<th>Qualification</th>
-<th>Email</th>
-<th>Phone</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Dr. Pratibha Chauhan (H.O.D.)</td>
-<td>M.Sc. Agriculture, Ph.D. (Plant Breeding & Genetics)</td>
-<td>pratibha1707@gmail.com</td>
-<td>94178-03865</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Mrs. Manpreet Kaur</td>
-<td>M.Sc. Agriculture (Vegetable Sciences), ARS NET</td>
-<td>manpreetjhass47@gmail.com</td>
-<td>9041100147</td>
-</tr>
-</tbody>
-</table>
-</div>
+        <!-- ===== AGRICULTURE ===== -->
+        <div class="dept-section" id="agriculture" data-aos="fade-up" data-aos-duration="800">
+            <div class="dept-heading">
+                <div class="dept-icon"><i class="fas fa-seedling"></i></div>
+                <h3>Department of Agriculture</h3>
+                <span class="dept-count">2 Members</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered faculty-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Qualification</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="name-cell">Dr. Pratibha Chauhan <span class="hod-badge">H.O.D.</span></td>
+                            <td>M.Sc. Agriculture, Ph.D. (Plant Breeding and Genetics)</td>
+                            <td><a href="mailto:pratibha1707@gmail.com" class="email-link">pratibha1707@gmail.com</a>
+                            </td>
+                            <td>94178-03865</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="name-cell">Mrs. Manpreet Kaur</td>
+                            <td>M.Sc. Agriculture (Vegetable Sciences), ARS NET</td>
+                            <td><a href="mailto:manpreetjhass47@gmail.com"
+                                    class="email-link">manpreetjhass47@gmail.com</a></td>
+                            <td>9041100147</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-<!-- ================= ZOOLOGY ================= -->
-<h3 class="section-title fw-bold mb-3">Department of Zoology</h3>
-<div class="table-responsive mb-5">
-<table class="table table-bordered faculty-table">
-<thead>
-<tr>
-<th>Sr. No.</th>
-<th>Name</th>
-<th>Qualification</th>
-<th>Email</th>
-<th>Phone</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Mrs. Apoorva</td>
-<td>M.Sc., B.Ed., PGDCA, CIC</td>
-<td>apoorva.azad@gmail.com</td>
-<td>—</td>
-</tr>
-</tbody>
-</table>
-</div>
+        <div class="section-divider"></div>
 
-<!-- ================= BOTANY ================= -->
-<h3 class="section-title fw-bold mb-3">Department of Botany</h3>
-<div class="table-responsive mb-5">
-<table class="table table-bordered faculty-table">
-<thead>
-<tr>
-<th>Sr. No.</th>
-<th>Name</th>
-<th>Qualification</th>
-<th>Email</th>
-<th>Phone</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Mrs. Navdeep Kaur (H.O.D.)</td>
-<td>M.Sc. Botany, CSIR JRF NET, GATE</td>
-<td>navbikram2021@gmail.com</td>
-<td>6239899518</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Ms. Kirandeep Kaur</td>
-<td>M.Sc. Botany</td>
-<td>—</td>
-<td>9915110924</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Babita Takkhi</td>
-<td>M.Sc. Zoology</td>
-<td>tbabita570@gmail.com</td>
-<td>7696161473</td>
-</tr>
-</tbody>
-</table>
-</div>
+        <!-- ===== ZOOLOGY ===== -->
+        <div class="dept-section" id="zoology" data-aos="fade-up" data-aos-duration="800">
+            <div class="dept-heading">
+                <div class="dept-icon"><i class="fas fa-paw"></i></div>
+                <h3>Department of Zoology</h3>
+                <span class="dept-count">1 Member</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered faculty-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Qualification</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="name-cell">Mrs. Apoorva</td>
+                            <td>M.Sc., B.Ed., P.G.D.C.A., CIC</td>
+                            <td><a href="mailto:apoorva.azad@gmail.com" class="email-link">apoorva.azad@gmail.com</a>
+                            </td>
+                            <td>—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-<!-- ================= CHEMISTRY ================= -->
-<h3 class="section-title fw-bold mb-3">Department of Chemistry</h3>
-<div class="table-responsive mb-5">
-<table class="table table-bordered faculty-table">
-<thead>
-<tr>
-<th>Sr. No.</th>
-<th>Name</th>
-<th>Qualification</th>
-<th>Email</th>
-<th>Phone</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Dr. Vikrant Singh Rana (H.O.D.)</td>
-<td>M.Sc. Chemistry, CSIR NET, Ph.D.</td>
-<td>vikrant.rana47@gmail.com</td>
-<td>82840-72216</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Mr. Rohit Puri</td>
-<td>M.Sc. Chemistry, CSIR NET</td>
-<td>rpuri1979@gmail.com</td>
-<td>98760-56265</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Dr. Pooja Bedi</td>
-<td>M.Sc. Chemistry, B.Ed., CSIR JRF, Ph.D.</td>
-<td>poojabedi1807@gmail.com</td>
-<td>7986144285</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Mr. Amanpreet Singh</td>
-<td>M.Sc. Industrial Chemistry</td>
-<td>amanbabbar0007@gmail.com</td>
-<td>94653-79458</td>
-</tr>
-</tbody>
-</table>
-</div>
+        <div class="section-divider"></div>
 
-<!-- ================= COMMERCE ================= -->
-<h3 class="section-title fw-bold mb-3">Department of Commerce</h3>
-<div class="table-responsive mb-5">
-<table class="table table-bordered faculty-table">
-<thead>
-<tr>
-<th>Sr. No.</th>
-<th>Name</th>
-<th>Qualification</th>
-<th>Email</th>
-<th>Phone</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Dr. Bimla Jaswal (H.O.D.)</td>
-<td>B.Com (Hons.), M.Com, M.Phil, Ph.D.</td>
-<td>bimla321@gmail.com</td>
-<td>94176-48860</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Mr. Amarjit Lal</td>
-<td>M.Com, UGC NET</td>
-<td>sr057205@gmail.com</td>
-<td>8837789195</td>
-</tr>
-</tbody>
-</table>
-</div>
+        <!-- ===== BOTANY ===== -->
+        <div class="dept-section" id="botany" data-aos="fade-up" data-aos-duration="800">
+            <div class="dept-heading">
+                <div class="dept-icon"><i class="fas fa-leaf"></i></div>
+                <h3>Department of Botany</h3>
+                <span class="dept-count">3 Members</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered faculty-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Qualification</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="name-cell">Mrs. Navdeep Kaur <span class="hod-badge">H.O.D.</span></td>
+                            <td>M.Sc. Botany, CSIR JRF NET, GATE</td>
+                            <td><a href="mailto:navbikram2021@gmail.com" class="email-link">navbikram2021@gmail.com</a>
+                            </td>
+                            <td>6239899518</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="name-cell">Ms. Kirandeep Kaur</td>
+                            <td>M.Sc. Botany</td>
+                            <td>—</td>
+                            <td>9915110924</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="name-cell">Babita Takkhi</td>
+                            <td>M.Sc. Zoology</td>
+                            <td><a href="mailto:tbabita570@gmail.com" class="email-link">tbabita570@gmail.com</a></td>
+                            <td>7696161473</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-<!-- ================= COMPUTER SCIENCE ================= -->
-<h3 class="section-title fw-bold mb-3">Computer Science & IT</h3>
-<div class="table-responsive mb-5">
-<table class="table table-bordered faculty-table">
-<thead>
-<tr>
-<th>Sr. No.</th>
-<th>Name</th>
-<th>Qualification</th>
-<th>Email</th>
-<th>Phone</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Ms. Gurpreet Kaur (H.O.D.)</td>
-<td>M.Sc. Computer Science, UGC NET</td>
-<td>itsgurpreetk90@gmail.com</td>
-<td>8968721871</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Mr. Sarbjit Singh (Lab Technician)</td>
-<td>M.Sc. IT</td>
-<td>sarbjit.s.sabi@gmail.com</td>
-<td>9877270485</td>
-</tr>
-</tbody>
-</table>
-</div>
+        <div class="section-divider"></div>
 
-<!-- ================= LIBRARY STAFF ================= -->
-<h3 class="section-title fw-bold mb-3">Library Staff</h3>
-<table class="table table-bordered mb-5">
-<tr><td>Mr. Shashi Kumar Kapoor</td><td>Restorer</td></tr>
-<tr><td>Mrs. Amarjit Kaur</td><td>Restorer</td></tr>
-<tr><td>Mr. Sandeep Kumar</td><td>Restorer</td></tr>
-<tr><td>Mrs. Shama Rani</td><td>Restorer</td></tr>
-</table>
+        <!-- ===== CHEMISTRY ===== -->
+        <div class="dept-section" id="chemistry" data-aos="fade-up" data-aos-duration="800">
+            <div class="dept-heading">
+                <div class="dept-icon"><i class="fas fa-flask"></i></div>
+                <h3>Department of Chemistry</h3>
+                <span class="dept-count">9 Members</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered faculty-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Qualification</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="name-cell">Dr. Vikrant Singh Rana <span class="hod-badge">H.O.D.</span></td>
+                            <td>M.Sc. Chemistry, Specialization: Organic Chemistry, CSIR NET, Ph.D. (Chemistry)</td>
+                            <td><a href="mailto:vikrant.rana47@gmail.com"
+                                    class="email-link">vikrant.rana47@gmail.com</a></td>
+                            <td>82840-72216</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="name-cell">Mr. Rohit Puri</td>
+                            <td>M.Sc. Chemistry, CSIR NET</td>
+                            <td><a href="mailto:rpuri1979@gmail.com" class="email-link">rpuri1979@gmail.com</a></td>
+                            <td>98760-56265</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="name-cell">Dr. Pooja Bedi</td>
+                            <td>M.Sc. Chemistry, B.Ed., CSIR JRF, Ph.D.</td>
+                            <td><a href="mailto:poojabedi1807@gmail.com" class="email-link">poojabedi1807@gmail.com</a>
+                            </td>
+                            <td>7986144285</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="name-cell">Mr. Amanpreet Singh</td>
+                            <td>M.Sc. Industrial Chemistry</td>
+                            <td><a href="mailto:amanbabbar0007@gmail.com"
+                                    class="email-link">amanbabbar0007@gmail.com</a></td>
+                            <td>94653-79458</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="name-cell">Mr. Chandan Singh</td>
+                            <td>M.Sc. Chemistry, B.Ed.</td>
+                            <td><a href="mailto:chandanvandita@gmail.com"
+                                    class="email-link">chandanvandita@gmail.com</a></td>
+                            <td>94636-72266</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="name-cell">Sh. Ganesh Kumar</td>
+                            <td>M.Sc. Chemistry, B.Ed., Ph.D. (Pursuing)</td>
+                            <td><a href="mailto:ganesh.khanna25@gmail.com"
+                                    class="email-link">ganesh.khanna25@gmail.com</a></td>
+                            <td>95018-46605</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td class="name-cell">Ms. Rajbir Kaur</td>
+                            <td>M.Sc. Chemistry, B.Ed.</td>
+                            <td><a href="mailto:rkd09140@gmail.com" class="email-link">rkd09140@gmail.com</a></td>
+                            <td>6280520512</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td class="name-cell">Ms. Hari Priya</td>
+                            <td>M.Sc. Chemistry</td>
+                            <td><a href="mailto:haripriyasharma0898@gmail.com"
+                                    class="email-link">haripriyasharma0898@gmail.com</a></td>
+                            <td>9781517865</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td class="name-cell">Ms. Shital</td>
+                            <td>M.Sc. Chemistry</td>
+                            <td><a href="mailto:shitaldhanjal4@gmail.com"
+                                    class="email-link">shitaldhanjal4@gmail.com</a></td>
+                            <td>—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-<!-- ================= OFFICE STAFF ================= -->
-<h3 class="section-title fw-bold mb-3">Office Staff</h3>
-<table class="table table-bordered">
-<tr><td>Mr. Gurpreet Singh</td><td>Office Superintendent</td><td>99145-84133</td></tr>
-<tr><td>Mr. Ranjit Singh</td><td>Clerk</td><td>84373-07661</td></tr>
-<tr><td>Mr. Sukhjinder Singh</td><td>Senior Assistant (Accounts)</td><td>98782-46981</td></tr>
-</table>
+        <div class="section-divider"></div>
 
-</div>
-   <div id="footer"></div>
+        <!-- ===== COMMERCE ===== -->
+        <div class="dept-section" id="commerce" data-aos="fade-up" data-aos-duration="800">
+            <div class="dept-heading">
+                <div class="dept-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Department of Commerce</h3>
+                <span class="dept-count">9 Members</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered faculty-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Qualification</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="name-cell">Dr. Bimla Jaswal <span class="hod-badge">H.O.D.</span></td>
+                            <td>B.Com. (Hons.), M.Com., P.G. Diploma in Personnel Management and Labour Welfare, JPT,
+                                M.Phil, Ph.D.</td>
+                            <td><a href="mailto:bimla321@gmail.com" class="email-link">bimla321@gmail.com</a></td>
+                            <td>94176-48860</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="name-cell">Mr. Amarjit Lal</td>
+                            <td>M.Com., UGC NET</td>
+                            <td><a href="mailto:sr057205@gmail.com" class="email-link">sr057205@gmail.com</a></td>
+                            <td>8837789195</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="name-cell">Dr. Rakesh Kumar</td>
+                            <td>M.Com., UGC NET, M.Phil., Ph.D. (BASEL Banking NORMS)</td>
+                            <td><a href="mailto:rakeshkumar.mehta@yahoo.com"
+                                    class="email-link">rakeshkumar.mehta@yahoo.com</a></td>
+                            <td>98884-46484</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="name-cell">Mrs. Jagdeep Kumari</td>
+                            <td>M.Com., UGC NET, M.Phil., PGDCA</td>
+                            <td><a href="mailto:Jagdeep2015@hotmail.com" class="email-link">Jagdeep2015@hotmail.com</a>
+                            </td>
+                            <td>98552-66551</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="name-cell">Mrs. Amarjyoti</td>
+                            <td>M.Com., UGC NET</td>
+                            <td><a href="mailto:simmy88amar@gmail.com" class="email-link">simmy88amar@gmail.com</a></td>
+                            <td>95928-62088</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="name-cell">Mrs. Sandeep Kaur</td>
+                            <td>M.Com., UGC NET</td>
+                            <td><a href="mailto:skrandhawa688@gmail.com" class="email-link">skrandhawa688@gmail.com</a>
+                            </td>
+                            <td>76962-35221</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td class="name-cell">Mrs. Harpreet Kaur</td>
+                            <td>M.Com., B.Ed.</td>
+                            <td><a href="mailto:hksekhon01@gmail.com" class="email-link">hksekhon01@gmail.com</a></td>
+                            <td>75268-80968</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td class="name-cell">Ms. Priya Sharma</td>
+                            <td>M.Com., UGC NET, B.Ed.</td>
+                            <td><a href="mailto:priyasharma2883@yahoo.in"
+                                    class="email-link">priyasharma2883@yahoo.in</a></td>
+                            <td>7696115159</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td class="name-cell">Ms. Gurpreet Kaur</td>
+                            <td>M.Com., UGC NET</td>
+                            <td><a href="mailto:sainipreeti758@gmail.com"
+                                    class="email-link">sainipreeti758@gmail.com</a></td>
+                            <td>8847233307</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-  <script>
-  // Load Navbar
-  fetch('./component/navbar.html')
-    .then(response => response.text())
-    .then(data => document.getElementById('navbar').innerHTML = data);
+        <div class="section-divider"></div>
 
-  // Load Footer
-  fetch('./component/footer.html')
-    .then(response => response.text())
-    .then(data => document.getElementById('footer').innerHTML = data);
-</script>
+        <!-- ===== COMPUTER SCIENCE & IT ===== -->
+        <div class="dept-section" id="cs" data-aos="fade-up" data-aos-duration="800">
+            <div class="dept-heading">
+                <div class="dept-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>Computer Science &amp; I.T.</h3>
+                <span class="dept-count">13 Members</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered faculty-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Qualification</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="name-cell">Ms. Gurpreet Kaur <span class="hod-badge">H.O.D.</span></td>
+                            <td>M.Sc. Comp. Sc., UGC NET</td>
+                            <td><a href="mailto:itsgurpreetk90@gmail.com"
+                                    class="email-link">itsgurpreetk90@gmail.com</a></td>
+                            <td>8968721871</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="name-cell">Mr. Manpreet Singh</td>
+                            <td>M.Sc. IT, UGC NET</td>
+                            <td><a href="mailto:manpreets98h@gmail.com" class="email-link">manpreets98h@gmail.com</a>
+                            </td>
+                            <td>9501189652</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="name-cell">Ms. Neha</td>
+                            <td>M.Sc. IT, UGC NET</td>
+                            <td><a href="mailto:nehanahar000001@gmail.com"
+                                    class="email-link">nehanahar000001@gmail.com</a></td>
+                            <td>76967068212</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="name-cell">Mrs. Deepti Verma</td>
+                            <td>M.Sc. Comp. Sc., UGC NET</td>
+                            <td><a href="mailto:deeptiverma30@yahoo.com" class="email-link">deeptiverma30@yahoo.com</a>
+                            </td>
+                            <td>7015233501</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="name-cell">Mrs. Nandika Salwan</td>
+                            <td>M.Tech.</td>
+                            <td><a href="mailto:sharma_nandika@yahoo.co.in"
+                                    class="email-link">sharma_nandika@yahoo.co.in</a></td>
+                            <td>7508872533</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="name-cell">Ms. Gurjot Kaur</td>
+                            <td>M.Tech.</td>
+                            <td><a href="mailto:kaur.gurjot93@gmail.com" class="email-link">kaur.gurjot93@gmail.com</a>
+                            </td>
+                            <td>9501894316</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td class="name-cell">Mr. Varinder Singh</td>
+                            <td>M.Sc. IT</td>
+                            <td><a href="mailto:varindersinghdhanjal@gmail.com"
+                                    class="email-link">varindersinghdhanjal@gmail.com</a></td>
+                            <td>9464790433</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td class="name-cell">Mrs. Akashdeep Kaur</td>
+                            <td>M.Tech.</td>
+                            <td><a href="mailto:akashnarwal@ymail.com" class="email-link">akashnarwal@ymail.com</a></td>
+                            <td>8437778401</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td class="name-cell">Mrs. Navjot Kaur</td>
+                            <td>M.Sc. IT</td>
+                            <td><a href="mailto:navjotkaur5180@gmail.com"
+                                    class="email-link">navjotkaur5180@gmail.com</a></td>
+                            <td>7087263087</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td class="name-cell">Mrs. Rajwinder Kaur</td>
+                            <td>M.C.A.</td>
+                            <td><a href="mailto:rajwinderkaur11995@gmail.com"
+                                    class="email-link">rajwinderkaur11995@gmail.com</a></td>
+                            <td>7009921293</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td class="name-cell">Mrs. Harminder Kaur</td>
+                            <td>M.Sc. IT</td>
+                            <td><a href="mailto:hdhanoabains@gmail.com" class="email-link">hdhanoabains@gmail.com</a>
+                            </td>
+                            <td>6280478922</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td class="name-cell">Ms. Shaveta</td>
+                            <td>M.Sc. IT</td>
+                            <td><a href="mailto:shavetadhiman739@gmail.com"
+                                    class="email-link">shavetadhiman739@gmail.com</a></td>
+                            <td>7814404097</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td class="name-cell">Mr. Sarbjit Singh <span class="hod-badge" style="background:#555;">Lab
+                                    Tech.</span></td>
+                            <td>M.Sc. IT</td>
+                            <td><a href="mailto:sarbjit.s.sabi@gmail.com"
+                                    class="email-link">sarbjit.s.sabi@gmail.com</a></td>
+                            <td>9877270485</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== ECONOMICS ===== -->
+        <div class="dept-section" id="economics" data-aos="fade-up" data-aos-duration="800">
+            <div class="dept-heading">
+                <div class="dept-icon"><i class="fas fa-coins"></i></div>
+                <h3>Department of Economics</h3>
+                <span class="dept-count">6 Members</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered faculty-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Qualification</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="name-cell">Mr. Jaswinder Singh <span class="hod-badge">H.O.D.</span></td>
+                            <td>M.A., M.Phil., M.Ed., Diploma in Comp. Applications</td>
+                            <td><a href="mailto:jaswindersingh77727@gmail.com"
+                                    class="email-link">jaswindersingh77727@gmail.com</a></td>
+                            <td>94171-77727</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="name-cell">Mrs. Kanchan</td>
+                            <td>M.A. Economics, Pol. Sc., M.Phil., UGC NET, B.Ed., CTET</td>
+                            <td><a href="mailto:ankhikanchan1@gmail.com" class="email-link">ankhikanchan1@gmail.com</a>
+                            </td>
+                            <td>94634-39759</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="name-cell">Mrs. Rajinder Kaur</td>
+                            <td>M.A. Economics, B.Ed.</td>
+                            <td><a href="mailto:rkaur131994@gmail.com" class="email-link">rkaur131994@gmail.com</a></td>
+                            <td>8427927841</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="name-cell">Ms. Amandeep Kaur</td>
+                            <td>M.A. Economics, M.Sc. Mathematics</td>
+                            <td>—</td>
+                            <td>9781084065</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="name-cell">Ms. Anuradha Rana</td>
+                            <td>M.A. Economics, B.Ed.</td>
+                            <td><a href="mailto:rana.anuradha1997@gmail.com"
+                                    class="email-link">rana.anuradha1997@gmail.com</a></td>
+                            <td>9878070121</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="name-cell">Ms. Ranjna Devi</td>
+                            <td>M.A. Economics</td>
+                            <td><a href="mailto:bhardwajranjna56@gmail.com"
+                                    class="email-link">bhardwajranjna56@gmail.com</a></td>
+                            <td>8427353898</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== ENGLISH ===== -->
+        <div class="dept-section" id="english" data-aos="fade-up" data-aos-duration="800">
+            <div class="dept-heading">
+                <div class="dept-icon"><i class="fas fa-book-open"></i></div>
+                <h3>Department of English</h3>
+                <span class="dept-count">6 Members</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered faculty-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Qualification</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="name-cell">Ms. Pawandip Cheema <span class="hod-badge">H.O.D.</span></td>
+                            <td>B.A. Hons. (Gold Medalist), M.A. English, UGC NET JRF, B.Ed.</td>
+                            <td>—</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="name-cell">Mr. Tajinder Singh</td>
+                            <td>M.A. English, UGC NET</td>
+                            <td><a href="mailto:tajinder1878@gmail.com" class="email-link">tajinder1878@gmail.com</a>
+                            </td>
+                            <td>95920-05698</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="name-cell">Mrs. Veena</td>
+                            <td>M.A. English</td>
+                            <td><a href="mailto:samreenchumber917@gmail.com"
+                                    class="email-link">samreenchumber917@gmail.com</a></td>
+                            <td>9478058756</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="name-cell">Mr. Jaskaran Singh</td>
+                            <td>B.A. (Hons.), M.A. English, UGC NET, Ph.D. (Pursuing)</td>
+                            <td><a href="mailto:jaskaran7@ymail.com" class="email-link">jaskaran7@ymail.com</a></td>
+                            <td>9988955999</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="name-cell">Ms. Avleen Kaur</td>
+                            <td>M.A. English, B.Ed., PSTET</td>
+                            <td><a href="mailto:avleendhillon59@gmail.com"
+                                    class="email-link">avleendhillon59@gmail.com</a></td>
+                            <td>9872259256</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="name-cell">Ms. Shikha Devi</td>
+                            <td>M.A. English</td>
+                            <td><a href="mailto:shikhasharma.0256@gmail.com"
+                                    class="email-link">shikhasharma.0256@gmail.com</a></td>
+                            <td>9478774570</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== FASHION DESIGNING ===== -->
+        <div class="dept-section" id="fashion" data-aos="fade-up" data-aos-duration="800">
+            <div class="dept-heading">
+                <div class="dept-icon"><i class="fas fa-tshirt"></i></div>
+                <h3>Department of Fashion Designing</h3>
+                <span class="dept-count">8 Members</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered faculty-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Qualification</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="name-cell">Mrs. Navjot Banga</td>
+                            <td>M.Sc. Fashion Designing and Merchandising</td>
+                            <td><a href="mailto:banganavjot640@gmail.com"
+                                    class="email-link">banganavjot640@gmail.com</a></td>
+                            <td>7508492686</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="name-cell">Ms. Rajwinder Kaur</td>
+                            <td>M.Sc. Fashion Technology, Post Graduate Diploma in Fashion Designing, M.A. Pol. Sc.,
+                                P.G.D.C.A.</td>
+                            <td><a href="mailto:rajwinderdhadde11@yahoo.com"
+                                    class="email-link">rajwinderdhadde11@yahoo.com</a></td>
+                            <td>7901854155</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="name-cell">Mrs. Manpreet Kaur</td>
+                            <td>M.Sc. Fashion Designing and Merchandising, P.G. Diploma in Dress Designing, M.A.
+                                History, B.Ed.</td>
+                            <td><a href="mailto:mnpritkaur@ymail.com" class="email-link">mnpritkaur@ymail.com</a></td>
+                            <td>8195918111</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="name-cell">Mrs. Diksha Sharma</td>
+                            <td>M.Sc. Fashion Designing and Merchandising</td>
+                            <td><a href="mailto:sharmadiksha454@gmil.com"
+                                    class="email-link">sharmadiksha454@gmil.com</a></td>
+                            <td>9876059350</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="name-cell">Ms. Navjot Kaur</td>
+                            <td>M.Sc. Fashion Designing and Merchandising</td>
+                            <td><a href="mailto:navjot.jyoti1995@gmail.com"
+                                    class="email-link">navjot.jyoti1995@gmail.com</a></td>
+                            <td>9781359331</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="name-cell">Ms. Sonia Dung Dung</td>
+                            <td>M.Sc. Fashion Designing</td>
+                            <td><a href="mailto:dungdungsonia079@gmail.com"
+                                    class="email-link">dungdungsonia079@gmail.com</a></td>
+                            <td>8146922823</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td class="name-cell">Mr. Sharanpreet Singh</td>
+                            <td>M.Sc. Fashion Designing</td>
+                            <td><a href="mailto:sharanpreets9051@gmail.com"
+                                    class="email-link">sharanpreets9051@gmail.com</a></td>
+                            <td>9814717750</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td class="name-cell">Mrs. Manjinder Kaur <span class="hod-badge"
+                                    style="background:#555;">Lab Tech.</span></td>
+                            <td>M.Sc. Fashion Designing, Diploma in Dress Designing</td>
+                            <td>—</td>
+                            <td>—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== HINDI ===== -->
+        <div class="dept-section" id="hindi" data-aos="fade-up" data-aos-duration="800">
+            <div class="dept-heading">
+                <div class="dept-icon"><i class="fas fa-language"></i></div>
+                <h3>Department of Hindi</h3>
+                <span class="dept-count">3 Members</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered faculty-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Qualification</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="name-cell">Dr. Deepak <span class="hod-badge">H.O.D.</span></td>
+                            <td>M.A., M.Phil, Ph.D.</td>
+                            <td><a href="mailto:drballagan7@gmail.com" class="email-link">drballagan7@gmail.com</a></td>
+                            <td>9781701121</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="name-cell">Dr. Parminder Kaur</td>
+                            <td>M.A. Hindi, Ph.D., Certificate Course in Functional Hindi, Two-year course of Sikh
+                                Studies</td>
+                            <td><a href="mailto:parminder.puc@gmail.com" class="email-link">parminder.puc@gmail.com</a>
+                            </td>
+                            <td>9478678645</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="name-cell">Ms. Nancy</td>
+                            <td>M.A. Hindi, B.Ed., CTET</td>
+                            <td><a href="mailto:nancysandhu19@gmail.com" class="email-link">nancysandhu19@gmail.com</a>
+                            </td>
+                            <td>8146763108</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== HISTORY ===== -->
+        <div class="dept-section" id="history" data-aos="fade-up" data-aos-duration="800">
+            <div class="dept-heading">
+                <div class="dept-icon"><i class="fas fa-landmark"></i></div>
+                <h3>Department of History</h3>
+                <span class="dept-count">2 Members</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered faculty-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Qualification</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="name-cell">Mr. Dev Kumar <span class="hod-badge">H.O.D.</span></td>
+                            <td>M.A. History, Pol. Sc., B.Ed., M.Phil, UGC NET</td>
+                            <td><a href="mailto:vidyarthidev74@gmail.com"
+                                    class="email-link">vidyarthidev74@gmail.com</a></td>
+                            <td>6280567209</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="name-cell">Mr. Anil Kalsi</td>
+                            <td>M.A., M.Phil., L.L.B, UGC NET</td>
+                            <td><a href="mailto:kalsi11anil@gmail.com" class="email-link">kalsi11anil@gmail.com</a></td>
+                            <td>94171-34472</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== HUMAN RIGHTS & DUTIES ===== -->
+        <div class="dept-section" id="humanrights" data-aos="fade-up" data-aos-duration="800">
+            <div class="dept-heading">
+                <div class="dept-icon"><i class="fas fa-balance-scale"></i></div>
+                <h3>Department of Human Rights &amp; Duties</h3>
+                <span class="dept-count">1 Member</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered faculty-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Qualification</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="name-cell">Dr. Rajendra Prasad <span class="hod-badge">H.O.D.</span></td>
+                            <td>M.A. Human Rights and Duties, UGC NET, Ph.D.</td>
+                            <td><a href="mailto:parsadrajan@gmail.com" class="email-link">parsadrajan@gmail.com</a></td>
+                            <td>97797-12751</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== INSTRUMENTATION ===== -->
+        <div class="dept-section" id="instrumentation" data-aos="fade-up" data-aos-duration="800">
+            <div class="dept-heading">
+                <div class="dept-icon"><i class="fas fa-microchip"></i></div>
+                <h3>Department of Instrumentation</h3>
+                <span class="dept-count">1 Member</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered faculty-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Qualification</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="name-cell">Er. Davinder Thakur <span class="hod-badge">H.O.D.</span></td>
+                            <td>B.Tech. (EIE), M.Tech. (Instrumentation), PG Dip. in Industrial Automation, Ph.D.
+                                (Pursuing)</td>
+                            <td><a href="mailto:dav_thakur83@yahoo.co.in"
+                                    class="email-link">dav_thakur83@yahoo.co.in</a></td>
+                            <td>94633-48658</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== MATHEMATICS ===== -->
+        <div class="dept-section" id="mathematics" data-aos="fade-up" data-aos-duration="800">
+            <div class="dept-heading">
+                <div class="dept-icon"><i class="fas fa-square-root-alt"></i></div>
+                <h3>Department of Mathematics</h3>
+                <span class="dept-count">7 Members</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered faculty-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Qualification</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="name-cell">Dr. Parvinder Singh <span class="hod-badge"
+                                    style="background:#c07000;">Principal</span></td>
+                            <td>M.Sc. Mathematics (Gold Medalist), UGC CSIR NET, M.A. Education, Ph.D.</td>
+                            <td><a href="mailto:parvinder070@gmail.com" class="email-link">parvinder070@gmail.com</a>
+                            </td>
+                            <td>94636-75767</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="name-cell">Mrs. Aradhna Duggal</td>
+                            <td>M.Sc. Mathematics, M.Ed., UGC CSIR NET, Diploma in Statistics, Ph.D. (Pursuing)</td>
+                            <td><a href="mailto:aradhnauppal@gmail.com" class="email-link">aradhnauppal@gmail.com</a>
+                            </td>
+                            <td>7589129602</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="name-cell">Mr. Sukhwinder Singh</td>
+                            <td>M.Sc. Mathematics, UGC CSIR NET</td>
+                            <td><a href="mailto:ssahota71@gmail.com" class="email-link">ssahota71@gmail.com</a></td>
+                            <td>8146360563</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="name-cell">Mr. Pankaj Kumar Chandel</td>
+                            <td>M.Sc. Mathematics, B.Ed. (Pursuing)</td>
+                            <td><a href="mailto:pankajkumarchandel9@gmail.com"
+                                    class="email-link">pankajkumarchandel9@gmail.com</a></td>
+                            <td>9914275989</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="name-cell">Ms. Rajni Bala</td>
+                            <td>M.Sc. Mathematics, B.Ed. (Pursuing)</td>
+                            <td><a href="mailto:rajnidhiman856@gmail.com"
+                                    class="email-link">rajnidhiman856@gmail.com</a></td>
+                            <td>7626823098</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="name-cell">Dr. Meenakshi Sharma</td>
+                            <td>M.Sc. Mathematics, CSIR NET JRF, Ph.D.</td>
+                            <td><a href="mailto:meenakshisharma0723@gmail.com"
+                                    class="email-link">meenakshisharma0723@gmail.com</a></td>
+                            <td>8872992221</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td class="name-cell">Ms. Sanjna</td>
+                            <td>M.Sc. Mathematics</td>
+                            <td><a href="mailto:sanjnakapoor47@gmail.com"
+                                    class="email-link">sanjnakapoor47@gmail.com</a></td>
+                            <td>9877395921</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== MUSIC ===== -->
+        <div class="dept-section" id="music" data-aos="fade-up" data-aos-duration="800">
+            <div class="dept-heading">
+                <div class="dept-icon"><i class="fas fa-music"></i></div>
+                <h3>Department of Music</h3>
+                <span class="dept-count">4 Members</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered faculty-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Qualification</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="name-cell">Dr. Kuldeep Singh <span class="hod-badge">H.O.D.</span></td>
+                            <td>M.A. Music (Vocal), UGC NET, M.Phil., Ph.D.</td>
+                            <td><a href="mailto:Kuldeepkajlapu@gmail.com"
+                                    class="email-link">Kuldeepkajlapu@gmail.com</a></td>
+                            <td>8146857060</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="name-cell">Mrs. Varinder Pal Kaur</td>
+                            <td>B.A. Hons., M.A. Music (Vocal), UGC NET</td>
+                            <td><a href="mailto:kaurvarinndarpal@gmail.com"
+                                    class="email-link">kaurvarinndarpal@gmail.com</a></td>
+                            <td>9417395414</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="name-cell">Mandeep Gautam</td>
+                            <td>M.A. Music (Vocal)</td>
+                            <td><a href="mailto:mrupowal@gmail.com" class="email-link">mrupowal@gmail.com</a></td>
+                            <td>9464524635</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="name-cell">Manpreet Singh</td>
+                            <td>M.A. Music (Vocal)</td>
+                            <td><a href="mailto:manpreetsinghgr8@gmail.com"
+                                    class="email-link">manpreetsinghgr8@gmail.com</a></td>
+                            <td>7527816858</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== PHYSICAL EDUCATION ===== -->
+        <div class="dept-section" id="physed" data-aos="fade-up" data-aos-duration="800">
+            <div class="dept-heading">
+                <div class="dept-icon"><i class="fas fa-running"></i></div>
+                <h3>Department of Physical Education</h3>
+                <span class="dept-count">9 Members</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered faculty-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Qualification</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="name-cell">Dr. Raj Kumar <span class="hod-badge">H.O.D.</span></td>
+                            <td>M.P.Ed., Ph.D., D.N.H.E., NIS in Athletics (Short Course), M.A. Hindi</td>
+                            <td><a href="mailto:rj_2705@yahoo.co.in" class="email-link">rj_2705@yahoo.co.in</a></td>
+                            <td>99152-77607</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="name-cell">Dr. Jatinder Kumar</td>
+                            <td>M.P.Ed., UGC NET, M.Phil., Ph.D., NIS in Kabaddi, NIS in Health and Fitness and Gym
+                                Management</td>
+                            <td><a href="mailto:jatinderphyedu@gmail.com"
+                                    class="email-link">jatinderphyedu@gmail.com</a></td>
+                            <td>9779935498</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="name-cell">Mr. Rishab</td>
+                            <td>BA, B.P.Ed., M.P.Ed., UGC NET in Physical Education</td>
+                            <td><a href="mailto:kumarrishab20197@gmail.com"
+                                    class="email-link">kumarrishab20197@gmail.com</a></td>
+                            <td>9463494811</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="name-cell">Mr. Harinder Singh <span class="hod-badge"
+                                    style="background:#555;">Coach</span></td>
+                            <td>B.P.Ed. NIS</td>
+                            <td>—</td>
+                            <td>9417882899</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="name-cell">Mr. Simranjit Singh</td>
+                            <td>B.P.Ed., M.P.Ed., B.COM., UGC NET</td>
+                            <td>—</td>
+                            <td>8437045145</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="name-cell">Mrs. Priya</td>
+                            <td>B.P.Ed., M.P.Ed., NIS AIFF Grassroots, D Licence, PFA Referee</td>
+                            <td><a href="mailto:priyarajpoot778@gmail.com"
+                                    class="email-link">priyarajpoot778@gmail.com</a></td>
+                            <td>9478522755</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td class="name-cell">Mr. Manpreet Sethi</td>
+                            <td>B.P.Ed., M.P.Ed., NSIS in Football, D. License in Football Coaching</td>
+                            <td><a href="mailto:sethimani92@gmail.com" class="email-link">sethimani92@gmail.com</a></td>
+                            <td>6280867145</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td class="name-cell">Ms. Sheetal</td>
+                            <td>M.P.Ed.</td>
+                            <td><a href="mailto:sheetalkashyap74@gmail.com"
+                                    class="email-link">sheetalkashyap74@gmail.com</a></td>
+                            <td>7009337304</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td class="name-cell">Mr. Charanjit Kumar</td>
+                            <td>M.P.Ed., IPS Certificate Level-III-IV in Football, FUTSAL Introductory Course, AIFF
+                                Grass Root Leader Course, AFC 'C' Coaching Certificate Course</td>
+                            <td>—</td>
+                            <td>—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== PHYSICS ===== -->
+        <div class="dept-section" id="physics" data-aos="fade-up" data-aos-duration="800">
+            <div class="dept-heading">
+                <div class="dept-icon"><i class="fas fa-atom"></i></div>
+                <h3>Department of Physics</h3>
+                <span class="dept-count">6 Members</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered faculty-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Qualification</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="name-cell">Dr. Aarti Sharma <span class="hod-badge">H.O.D.</span></td>
+                            <td>M.Sc. (Hons. School), M.Phil., B.Ed., Certificate in Swami Vivekananda Studies, M.A.
+                                (Philosophy), Ph.D. (Physics)</td>
+                            <td><a href="mailto:itsgudia@yahoo.com" class="email-link">itsgudia@yahoo.com</a></td>
+                            <td>9417505950</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="name-cell">Dr. Virender Kumar</td>
+                            <td>M.Sc. Electronics, M.Phil., CSIR NET, Ph.D. (Material Science)</td>
+                            <td><a href="mailto:virenderazad04@gmail.com"
+                                    class="email-link">virenderazad04@gmail.com</a></td>
+                            <td>9781264262</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="name-cell">Dr. Komal Badhan</td>
+                            <td>M.Sc., Ph.D. in Nuclear/Radiation Physics</td>
+                            <td><a href="mailto:drkomal13@gmail.com" class="email-link">drkomal13@gmail.com</a></td>
+                            <td>8437416267</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="name-cell">Ms. Kamalpreet Kaur</td>
+                            <td>M.Sc. Physics, B.Ed., PSTET</td>
+                            <td><a href="mailto:sanghakaur001@gmail.com" class="email-link">sanghakaur001@gmail.com</a>
+                            </td>
+                            <td>6283629610</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="name-cell">Ms. Sonia</td>
+                            <td>M.Sc. Physics, B.Ed.</td>
+                            <td>—</td>
+                            <td>8968840035</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="name-cell">Mrs. Ramandeep Kaur</td>
+                            <td>M.Sc. Physics, B.Ed.</td>
+                            <td>—</td>
+                            <td>8725084133</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== POLITICAL SCIENCE ===== -->
+        <div class="dept-section" id="polsci" data-aos="fade-up" data-aos-duration="800">
+            <div class="dept-heading">
+                <div class="dept-icon"><i class="fas fa-university"></i></div>
+                <h3>Department of Political Science</h3>
+                <span class="dept-count">3 Members</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered faculty-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Qualification</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="name-cell">Dr. Tara Devi <span class="hod-badge">H.O.D.</span></td>
+                            <td>M.A. Political Science, M.Phil., UGC NET, Ph.D.</td>
+                            <td><a href="mailto:taaradevi9@gmail.com" class="email-link">taaradevi9@gmail.com</a></td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="name-cell">Mr. Amarjit Singh</td>
+                            <td>M.A., B.Ed., M.Phil., UGC NET</td>
+                            <td><a href="mailto:amarjit.singh100@yahoo.com"
+                                    class="email-link">amarjit.singh100@yahoo.com</a></td>
+                            <td>9478201401</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="name-cell">Mr. Surinder Kumar</td>
+                            <td>M.A., UGC NET, Ph.D. (Pursuing)</td>
+                            <td><a href="mailto:surinderkumarsk882@gmail.com"
+                                    class="email-link">surinderkumarsk882@gmail.com</a></td>
+                            <td>9463259364</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== PUNJABI ===== -->
+        <div class="dept-section" id="punjabi" data-aos="fade-up" data-aos-duration="800">
+            <div class="dept-heading">
+                <div class="dept-icon"><i class="fas fa-om"></i></div>
+                <h3>Department of Punjabi</h3>
+                <span class="dept-count">6 Members</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered faculty-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Qualification</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="name-cell">Dr. Jang Bahadur Singh</td>
+                            <td>M.A. Hindi, M.A. Punjabi, M.A. Journalism and Mass Communication, B.Ed., UGC NET, Ph.D.
+                            </td>
+                            <td><a href="mailto:jbsekhon@gmail.com" class="email-link">jbsekhon@gmail.com</a></td>
+                            <td>9417586028</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="name-cell">Dr. Balvir Kaur</td>
+                            <td>B.A. Hons., M.A. Punjabi, UGC NET, B.Ed., Ph.D.</td>
+                            <td><a href="mailto:balvirkaurrehal@gmail.com"
+                                    class="email-link">balvirkaurrehal@gmail.com</a></td>
+                            <td>94643-30803</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="name-cell">Dr. Prabhjot Kaur</td>
+                            <td>B.A. (Hons.), M.A. Punjabi, Ph.D.</td>
+                            <td><a href="mailto:prabhk25@gmail.com" class="email-link">prabhk25@gmail.com</a></td>
+                            <td>9815295983</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="name-cell">Mr. Paramvir Singh Shergill</td>
+                            <td>M.A. Punjabi, B.Ed.</td>
+                            <td><a href="mailto:sonushergill@yahoo.co.in"
+                                    class="email-link">sonushergill@yahoo.co.in</a></td>
+                            <td>9041881160</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="name-cell">Mrs. Jasdeep Kaur Lali</td>
+                            <td>M.A. Punjabi, B.Ed.</td>
+                            <td><a href="mailto:Jasdeeplali88@gmail.com" class="email-link">Jasdeeplali88@gmail.com</a>
+                            </td>
+                            <td>9464192972</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="name-cell">Mr. Ashok Kumar</td>
+                            <td>M.A., B.Ed., M.Ed., UGC NET, PSTET, CTET</td>
+                            <td><a href="mailto:ashokkumar3323@yahoo.com"
+                                    class="email-link">ashokkumar3323@yahoo.com</a></td>
+                            <td>9855633778</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== LIBRARY STAFF ===== -->
+        <div class="staff-section" data-aos="fade-up" data-aos-duration="800">
+            <h3><i class="fas fa-book me-2"></i>Library Staff</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered staff-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Designation</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="name-cell">Mr. Shashi Kumar Kapoor</td>
+                            <td>Restorer</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="name-cell">Mrs. Amarjit Kaur</td>
+                            <td>Restorer</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="name-cell">Mr. Sandeep Kumar</td>
+                            <td>Restorer</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="name-cell">Mrs. Shama Rani</td>
+                            <td>Restorer</td>
+                            <td>—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ===== OFFICE STAFF ===== -->
+        <div class="staff-section" data-aos="fade-up" data-aos-duration="800">
+            <h3><i class="fas fa-building me-2"></i>Office Staff</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered staff-table">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name</th>
+                            <th>Designation</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="name-cell">Mr. Gurpreet Singh</td>
+                            <td>Office Superintendent, Offg.</td>
+                            <td>99145-84133</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="name-cell">Mr. Ranjit Singh</td>
+                            <td>Clerk</td>
+                            <td>84373-07661</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="name-cell">Mr. Sukhjinder Singh</td>
+                            <td>Senior Assistant (Accounts)</td>
+                            <td>98782-46981</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="name-cell">Mr. Anil Kumar</td>
+                            <td>Clerk</td>
+                            <td>97813-13490</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="name-cell">Mr. Kamaljit Singh</td>
+                            <td>Clerk</td>
+                            <td>99885-04466</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="name-cell">Mr. Avtar Singh</td>
+                            <td>Fee Clerk</td>
+                            <td>94633-43737</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td class="name-cell">Ms. Himani</td>
+                            <td>Fee Clerk</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td class="name-cell">Mr. Sukhwinder Singh</td>
+                            <td>Record Keeper</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td class="name-cell">Mr. Paramjit Singh</td>
+                            <td>Office Clerk</td>
+                            <td>—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div><!-- /.container -->
+
+    <div id="footer"></div>
+
+    <script>
+        // Load Navbar
+        fetch('./component/navbar.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('navbar').innerHTML = data);
+
+        // Load Footer
+        fetch('./component/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            easing: 'ease-out-cubic',
+            offset: 80,
+        });
+
+        // Department tab scroll
+        function scrollToDept(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                const offset = 90;
+                const top = el.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
+            // Update active tab
+            document.querySelectorAll('.dept-tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
 
 </body>
 
