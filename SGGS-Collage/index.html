@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>SGGS</title>
+    <title>S.G.G.S.</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -16,6 +16,9 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <!-- AOS - Animate On Scroll -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
     <link rel="icon" type="image/png" href="./images/fav-icon.jpg">
 
 </head>
@@ -26,18 +29,14 @@
 
     :root {
         --wine-color: #8C1007;
-        /* Primary Brand Color */
         --wine-color-hover: #c41a1a;
         --wine-800: #8C1007;
-        /* Defined for nav-link color */
     }
 
     body {
-        /* Prevents horizontal scrolling issues */
         overflow-x: hidden !important;
     }
 
-    /* Base Button Styles used across different sections */
     .btn {
         display: inline-block;
         background: #cc0000;
@@ -53,7 +52,6 @@
         background: #a60000;
     }
 
-    /* General Section & Title Styles */
     .news-heading {
         color: #8a0000;
         padding: 40px 0;
@@ -76,19 +74,16 @@
 
 
     /* ======================================================= */
-    /* 2. LAYOUT: HEADER & NAVIGATION (Navbar, Dropdowns, Toggler) */
+    /* 2. LAYOUT: HEADER & NAVIGATION */
     /* ======================================================= */
 
-    /* Top Header Bar */
     .header {
         background-color: var(--wine-color);
         color: white;
         padding: 8px 18px;
         display: flex;
-        /* justify-content: space-between; */
         align-items: center;
         font-size: 0.85rem;
-
     }
 
     .header .icons a {
@@ -99,22 +94,13 @@
         border-radius: 4px;
         font-size: 16px;
         transition: 0.3s ease;
-        /* smooth hover */
         text-decoration: none;
     }
 
     .header .icons a:hover {
         background-color: #e31f1a;
         color: white !important;
-        /* this makes the icon white on hover */
     }
-
-    /* ================================
-   PREMIUM NAVBAR DESIGN (ALL)
-================================ */
-    /* ===============================
-   CLASSY PREMIUM NAVBAR
-================================ */
 
     .classy-navbar {
         background: rgba(255, 255, 255, 0.95);
@@ -124,24 +110,30 @@
         padding: 14px 0;
     }
 
-    /* Logo */
+    /* ---- NAV LOGO FIX: correct size & positioning ---- */
     .nav-logo {
         height: 68px;
-        width: 100%;
+        width: auto;
+        max-width: 220px;
         object-fit: contain;
         transition: transform 0.3s ease;
+        margin-left: 70%;
     }
 
     .nav-logo:hover {
         transform: scale(1.02);
     }
 
-    /* Nav spacing */
+    /* Fix brand alignment so logo isn't clipped */
+    .navbar-brand {
+        overflow: visible;
+        padding: 0;
+    }
+
     .classy-nav {
         gap: 6px;
     }
 
-    /* Link style */
     .classy-link {
         color: #5b0b06 !important;
         font-weight: 600;
@@ -152,19 +144,16 @@
         letter-spacing: 0.2px;
     }
 
-    /* Hover: clean & professional */
     .classy-link:hover {
         background: rgba(140, 16, 7, 0.08);
         color: #8C1007 !important;
     }
 
-    /* Active look (optional) */
     .classy-link.active {
         background: rgba(140, 16, 7, 0.12);
         color: #8C1007 !important;
     }
 
-    /* Dropdown menu */
     .classy-dropdown {
         border: 0;
         border-radius: 8px;
@@ -187,7 +176,6 @@
         }
     }
 
-    /* Dropdown items */
     .classy-dropdown .dropdown-item {
         border-radius: 4px;
         padding: 10px 12px;
@@ -202,28 +190,23 @@
         transform: translateX(4px);
     }
 
-    /* Divider */
     .classy-dropdown .dropdown-divider {
         margin: 8px 0;
         opacity: 0.12;
     }
 
-    /* Apply button */
     .classy-apply-btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 8px;
-
         padding: 10px 18px;
         border-radius: 4px;
-
         background: linear-gradient(135deg, #8C1007, #c41a1a);
         color: #fff !important;
         text-decoration: none;
         font-weight: 700;
         font-size: 15px;
-
         box-shadow: 0 14px 30px rgba(140, 16, 7, 0.25);
         transition: all 0.3s ease;
     }
@@ -233,7 +216,6 @@
         box-shadow: 0 18px 38px rgba(140, 16, 7, 0.35);
     }
 
-    /* Toggler */
     .classy-toggler {
         border-radius: 4px;
         padding: 6px 10px;
@@ -244,11 +226,7 @@
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%238C1007' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
     }
 
-    /* ===============================
-   MOBILE MENU (CLEAN STACK)
-================================ */
     @media (max-width: 991.98px) {
-
         .navbar-collapse {
             margin-top: 14px;
             padding: 14px;
@@ -271,7 +249,6 @@
             padding: 12px 14px !important;
         }
 
-        /* Dropdown becomes inline */
         .dropdown-menu {
             position: static !important;
             width: 100%;
@@ -284,12 +261,14 @@
         .classy-apply-btn {
             width: 100%;
         }
+
+        /* Mobile logo fix */
+        .nav-logo {
+            margin-left: 0;
+            height: 52px;
+        }
     }
 
-
-
-
-    /* Secondary/Promo Button (e.g., inside navbar) */
     .pro-btn {
         background-color: #8C1007 !important;
         color: white !important;
@@ -301,7 +280,6 @@
         border-color: #8C1007 !important;
     }
 
-    /* Call to Action Button */
     .cta-btn {
         background-color: var(--wine-color);
         color: white;
@@ -315,21 +293,19 @@
 
 
     /* ======================================================= */
-    /* 4. FIXED ACTION PANEL (Side Floating Menu) */
+    /* 4. FIXED ACTION PANEL */
     /* ======================================================= */
 
     .action-panel-container {
         position: fixed;
         top: 65%;
         right: 0;
-        /* Start closed state (95px off the screen to the right) */
         transform: translateY(0%) translateX(95px);
         z-index: 1050;
         transition: transform 0.3s ease;
     }
 
     .action-panel-container.open {
-        /* Open state (Overrides the initial transform) */
         transform: translateY(0%) translateX(0);
     }
 
@@ -352,7 +328,6 @@
     }
 
     .action-panel-container.open .action-toggle i {
-        /* FIX: Added rotation for icon to indicate open/close state */
         transform: rotate(180deg);
     }
 
@@ -413,7 +388,6 @@
         background-color: #25D366;
     }
 
-    /* Alert Button/Popup */
     .round-alert-btn {
         width: 40px;
         height: 40px;
@@ -436,13 +410,11 @@
         justify-content: center;
         margin: 0 10px;
         background-color: #ff6600;
-        /* Brighter orange when open */
     }
 
     .alert-popup {
         position: absolute;
         right: 170px;
-        /* Positioned to the left of the panel container */
         top: 20px;
         width: 200px;
         background: white;
@@ -467,10 +439,9 @@
 
 
     /* ======================================================= */
-    /* 5. PAGE SECTIONS: HERO, COURSES, NEWS, GALLERY, MAP, PLACEMENT */
+    /* 5. PAGE SECTIONS */
     /* ======================================================= */
 
-    /* --- Hero Section --- */
     .hero {
         background-color: #9a1108;
         color: white;
@@ -482,7 +453,6 @@
         font-weight: bold;
     }
 
-    /* --- Carousel Styles --- */
     .custom-carousel-item {
         height: 100vh;
         max-height: 556px;
@@ -504,8 +474,6 @@
         z-index: 10;
     }
 
-
-    /* --- Courses Section --- */
     .sggs-combined {
         font-family: "Inter", sans-serif;
     }
@@ -570,8 +538,6 @@
         transform: translateX(0);
     }
 
-
-    /* --- News Section --- */
     .uni-news {
         padding: 60px 20px;
         background: #f5f5f5;
@@ -585,9 +551,9 @@
         gap: 25px;
         grid-template-columns: 2fr 1fr 1fr;
         grid-auto-rows: 360px;
+        color: white;
     }
 
-    /* CARD BASE */
     .news-card {
         position: relative;
         overflow: hidden;
@@ -635,8 +601,6 @@
         background: red;
     }
 
-
-    /* BIG LEFT CARD */
     .big-card {
         grid-row: span 2;
     }
@@ -655,10 +619,8 @@
         bottom: 20px;
         left: 20px;
         right: 20px;
-
     }
 
-    /* SMALL CARDS */
     .small-card .content {
         position: absolute;
         bottom: 20px;
@@ -674,8 +636,6 @@
         margin-bottom: 12px;
     }
 
-
-    /* --- Gallery/Grid Section --- */
     .gallery-section {
         text-align: center;
         background-color: #fcfcfc;
@@ -690,7 +650,6 @@
         letter-spacing: -0.5px;
     }
 
-    /* The Clean Professional Grid Container (4 Columns) */
     .clean-professional-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -699,7 +658,6 @@
         max-width: 1400px;
     }
 
-    /* Image Wrapper (Fixed Height for Perfect Cropping) */
     .grid-item-wrapper {
         position: relative;
         overflow: hidden;
@@ -709,7 +667,6 @@
         padding: 3px;
     }
 
-    /* Anchor Tag for Clickable Area */
     .lightbox-trigger {
         display: block;
         width: 100%;
@@ -718,7 +675,6 @@
         cursor: pointer;
     }
 
-    /* Individual Image Styling */
     .grid-item-img {
         width: 100%;
         height: 100%;
@@ -730,38 +686,28 @@
         padding: 5px;
     }
 
-    /* 2. Brand Accent Border on Hover */
     .grid-item-wrapper::before {
         content: "";
         position: absolute;
         inset: -0%;
-        background: conic-gradient(from 0deg,
-                #8a0000,
-                #ffffff,
-                #8a0000);
+        background: conic-gradient(from 0deg, #8a0000, #ffffff, #8a0000);
         animation: rotate 10s linear infinite;
     }
 
-    /* INNER BLACK CONTENT - acts as a wrapper for image/overlay */
     .card-inner {
         position: relative;
         width: 100%;
         height: 100%;
         color: white;
         border-radius: 5px;
-        /* Removed center/align as it interfered with centering the overlay */
         z-index: 1;
     }
 
-
-
-    /* SECTION  student crousel */
     .sggs-excellence {
         padding: 10px 20px;
         margin: 6% 0;
     }
 
-    /* HEADING */
     .sggs-excellence>h2 {
         text-align: center;
         color: #8a0000;
@@ -781,7 +727,6 @@
         border-radius: 2px;
     }
 
-    /* MAIN CONTAINER */
     .excellence-container {
         max-width: 1400px;
         margin: auto;
@@ -794,7 +739,6 @@
         border-radius: 22px;
     }
 
-    /* CAROUSEL */
     .excellence-carousel {
         height: 520px;
         border-radius: 18px;
@@ -814,7 +758,6 @@
         object-fit: cover;
     }
 
-    /* OVERLAY */
     .achiever-overlay {
         position: absolute;
         bottom: 0;
@@ -847,7 +790,6 @@
         margin-top: 10px;
     }
 
-    /* STATS GRID */
     .stats-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -877,23 +819,6 @@
         color: #ddd;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-    /* ------------------------------------------------------------------- */
-    /* 🔥 KEY CHANGES FOR HOVER AND CENTERING 🔥                          */
-    /* ------------------------------------------------------------------- */
-
-    /* The Gallery Overlay (Initially Hidden) */
     .gallery-overlay {
         position: absolute;
         top: 0;
@@ -901,45 +826,31 @@
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.6);
-        /* Semi-transparent background */
-
-        /* 1. Centering the content (icon and text) */
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
-        /* 2. Hiding the overlay by default */
         opacity: 0;
-
-        /* 3. Smooth transition for fading in/out */
         transition: opacity 0.3s ease-in-out;
-
         color: white;
         font-size: 1.2rem;
         font-family: 'Poppins', sans-serif;
         z-index: 2;
-        /* Ensure it's above the image */
     }
 
-    /* Overlay visible ONLY ON HOVER of the wrapper */
     .grid-item-wrapper:hover .gallery-overlay {
         opacity: 1;
     }
 
-    /* Optional: Slightly scale up image on hover for better effect */
     .grid-item-wrapper:hover .grid-item-img {
         transform: scale(1.05);
         filter: brightness(0.9);
     }
 
-    /* Style for the search icon inside the overlay */
     .gallery-overlay i {
         font-size: 2.5rem;
         margin-bottom: 10px;
     }
-
-    /* --- Lightbox/Modal Styles (Remains mostly the same but ensuring close button visibility) --- */
 
     .lightbox {
         display: none;
@@ -975,7 +886,6 @@
         font-size: 1.2rem;
     }
 
-    /* The Close Button (Ensuring high contrast and large clickable area) */
     .close-btn {
         position: absolute;
         top: 20px;
@@ -987,7 +897,6 @@
         cursor: pointer;
         line-height: 1;
         z-index: 1001;
-        /* Ensure it's on top of the lightbox background */
     }
 
     .close-btn:hover,
@@ -995,8 +904,6 @@
         color: #8C1007;
         text-decoration: none;
     }
-
-    /* why people choose section */
 
     .why-sggs {
         background: #f2f2f2;
@@ -1012,7 +919,6 @@
         align-items: center;
     }
 
-    /* LEFT */
     .why-left h2 {
         font-size: 36px;
         font-weight: 700;
@@ -1041,7 +947,6 @@
         letter-spacing: 1px;
     }
 
-    /* RIGHT */
     .why-right {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -1086,8 +991,6 @@
         transition: 0.3s ease;
     }
 
-    /* section end here */
-
     @keyframes fadeIn {
         from {
             opacity: 0;
@@ -1097,10 +1000,6 @@
             opacity: 1;
         }
     }
-
-
-
-
 
     @keyframes rotate {
         to {
@@ -1114,11 +1013,8 @@
 
     .brand-accent {
         color: #ffc107;
-        /* Or another accent color */
     }
 
-
-    /* --- Map Section --- */
     .sggs-map {
         padding: 80px 20px;
         background: #ffffff;
@@ -1153,9 +1049,6 @@
         border: 0;
     }
 
-
-    /* --- Placement / Company Logos --- */
-    /* --- Placement Marquee Section Styles --- */
     .placement-marquee {
         padding: 40px 0;
         text-align: center;
@@ -1181,8 +1074,6 @@
     .marquee-content {
         display: flex;
         width: 200%;
-
-        /* Apply the animation */
         animation: scroll-left 40s linear infinite;
     }
 
@@ -1200,7 +1091,6 @@
         height: 80px;
     }
 
-    /* Logo Image Styling */
     .company img {
         max-width: 100%;
         max-height: 100%;
@@ -1213,7 +1103,6 @@
         opacity: 1;
     }
 
-    /* 4. The Animation Keyframes */
     @keyframes scroll-left {
         from {
             transform: translateX(0%);
@@ -1227,23 +1116,14 @@
     /* ======================================================= */
     /* 6. FOOTER */
     /* ======================================================= */
-    /* ================================
-   SGGS FOOTER (Classic + Modern)
-================================== */
-
-    /* =========================================
-   PREMIUM CLASSIC FOOTER (SGGS)
-========================================= */
 
     :root {
         --wine: #8a0000;
         --wine-dark: #5b0000;
         --wine-light: #b10000;
-
         --white: #ffffff;
         --text: rgba(255, 255, 255, 0.86);
         --muted: rgba(255, 255, 255, 0.66);
-
         --line: rgba(255, 255, 255, 0.14);
         --glass: rgba(255, 255, 255, 0.06);
         --glass-strong: rgba(255, 255, 255, 0.1);
@@ -1254,8 +1134,6 @@
         margin-top: 2%;
         color: var(--text);
         font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-
-        /* premium gradient */
         background: radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.08), transparent 40%),
             radial-gradient(circle at 90% 30%, rgba(255, 255, 255, 0.05), transparent 50%),
             linear-gradient(135deg, var(--wine-dark), var(--wine));
@@ -1263,7 +1141,6 @@
         transform: translateZ(0);
     }
 
-    /* classy texture overlay */
     .sggs-footer::before {
         content: "";
         position: absolute;
@@ -1277,22 +1154,18 @@
     .footer-container {
         position: relative;
         z-index: 2;
-
         max-width: 1400px;
         margin: auto;
         padding: 75px 28px 55px;
-
         display: grid;
         grid-template-columns: 2.2fr 1.2fr 1.2fr 1.3fr 1.5fr;
         gap: 45px;
     }
 
-    /* column card feel */
     .footer-col {
         padding: 6px 2px;
     }
 
-    /* headings */
     .footer-col h4,
     .footer-col h3 {
         color: var(--white);
@@ -1311,7 +1184,6 @@
         padding-bottom: 12px;
     }
 
-    /* premium underline */
     .footer-col h4::after {
         content: "";
         position: absolute;
@@ -1323,7 +1195,6 @@
         background: linear-gradient(90deg, #fff, rgba(255, 255, 255, .15));
     }
 
-    /* list + links */
     .footer-col ul {
         list-style: none;
         padding: 0;
@@ -1337,7 +1208,6 @@
         color: var(--muted);
     }
 
-    /* link style */
     .footer-col ul li a {
         color: var(--text);
         text-decoration: none;
@@ -1348,7 +1218,6 @@
         position: relative;
     }
 
-    /* classy underline hover */
     .footer-col ul li a::after {
         content: "";
         position: absolute;
@@ -1370,13 +1239,11 @@
         width: 100%;
     }
 
-    /* icons */
     .footer-col i {
         color: rgba(255, 255, 255, 0.9);
         font-size: 1rem;
     }
 
-    /* CONTACT alignment */
     .footer-col.contact ul li {
         display: flex;
         gap: 12px;
@@ -1390,7 +1257,6 @@
         color: rgba(255, 255, 255, 0.95);
     }
 
-    /* social icons premium */
     .footer-social {
         display: flex;
         gap: 12px;
@@ -1407,10 +1273,8 @@
         border-radius: 4px;
         display: grid;
         place-items: center;
-
         background: rgba(255, 255, 255, 0.96);
         color: var(--wine);
-
         font-size: 1.15rem;
         transition: 0.25s ease;
         box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
@@ -1422,24 +1286,20 @@
         box-shadow: 0 18px 45px rgba(0, 0, 0, 0.38);
     }
 
-    /* footer bottom */
     .footer-bottom {
         position: relative;
         z-index: 2;
-
         text-align: center;
         padding: 18px 12px;
-
         background: rgba(0, 0, 0, 0.30);
         border-top: 1px solid rgba(255, 255, 255, 0.14);
-
         font-size: 0.9rem;
         color: rgba(255, 255, 255, 0.75);
     }
 
-    /* =========================================
-   RESPONSIVE
-========================================= */
+    /* ======================================================= */
+    /* RESPONSIVE */
+    /* ======================================================= */
 
     @media (max-width: 1200px) {
         .footer-container {
@@ -1472,12 +1332,7 @@
         }
     }
 
-
-
-    /* Max Width 992px (Tablet / Large Mobile Nav Adjustments) */
     @media (max-width: 991.98px) {
-
-        /* Navbar Mobile Adjustments */
         .navbar-nav {
             padding-top: 10px;
         }
@@ -1517,7 +1372,6 @@
             color: #8C1007;
         }
 
-        /* News Grid Tablet Adjustments */
         .news-grid {
             grid-template-columns: 1fr 1fr;
             grid-auto-rows: 300px;
@@ -1540,11 +1394,7 @@
         }
     }
 
-
-    /* Max Width 768px (Standard Tablet) */
     @media (max-width: 768px) {
-
-        /* General */
         .map-box iframe {
             height: 300px;
         }
@@ -1553,13 +1403,11 @@
             font-size: 2rem;
         }
 
-        /* Hero Carousel */
         .custom-carousel-item {
             height: 40vh;
             max-height: 350px;
         }
 
-        /* Gallery Grid */
         .clean-professional-grid {
             grid-template-columns: repeat(2, 1fr);
         }
@@ -1572,7 +1420,6 @@
             font-size: 2.5rem;
         }
 
-        /* Footer */
         .footer-container {
             grid-template-columns: repeat(2, 1fr);
             padding: 40px 20px;
@@ -1581,105 +1428,6 @@
         .footer-col:first-child {
             grid-column: span 2;
         }
-    }
-
-
-    /* Max Width 576px (Large Mobile) */
-    @media (max-width: 576px) {
-
-        /* Header */
-        .header {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 5px;
-            padding-bottom: 12px;
-        }
-
-        .header .icons {
-            margin-top: 5px;
-        }
-
-        /* News Grid (Stacking) */
-        .news-grid {
-            grid-template-columns: 1fr;
-            grid-auto-rows: 250px;
-            gap: 15px;
-        }
-
-        .big-card {
-            grid-column: span 1;
-            grid-row: span 1;
-        }
-
-        .big-card h3 {
-            font-size: 1.1rem;
-            bottom: 15px;
-            left: 15px;
-        }
-
-        /* Footer (Stacking) */
-        .footer-container {
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
-
-        .footer-col:first-child {
-            grid-column: span 1;
-        }
-    }
-
-
-    /* Max Width 500px (Small Mobile for Gallery) */
-    @media (max-width: 500px) {
-        .clean-professional-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .grid-item-wrapper {
-            height: 200px;
-        }
-    }
-
-
-    /* Max Width 480px (Very Small Mobile) */
-    @media (max-width: 480px) {
-        .hero .display-5 {
-            font-size: 2.2rem !important;
-            line-height: 1.1;
-        }
-
-        .hero .lead {
-            font-size: 0.95rem;
-        }
-
-        .hero .d-flex.gap-3.mt-4 {
-            flex-direction: column;
-            gap: 10px !important;
-        }
-
-        .hero .d-flex.gap-3.mt-4 a.btn {
-            width: 100%;
-            text-align: center;
-        }
-    }
-
-    /* Max Width 380px (Tiny Mobile) */
-    @media (max-width: 380px) {
-        .hero .display-5 {
-            font-size: 2.5rem !important;
-            line-height: 1.1;
-        }
-
-        .stats .display-6 {
-            font-size: 2.8rem !important;
-        }
-
-        .hero .lead {
-            font-size: 1rem;
-        }
-    }
-
-    @media (max-width: 768px) {
 
         .header {
             padding: 6px 4%;
@@ -1703,17 +1451,44 @@
         }
     }
 
-    @media (max-width: 1024px) {
-        .placement-marquee h2 {
-            font-size: 2rem;
-        }
-
-        .company {
-            height: 70px;
-        }
-    }
-
     @media (max-width: 576px) {
+        .header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 5px;
+            padding-bottom: 12px;
+        }
+
+        .header .icons {
+            margin-top: 5px;
+        }
+
+        .news-grid {
+            grid-template-columns: 1fr;
+            grid-auto-rows: 250px;
+            gap: 15px;
+        }
+
+        .big-card {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        .big-card h3 {
+            font-size: 1.1rem;
+            bottom: 15px;
+            left: 15px;
+        }
+
+        .footer-container {
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .footer-col:first-child {
+            grid-column: span 1;
+        }
+
         .placement-marquee {
             padding: 30px 0;
         }
@@ -1734,55 +1509,63 @@
         }
     }
 
-
-
-    /* ------------------------------------------------------------------- */
-    /* 📱 MEDIA QUERIES FOR MOBILE DEVICES (Max Width 768px)              */
-    /* ------------------------------------------------------------------- */
-    @media (max-width: 768px) {
-
-        .action-panel-container {
-            top: auto;
-            bottom: 0%;
-            transform: translateY(0%) translateX(95px);
+    @media (max-width: 500px) {
+        .clean-professional-grid {
+            grid-template-columns: 1fr;
         }
 
-        .action-toggle {
-            display: none;
+        .grid-item-wrapper {
+            height: 200px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero .display-5 {
+            font-size: 2.2rem !important;
+            line-height: 1.1;
         }
 
-        .alert-popup {
-            right: 220px;
-            top: -10px;
-            width: 180px;
-            padding: 10px;
-            font-size: 0.9rem;
+        .hero .lead {
+            font-size: 0.95rem;
+        }
+
+        .hero .d-flex.gap-3.mt-4 {
+            flex-direction: column;
+            gap: 10px !important;
+        }
+
+        .hero .d-flex.gap-3.mt-4 a.btn {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 380px) {
+        .hero .display-5 {
+            font-size: 2.5rem !important;
+            line-height: 1.1;
+        }
+
+        .stats .display-6 {
+            font-size: 2.8rem !important;
+        }
+
+        .hero .lead {
+            font-size: 1rem;
         }
     }
 
     @media (max-width: 1024px) {
-
-        .action-panel-container {
-            top: auto;
-            bottom: 0%;
-            transform: translateY(0%) translateX(95px);
+        .placement-marquee h2 {
+            font-size: 2rem;
         }
 
-        .action-toggle {
-            display: none;
-        }
-
-        .alert-popup {
-            right: 220px;
-            top: -10px;
-            width: 180px;
-            padding: 10px;
-            font-size: 0.9rem;
+        .company {
+            height: 70px;
         }
     }
 
-    @media (max-width: 1200px) {
-
+    @media (max-width: 768px) {
         .action-panel-container {
             top: auto;
             bottom: 0%;
@@ -1803,7 +1586,6 @@
     }
 
     @media (max-width: 1400px) {
-
         .action-panel-container {
             top: auto;
             bottom: 0%;
@@ -1823,28 +1605,6 @@
         }
     }
 
-    @media (max-width: 1900px) {
-
-        .action-panel-container {
-            top: auto;
-            bottom: 0%;
-            transform: translateY(0%) translateX(95px);
-        }
-
-        .action-toggle {
-            display: none;
-        }
-
-        .alert-popup {
-            right: 220px;
-            top: -10px;
-            width: 180px;
-            padding: 10px;
-            font-size: 0.9rem;
-        }
-    }
-
-    /* Tablets */
     @media (max-width: 992px) {
         .excellence-container {
             grid-template-columns: 1fr;
@@ -1856,7 +1616,6 @@
         }
     }
 
-    /* Mobile */
     @media (max-width: 600px) {
         .sggs-excellence {
             padding: 70px 16px;
@@ -1885,11 +1644,6 @@
         }
     }
 
-    /* ===============================
-   RESPONSIVE FIXES (ADD ONLY)
-   =============================== */
-
-    /* Tablets (≤ 992px) */
     @media (max-width: 992px) {
         .why-container {
             grid-template-columns: 1fr;
@@ -1914,7 +1668,6 @@
         }
     }
 
-    /* Mobile (≤ 576px) */
     @media (max-width: 576px) {
         .why-sggs {
             padding: 60px 0;
@@ -1954,25 +1707,11 @@
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     .select-wrapper {
         position: relative;
         width: 100%;
     }
 
-    /* Hide but keep accessible */
     .real-select {
         position: absolute;
         inset: 0;
@@ -1980,30 +1719,24 @@
         pointer-events: none;
     }
 
-    /* Visible UI */
     .fake-select {
         border-radius: 6px;
         border: 1px solid gray;
         padding: 12px 40px 12px 12px;
-        /* space for arrow */
         cursor: pointer;
         position: relative;
         background: #fff;
         color: #777;
-        /* placeholder color */
     }
 
-    /* Hover */
     .fake-select:hover {
         border-color: #8a0000;
     }
 
-    /* Selected value */
     .fake-select.has-value {
         color: #000;
     }
 
-    /* Dropdown arrow */
     .fake-select::after {
         content: "";
         position: absolute;
@@ -2018,12 +1751,10 @@
         pointer-events: none;
     }
 
-    /* Rotate arrow when open */
     .fake-select.open::after {
         transform: translateY(-50%) rotate(180deg);
     }
 
-    /* Options */
     .options {
         display: none;
         position: absolute;
@@ -2049,7 +1780,6 @@
         color: white;
     }
 
-    /* Open state */
     .fake-select.open .options {
         display: block;
     }
@@ -2058,15 +1788,6 @@
         pointer-events: none;
     }
 
-
-
-
-
-
-
-
-
-    /* Mobile view: 2 images per row */
     @media (max-width: 768px) {
         .clean-professional-grid {
             grid-template-columns: repeat(2, 1fr);
@@ -2081,10 +1802,6 @@
             font-size: 2.5rem;
             margin-bottom: 40px;
         }
-    }
-
-    /* Mobile view: force 2–2 pairing */
-    @media (max-width: 768px) {
         .courses-grid {
             grid-template-columns: repeat(2, 1fr);
             gap: 16px;
@@ -2112,14 +1829,11 @@
 
     .gallery-container {
         text-align: center;
-        /* centers the button */
         margin: 30px 0;
-        /* spacing from grid */
     }
 
     .gallery-container button {
         background-color: #8a0000;
-        /* college color */
         color: white;
         padding: 12px 28px;
         font-size: 1rem;
@@ -2134,12 +1848,36 @@
         background-color: white;
         color: #8a0000;
     }
+
+    /* ======================================================= */
+    /* AOS CUSTOM OVERRIDES - smooth integration */
+    /* ======================================================= */
+    [data-aos] {
+        pointer-events: none;
+    }
+
+    [data-aos].aos-animate {
+        pointer-events: auto;
+    }
+
+    /* Slightly increase default AOS easing feel */
+    [data-aos][data-aos][data-aos-duration="600"] {
+        transition-duration: 600ms;
+    }
+
+    [data-aos][data-aos][data-aos-duration="800"] {
+        transition-duration: 800ms;
+    }
+
+    [data-aos][data-aos][data-aos-duration="1000"] {
+        transition-duration: 1000ms;
+    }
 </style>
 
 <body>
 
     <!-- Header -->
-    <header class="header fw-bold">
+    <header class="header fw-bold" data-aos="fade-down" data-aos-duration="600">
         <div class="contact" style="padding: 10px;">
             <i class="fas fa-phone phoneIcon"></i> Contact:
             <a href="tel:+911884292036" style="text-decoration: none; color: white;">1884-292036</a>,
@@ -2158,12 +1896,13 @@
 
 
     <!-- navbar start -->
-    <nav class="navbar navbar-expand-lg classy-navbar sticky-top">
+    <nav class="navbar navbar-expand-lg classy-navbar sticky-top" data-aos="fade-down" data-aos-duration="700"
+        data-aos-delay="100">
         <div class="container-fluid">
 
             <!-- Logo -->
             <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-                <img src="./images/Logosggs.jpg" alt="SGGS College Logo" class="nav-logo">
+                <img src="./collage-logo/sggs-logo.png" alt="S.G.G.S. College Logo" class="nav-logo">
             </a>
 
             <!-- Toggle -->
@@ -2175,18 +1914,14 @@
 
             <!-- Menu -->
             <div class="collapse navbar-collapse" id="navbarsExample">
-
-                <!-- Left links -->
                 <ul class="navbar-nav ms-auto align-items-lg-center classy-nav gap-lg-2">
 
                     <li class="nav-item"><a class="nav-link classy-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link classy-link" href="faculty.html">Faculty</a></li>
 
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle classy-link" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">Programs</a>
-
                         <ul class="dropdown-menu classy-dropdown">
                             <li><a class="dropdown-item" href="Course-Programmes.html#ug">Undergraduate</a></li>
                             <li><a class="dropdown-item" href="Course-Programmes.html#pg">Postgraduate</a></li>
@@ -2202,7 +1937,6 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle classy-link" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">Departments</a>
-
                         <ul class="dropdown-menu classy-dropdown">
                             <li><a class="dropdown-item" href="ba-department.html">Department of Arts</a></li>
                             <li><a class="dropdown-item" href="bsc-department.html">Department of Science</a></li>
@@ -2210,8 +1944,6 @@
                             <li><a class="dropdown-item" href="compter&It-department.html">Department of IT</a></li>
                             <li><a class="dropdown-item" href="bba-department.html">Department of Management</a></li>
                             <li><a class="dropdown-item" href="bvoc-department.html">Department of B.Voc</a></li>
-                            <!-- <li><a class="dropdown-item" href="add-on-cources-department.html">Add on Departments</a> -->
-                            </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -2227,95 +1959,65 @@
                     <li class="nav-item"><a class="nav-link classy-link" href="Addimision-page.html">Admissions</a></li>
                     <li class="nav-item"><a class="nav-link classy-link" href="naac (2).html">NAAC</a></li>
 
-
-                    <!-- CTA -->
                     <li class="nav-item ms-lg-2">
                         <a href="contactus copy.html" class="classy-apply-btn">
                             <i class="fas fa-graduation-cap"></i> Apply Now
                         </a>
                     </li>
-
                 </ul>
             </div>
-
         </div>
     </nav>
 
 
-
-    <!-- banner -->
     <!-- Bootstrap Carousel -->
     <div id="myCustomCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
-
         <div class="carousel-inner custom-carousel-inner">
             <div class="carousel-item custom-carousel-item active">
                 <img src="./images/khalsa.jpg" alt="...">
                 <div class="carousel-caption custom-carousel-caption">
-                    <h5>S.G.G.S KHALSA COLLEGE MAHILPUR</h5>
+                    <h5>S.G.G.S. KHALSA COLLEGE MAHILPUR</h5>
                 </div>
             </div>
-
             <div class="carousel-item custom-carousel-item">
                 <img src="./images/banner2.jpg" alt="...">
-
             </div>
-
-            <div class="carousel-item custom-carousel-item">
-                <img src="./images/banner1.jpg" alt="...">
-                <div class="carousel-caption custom-carousel-caption">
-                    <h5>Campus View</h5>
-                </div>
-            </div>
-
-
             <div class="carousel-item custom-carousel-item">
                 <img src="./images/add1.jpg" alt="...">
                 <div class="carousel-caption custom-carousel-caption">
                     <h5>College Events</h5>
                 </div>
             </div>
-
-
             <div class="carousel-item custom-carousel-item">
                 <img src="./images/add2.jpg" alt="...">
                 <div class="carousel-caption custom-carousel-caption">
                     <h5>College Events</h5>
                 </div>
             </div>
-
-
             <div class="carousel-item custom-carousel-item">
                 <img src="./images/add3.jpeg" alt="...">
                 <div class="carousel-caption custom-carousel-caption">
                     <h5>College Hall</h5>
                 </div>
             </div>
-
-
             <div class="carousel-item custom-carousel-item">
                 <img src="./images/add4.jpg" alt="...">
                 <div class="carousel-caption custom-carousel-caption">
                     <h5>College Annual Convocation</h5>
                 </div>
             </div>
-
-
             <div class="carousel-item custom-carousel-item">
                 <img src="./images/add5.jpg" alt="...">
                 <div class="carousel-caption custom-carousel-caption">
                     <h5>Graduation Ceremony</h5>
                 </div>
             </div>
-
-
             <div class="carousel-item custom-carousel-item">
                 <img src="./images/add6.jpg" alt="...">
                 <div class="carousel-caption custom-carousel-caption">
                     <h5>Graduation Day</h5>
                 </div>
             </div>
-
-
             <div class="carousel-item custom-carousel-item">
                 <img src="./images/add7.jpg" alt="...">
                 <div class="carousel-caption custom-carousel-caption">
@@ -2323,12 +2025,9 @@
                 </div>
             </div>
         </div>
-
-        <!-- Controls -->
         <button class="carousel-control-prev" type="button" data-bs-target="#myCustomCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
         </button>
-
         <button class="carousel-control-next" type="button" data-bs-target="#myCustomCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon"></span>
         </button>
@@ -2339,14 +2038,13 @@
     <header class="hero py-5 py-lg-6">
         <div class="container">
             <div class="row align-items-center g-4">
-                <div class="col-lg-7">
+                <div class="col-lg-7" data-aos="fade-right" data-aos-duration="900">
                     <span class="badge rounded-pill mb-3">NAAC "A" Grade</span>
                     <h1 class="display-5 fw-bold">Discover Excellence at <span class="brand-accent">S.G.G.S.</span></h1>
                     <p class="lead mt-3 opacity-90">Located in Mahilpur, S.G.G.S. Khalsa Collage Mahilpur offers a
-                        supportive and
-                        progressive learning environment to help you build a successful career. Learn through
-                        industry-relevant programs, guided by experienced faculty, and grow with strong academic and
-                        cultural values. Join a community where your ambitions are encouraged and your potential is
+                        supportive and progressive learning environment to help you build a successful career. Learn
+                        through industry-relevant programs, guided by experienced faculty, and grow with strong academic
+                        and cultural values. Join a community where your ambitions are encouraged and your potential is
                         truly recognized.</p>
                     <div class="d-flex gap-3 mt-4">
                         <a href="Addimision-page.html" class="btn cta-btn btn-lg px-4"><i
@@ -2359,7 +2057,7 @@
                         <span>NAAC‑style quality presentation · Responsive · Fast</span>
                     </div>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-5" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
                     <div class="card feature-card p-3 p-md-4 rounded-4">
                         <div class="d-flex align-items-start gap-3">
                             <div class="feature-emoji">🎓</div>
@@ -2388,7 +2086,6 @@
                                 <div class="col-12">
                                     <label class="form-label small">Program Interest</label>
                                     <div class="select-wrapper">
-                                        <!-- REAL SELECT (hidden but functional) -->
                                         <select class="real-select" id="program" name="program">
                                             <option value="bsc">B.Sc. (CS/IT)</option>
                                             <option value="bca">BCA</option>
@@ -2396,8 +2093,6 @@
                                             <option value="ba">BA</option>
                                             <option value="pg">PG Programs</option>
                                         </select>
-
-                                        <!-- FAKE SELECT (visible UI) -->
                                         <div class="fake-select">
                                             <span class="selected"> Select </span>
                                             <ul class="options">
@@ -2415,38 +2110,24 @@
                                         const options = fake.querySelectorAll('.options li');
                                         const realSelect = document.querySelector('.real-select');
 
-                                        fake.addEventListener('click', () => {
-                                            fake.classList.toggle('open');
-                                        });
+                                        fake.addEventListener('click', () => { fake.classList.toggle('open'); });
 
                                         options.forEach(option => {
                                             option.addEventListener('click', e => {
                                                 e.stopPropagation();
-
                                                 const value = option.dataset.value;
                                                 const text = option.textContent;
-
                                                 selected.textContent = text;
                                                 realSelect.value = value;
-
-                                                // 🔴 THIS decides placeholder vs selected look
-                                                if (value) {
-                                                    fake.classList.add('has-value');
-                                                } else {
-                                                    fake.classList.remove('has-value');
-                                                }
-
+                                                if (value) { fake.classList.add('has-value'); }
+                                                else { fake.classList.remove('has-value'); }
                                                 fake.classList.remove('open');
                                             });
                                         });
 
                                         document.addEventListener('click', e => {
-                                            if (!fake.contains(e.target)) {
-                                                fake.classList.remove('open');
-                                            }
+                                            if (!fake.contains(e.target)) { fake.classList.remove('open'); }
                                         });
-
-
                                     </script>
                                 </div>
                                 <div class="col-12">
@@ -2462,64 +2143,45 @@
     </header>
 
 
-
-
     <div class="action-panel-container" id="actionPanelContainer">
         <div class="action-panel" id="actionPanel">
-
-            <!-- Prospectus -->
             <a href="Prospect-2025.pdf" target="_blank" class="panel-btn red-bg" title="Download Prospectus">
                 <i class="fas fa-download"></i>
                 <span>Prospectus</span>
             </a>
-
-            <!-- Alerts -->
-            <a class="panel-btn round-alert-btn" id="alertBtn" title="Alerts & Notifications">
-                🔔
-            </a>
+            <a class="panel-btn round-alert-btn" id="alertBtn" title="Alerts & Notifications">🔔</a>
             <audio id="notifySound" src="bell-notification-337658.mp3" preload="auto"></audio>
-
             <div class="alert-popup" id="alertPopup">
                 <h4>Admissions Closing Soon!</h4>
                 <p>Time Left: <span id="countdown"></span></p>
             </div>
-
-            <!-- WhatsApp -->
             <a href="https://wa.me/9876543210" target="_blank" class="panel-btn whatsapp-bg" title="Chat on WhatsApp">
                 <i class="fab fa-whatsapp"></i>
                 <span>WhatsApp</span>
             </a>
-
-            <!-- CALL BUTTON (NEW) -->
             <a href="tel:+911884240275" class="panel-btn red-bg" title="Call SGGS College">
                 <i class="fas fa-phone-alt"></i>
                 <span>Call Now</span>
             </a>
-
-            <!-- Scroll to Top -->
             <div class="panel-btn red-bg" id="panelTopBtn" title="Scroll to Top">
                 <i class="fa fa-arrow-up"></i>
                 <span>Top</span>
             </div>
-
         </div>
     </div>
-
-
 
 
     <!-- About -->
     <section class="py-5" id="about">
         <div class="container">
             <div class="row align-items-center ">
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="800">
                     <h2 class="section-title fw-bold">A Legacy of Learning</h2>
                     <p class="lead text-muted">S.G.G.S. Khalsa Collage Mahilpur offers quality education with modern
-                        facilities,
-                        expert faculty, and strong values. We focus on academic excellence, skill development, and a
-                        vibrant campus life to prepare students for success.</p>
+                        facilities, expert faculty, and strong values. We focus on academic excellence, skill
+                        development, and a vibrant campus life to prepare students for success.</p>
                     <div class="row g-3 mt-2">
-                        <div class="col-md-6">
+                        <div class="col-md-6" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100">
                             <div class="p-3 border rounded-3">
                                 <div class="d-flex align-items-center gap-2 mb-1"><i
                                         class="bi bi-buildings"></i><strong>Modern Campus</strong></div>
@@ -2527,7 +2189,7 @@
                                     research‑driven growth.</p>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
                             <div class="p-3 border rounded-3">
                                 <div class="d-flex align-items-center gap-2 mb-1"><i
                                         class="bi bi-people"></i><strong>Expert Faculty</strong></div>
@@ -2535,7 +2197,7 @@
                                     relevance.</p>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="300">
                             <div class="p-3 border rounded-3">
                                 <div class="d-flex align-items-center gap-2 mb-1"><i
                                         class="bi bi-people"></i><strong>Strong Placement Support</strong></div>
@@ -2543,7 +2205,7 @@
                                     cell ensuring brighter opportunities.</p>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="400">
                             <div class="p-3 border rounded-3">
                                 <div class="d-flex align-items-center gap-2 mb-1"><i
                                         class="bi bi-people"></i><strong>Skill-Focused Education</strong></div>
@@ -2553,59 +2215,52 @@
                         </div>
                     </div>
                     <a href="contactus copy.html" class="btn bta-btn mt-3 p-2"><i
-                            class="bi bi-telephone me-2 get-in"></i>Get in
-                        Touch</a>
+                            class="bi bi-telephone me-2 get-in"></i>Get in Touch</a>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
                     <div class="photo-card2 position-relative rounded-4 overflow-hidden shadow-sm">
                         <img src="./images/khalsa-college-mahilpur.jpg" alt="Campus" class="bg" />
                         <div class="photo-overlay2"></div>
                     </div>
                 </div>
-
             </div>
         </div>
 
         <!-- Programs -->
         <section class="py-5 bg-light" id="programs">
             <div class="container">
-                <div class="text-center mb-4">
+                <div class="text-center mb-4" data-aos="fade-up" data-aos-duration="700">
                     <h2 class="section-title fw-bold mb-2">Popular Programs</h2>
                     <p class="text-muted">Well‑structured courses with an emphasis on practical skills.</p>
                 </div>
                 <div class="row g-4">
-                    <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-duration="600" data-aos-delay="0">
                         <div class="p-4 rounded-4 program-card h-100">
                             <div class="d-flex justify-content-between align-items-start">
                                 <h5 class="mb-1">Bachelor of Arts(B.A)</h5>
                                 <span class="badge pill">Undergraduate</span>
                             </div>
                             <br>
-                            <p class="text-muted small">The BA program at SGGS College builds a strong foundation in
-                                arts
-                                and humanities, developing critical thinking, communication skills and cultural
-                                awareness
-                                for future careers and higher studies.</p>
-
+                            <p class="text-muted small">The BA program at S.G.G.S College builds a strong foundation in
+                                arts and humanities, developing critical thinking, communication skills and cultural
+                                awareness for future careers and higher studies.</p>
                             <a href="ba.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">Know More</a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-duration="600" data-aos-delay="80">
                         <div class="p-4 rounded-4 program-card h-100">
                             <div class="d-flex justify-content-between align-items-start">
                                 <h5 class="mb-1">B.Sc. Non-Medical</h5>
                                 <span class="badge pill">Undergraduate</span>
                             </div>
                             <br>
-                            <p class="text-muted small">B.Sc. Non-Medical at SGGS College builds strong fundamentals in
-                                Physics, Chemistry, and Mathematics with practical labs and analytical learning,
-                                preparing
-                                students for careers in science, research, and technical fields.</p>
-
+                            <p class="text-muted small">B.Sc. Non-Medical at S.G.G.S. College builds strong fundamentals
+                                in Physics, Chemistry, and Mathematics with practical labs and analytical learning,
+                                preparing students for careers in science, research, and technical fields.</p>
                             <a href="bsc-non-medical.html" class="btn btn-sm btn-outline-dark pro-btn ">Know More</a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-duration="600" data-aos-delay="160">
                         <div class="p-4 rounded-4 program-card h-100">
                             <div class="d-flex justify-content-between align-items-start">
                                 <h5 class="mb-1">B.Sc. Medical</h5>
@@ -2614,347 +2269,208 @@
                             <br>
                             <p class="text-muted small">B.Sc. Medical focuses on Biology, Chemistry, and related life
                                 sciences with hands-on lab experience. Students gain scientific understanding and skills
-                                for
-                                future roles in healthcare, biotechnology, and higher studies.</p>
-
+                                for future roles in healthcare, biotechnology, and higher studies.</p>
                             <a href="bsc-medical.html" class="btn btn-sm btn-outline-dark pro-btn">Know More</a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-duration="600" data-aos-delay="0">
                         <div class="p-4 rounded-4 program-card h-100">
                             <div class="d-flex justify-content-between align-items-start">
                                 <h5 class="mb-1">Bachelor of Commerce (B.Com)</h5>
                                 <span class="badge pill">Undergraduate</span>
                             </div>
                             <br>
-                            <p class="text-muted small">
-                                The B.Com program at SGGS College provides strong knowledge of accounting, finance,
-                                taxation, and business
-                                management, preparing students for careers in commerce, banking, entrepreneurship, and
-                                higher education.
-                            </p>
-
-                            <a href="bcom.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">
-                                Know More
-                            </a>
+                            <p class="text-muted small">The B.Com program at S.G.G.S. College provides strong knowledge
+                                of accounting, finance, taxation, and business management, preparing students for
+                                careers in commerce, banking, entrepreneurship, and higher education.</p>
+                            <a href="bcom.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">Know More</a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-duration="600" data-aos-delay="80">
                         <div class="p-4 rounded-4 program-card h-100">
                             <div class="d-flex justify-content-between align-items-start">
                                 <h5 class="mb-1">Bachelor of Business Administration (BBA)</h5>
                                 <span class="badge pill">Undergraduate</span>
                             </div>
                             <br>
-                            <p class="text-muted small">
-                                The BBA program at SGGS College focuses on management principles, leadership skills, and
-                                practical business
-                                knowledge, equipping students for roles in corporate management, startups, and
-                                postgraduate studies.
-                            </p>
-
-                            <a href="bba.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">
-                                Know More
-                            </a>
+                            <p class="text-muted small">The BBA program at S.G.G.S. College focuses on management
+                                principles, leadership skills, and practical business knowledge, equipping students for
+                                roles in corporate management, startups, and postgraduate studies.</p>
+                            <a href="bba.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">Know More</a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-duration="600" data-aos-delay="160">
                         <div class="p-4 rounded-4 program-card h-100">
                             <div class="d-flex justify-content-between align-items-start">
                                 <h5 class="mb-1">Bachelor of Computer Applications (BCA)</h5>
                                 <span class="badge pill">Undergraduate</span>
                             </div>
                             <br>
-                            <p class="text-muted small">
-                                The BCA program at SGGS College develops strong foundations in computer science,
-                                programming, and application
-                                development, preparing students for careers in IT, software development, and advanced
-                                computer studies.
-                            </p>
-
-                            <a href="bca.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">
-                                Know More
-                            </a>
+                            <p class="text-muted small">The BCA program at S.G.G.S. College develops strong foundations
+                                in computer science, programming, and application development, preparing students for
+                                careers in IT, software development, and advanced computer studies.</p>
+                            <a href="bca.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">Know More</a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-duration="600" data-aos-delay="0">
                         <div class="p-4 rounded-4 program-card h-100">
                             <div class="d-flex justify-content-between align-items-start">
                                 <h5 class="mb-1">Bachelor of Science – Fashion Design</h5>
                                 <span class="badge pill">Undergraduate</span>
                             </div>
                             <br>
-                            <p class="text-muted small">
-                                The B.Sc. Fashion Design program at SGGS College combines creativity with technical
-                                skills, focusing on
-                                garment construction, textile science, fashion illustration, and design trends to
-                                prepare students for
-                                careers in the fashion industry.
-                            </p>
-
-                            <a href="bsc-fashion-design.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">
-                                Know More
-                            </a>
+                            <p class="text-muted small">The B.Sc. Fashion Design program at S.G.G.S. College combines
+                                creativity with technical skills, focusing on garment construction, textile science,
+                                fashion illustration, and design trends to prepare students for careers in the fashion
+                                industry.</p>
+                            <a href="bsc-fashion-design.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">Know
+                                More</a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-duration="600" data-aos-delay="80">
                         <div class="p-4 rounded-4 program-card h-100">
                             <div class="d-flex justify-content-between align-items-start">
                                 <h5 class="mb-1">Bachelor of Vocation (B.Voc)</h5>
                                 <span class="badge pill">Undergraduate</span>
                             </div>
                             <br>
-                            <p class="text-muted small">
-                                The B.Voc program at SGGS College is a skill-oriented undergraduate course designed to
-                                provide practical
-                                training, industry exposure, and employability-focused education with multiple exit
-                                options as per NEP
-                                guidelines.
-                            </p>
-
-                            <a href="bvoc.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">
-                                Know More
-                            </a>
+                            <p class="text-muted small">The B.Voc program at S.G.G.S. College is a skill-oriented
+                                undergraduate course designed to provide practical training, industry exposure, and
+                                employability-focused education with multiple exit options as per NEP guidelines.</p>
+                            <a href="bvoc.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">Know More</a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-duration="600" data-aos-delay="160">
                         <div class="p-4 rounded-4 program-card h-100">
                             <div class="d-flex justify-content-between align-items-start">
                                 <h5 class="mb-1">Bachelor of Physical Education (B.P.Ed.)</h5>
                                 <span class="badge pill">Undergraduate</span>
                             </div>
                             <br>
-                            <p class="text-muted small">
-                                The B.P.Ed. program at SGGS College prepares students for professional careers in
-                                physical education and
-                                sports by focusing on physical fitness, sports training, teaching methodology, and
-                                health education.
-                            </p>
-
-                            <a href="bped.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">
-                                Know More
-                            </a>
+                            <p class="text-muted small">The B.P.Ed. program at S.G.G.S. College prepares students for
+                                professional careers in physical education and sports by focusing on physical fitness,
+                                sports training, teaching methodology, and health education.</p>
+                            <a href="bped.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">Know More</a>
                         </div>
                     </div>
-
-
-
-
-
-
-                    <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-duration="600" data-aos-delay="0">
                         <div class="p-4 rounded-4 program-card h-100">
                             <div class="d-flex justify-content-between align-items-start">
                                 <h5 class="mb-1">Master of Arts (M.A.)</h5>
                                 <span class="badge pill">Postgraduate</span>
                             </div>
                             <br>
-                            <p class="text-muted small">
-                                The M.A. program at SGGS College offers in-depth study of humanities and social
-                                sciences, strengthening
-                                critical thinking, communication, and research skills for academic and professional
-                                growth.
-                            </p>
-
-                            <a href="ma.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">
-                                Know More
-                            </a>
+                            <p class="text-muted small">The M.A. program at S.G.G.S. College offers in-depth study of
+                                humanities and social sciences, strengthening critical thinking, communication, and
+                                research skills for academic and professional growth.</p>
+                            <a href="ma.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">Know More</a>
                         </div>
                     </div>
-
-
-                    <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-duration="600" data-aos-delay="80">
                         <div class="p-4 rounded-4 program-card h-100">
                             <div class="d-flex justify-content-between align-items-start">
                                 <h5 class="mb-1">Master of Science (M.Sc.)</h5>
                                 <span class="badge pill">Postgraduate</span>
                             </div>
                             <br>
-                            <p class="text-muted small">
-                                The M.Sc. program at SGGS College offers advanced knowledge in scientific disciplines,
-                                strengthening
-                                analytical, research, and practical skills for academic, research, and professional
-                                careers.
-                            </p>
-
-                            <a href="msc-science.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">
-                                Know More
-                            </a>
+                            <p class="text-muted small">The M.Sc. program at S.G.G.S. College offers advanced knowledge
+                                in scientific disciplines, strengthening analytical, research, and practical skills for
+                                academic, research, and professional careers.</p>
+                            <a href="msc-science.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">Know
+                                More</a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-duration="600" data-aos-delay="160">
                         <div class="p-4 rounded-4 program-card h-100">
                             <div class="d-flex justify-content-between align-items-start">
                                 <h5 class="mb-1">M.Sc. Computer Science</h5>
                                 <span class="badge pill">Postgraduate</span>
                             </div>
                             <br>
-                            <p class="text-muted small">
-                                The M.Sc. Computer Science program focuses on advanced computing concepts, software
-                                development, data
-                                structures, and emerging technologies to prepare students for IT and research-oriented
-                                careers.
-                            </p>
-
-                            <a href="msc-computer.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">
-                                Know More
-                            </a>
+                            <p class="text-muted small">The M.Sc. Computer Science program focuses on advanced computing
+                                concepts, software development, data structures, and emerging technologies to prepare
+                                students for IT and research-oriented careers.</p>
+                            <a href="msc-computer.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">Know
+                                More</a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-duration="600" data-aos-delay="0">
                         <div class="p-4 rounded-4 program-card h-100">
                             <div class="d-flex justify-content-between align-items-start">
                                 <h5 class="mb-1">M.Sc. Fashion Design</h5>
                                 <span class="badge pill">Postgraduate</span>
                             </div>
                             <br>
-                            <p class="text-muted small">
-                                The M.Sc. Fashion Design program enhances creative, technical, and research skills in
-                                fashion, textiles,
-                                and design innovation, preparing students for leadership roles in the fashion industry.
-                            </p>
-
-                            <a href="msc-fashion.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">
-                                Know More
-                            </a>
+                            <p class="text-muted small">The M.Sc. Fashion Design program enhances creative, technical,
+                                and research skills in fashion, textiles, and design innovation, preparing students for
+                                leadership roles in the fashion industry.</p>
+                            <a href="msc-fashion.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">Know
+                                More</a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-duration="600" data-aos-delay="80">
                         <div class="p-4 rounded-4 program-card h-100">
                             <div class="d-flex justify-content-between align-items-start">
                                 <h5 class="mb-1">Master of Physical Education (M.P.Ed.)</h5>
                                 <span class="badge pill">Postgraduate</span>
                             </div>
                             <br>
-                            <p class="text-muted small">
-                                The M.P.Ed. program provides advanced training in physical education, sports science,
-                                and research
-                                methodology, preparing students for teaching, coaching, and academic careers.
-                            </p>
-
-                            <a href="mped.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">
-                                Know More
-                            </a>
+                            <p class="text-muted small">The M.P.Ed. program provides advanced training in physical
+                                education, sports science, and research methodology, preparing students for teaching,
+                                coaching, and academic careers.</p>
+                            <a href="mped.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">Know More</a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-duration="600" data-aos-delay="160">
                         <div class="p-4 rounded-4 program-card h-100">
                             <div class="d-flex justify-content-between align-items-start">
                                 <h5 class="mb-1">Master of Commerce (M.Com.)</h5>
                                 <span class="badge pill">Postgraduate</span>
                             </div>
                             <br>
-                            <p class="text-muted small">
-                                The M.Com. program focuses on advanced studies in commerce, finance, accounting, and
-                                business management,
-                                preparing students for careers in academics, industry, and research.
-                            </p>
-
-                            <a href="mcom.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">
-                                Know More
-                            </a>
+                            <p class="text-muted small">The M.Com. program focuses on advanced studies in commerce,
+                                finance, accounting, and business management, preparing students for careers in
+                                academics, industry, and research.</p>
+                            <a href="mcom.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">Know More</a>
                         </div>
                     </div>
-
-                    <div class="col-md-6 col-lg-4 mb-3">
-                        <div class="p-4 rounded-4 program-card h-100">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <h5 class="mb-1">Master of Physical Education (M.P.Ed.)</h5>
-                                <span class="badge pill">Postgraduate</span>
-                            </div>
-                            <br>
-                            <p class="text-muted small">
-                                The M.P.Ed. program provides advanced training in physical education, sports science,
-                                and research
-                                methodology, preparing students for teaching, coaching, and academic careers.
-                            </p>
-
-                            <a href="mped.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">
-                                Know More
-                            </a>
-                        </div>
-                    </div>
-
-
-
                 </div>
             </div>
         </section>
+
         <div class="container">
             <div class="row gy-4 mt-0 mb-5">
-                <div class="text-center mb-4">
+                <div class="text-center mb-4" data-aos="fade-up" data-aos-duration="700">
                     <h2 class="section-title fw-bold mb-2">Diploma Programmes</h2>
-                    <p class="text-muted">
-                        Skill-oriented diploma courses designed to provide practical training and career-focused
-                        learning.
-                    </p>
-
+                    <p class="text-muted">Skill-oriented diploma courses designed to provide practical training and
+                        career-focused learning.</p>
                 </div>
-
-
-                <!-- Diploma 2
-                <div class="col-md-4">
-                    <div class="info-card p-4 h-100">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="badge-stream">Skill</span>
-                            <span class="small text-muted">6–12 Months</span>
-                        </div>
-                        <h5 class="fw-semibold mb-1">Certificate in Web Design</h5>
-                        <p class="small text-muted mb-2">
-                            Introductory course for students interested in web designing and front-end technologies.
-                        </p>
-                        <ul class="check-list small mb-3">
-                            <li>HTML, CSS, basic JavaScript</li>
-                            <li>Responsive page design</li>
-                            <li>Portfolio project</li>
-                        </ul>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="small text-muted">Code: CT-WD</span>
-                            <a href="certificate-in-web-design.html" class="btn btn-sm btn-outline-dark pro-btn">View
-                                Syllabus</a>
-                        </div>
-                    </div>
-                </div> -->
-
-                <!-- Diploma 3 -->
-                <div class="col-md-6 col-lg-4 mb-3">
+                <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
                     <div class="p-4 rounded-4 program-card h-100">
                         <div class="d-flex justify-content-between align-items-start">
                             <h5 class="mb-1">Diploma in Physical Education (D.P.Ed.)</h5>
                             <span class="badge pill">Diploma</span>
                         </div>
                         <br>
-                        <p class="text-muted small">
-                            The D.P.Ed. program focuses on physical education, sports training, fitness development, and
-                            health
-                            education, preparing students for professional roles in physical education and
-                            sports-related fields.
-                        </p>
-
-                        <a href="dped.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">
-                            Know More
-                        </a>
+                        <p class="text-muted small">The D.P.Ed. program focuses on physical education, sports training,
+                            fitness development, and health education, preparing students for professional roles in
+                            physical education and sports-related fields.</p>
+                        <a href="dped.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">Know More</a>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 mb-3">
+                <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
                     <div class="p-4 rounded-4 program-card h-100">
                         <div class="d-flex justify-content-between align-items-start">
                             <h5 class="mb-1">Post Graduate Diploma in Computer Applications (PGDCA)</h5>
                             <span class="badge pill">Postgraduate Diploma</span>
                         </div>
                         <br>
-                        <p class="text-muted small">
-                            The PGDCA program provides practical and applied knowledge in computer applications,
-                            programming, and
-                            information technology, enhancing employability for graduates from any discipline.
-                        </p>
-
-                        <a href="pgdca.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">
-                            Know More
-                        </a>
+                        <p class="text-muted small">The PGDCA program provides practical and applied knowledge in
+                            computer applications, programming, and information technology, enhancing employability for
+                            graduates from any discipline.</p>
+                        <a href="pgdca.html" class="btn btn-sm btn-outline-dark pro-btn know-btn">Know More</a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -2964,19 +2480,19 @@
     <section class="stats py-5">
         <div class="container">
             <div class="row text-center g-4">
-                <div class="col-6 col-lg-3 stat">
+                <div class="col-6 col-lg-3 stat" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="0">
                     <div class="display-6 fw-bold">25+</div>
                     <div class="small text-white-50">Programs</div>
                 </div>
-                <div class="col-6 col-lg-3 stat">
+                <div class="col-6 col-lg-3 stat" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="100">
                     <div class="display-6 fw-bold">5k+</div>
                     <div class="small text-white-50">Alumni</div>
                 </div>
-                <div class="col-6 col-lg-3 stat">
+                <div class="col-6 col-lg-3 stat" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="200">
                     <div class="display-6 fw-bold">20+</div>
                     <div class="small text-white-50">Clubs</div>
                 </div>
-                <div class="col-6 col-lg-3">
+                <div class="col-6 col-lg-3" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="300">
                     <div class="display-6 fw-bold">100%</div>
                     <div class="small text-white-50">Placement Support</div>
                 </div>
@@ -2985,37 +2501,29 @@
     </section>
 
 
-    <!-- achivments open -->
+    <!-- Achievements -->
     <section class="py-5 achievements-premium container" id="achievements">
-
-        <div class="text-center mb-4">
+        <div class="text-center mb-4" data-aos="fade-up" data-aos-duration="700">
             <h2 class="section-title fw-bold mb-2">Achivements</h2>
             <p class="text-muted">Proud milestones that reflect dedication, talent and continuous growth.</p>
         </div>
-        <article class="ach-card span-3x1" data-tags="academics">
-            <img src="./images/University-Merit-Achievers.jpg.jpeg" alt="Cultural fest" class="bg"
-                data-full="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2000&auto=format&fit=crop">
+        <article class="ach-card span-3x1" data-tags="academics" data-aos="fade-right" data-aos-duration="800">
+            <img src="./images/University-Merit-Achievers.jpg.jpeg" alt="Cultural fest" class="bg">
             <div class="overlay"></div>
             <div class="content">
                 <div class="chips"><span class="chip">Academics</span></div>
                 <h3 class="title">University Merit Achievers</h3>
                 <p class="desc">Students secure top ranks across departments, showcasing strong academic performance and
                     dedication.</p>
-
             </div>
             <button class="zoom" aria-label="Open image"><i class="bi bi-arrows-fullscreen"></i></button>
         </article>
 
-        <article class="ach-card span-3x1" data-tags="sports">
-            <img src="./images/Sports.jpg.jpeg" style="
-                 width: 100%;
-                     height: 100%;
-                      object-fit: cover;
-                     object-position: center;
-                            display: block;
-                            border-radius: 12px;
-                            " alt="Sports achievement" class="bg"
-                data-full="https://images.unsplash.com/photo-1593349481020-5b6f0f968f9b?q=80&w=2000&auto=format&fit=crop">
+        <article class="ach-card span-3x1" data-tags="sports" data-aos="fade-up" data-aos-duration="800"
+            data-aos-delay="100">
+            <img src="./images/Sports.jpg.jpeg"
+                style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;border-radius:12px;"
+                alt="Sports achievement" class="bg">
             <div class="overlay"></div>
             <div class="content">
                 <div class="chips"><span class="chip">Sports</span></div>
@@ -3025,9 +2533,10 @@
             </div>
             <button class="zoom" aria-label="Open image"><i class="bi bi-arrows-fullscreen"></i></button>
         </article>
-        <article class="ach-card span-3x1" data-tags="academics">
-            <img src="./images/Cultural-Fest-Winners.jpg.jpeg" alt="Cultural fest" class="bg"
-                data-full="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2000&auto=format&fit=crop">
+
+        <article class="ach-card span-3x1" data-tags="academics" data-aos="fade-left" data-aos-duration="800"
+            data-aos-delay="200">
+            <img src="./images/Cultural-Fest-Winners.jpg.jpeg" alt="Cultural fest" class="bg">
             <div class="overlay"></div>
             <div class="content">
                 <div class="chips"><span class="chip">Cultural</span></div>
@@ -3037,10 +2546,9 @@
             <button class="zoom" aria-label="Open image"><i class="bi bi-arrows-fullscreen"></i></button>
         </article>
 
-
-        <article class="ach-card span-3x1" data-tags="academics">
-            <img src="./images/Debate-&-Quiz-Toppers.jpg.jpeg" alt="Debate" class="bg"
-                data-full="https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=2000&auto=format&fit=crop">
+        <article class="ach-card span-3x1" data-tags="academics" data-aos="fade-right" data-aos-duration="800"
+            data-aos-delay="100">
+            <img src="./images/Debate-&-Quiz-Toppers.jpg.jpeg" alt="Debate" class="bg">
             <div class="overlay"></div>
             <div class="content">
                 <div class="chips"><span class="chip">Academics</span></div>
@@ -3050,10 +2558,9 @@
             <button class="zoom" aria-label="Open image"><i class="bi bi-arrows-fullscreen"></i></button>
         </article>
 
-
-        <article class="ach-card span-6x1" data-tags="research">
-            <img src="./images/National-Paper-Presentations.jpg.jpeg" alt="Paper presentation" class="bg"
-                data-full="https://images.unsplash.com/photo-1554475901-4538ddfbccc2?q=80&w=2400&auto=format&fit=crop">
+        <article class="ach-card span-6x1" data-tags="research" data-aos="fade-up" data-aos-duration="800"
+            data-aos-delay="200">
+            <img src="./images/National-Paper-Presentations.jpg.jpeg" alt="Paper presentation" class="bg">
             <div class="overlay"></div>
             <div class="content">
                 <div class="chips"><span class="chip">Research</span><span class="chip">Conferences</span></div>
@@ -3062,20 +2569,14 @@
             </div>
             <button class="zoom" aria-label="Open image"><i class="bi bi-arrows-fullscreen"></i></button>
         </article>
-        </div>
     </section>
 
 
-
     <section class="sggs-excellence">
-        <h2>The Legacy of Academic Excellence</h2>
-
-        <div class="excellence-container">
-
-            <!-- LEFT: VERTICAL CAROUSEL -->
+        <h2 data-aos="fade-up" data-aos-duration="700">The Legacy of Academic Excellence</h2>
+        <div class="excellence-container" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
             <div class="excellence-carousel swiper sggsSwiper">
                 <div class="swiper-wrapper">
-
                     <div class="swiper-slide achiever-slide">
                         <img src="./images/amandeep-singh.jpg" alt="Student">
                         <div class="achiever-overlay">
@@ -3085,7 +2586,6 @@
                             <strong>94.7%</strong>
                         </div>
                     </div>
-
                     <div class="swiper-slide achiever-slide">
                         <img src="./images/amanpreet-kaur.jpg" alt="Student">
                         <div class="achiever-overlay">
@@ -3095,7 +2595,6 @@
                             <strong>94%</strong>
                         </div>
                     </div>
-
                     <div class="swiper-slide achiever-slide">
                         <img src="./images//simran.jpg" alt="Student">
                         <div class="achiever-overlay">
@@ -3104,33 +2603,26 @@
                             <strong>93.8%</strong>
                         </div>
                     </div>
-
                 </div>
             </div>
-
-            <!-- RIGHT: STATS -->
             <div class="stats-grid">
-                <div class="stat-box">
+                <div class="stat-box" data-aos="flip-left" data-aos-duration="700" data-aos-delay="0">
                     <h3>90%+</h3>
                     <p>Overall Pass Rate</p>
                 </div>
-
-                <div class="stat-box dark">
+                <div class="stat-box dark" data-aos="flip-left" data-aos-duration="700" data-aos-delay="100">
                     <h3>120+</h3>
                     <p>University Merit Holders</p>
                 </div>
-
-                <div class="stat-box">
+                <div class="stat-box" data-aos="flip-left" data-aos-duration="700" data-aos-delay="200">
                     <h3>75%+</h3>
                     <p>Students Above First Division</p>
                 </div>
-
-                <div class="stat-box">
+                <div class="stat-box" data-aos="flip-left" data-aos-duration="700" data-aos-delay="300">
                     <h3>100%</h3>
                     <p>Results in Core Courses</p>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -3147,10 +2639,6 @@
         </div>
     </div>
 
-
-    <!-- ach close -->
-
-
     <div id="lightbox" class="lightbox">
         <span class="close-btn">&times;</span>
         <img class="lightbox-content" id="lightbox-img" src="" alt="">
@@ -3158,320 +2646,198 @@
     </div>
 
 
+    <!-- Gallery -->
     <section class="gallery-section container">
-        <h2 class="gallery-title" data-aos="fade-up">
-            Innovation & Life
+        <h2 class="gallery-title" data-aos="fade-up" data-aos-duration="700">
+            Innovation &amp; Life
         </h2>
 
         <div class="clean-professional-grid">
-
-            <div class="grid-item-wrapper">
+            <div class="grid-item-wrapper" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="0">
                 <a href="./images/fareimg.jpg" data-caption="Students enjoying the farewell party"
                     class="lightbox-trigger">
                     <div class="card-inner">
                         <img src="./images/fareimg.jpg" alt="Students enjoying the farewell party"
                             class="grid-item-img">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
-                            <span>View Image</span>
-                        </div>
+                        <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>View Image</span></div>
                     </div>
                 </a>
             </div>
-
-            <div class="grid-item-wrapper">
+            <div class="grid-item-wrapper" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="60">
                 <a href="./images/fareimg1.jpg" data-caption="Group photo of students at an event"
                     class="lightbox-trigger">
                     <div class="card-inner">
                         <img src="./images/fareimg1.jpg" alt="Group photo of students at an event"
                             class="grid-item-img">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
-                            <span>View Image</span>
-                        </div>
+                        <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>View Image</span></div>
                     </div>
                 </a>
             </div>
-
-            <div class="grid-item-wrapper">
+            <div class="grid-item-wrapper" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="120">
                 <a href="./images/WhatsApp-Image-2023-04-30-at-5.15.26-PM-1-600x400.jpeg"
                     data-caption="Academic achievement ceremony" class="lightbox-trigger">
                     <div class="card-inner">
                         <img src="./images/WhatsApp-Image-2023-04-30-at-5.15.26-PM-1-600x400.jpeg"
                             alt="Academic achievement ceremony" class="grid-item-img">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
-                            <span>View Image</span>
-                        </div>
+                        <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>View Image</span></div>
                     </div>
                 </a>
             </div>
-
-            <div class="grid-item-wrapper">
+            <div class="grid-item-wrapper" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="180">
                 <a href="./images/image2.jpg" data-caption="Campus view during sunset" class="lightbox-trigger">
                     <div class="card-inner">
                         <img src="./images/image2.jpg" alt="Campus view during sunset" class="grid-item-img">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
-                            <span>View Image</span>
-                        </div>
+                        <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>View Image</span></div>
                     </div>
                 </a>
             </div>
-
-            <div class="grid-item-wrapper">
+            <div class="grid-item-wrapper" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="0">
                 <a href="./images/image3.jpg" data-caption="Laboratory session in progress" class="lightbox-trigger">
                     <div class="card-inner">
                         <img src="./images/image3.jpg" alt="Laboratory session in progress" class="grid-item-img">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
-                            <span>View Image</span>
-                        </div>
+                        <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>View Image</span></div>
                     </div>
                 </a>
             </div>
-
-            <div class="grid-item-wrapper">
+            <div class="grid-item-wrapper" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="60">
                 <a href="./images/image4.jpg" data-caption="Library interior and study area" class="lightbox-trigger">
                     <div class="card-inner">
                         <img src="./images/image4.jpg" alt="Library interior and study area" class="grid-item-img">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
-                            <span>View Image</span>
-                        </div>
+                        <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>View Image</span></div>
                     </div>
                 </a>
             </div>
-
-            <div class="grid-item-wrapper">
+            <div class="grid-item-wrapper" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="120">
                 <a href="./images/WhatsApp-Image-2023-04-30-at-5.15.26-PM-1-600x400.jpeg"
                     data-caption="Convocation ceremony moment" class="lightbox-trigger">
                     <div class="card-inner">
                         <img src="./images/WhatsApp-Image-2023-04-30-at-5.15.26-PM-1-600x400.jpeg"
                             alt="Convocation ceremony moment" class="grid-item-img">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
-                            <span>View Image</span>
-                        </div>
+                        <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>View Image</span></div>
                     </div>
                 </a>
             </div>
-
-            <div class="grid-item-wrapper">
+            <div class="grid-item-wrapper" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="180">
                 <a href="./images/WhatsApp-Image-2023-04-30-at-5.15.26-PM-2-600x400.jpeg"
                     data-caption="Student presentation at a seminar" class="lightbox-trigger">
                     <div class="card-inner">
                         <img src="./images/WhatsApp-Image-2023-04-30-at-5.15.26-PM-2-600x400.jpeg"
                             alt="Student presentation at a seminar" class="grid-item-img">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
-                            <span>View Image</span>
-                        </div>
+                        <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>View Image</span></div>
                     </div>
                 </a>
             </div>
-
-            <div class="grid-item-wrapper">
+            <div class="grid-item-wrapper" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="0">
                 <a href="./images/image5.jpg" data-caption="Sporting event on the college field"
                     class="lightbox-trigger">
                     <div class="card-inner">
                         <img src="./images/image5.jpg" alt="Sporting event on the college field" class="grid-item-img">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
-                            <span>View Image</span>
-                        </div>
+                        <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>View Image</span></div>
                     </div>
                 </a>
             </div>
-
-            <div class="grid-item-wrapper">
+            <div class="grid-item-wrapper" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="60">
                 <a href="./images/WhatsApp-Image-2023-05-04-at-8.30.59-AM-600x400.jpeg"
                     data-caption="Student project exhibition" class="lightbox-trigger">
                     <div class="card-inner">
                         <img src="./images/WhatsApp-Image-2023-05-04-at-8.30.59-AM-600x400.jpeg"
                             alt="Student project exhibition" class="grid-item-img">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
-                            <span>View Image</span>
-                        </div>
+                        <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>View Image</span></div>
                     </div>
                 </a>
             </div>
-
-            <div class="grid-item-wrapper">
+            <div class="grid-item-wrapper" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="120">
                 <a href="./images/Exhibition1-Phy.1-600x400.jpg" data-caption="Physics department exhibition setup"
                     class="lightbox-trigger">
                     <div class="card-inner">
                         <img src="./images/Exhibition1-Phy.1-600x400.jpg" alt="Physics department exhibition setup"
                             class="grid-item-img">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
-                            <span>View Image</span>
-                        </div>
+                        <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>View Image</span></div>
                     </div>
                 </a>
             </div>
-
-            <div class="grid-item-wrapper">
+            <div class="grid-item-wrapper" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="180">
                 <a href="./images/WhatsApp-Image-2023-05-04-at-8.30.59-AM-2-600x400.jpeg"
                     data-caption="Inter-college cultural event" class="lightbox-trigger">
                     <div class="card-inner">
                         <img src="./images/WhatsApp-Image-2023-05-04-at-8.30.59-AM-2-600x400.jpeg"
                             alt="Inter-college cultural event" class="grid-item-img">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
-                            <span>View Image</span>
-                        </div>
+                        <div class="gallery-overlay"><i class="fas fa-search-plus"></i><span>View Image</span></div>
                     </div>
                 </a>
             </div>
+        </div>
     </section>
-    <div class="gallery-container">
-        <a href="gallery.html"><button>View Gallery</button> </a>
+
+    <div class="gallery-container" data-aos="fade-up" data-aos-duration="600">
+        <a href="gallery.html"><button>View Gallery</button></a>
     </div>
 
-    <!-- review cloose -->
 
-    <!-- Admissions CTA -->
-    <!-- <section class="py-5" id="admissions">
-        <div class="container">
-            <div class="row align-items-center g-4">
-                <div class="col-lg-7">
-                    <h2 class="section-title fw-bold">Admissions 2025</h2>
-                    <p class="text-muted">Easy three‑step process to join SGGSKCM. Submit your details, verify
-                        documents, and confirm your seat.</p>
-                    <ol class="text-muted small">
-                        <li>Submit online enquiry</li>
-                        <li>Get counselling call</li>
-                        <li>Secure admission</li>
-                    </ol>
-                    <a href="#leadForm" class="btn cta-btn btn-lg"><i class="bi bi-pencil-square me-2"></i>Start
-                        Application</a>
-                </div>
-                <div class="col-lg-5">
-                    <div class="p-4 rounded-4 border bg-white quote">
-                        <p class="mb-2">“The wine‑themed design gives a premium feel and keeps focus on the key CTAs.”
-                        </p>
-                        <div class="d-flex align-items-center gap-3">
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop"
-                                class="rounded-circle" width="48" height="48" alt="Student" />
-                            <div>
-                                <strong>Final‑year Student</strong>
-                                <div class="small text-muted">BCA, Class of 2025</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Contact -->
-    <!-- <section class="py-5 bg-light" id="contact">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-6">
-                    <h2 class="section-title fw-bold mb-2">Contact Us</h2>
-                    <p class="text-muted">Have questions about programs, fees, or scholarships? We are here to help.</p>
-                    <div class="d-flex flex-column gap-2">
-                        <div><i class="bi bi-geo-alt me-2"></i> College Road, Mahilpur, Punjab (Example)</div>
-                        <div><i class="bi bi-telephone me-2"></i> +91 62844 24992</div>
-                        <div><i class="bi bi-envelope me-2"></i> admissions@sggskcm.org</div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-sm">
-                        <iframe title="Map"
-                            src="https://maps.google.com/maps?q=punjab%20india&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-     <section class="uni-news">
-        <h1 class="news-heading" style="font-size: 3rem; font-weight: 700;">News & Update</h1>
-       <div class="news-grid" id="newsGrid">
-          
-    </div>
+    <!-- News -->
+    <section class="uni-news">
+        <h1 class="news-heading" style="font-size: 3rem; font-weight: 700;" data-aos="fade-up" data-aos-duration="700">
+            News &amp; Update</h1>
+        <div class="news-grid" id="newsGrid"></div>
     </section>
+
+    <!-- Why SGGS -->
     <section class="why-sggs">
         <div class="why-container">
-
-            <!-- LEFT CONTENT -->
-            <div class="why-left">
-                <h2>Why SGGS College?</h2>
+            <div class="why-left" data-aos="fade-right" data-aos-duration="800">
+                <h2>Why S.G.G.S. College?</h2>
                 <h3>Building Strong Academic Foundations</h3>
-                <p>
-                    SGGS College focuses on quality education, disciplined learning,
-                    and overall student development through experienced faculty
-                    and a supportive academic environment.
-                </p>
+                <p>S.G.G.S. College focuses on quality education, disciplined learning, and overall student development
+                    through experienced faculty and a supportive academic environment.</p>
                 <a href="Facility-in SGGS-Collage.html" class="why-btn">EXPLORE MORE</a>
             </div>
-
-            <!-- RIGHT CARDS GRID -->
             <div class="why-right">
-
-                <div class="why-card">
+                <div class="why-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="0">
                     <span class="card-no">01</span>
                     <i class="bi bi-building"></i>
                     <h4>Well-Equipped Infrastructure</h4>
                 </div>
-
-                <div class="why-card">
+                <div class="why-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="80">
                     <span class="card-no">02</span>
                     <i class="bi bi-tree"></i>
-                    <h4>Clean & Green Campus</h4>
+                    <h4>Clean &amp; Green Campus</h4>
                 </div>
-
-                <div class="why-card">
+                <div class="why-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="160">
                     <span class="card-no">03</span>
                     <i class="bi bi-person-badge"></i>
                     <h4>Experienced Faculty</h4>
                 </div>
-
-                <div class="why-card">
+                <div class="why-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="240">
                     <span class="card-no">04</span>
                     <i class="bi bi-award"></i>
                     <h4>Scholarship Support</h4>
                 </div>
-
-                <div class="why-card">
+                <div class="why-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="320">
                     <span class="card-no">05</span>
                     <i class="bi bi-wifi"></i>
                     <h4>Wi-Fi Enabled Campus</h4>
                 </div>
-
-                <div class="why-card">
+                <div class="why-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
                     <span class="card-no">06</span>
                     <i class="bi bi-briefcase"></i>
-                    <h4>Career Guidance & Placement Support</h4>
+                    <h4>Career Guidance &amp; Placement Support</h4>
                 </div>
-
             </div>
-
         </div>
     </section>
 
 
-
-
-
-    <!-- review open  -->
+    <!-- Testimonials -->
     <section class="py-5 testimonial-wine" id="testimonials">
         <div class="container">
-            <div class="text-center mb-4">
+            <div class="text-center mb-4" data-aos="fade-up" data-aos-duration="700">
                 <span class="badge rounded-pill wine-badge">What Students Say</span>
                 <h2 class="fw-bold mt-2 section-title">Testimonials</h2>
                 <p class="text-muted mb-0">Real experiences from our learners and alumni</p>
             </div>
 
-
             <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5500"
-                data-bs-pause="hover">
-                <!-- Indicators -->
+                data-bs-pause="hover" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
                 <div class="carousel-indicators mb-0">
                     <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"
                         aria-current="true" aria-label="Slide 1"></button>
@@ -3481,17 +2847,14 @@
                         aria-label="Slide 3"></button>
                 </div>
 
-
-                <!-- Slides -->
                 <div class="carousel-inner">
-                    <!-- Slide 1 -->
                     <div class="carousel-item active">
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
                                 <div class="card shadow-sm border-0 rounded-4 testimonial-card">
                                     <div class="card-body p-4 p-md-5">
                                         <div class="d-flex align-items-start gap-3 mb-3">
-                                            <div class="quote-mark" aria-hidden="true">“</div>
+                                            <div class="quote-mark" aria-hidden="true">"</div>
                                             <p class="lead mb-0 text-secondary">I have too much attachment with this
                                                 place. Because i had complete my study from here and started my sports
                                                 carrier. Now i am a physical educationist and i have a great profession.
@@ -3516,16 +2879,13 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <!-- Slide 2 -->
                     <div class="carousel-item">
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
                                 <div class="card shadow-sm border-0 rounded-4 testimonial-card">
                                     <div class="card-body p-4 p-md-5">
                                         <div class="d-flex align-items-start gap-3 mb-3">
-                                            <div class="quote-mark" aria-hidden="true">“</div>
+                                            <div class="quote-mark" aria-hidden="true">"</div>
                                             <p class="lead mb-0 text-secondary">My teaching journey started here in
                                                 2009. I see many ups and down here but still I am here. Its my luck I am
                                                 part of this College. Now I will move (may be) but I will always salute
@@ -3549,25 +2909,19 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <!-- Slide 3 -->
-
-
                     <div class="carousel-item">
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
                                 <div class="card shadow-sm border-0 rounded-4 testimonial-card">
                                     <div class="card-body p-4 p-md-5">
                                         <div class="d-flex align-items-start gap-3 mb-3">
-                                            <div class="quote-mark" aria-hidden="true">“</div>
+                                            <div class="quote-mark" aria-hidden="true">"</div>
                                             <p class="lead mb-0 text-secondary">बहुत शानदार कॉलेज ओर सपोर्टिंग स्टाफ ओर
                                                 सभी अध्यापक बहुत ही अच्छे हैं सभी हमारी सहायता करने वाले है,हमें यहां पर
                                                 आने पर बिल्कुल भी परायापन महसुस नहीं हुआ है,खेल कूद, पढाई में भी अव्वल
                                                 है ,वास्तव में यह कॉलेज बहुत ही शानदार ओर हर क्षेत्र में बहुत ही अच्छे
-                                                परिणाम वाला,ओर भौतिक सुख सुविधाओं से युक्त है।
-                                                धन्यवाद SGGS खालसा कॉलेज महिलपुर,पंजाब
-                                            </p>
+                                                परिणाम वाला,ओर भौतिक सुख सुविधाओं से युक्त है। धन्यवाद S.G.G.S. खालसा
+                                                कॉलेज महिलपुर,पंजाब</p>
                                         </div>
                                         <div class="d-flex align-items-center mt-4">
                                             <img src="https://lh3.googleusercontent.com/a/ACg8ocICqNRyaGOs88Ig9ZttOK3pNHkyXwjPpWhJLvPeuFM08ZGDYg=s64-c-rp-mo-br100"
@@ -3587,48 +2941,55 @@
                             </div>
                         </div>
                     </div>
-    </section>
-
-
-    <section class="sggs-combined">
-
-        <!-- COURSES PART -->
-        <div class="sggs-courses">
-            <h2 class="courses-title">Courses Offered at SGGS College</h2>
-
-            <div class="courses-grid">
-                <a href="ba-department.html" class="course-btn"><span>B.A.</span></a>
-                <a href="bcom-department.html" class="course-btn"><span>B.Com</span></a>
-                <a href="bsc-department.html" class="course-btn"><span>B.Sc (Medical)</span></a>
-                <a href="bsc-department.html" class="course-btn"><span>B.Sc (Non-Medical)</span></a>
-                <a href="bca-department.html" class="course-btn"><span>BCA</span></a>
-                <a href="bba-department.html" class="course-btn"><span>BBA</span></a>
-
-                <a href="ma-english.html" class="course-btn"><span>M.A. English</span></a>
-                <a href="ma-economics.html" class="course-btn"><span>M.A. Economics</span></a>
-                <a href="mcom-department.html" class="course-btn"><span>M.Com</span></a>
-                <a href="msc-math.html" class="course-btn"><span>M.Sc Mathematics</span></a>
-                <a href="msc-physics.html" class="course-btn"><span>M.Sc Physics</span></a>
-
-                <a href="pgdca-department.html" class="course-btn"><span>PGDCA</span></a>
-                <a href="Course-Programmes.html" class="course-btn"><span>Diploma Courses</span></a>
-                <a href="fashion-designing-department.html" class="course-btn"><span>Fashion Designing</span></a>
-                <a href="Course-Programmes.html" class="course-btn"><span>See All Programmes</span></a>
+                </div>
             </div>
         </div>
-
-
-
     </section>
 
 
+    <!-- Courses Section -->
+    <section class="sggs-combined">
+        <div class="sggs-courses" data-aos="fade-up" data-aos-duration="700">
+            <h2 class="courses-title">Courses Offered at S.G.G.S. College</h2>
+            <div class="courses-grid">
+                <a href="ba-department.html" class="course-btn" data-aos="zoom-in" data-aos-duration="500"
+                    data-aos-delay="0"><span>B.A.</span></a>
+                <a href="bcom-department.html" class="course-btn" data-aos="zoom-in" data-aos-duration="500"
+                    data-aos-delay="50"><span>B.Com</span></a>
+                <a href="bsc-department.html" class="course-btn" data-aos="zoom-in" data-aos-duration="500"
+                    data-aos-delay="100"><span>B.Sc (Medical)</span></a>
+                <a href="bsc-department.html" class="course-btn" data-aos="zoom-in" data-aos-duration="500"
+                    data-aos-delay="150"><span>B.Sc (Non-Medical)</span></a>
+                <a href="bca-department.html" class="course-btn" data-aos="zoom-in" data-aos-duration="500"
+                    data-aos-delay="200"><span>BCA</span></a>
+                <a href="bba-department.html" class="course-btn" data-aos="zoom-in" data-aos-duration="500"
+                    data-aos-delay="250"><span>BBA</span></a>
+                <a href="ma-english.html" class="course-btn" data-aos="zoom-in" data-aos-duration="500"
+                    data-aos-delay="300"><span>M.A. English</span></a>
+                <a href="ma-economics.html" class="course-btn" data-aos="zoom-in" data-aos-duration="500"
+                    data-aos-delay="350"><span>M.A. Economics</span></a>
+                <a href="mcom-department.html" class="course-btn" data-aos="zoom-in" data-aos-duration="500"
+                    data-aos-delay="400"><span>M.Com</span></a>
+                <a href="msc-math.html" class="course-btn" data-aos="zoom-in" data-aos-duration="500"
+                    data-aos-delay="450"><span>M.Sc Mathematics</span></a>
+                <a href="msc-physics.html" class="course-btn" data-aos="zoom-in" data-aos-duration="500"
+                    data-aos-delay="500"><span>M.Sc Physics</span></a>
+                <a href="pgdca-department.html" class="course-btn" data-aos="zoom-in" data-aos-duration="500"
+                    data-aos-delay="550"><span>PGDCA</span></a>
+                <a href="Course-Programmes.html" class="course-btn" data-aos="zoom-in" data-aos-duration="500"
+                    data-aos-delay="600"><span>Diploma Courses</span></a>
+                <a href="fashion-designing-department.html" class="course-btn" data-aos="zoom-in"
+                    data-aos-duration="500" data-aos-delay="650"><span>Fashion Designing</span></a>
+                <a href="Course-Programmes.html" class="course-btn" data-aos="zoom-in" data-aos-duration="500"
+                    data-aos-delay="700"><span>See All Programmes</span></a>
+            </div>
+        </div>
+    </section>
 
 
-
-
+    <!-- Placement Marquee -->
     <section class="placement-marquee">
-        <h2>Phenomenal Recruiters at S.G.G.S. Collage, Mahilpur</h2>
-
+        <h2 data-aos="fade-up" data-aos-duration="700">Phenomenal Recruiters at S.G.G.S. Collage, Mahilpur</h2>
         <div class="marquee-container">
             <div class="marquee-content">
                 <div class="company"><img src="./logo/images.png" alt="Amazon"></div>
@@ -3666,50 +3027,26 @@
                 <div class="company"><img src="./logo/my flipcart.png" alt="Flipkart"></div>
                 <div class="company"><img src="./logo/Walmart.png" alt="Walmart Labs"></div>
             </div>
-
         </div>
-        <!-- MAP PART -->
-        <div class="sggs-map">
-            <h2 class="map-title">Find Us</h2>
-            <p class="map-text">
-                Sri Guru Gobind Singh College is easily accessible for students, parents,
-                and visitors.
-            </p>
 
-            <div class="map-box">
+        <!-- Map -->
+        <div class="sggs-map">
+            <h2 class="map-title" data-aos="fade-up" data-aos-duration="700">Find Us</h2>
+            <p class="map-text" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">Sri Guru Gobind Singh
+                College is easily accessible for students, parents, and visitors.</p>
+            <div class="map-box" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d716.1707140950099!2d76.03931659557416!3d31.367222725986633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391ae9665cdaaf79%3A0x80d2b85a4c1ba8e3!2sSGGS%20KHALSA%20COLLEGE%20MAHILPUR!5e0!3m2!1sen!2sin!4v1765658916770!5m2!1sen!2sin"
                     width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </iframe>
             </div>
         </div>
     </section>
 
 
-
-
-
-
     <footer class="sggs-footer">
         <div class="footer-container">
-
-            <!-- ABOUT -->
-            <!-- <div class="footer-col about">
-      <h3>SGGS College</h3>
-      <p>
-        Sri Guru Gobind Singh Government College is committed to academic
-        excellence, quality education, and holistic student development.
-      </p>
-      <p class="footer-note">
-        <i class="bi bi-bank"></i>
-        Affiliated to Sardar Patel University • NAAC Accredited
-      </p>
-    </div> -->
-
-
-            <!-- CONTACT (CORRECTED, NOT REMOVED) -->
-            <div class="footer-col contact">
+            <div class="footer-col contact" data-aos="fade-up" data-aos-duration="700" data-aos-delay="0">
                 <h4><i class="bi bi-geo-alt"></i> Contact</h4>
                 <ul>
                     <li>
@@ -3722,9 +3059,7 @@
                     <li><i class="bi bi-envelope"></i> info@sggskcm.org</li>
                     <li><i class="bi bi-envelope"></i> sggskcm@live.com</li>
                 </ul>
-
-
-                <div class="footer-social  icons-color">
+                <div class="footer-social icons-color">
                     <a href="https://www.facebook.com/sggskcm.org/"><i class="bi bi-facebook"></i></a>
                     <a
                         href="https://www.instagram.com/sggskhalsacollege?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i
@@ -3733,8 +3068,7 @@
                             class="bi bi-youtube"></i></a>
                 </div>
             </div>
-            <!-- ACADEMICS -->
-            <div class="footer-col">
+            <div class="footer-col" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
                 <h4><i class="bi bi-mortarboard"></i> Academics</h4>
                 <ul>
                     <li><a href="Course-Programmes.html"><i class="bi bi-book"></i> Courses Offered</a></li>
@@ -3747,9 +3081,7 @@
                             e-Resources</a></li>
                 </ul>
             </div>
-
-            <!-- ADMISSIONS & STUDENTS -->
-            <div class="footer-col">
+            <div class="footer-col" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
                 <h4><i class="bi bi-person-badge"></i> Admissions & Students</h4>
                 <ul>
                     <li><a href="Addimision-page.html"><i class="bi bi-door-open"></i> Admission Process</a></li>
@@ -3759,9 +3091,7 @@
                     <li><a href="contactus copy.html"><i class="bi bi-headset"></i> Student Support</a></li>
                 </ul>
             </div>
-
-            <!-- QUALITY & GOVERNANCE -->
-            <div class="footer-col">
+            <div class="footer-col" data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
                 <h4><i class="bi bi-shield-check"></i> Quality & Governance</h4>
                 <ul>
                     <li><a href="./iqac.html"><i class="bi bi-check2-circle"></i> IQAC</a></li>
@@ -3772,9 +3102,7 @@
                     <li><a href="#"><i class="bi bi-file-earmark-lock"></i> RTI</a></li>
                 </ul>
             </div>
-
-            <!-- QUICK LINKS (ADDED) -->
-            <div class="footer-col">
+            <div class="footer-col" data-aos="fade-up" data-aos-duration="700" data-aos-delay="400">
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="https://puchd.ac.in" target="_blank">Panjab University Chandigarh</a></li>
@@ -3786,40 +3114,43 @@
                     </li>
                 </ul>
             </div>
-
         </div>
         <div class="footer-bottom">
-            <p>© 2025 SGGS College | Designed & Maintained by SGGS Web Team</p>
+            <p>© 2025 S.G.G.S. College | Designed & Maintained by S.G.G.S. Web Team</p>
         </div>
     </footer>
 
-    <!-- footer end -->
-    <!-- Toast (Form submission) -->
 
-    <!-- old js -->
+    <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,          // animate only once on scroll
+            offset: 80,          // trigger 80px before element enters viewport
+            easing: 'ease-out-cubic',
+            duration: 700,
+        });
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- 1. Navbar Dropdown Fix (Closes on mobile link click) ---
             const navbarCollapse = document.getElementById('navbarsExample');
             if (navbarCollapse) {
                 const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
-
-                // Listen for clicks on any link *inside* the collapsed menu
                 navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-item').forEach(link => {
                     link.addEventListener('click', () => {
-                        // Check if the menu is currently expanded (i.e., on mobile)
                         if (navbarCollapse.classList.contains('show')) {
-                            // Collapse the menu
                             bsCollapse.hide();
                         }
                     });
                 });
             }
 
-            // --- 2. Side Action Panel Toggle Logic ---
             const actionToggle = document.getElementById('actionToggle');
             const actionPanelContainer = document.getElementById('actionPanelContainer');
             if (actionToggle && actionPanelContainer) {
@@ -3828,28 +3159,10 @@
                 });
             }
 
-            // --- 3. Scroll-to-Top Button Logic ---
             const panelTopBtn = document.getElementById('panelTopBtn');
-
-            const scrollFunction = () => {
-                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                    if (topBtn) topBtn.style.display = "block";
-                } else {
-                    if (topBtn) topBtn.style.display = "none";
-                }
-            };
-
-            const scrollToTop = () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            };
-
-            window.onscroll = scrollFunction;
+            const scrollToTop = () => { window.scrollTo({ top: 0, behavior: 'smooth' }); };
             if (panelTopBtn) panelTopBtn.addEventListener('click', scrollToTop);
 
-            // --- 4. Alert Pop-up and Countdown Logic ---
             const alertBtn = document.getElementById('alertBtn');
             const alertPopup = document.getElementById('alertPopup');
             const notifySound = document.getElementById('notifySound');
@@ -3857,21 +3170,15 @@
 
             if (alertBtn && alertPopup && countdownEl) {
                 alertBtn.addEventListener('click', () => {
-                    // Toggle the alert pop-up visibility
                     const isVisible = alertPopup.style.display === 'block';
                     alertPopup.style.display = isVisible ? 'none' : 'block';
-
-                    // Play sound only when opening
                     if (!isVisible && notifySound) {
-                        // Attempt to play the sound
                         notifySound.play().catch(error => {
-                            // Console warning if auto-play fails due to browser policy
-                            console.warn("Autoplay was prevented. User interaction required to play audio.", error);
+                            console.warn("Autoplay was prevented.", error);
                         });
                     }
                 });
 
-                // Set a placeholder date for the countdown (e.g., end of next month)
                 const endDate = new Date();
                 endDate.setMonth(endDate.getMonth() + 1);
                 endDate.setDate(15);
@@ -3880,13 +3187,10 @@
                 const updateCountdown = () => {
                     const now = new Date().getTime();
                     const distance = endDate.getTime() - now;
-
-                    // Time calculations for days, hours, minutes and seconds
                     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
                     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
                     if (distance < 0) {
                         clearInterval(countdownInterval);
                         countdownEl.innerHTML = "EXPIRED";
@@ -3894,88 +3198,53 @@
                         countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
                     }
                 }
-
                 updateCountdown();
                 const countdownInterval = setInterval(updateCountdown, 1000);
             }
         });
     </script>
 
-
-    <!-- student crousel JavaScript -->
-
     <script>
         new Swiper('.sggsSwiper', {
             direction: 'vertical',
             slidesPerView: 1,
             loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false
-            },
+            autoplay: { delay: 3000, disableOnInteraction: false },
             speed: 800,
         });
     </script>
 
-    <!-- gallery JavaScript -->
     <script>
-        // Get the modal elements
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxCaption = document.getElementById('lightbox-caption');
         const closeBtn = document.querySelector('.close-btn');
-
-        // Get all elements that trigger the lightbox
         const triggers = document.querySelectorAll('.lightbox-trigger');
 
-        // Loop through all triggers and attach the click event listener
         triggers.forEach(trigger => {
             trigger.addEventListener('click', function (e) {
-                e.preventDefault(); // IMPORTANT: Stop the link from opening in a new tab/window
-
-                // Get the image source and caption from the clicked anchor tag
+                e.preventDefault();
                 const imageSrc = this.getAttribute('href');
                 const imageCaption = this.getAttribute('data-caption');
-
-                // Set the content of the lightbox
                 lightbox.style.display = 'block';
                 lightboxImg.src = imageSrc;
                 lightboxCaption.innerHTML = imageCaption;
-
-                // Optional: Stop background scrolling when modal is open
                 document.body.style.overflow = 'hidden';
             });
         });
 
-        // Function to close the lightbox
         function closeLightbox() {
             lightbox.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore background scrolling
+            document.body.style.overflow = 'auto';
         }
 
-        // Close the lightbox when the close button is clicked
         closeBtn.addEventListener('click', closeLightbox);
-
-        // Close the lightbox when clicking outside the image (on the modal background)
-        lightbox.addEventListener('click', function (e) {
-            if (e.target === lightbox) {
-                closeLightbox();
-            }
-        });
-
-        // Close the lightbox when the Escape key is pressed
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && lightbox.style.display === 'block') {
-                closeLightbox();
-            }
-        });
-
+        lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && lightbox.style.display === 'block') closeLightbox(); });
     </script>
-    <script>
-        // Get the form element
-        const adminForm = document.getElementById("leadForm");
 
-        // Attach submit event listener to the form
+    <script>
+        const adminForm = document.getElementById("leadForm");
         adminForm.addEventListener("submit", submitForm);
         function submitForm(e) {
             e.preventDefault();
@@ -3986,79 +3255,61 @@
 
             fetch("https://final-collage-1.onrender.com/admins", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    name,
-                    phone,
-                    email,
-                    program
-                })
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, phone, email, program })
             })
                 .then(res => res.json())
-                .then(data => {
-                    console.log("Saved:", data);
-                    alert("Data stored successfully");
-                })
+                .then(data => { console.log("Saved:", data); alert("Data stored successfully"); })
                 .catch(err => console.error(err));
         }
     </script>
 
     <script>
-       async function loadNews() {
-    try {
-        const res = await fetch("https://final-collage-1.onrender.com/news");
+        async function loadNews() {
+            try {
+                const res = await fetch("https://final-collage-1.onrender.com/news");
+                if (!res.ok) throw new Error("Failed to fetch news");
+                const news = await res.json();
+                const newsGrid = document.getElementById("newsGrid");
+                newsGrid.innerHTML = "";
 
-        if (!res.ok) throw new Error("Failed to fetch news");
+                news.forEach((item, index) => {
+                    const imageUrl = `https://final-collage-1.onrender.com${item.image}`;
+                    let cardHTML = "";
 
-        const news = await res.json();
-        const newsGrid = document.getElementById("newsGrid");
-        newsGrid.innerHTML = "";
+                    if (index === 0) {
+                        cardHTML = `
+                        <div class="news-card big-card" data-aos="fade-right" data-aos-duration="800">
+                            <img src="${imageUrl}" alt="">
+                            <div class="overlay"></div>
+                            <h3>${item.title}</h3>
+                            <a href="news-details.html?id=${item._id}" class="btn">READ MORE</a>
+                        </div>`;
+                    } else {
+                        cardHTML = `
+                        <div class="news-card small-card ${index > 2 ? 'bottom' : ''}" data-aos="fade-up" data-aos-duration="700" data-aos-delay="${index * 80}">
+                            <img src="${imageUrl}" alt="">
+                            <div class="overlay"></div>
+                            <div class="content">
+                                <h3>${item.title}</h3>
+                                <p>${item.description}</p>
+                                <a href="news-details.html?id=${item._id}" class="btn">READ MORE</a>
+                            </div>
+                        </div>`;
+                    }
+                    newsGrid.insertAdjacentHTML("beforeend", cardHTML);
+                });
 
-        news.forEach((item, index) => {
-
-            // ✅ FIX: correct image URL
-            const imageUrl = `https://final-collage-1.onrender.com${item.image}`;
-
-            let cardHTML = "";
-
-            if (index === 0) {
-                // BIG CARD
-                cardHTML = `
-                <div class="news-card big-card">
-                    <img src="${imageUrl}" alt="">
-                    <div class="overlay"></div> 
-                    <h3>${item.title}</h3>
-                    <a href="news-details.html?id=${item._id}" class="btn">READ MORE</a>
-                </div>`;
-            } else {
-                // SMALL CARDS
-                cardHTML = `
-                <div class="news-card small-card ${index > 2 ? 'bottom' : ''}">
-                    <img src="${imageUrl}" alt="">
-                    <div class="overlay"></div>
-                    <div class="content">
-                        <h3>${item.title}</h3>
-                        <p>${item.description}</p>
-                        <a href="news-details.html?id=${item._id}" class="btn">READ MORE</a>
-                    </div>
-                </div>`;
+                // Refresh AOS after dynamic content loads
+                AOS.refresh();
+            } catch (err) {
+                console.error(err);
+                document.getElementById("newsGrid").innerHTML = "<p style='color:red'>Failed to load news</p>";
             }
+        }
 
-            newsGrid.insertAdjacentHTML("beforeend", cardHTML);
-        });
-
-    } catch (err) {
-        console.error(err);
-        document.getElementById("newsGrid").innerHTML =
-            "<p style='color:red'>Failed to load news</p>";
-    }
-}
-
-window.addEventListener("DOMContentLoaded", loadNews);
+        window.addEventListener("DOMContentLoaded", loadNews);
     </script>
-
 
 </body>
 
