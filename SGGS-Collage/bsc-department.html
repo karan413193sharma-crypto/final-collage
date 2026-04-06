@@ -10,16 +10,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<!-- BOOTSTRAP CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- BOOTSTRAP JS (for toggle + dropdown)  -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
- 
-         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
-        
-         <link rel="stylesheet" href="./css/navbar.css">
-         <link rel="stylesheet" href="./css/footer.css">
+  <!-- ========== ADDED AOS CSS LIBRARY ========== -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- BOOTSTRAP CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- BOOTSTRAP JS (for toggle + dropdown)  -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+  <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="stylesheet" href="./css/footer.css">
   <style>
     /* SAME CSS - copied from the MSc page (Option B) */
     :root {
@@ -117,7 +121,7 @@
       display: inline-block
     }
 
- 
+
     .lead {
       font-size: 1.15rem;
       opacity: 0.95;
@@ -247,13 +251,20 @@
     }
 
     table {
-            min-width: 100%;
-            border-collapse: collapse;
-         
-       }
-       @media (max-width: 400px){
-        table{font-size: 10px;}.card{padding: 10px;}
-       }
+      min-width: 100%;
+      border-collapse: collapse;
+
+    }
+
+    @media (max-width: 400px) {
+      table {
+        font-size: 10px;
+      }
+
+      .card {
+        padding: 10px;
+      }
+    }
 
     th {
       background: var(--brand);
@@ -301,7 +312,7 @@
       display: block
     }
 
-   
+
 
     @media(max-width:900px) {
       .hero {
@@ -312,337 +323,354 @@
         width: 100%
       }
     }
+
     /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        @keyframes shimmer {
-            0% {
-                background-position: -1000px 0;
-            }
-
-            100% {
-                background-position: 1000px 0;
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        .fade-in-delay {
-            animation: fadeIn 0.8s ease-out 0.2s both;
-        }
-
-        .fade-in-delay-2 {
-            animation: fadeIn 0.8s ease-out 0.4s both;
-        }
-        /* Hero Section */
-        .hero {
-            position: relative;
-           
-            overflow: hidden;
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, #8c1007 0%, #b51610 30%, #8c1007 60%, #6b0d05 100%);
-            opacity: 1;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.15), transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1), transparent 40%);
-        }
-
-        .hero-particles {
-            position: absolute;
-            inset: 0;
-            background-image:
-                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 100px 100px, 150px 150px, 200px 200px;
-            opacity: 0.5;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .college-badge {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            font-size: 2.5rem;
-            color: white;
-            animation: float 3s ease-in-out infinite;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .hero h1 {
-    font-weight: 800;
-    color: white;
-    margin-bottom: 20px;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-    font-size: clamp(28px, 6vw, 80px); /* super responsive */
-    margin-top: 20px;
-}
-
-/* For tablets */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: clamp(24px, 8vw, 60px);
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-}
 
-/* For small phones */
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: clamp(20px, 10vw, 45px);
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
     }
-}
 
+    @keyframes shimmer {
+      0% {
+        background-position: -1000px 0;
+      }
 
-        .hero p {
-            font-size: 1.375rem;
-            color: rgba(255, 255, 255, 0.95);
-            max-width: 800px;
-            margin: 0 auto 48px;
-            font-weight: 500;
-        }
+      100% {
+        background-position: 1000px 0;
+      }
+    }
 
-        /* Stats Bar */
-        .stats-bar {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 32px;
-            flex-wrap: wrap;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(12px);
-            padding: 32px 48px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            max-width: 900px;
-            margin: 0 auto;
-        }
+    .fade-in {
+      animation: fadeIn 0.8s ease-out;
+    }
 
-        .stat-item {
-            text-align: center;
-        }
+    .fade-in-delay {
+      animation: fadeIn 0.8s ease-out 0.2s both;
+    }
 
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 4px;
-        }
+    .fade-in-delay-2 {
+      animation: fadeIn 0.8s ease-out 0.4s both;
+    }
 
-        .stat-label {
-            font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+    /* Hero Section */
+    .hero {
+      position: relative;
 
-        .stat-divider {
-            width: 1px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.3);
-        }
-        /* ================================================== */
-/* --- HERO SECTION MEDIA QUERIES --- */
-/* ================================================== */
+      overflow: hidden;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-/* 1. Desktop / Large Tablet Adjustments (max-width: 1200px) */
-@media (max-width: 1200px) {
-    /* Adjust container padding if necessary, but focusing on hero content */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #8c1007 0%, #b51610 30%, #8c1007 60%, #6b0d05 100%);
+      opacity: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.15), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1), transparent 40%);
+    }
+
+    .hero-particles {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 100px 100px, 150px 150px, 200px 200px;
+      opacity: 0.5;
+    }
+
     .hero-content {
-        padding: 0 1.5rem; /* Ensure content is contained within padding */
-    }
-}
-
-/* 2. Tablet / Landscape Mobile Adjustments (max-width: 992px) */
-@media (max-width: 992px) {
-    .program-hero {
-        padding: 100px 24px 80px; /* Reduced vertical padding */
-        min-height: 500px;
-    }
-
-    .hero h1 {
-        font-size: 3.5rem; /* Slightly smaller heading */
-    }
-
-    .hero p {
-        font-size: 1.25rem; /* Slightly smaller lead text */
-        margin-bottom: 40px;
-    }
-}
-
-/* 3. Portrait Tablet / Mobile Adjustments (max-width: 768px) */
-@media (max-width: 768px) {
-    .program-hero {
-        padding: 80px 16px 60px;
-        min-height: 450px;
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .college-badge {
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 2.5rem;
+      color: white;
+      animation: float 3s ease-in-out infinite;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .hero h1 {
+      font-weight: 800;
+      color: white;
+      margin-bottom: 20px;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+      font-size: clamp(28px, 6vw, 80px);
+      /* super responsive */
+      margin-top: 20px;
+    }
+
+    /* For tablets */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: clamp(24px, 8vw, 60px);
+      }
+    }
+
+    /* For small phones */
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: clamp(20px, 10vw, 45px);
+      }
+    }
+
+
+    .hero p {
+      font-size: 1.375rem;
+      color: rgba(255, 255, 255, 0.95);
+      max-width: 800px;
+      margin: 0 auto 48px;
+      font-weight: 500;
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      padding: 32px 48px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .stat-divider {
+      width: 1px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    /* ================================================== */
+    /* --- HERO SECTION MEDIA QUERIES --- */
+    /* ================================================== */
+
+    /* 1. Desktop / Large Tablet Adjustments (max-width: 1200px) */
+    @media (max-width: 1200px) {
+
+      /* Adjust container padding if necessary, but focusing on hero content */
+      .hero-content {
+        padding: 0 1.5rem;
+        /* Ensure content is contained within padding */
+      }
+    }
+
+    /* 2. Tablet / Landscape Mobile Adjustments (max-width: 992px) */
+    @media (max-width: 992px) {
+      .program-hero {
+        padding: 100px 24px 80px;
+        /* Reduced vertical padding */
+        min-height: 500px;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        /* Slightly smaller heading */
+      }
+
+      .hero p {
+        font-size: 1.25rem;
+        /* Slightly smaller lead text */
+        margin-bottom: 40px;
+      }
+    }
+
+    /* 3. Portrait Tablet / Mobile Adjustments (max-width: 768px) */
+    @media (max-width: 768px) {
+      .program-hero {
+        padding: 80px 16px 60px;
+        min-height: 450px;
+      }
+
+      .college-badge {
         width: 60px;
         height: 60px;
         font-size: 2rem;
         margin-bottom: 15px;
-    }
+      }
 
-    .hero h1 {
+      .hero h1 {
         /* Use clamp for fluid sizing between 2.5rem and 3rem */
-        font-size: clamp(2.5rem, 8vw, 3rem); 
+        font-size: clamp(2.5rem, 8vw, 3rem);
         margin-bottom: 15px;
-    }
+      }
 
-    .hero p {
+      .hero p {
         font-size: 1.1rem;
         margin-bottom: 30px;
-    }
+      }
 
-    /* Stats Bar Adjustments for stacking */
-    .stats-bar {
+      /* Stats Bar Adjustments for stacking */
+      .stats-bar {
         padding: 24px 20px;
-        gap: 20px; /* Reduced space between stats */
-    }
-    
-    .stat-number {
+        gap: 20px;
+        /* Reduced space between stats */
+      }
+
+      .stat-number {
         font-size: 1.8rem;
-    }
+      }
 
-    .stat-label {
+      .stat-label {
         font-size: 0.8rem;
+      }
     }
-}
 
-/* 4. Small Mobile Adjustments (max-width: 576px) */
-@media (max-width: 576px) {
-    /* Stack the stats bar items vertically to prevent overflow */
-    .stats-bar {
+    /* 4. Small Mobile Adjustments (max-width: 576px) */
+    @media (max-width: 576px) {
+
+      /* Stack the stats bar items vertically to prevent overflow */
+      .stats-bar {
         flex-direction: column;
         align-items: stretch;
         border-radius: 12px;
         padding: 20px 15px;
-        margin: 0 10px; /* Minor horizontal margin to prevent touching screen edges */
-    }
+        margin: 0 10px;
+        /* Minor horizontal margin to prevent touching screen edges */
+      }
 
-    .stat-item {
+      .stat-item {
         padding: 10px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separator when stacked */
-    }
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        /* Separator when stacked */
+      }
 
-    .stat-item:last-child {
+      .stat-item:last-child {
         border-bottom: none;
-    }
+      }
 
-    .stat-divider {
-        display: none; /* Hide vertical divider when stacking */
+      .stat-divider {
+        display: none;
+        /* Hide vertical divider when stacking */
+      }
+
+      /* Ensure the existing small mobile adjustment is incorporated */
+      .program-hero h1 {
+        font-size: 2.2rem !important;
+      }
     }
-    
-    /* Ensure the existing small mobile adjustment is incorporated */
-    .program-hero h1 { 
-        font-size: 2.2rem !important; 
-    }
-}
   </style>
 </head>
 
 <body>
   <div id="navbar"></div>
-  
-<section class="hero">
-    
-        <div class="hero-content">
-            <div class="college-badge">
-                <i class="fas fa-university"></i>
-            </div>
-            <div class="container hero1">
-                <div>
-                    <span class="eyebrow" style="color: white;">Undergraduate • 3 Years • Full-Time</span>
-                    <h1 >Bachelor of Science (B.Sc.)</h1>
-                    <p class="lead">A comprehensive undergraduate program blending theoretical knowledge with practical laboratory training across life and physical sciences.</p>
-                </div>
 
+  <section class="hero">
 
-            </div>
-           <div class="stats-bar fade-in-delay-2">
-    <div class="stat-item">
-        <div class="stat-number">30+</div>
-        <div class="stat-label">Courses & <br>Programs</div>
-    </div>
-
-    <div class="stat-divider"></div>
-
-    <div class="stat-item">
-        <div class="stat-number">20+</div>
-        <div class="stat-label">Undergraduate <br>Programs</div>
-    </div>
-
-    <div class="stat-divider"></div>
-
-    <div class="stat-item">
-        <div class="stat-number">10+</div>
-        <div class="stat-label">Postgraduate <br> Programs</div>
-    </div>
-
-    <div class="stat-divider"></div>
-
-    <div class="stat-item">
-        <div class="stat-number">5+</div>
-        <div class="stat-label">Diploma & <br> Add-On Courses</div>
-    </div>
-</div>
-
+    <div class="hero-content">
+      <div class="college-badge" data-aos="zoom-in" data-aos-duration="800">
+        <i class="fas fa-university"></i>
+      </div>
+      <div class="container hero1">
+        <div>
+          <span class="eyebrow" style="color: white;" data-aos="fade-right" data-aos-duration="600">Undergraduate • 3
+            Years • Full-Time</span>
+          <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Bachelor of Science (B.Sc.)</h1>
+          <p class="lead" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">A comprehensive undergraduate
+            program blending theoretical knowledge with practical laboratory
+            training across life and physical sciences.</p>
         </div>
-    </section>
+
+
+      </div>
+      <div class="stats-bar fade-in-delay-2" data-aos="flip-up" data-aos-duration="900" data-aos-delay="600">
+        <div class="stat-item">
+          <div class="stat-number">30+</div>
+          <div class="stat-label">Courses & <br>Programs</div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-item">
+          <div class="stat-number">20+</div>
+          <div class="stat-label">Undergraduate <br>Programs</div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-item">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Postgraduate <br> Programs</div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-item">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">Diploma & <br> Add-On Courses</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
   <!-- HEADER -->
 
 
@@ -650,35 +678,43 @@
 
     <!-- WHY SECTION -->
     <section style="background:var(--light);padding:5rem 0">
-      <h2>Why Choose B.Sc. at Example College?</h2>
-      <p class="section-subtitle">Strong foundation in scientific thinking, practical laboratory exposure and pathways to research or professional careers</p>
+      <h2 data-aos="fade-down" data-aos-duration="600">Why Choose B.Sc. at Example College?</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-duration="500">Strong foundation in scientific thinking,
+        practical laboratory exposure and pathways
+        to research or professional careers</p>
       <div class="icon-grid">
-        <div class="icon-card card" style="background:var(--brand)">
+        <div class="icon-card card" style="background:var(--brand)" data-aos="zoom-in" data-aos-duration="500"
+          data-aos-delay="100">
           <i class="fas fa-flask"></i>
           <h4>Practical Labs</h4>
           <p>Extensive lab hours and hands-on experiments to build applied skills.</p>
         </div>
-        <div class="icon-card card" style="background:var(--brand-light)">
+        <div class="icon-card card" style="background:var(--brand-light)" data-aos="zoom-in" data-aos-duration="500"
+          data-aos-delay="200">
           <i class="fas fa-book-open"></i>
           <h4>Robust Curriculum</h4>
           <p>Current syllabus aligned with university standards and industry needs.</p>
         </div>
-        <div class="icon-card card" style="background:var(--brand)">
+        <div class="icon-card card" style="background:var(--brand)" data-aos="zoom-in" data-aos-duration="500"
+          data-aos-delay="300">
           <i class="fas fa-chalkboard-teacher"></i>
           <h4>Experienced Faculty</h4>
           <p>Teachers with research & teaching experience across science disciplines.</p>
         </div>
-        <div class="icon-card card" style="background:var(--brand-light)">
+        <div class="icon-card card" style="background:var(--brand-light)" data-aos="zoom-in" data-aos-duration="500"
+          data-aos-delay="400">
           <i class="fas fa-users"></i>
           <h4>Peer Learning</h4>
           <p>Group projects, seminars and inter-department collaboration.</p>
         </div>
-        <div class="icon-card card" style="background:var(--brand)">
+        <div class="icon-card card" style="background:var(--brand)" data-aos="zoom-in" data-aos-duration="500"
+          data-aos-delay="500">
           <i class="fas fa-briefcase"></i>
           <h4>Career Preparation</h4>
           <p>Support for internships, placements and higher-study entrance exams.</p>
         </div>
-        <div class="icon-card card" style="background:var(--brand-light)">
+        <div class="icon-card card" style="background:var(--brand-light)" data-aos="zoom-in" data-aos-duration="500"
+          data-aos-delay="600">
           <i class="fas fa-university"></i>
           <h4>Laboratory & Library</h4>
           <p>Well-equipped labs, library resources and access to journals.</p>
@@ -688,35 +724,43 @@
 
     <!-- SPECIALIZATIONS / SUBJECTS -->
     <section id="courses">
-      <h2>Core Subjects & Streams</h2>
-      <p class="section-subtitle">Choose combinations from life sciences and physical sciences to match your career goals</p>
+      <h2 data-aos="fade-down" data-aos-duration="600">Core Subjects & Streams</h2>
+      <p class="section-subtitle" data-aos="fade-up">Choose combinations from life sciences and physical sciences to
+        match your career
+        goals</p>
       <div class="icon-grid">
-        <div class="icon-card card" style="background:var(--brand)">
+        <div class="icon-card card" style="background:var(--brand)" data-aos="flip-left" data-aos-duration="600"
+          data-aos-delay="100">
           <i class="fas fa-atom"></i>
           <h4>Physics</h4>
           <p>Mechanics, optics, modern physics and practical labs.</p>
         </div>
-        <div class="icon-card card" style="background:var(--brand-light)">
+        <div class="icon-card card" style="background:var(--brand-light)" data-aos="flip-left" data-aos-duration="600"
+          data-aos-delay="200">
           <i class="fas fa-vial"></i>
           <h4>Chemistry</h4>
           <p>Organic, inorganic, physical chemistry with analytical techniques.</p>
         </div>
-        <div class="icon-card card" style="background:var(--brand)">
+        <div class="icon-card card" style="background:var(--brand)" data-aos="flip-left" data-aos-duration="600"
+          data-aos-delay="300">
           <i class="fas fa-calculator"></i>
           <h4>Mathematics</h4>
           <p>Calculus, algebra, statistics and applied mathematics.</p>
         </div>
-        <div class="icon-card card" style="background:var(--brand-light)">
+        <div class="icon-card card" style="background:var(--brand-light)" data-aos="flip-left" data-aos-duration="600"
+          data-aos-delay="400">
           <i class="fas fa-laptop-code"></i>
           <h4>Computer Science</h4>
           <p>Programming, data structures, basics of software and practical labs.</p>
         </div>
-        <div class="icon-card card" style="background:var(--brand)">
+        <div class="icon-card card" style="background:var(--brand)" data-aos="flip-left" data-aos-duration="600"
+          data-aos-delay="500">
           <i class="fas fa-leaf"></i>
           <h4>Botany</h4>
           <p>Plant biology, physiology, ecology and lab techniques.</p>
         </div>
-        <div class="icon-card card" style="background:var(--brand-light)">
+        <div class="icon-card card" style="background:var(--brand-light)" data-aos="flip-left" data-aos-duration="600"
+          data-aos-delay="600">
           <i class="fas fa-fish"></i>
           <h4>Zoology</h4>
           <p>Animal biology, anatomy, ecology and practical work.</p>
@@ -726,45 +770,44 @@
 
     <!-- FACULTY -->
     <section id="faculty" style="background:var(--light)">
-      <h2>Meet Our Faculty</h2>
-      <p class="section-subtitle">Dedicated faculty guiding your academic and research growth</p>
-       <div class="faculty-grid">
-                <div class="faculty-card card">
-                   
-                    <h4>Dr. Aarti Sharma</h4>
-                    <p style="color:var(--brand);font-weight:600">Department of Physics (H.O.D.)</p>
-                </div>
-                <div class="faculty-card card">
-                    <h4>Dr. Virender Kumar</h4>
-                    <p style="color:var(--brand);font-weight:600">Physics department</p>
-                </div>
-                 <div class="faculty-card card">
-                    <h4>Dr. Komal Badhan</h4>
-                    <p style="color:var(--brand);font-weight:600">Physics department</p>
-                </div>
-                 <div class="faculty-card card">
-                    <h4>Mrs. Kamalpreet Kaur</h4>
-                    <p style="color:var(--brand);font-weight:600">Physics department</p>
-                </div>
-                 <div class="faculty-card card">
-                    <h4>Mrs. Ramandeep Kaur</h4>
-                    <p style="color:var(--brand);font-weight:600">Physics department</p>
-                </div>
-                 <div class="faculty-card card">
-                    <h4>Dr. Vikrant Singh Rana</h4>
-                    <p style="color:var(--brand);font-weight:600">Chemistry department (H.O.D.)</p>
-                </div>
-                 <div class="faculty-card card">
-                    <h4>Mrs. Navdeep Kaur</h4>
-                    <p style="color:var(--brand);font-weight:600">Botany department (H.O.D.)</p>
-                </div>
-              </div>
+      <h2 data-aos="fade-down" data-aos-duration="600">Meet Our Faculty</h2>
+      <p class="section-subtitle" data-aos="fade-up">Dedicated faculty guiding your academic and research growth</p>
+      <div class="faculty-grid">
+        <div class="faculty-card card" data-aos="fade-up" data-aos-duration="500" data-aos-delay="50">
+          <h4>Dr. Aarti Sharma</h4>
+          <p style="color:var(--brand);font-weight:600">Department of Physics (H.O.D.)</p>
+        </div>
+        <div class="faculty-card card" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
+          <h4>Dr. Virender Kumar</h4>
+          <p style="color:var(--brand);font-weight:600">Physics department</p>
+        </div>
+        <div class="faculty-card card" data-aos="fade-up" data-aos-duration="500" data-aos-delay="150">
+          <h4>Dr. Komal Badhan</h4>
+          <p style="color:var(--brand);font-weight:600">Physics department</p>
+        </div>
+        <div class="faculty-card card" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
+          <h4>Mrs. Kamalpreet Kaur</h4>
+          <p style="color:var(--brand);font-weight:600">Physics department</p>
+        </div>
+        <div class="faculty-card card" data-aos="fade-up" data-aos-duration="500" data-aos-delay="250">
+          <h4>Mrs. Ramandeep Kaur</h4>
+          <p style="color:var(--brand);font-weight:600">Physics department</p>
+        </div>
+        <div class="faculty-card card" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
+          <h4>Dr. Vikrant Singh Rana</h4>
+          <p style="color:var(--brand);font-weight:600">Chemistry department (H.O.D.)</p>
+        </div>
+        <div class="faculty-card card" data-aos="fade-up" data-aos-duration="500" data-aos-delay="350">
+          <h4>Mrs. Navdeep Kaur</h4>
+          <p style="color:var(--brand);font-weight:600">Botany department (H.O.D.)</p>
+        </div>
+      </div>
     </section>
 
     <!-- SYLLABUS -->
     <section id="syllabus">
-      <h2>Program Structure</h2>
-      <div class="card" style="overflow:hidden">
+      <h2 data-aos="fade-down" data-aos-duration="600">Program Structure</h2>
+      <div class="card" style="overflow:hidden" data-aos="zoom-in-up" data-aos-duration="800">
         <table>
           <thead>
             <tr>
@@ -811,25 +854,25 @@
 
     <!-- CAREERS -->
     <section id="careers" style="background:var(--light)">
-      <h2>Career Opportunities</h2>
-      <p class="section-subtitle">Multiple career paths including industry, research and teaching</p>
+      <h2 data-aos="fade-down" data-aos-duration="600">Career Opportunities</h2>
+      <p class="section-subtitle" data-aos="fade-up">Multiple career paths including industry, research and teaching</p>
       <div class="icon-grid">
-        <div class="career-card card">
+        <div class="career-card card" data-aos="flip-right" data-aos-duration="600" data-aos-delay="100">
           <i class="fas fa-flask"></i>
           <h4>Laboratory Technician</h4>
           <p>Jobs in university and private labs</p>
         </div>
-        <div class="career-card card">
+        <div class="career-card card" data-aos="flip-right" data-aos-duration="600" data-aos-delay="200">
           <i class="fas fa-user-graduate"></i>
           <h4>Higher Studies</h4>
           <p>M.Sc., M.Phil., PhD and professional courses</p>
         </div>
-        <div class="career-card card">
+        <div class="career-card card" data-aos="flip-right" data-aos-duration="600" data-aos-delay="300">
           <i class="fas fa-chart-line"></i>
           <h4>Data & Analytics</h4>
           <p>Entry-level analyst roles, research data handling</p>
         </div>
-        <div class="career-card card">
+        <div class="career-card card" data-aos="flip-right" data-aos-duration="600" data-aos-delay="400">
           <i class="fas fa-chalkboard-teacher"></i>
           <h4>Teaching & Academics</h4>
           <p>School & college-level teaching (after B.Ed / PG)</p>
@@ -839,26 +882,29 @@
 
     <!-- FAQ -->
     <section id="faq">
-      <h2>Frequently Asked Questions</h2>
+      <h2 data-aos="fade-down" data-aos-duration="600">Frequently Asked Questions</h2>
       <div class="faq">
-        <div class="faq-item">
+        <div class="faq-item" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
           <div class="faq-q">Who is eligible for B.Sc.? <i class="fas fa-chevron-down"></i></div>
-          <div class="faq-a">Students who have passed 10+2. Science stream (PCB/PCM) is generally preferred for most combinations.</div>
+          <div class="faq-a">Students who have passed 10+2. Science stream (PCB/PCM) is generally preferred for most
+            combinations.</div>
         </div>
-        <div class="faq-item">
+        <div class="faq-item" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
           <div class="faq-q">Can I do M.Sc. after B.Sc.? <i class="fas fa-chevron-down"></i></div>
-          <div class="faq-a">Yes — B.Sc. is the standard undergraduate path to M.Sc. and other postgraduate courses.</div>
+          <div class="faq-a">Yes — B.Sc. is the standard undergraduate path to M.Sc. and other postgraduate courses.
+          </div>
         </div>
-        <div class="faq-item">
+        <div class="faq-item" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
           <div class="faq-q">Are internships part of the program? <i class="fas fa-chevron-down"></i></div>
-          <div class="faq-a">Yes — project work, internships and field visits are included to provide practical exposure.</div>
+          <div class="faq-a">Yes — project work, internships and field visits are included to provide practical
+            exposure.</div>
         </div>
       </div>
     </section>
 
   </main>
 
- 
+
 
   <script>
     document.querySelectorAll('.faq-q').forEach(q => {
@@ -874,17 +920,30 @@
   <div id="footer"></div>
 
   <script>
-  // Load Navbar
-  fetch('./component/navbar.html')
-    .then(response => response.text())
-    .then(data => document.getElementById('navbar').innerHTML = data);
+    // Load Navbar
+    fetch('./component/navbar.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('navbar').innerHTML = data);
 
-  // Load Footer
-  fetch('./component/footer.html')
-    .then(response => response.text())
-    .then(data => document.getElementById('footer').innerHTML = data);
-</script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
+    // Load Footer
+    fetch('./component/footer.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
+
+  <!-- ========== ADDED AOS JS INITIALIZATION ========== -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: false,
+      mirror: true,
+      offset: 80,
+      easing: 'ease-out-cubic',
+    });
+  </script>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
 
 </body>
 
